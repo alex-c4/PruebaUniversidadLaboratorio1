@@ -92,6 +92,7 @@
                   <option value="{{ $country['id'] }}">{{ $country->name }}</option>
                 @endforeach                
               </select>
+              
               {!! $errors->first('country_id', '<span class="text-danger">:message</span>') !!}
             </div>
 
