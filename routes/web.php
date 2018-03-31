@@ -11,14 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('register', function(){
-    return view('register');
-});
+// Route::get('/', function () {
+//     return view('phpinfo');
+// });
 
 
+Route::view('/', 'home');
+Route::view('/welcome', 'welcome');
 
-
+/*
+|--------------------------------------------------------------------------
+| Login Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte del Login
+|
+*/
+// Route::view('/register', 'auth.register');
+Route::get('/register', 'Auth\RegisterController@create')->name('create');
+Route::post('/register', 'Auth\RegisterController@store')->name('register');
+Route::post('login', 'Auth\LoginController@login')->name('login');

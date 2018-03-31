@@ -3,37 +3,60 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+use Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+    public function login(){
 
-    use AuthenticatesUsers;
+        $credenciales = $this->validate(request(), [
+            'email' => 'email|required|string',
+            'password' => 'required|string'
+        ]);
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+        if(Auth::attempt($credenciales)){
+            return 'Tu sesion a iniciado correctamente';
+        }else{
+            return $credenciales;
+        }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
+
+        
+        // if($request->ajax()){
+        //     return response()->json_decode([
+        //         "mensaje" => $request->all()
+        //     ]);
+        // }
+
+        // $credenciales = $this->validate(request(), [
+        //     'email' => 'email|required|string',
+        //     'password' => 'required|string'
+        // ]);
+
+    }
+
+    public function login2(){
+
+        if(request()->ajax()){
+
+            $credenciales = $this->validate(request(), [
+                'email' => 'email|required|string',
+                'password' => 'required|string'
+            ]);
+            
+            if(Auth::attempt($credenciales)){
+                return $arrayName = array('message' => 'Bienvenido!!!');
+            }else{
+                return $arrayName = array(
+                    'message' => 'Usuario no existe',
+                    'credenciales' => $credenciales);
+            }
+
+            // $arrayName = array('ID' => 1);
+
+        }
+
+        return $arrayName;
     }
 }
