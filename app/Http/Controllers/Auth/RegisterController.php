@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Country;
+use Mail;
+use App\Mail\welcome;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -91,8 +93,10 @@ class RegisterController extends Controller
     }
 
     protected function register(Request $request){
+
+        return 'register';
         // si falla nos devolvera a la vista con los errores
-        $this->validator(request()->all())->validate();
+        // $this->validator(request()->all())->validate();
 
         // si pasa la validacion dispara el evento Registered con los datos del usuario recien creado
         // event(new Registered($user = $this->create(request()->all())));
@@ -108,7 +112,20 @@ class RegisterController extends Controller
 
 
 
-        User::create(request()->all());
+        //User::create(request()->all());
+
+        // envio de email
+        $data = array(
+            'name'=> 'ExportGold Test'
+        );
+        $m = Mail::to('alexdaniel2601@hotmail.com')
+            ->send('Probando COrreo!!!');
+
+        if($m){
+            return "Email Enviado!!!";
+        }else{
+            return "Email No Enviado!!!";
+        }
         
 
         // return $user;
@@ -117,9 +134,21 @@ class RegisterController extends Controller
     public function store(){
         // return request()->all();
 
-        $this->validator(request()->all())->validate();
+        // $this->validator(request()->all())->validate();
 
-        User::create(request()->all());
+        // User::create(request()->all());
+
+        // envio de email
+        $data = array(
+            'name'=> 'ExportGold Test'
+        );
+        $m = Mail::to('alexdaniel2601@hotmail.com')->send(new welcome());
+
+        if($m){
+            return "Email Enviado!!!";
+        }else{
+            return "Email No Enviado!!!";
+        }
     }
 
     // protected function register_BK(Request $request){
