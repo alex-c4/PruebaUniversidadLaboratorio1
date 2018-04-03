@@ -92,7 +92,7 @@
                   <option value="{{ $country['id'] }}">{{ $country->name }}</option>
                 @endforeach                
               </select>
-              
+
               {!! $errors->first('country_id', '<span class="text-danger">:message</span>') !!}
             </div>
 
@@ -116,7 +116,7 @@
           <!-- Direccion -->
           <div class="form-group" >
             <label for="direction">Address</label>
-            <input type="text" class="form-control" id="direction" name="direction" placeholder="1234 Main St">
+            <input type="text" class="form-control" id="direction" name="direction" placeholder="Address" value="{{ old('direction') }}">
           </div>
 
           <!-- Boton Aceptar -->
