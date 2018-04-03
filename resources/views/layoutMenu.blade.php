@@ -49,7 +49,7 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="#about">Como Jugar</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="{{ url('/welcome') }}">Welcome</a></li>
