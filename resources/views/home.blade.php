@@ -47,13 +47,13 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url('img/intro-carousel/1.jpg');">
+          <div class="carousel-item active" style="background-image: url('img/intro-carousel/1_xp.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>We are professional</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
+                <h2>MUNDIAL RUSIA 2018</h2>
+                <p>Todo lo que Necesitas Saber del Mundial Rusia 2018....</p>
+                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -
+                <a href="portfolio" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Ver</a>
 
                 <!-- <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Get Started</button> -->
 
@@ -61,51 +61,30 @@
             </div>
           </div>
           
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/2.jpg');">
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xp.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>At vero eos et accusamus</h2>
-                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
+                <h2>LA MEJOR QUINIELA</h2>
+                <p>Participa, demuestra lo que sabes y saborea el éxito....</p>
+                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
+                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/3_xp.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>INTERCAMBIA TUS BARAJITAS</h2>
+                <p>Llena tu álbum del mundial de una forma rápida, organizada y Divertida...</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/3.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Temporibus autem quibusdam</h2>
-                <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
-              </div>
-            </div>
-          </div>
+        
 
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/4.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Nam libero tempore</h2>
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/5.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Magnam aliquam quaerat</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
@@ -168,21 +147,22 @@
         <div class="row">
 
           <div class="col-lg-4 box">
-            <i class="ion-ios-bookmarks-outline"></i>
-            <h4 class="title"><a href="">Lorem Ipsum Delino</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+		 
+            <i class="ion-ios-football"></i>
+            <h4 class="title"><a href="">MUNDIAL RUSIA 2018</a></h4>
+            <p class="description">En nuestro sitio encontraras la mejor opcion para estar informado sobre el mundial Rusia 2018... </p>
           </div>
 
           <div class="col-lg-4 box box-bg">
-            <i class="ion-ios-stopwatch-outline"></i>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+            <i class="ion-compose"></i>
+            <h4 class="title"><a href="">QUNIELAS</a></h4>
+            <p class="description">Te ofrecemos las mejor y divertida forma de ganar dinero por tus conocimientos del futbol munidal, jugando nuestra quiniela general o creando la tuya propia....  </p>
           </div>
 
           <div class="col-lg-4 box">
-            <i class="ion-ios-heart-outline"></i>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <i class="ion-ios-bookmarks-outline"></i>
+            <h4 class="title"><a href="">BARAJITAS</a></h4>
+            <p class="description">Por fin un sitio web donde podras administrar tus barajitas y ademas la posibilidad de intercambiar las repetidas con otros usuarios... </p>
           </div>
 
         </div>
@@ -207,7 +187,7 @@
             <div class="about-col">
               <div class="img">
                 <img src="img/about_registro.jpg" alt="" class="img-fluid">
-                <div class="icon"><i class="ion-ios-list-outline"></i></div>
+                <div class="icon"><i class="ion-edit"></i></div>
               </div>
               <h2 class="title"><a href="#">PASO 1:</a></h2>
               <p>
@@ -235,7 +215,7 @@
             <div class="about-col">
               <div class="img">
                 <img src="img/about_ganar.jpg" alt="" class="img-fluid">
-                <div class="icon"><i class="ion-ios-list-outline"></i></div>
+                <div class="icon"><i class="ion-trophy"></i></div>
               </div>
               <h2 class="title"><a href="#">Paso 3</a></h2>
               <p>
@@ -404,16 +384,16 @@
       <div class="container">
 
         <header class="section-header">
-          <h3 class="section-title">Our Portfolio</h3>
+          <h3 class="section-title">MUNDIAL RUSIA 2018</h3>
         </header>
 
         <div class="row">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-app">Calendario</li>
+              <li data-filter=".filter-card">Estadios</li>
+              <li data-filter=".filter-web">Imagenes Oficiales</li>
             </ul>
           </div>
         </div>
@@ -423,8 +403,8 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/app1.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/galeria_estadio1.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/galeria_estadio1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
@@ -438,8 +418,8 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/web3.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/galeria_estadio2.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/galeria_estadio2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
@@ -453,8 +433,8 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/app2.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/galeria_estadio3.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/galeria_estadio3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
@@ -468,8 +448,8 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/card2.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/galeria_copa.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/galeria_copa.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
@@ -483,8 +463,8 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/web2.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/web2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/galeria_balon.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/galeria_balon.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
@@ -498,8 +478,8 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/app3.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/app3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/galeria_mascota.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/galeria_mascota.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
