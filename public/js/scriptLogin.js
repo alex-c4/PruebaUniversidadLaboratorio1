@@ -60,7 +60,7 @@ $('#state_id').on('change', function(){
 
     $.get(_url)
     .done(function(data, textStatus, jqXHR){
-        var html_select = '<option selected>...</option>';
+        var html_select = '<option value="0" selected>...</option>';
 
         for(var i = 0; i < data.length; i++){
             html_select += '<option value="' + data[i].id + '">' + data[i].name + '</option>';

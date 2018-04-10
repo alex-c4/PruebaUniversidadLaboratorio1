@@ -29,5 +29,8 @@ Route::view('/welcome', 'welcome');
 */
 // Route::view('/register', 'auth.register');
 Route::get('/register', 'Auth\RegisterController@create')->name('create');
+Route::view('/auth.success', 'success');
 Route::post('/register', 'Auth\RegisterController@store')->name('register');
 Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::get('/verify/{code}', 'VerifyController@verify')->name('verify');
+Route::get('/verify', 'VerifyController@verifyEmpty')->name('verifyEmpty');

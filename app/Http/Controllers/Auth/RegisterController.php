@@ -59,13 +59,12 @@ class RegisterController extends Controller
 
         return Validator::make($data, [
             'name' => 'required|string|max:20',
-            'lastname' => 'required|string|max:20',
+            'lastName' => 'required|string|max:20',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:5|confirmed',
-            'birthdate' => 'required|min:7|max:8|date',
+            'birthday' => 'required|date',
             'country_id' => 'required|numeric',
-            'state_id' => 'required|numeric',
-            'city_id' => 'required|numeric'
+            'state_id' => 'required|numeric'
         ], $messages);
     }
 
@@ -94,9 +93,9 @@ class RegisterController extends Controller
 
     protected function register(Request $request){
 
-        return 'register';
+        // return 'register';
         // si falla nos devolvera a la vista con los errores
-        // $this->validator(request()->all())->validate();
+        $this->validator(request()->all())->validate();
 
         // si pasa la validacion dispara el evento Registered con los datos del usuario recien creado
         // event(new Registered($user = $this->create(request()->all())));
@@ -112,43 +111,70 @@ class RegisterController extends Controller
 
 
 
-        //User::create(request()->all());
+        User::create(request()->all());
 
         // envio de email
-        $data = array(
-            'name'=> 'ExportGold Test'
-        );
-        $m = Mail::to('alexdaniel2601@hotmail.com')
-            ->send('Probando COrreo!!!');
+        // $data = array(
+        //     'name'=> 'ExportGold Test'
+        // );
+        // Mail::to('alexdaniel2601@hotmail.com')
+        //     ->send('Probando COrreo!!!');
 
-        if($m){
-            return "Email Enviado!!!";
-        }else{
-            return "Email No Enviado!!!";
-        }
         
 
         // return $user;
     }    
 
     public function store(){
-        // return request()->all();
 
-        // $this->validator(request()->all())->validate();
-
+        $this->validator(request()->all())->validate();
         // User::create(request()->all());
+        $conf_code = str_random(15);
 
-        // envio de email
+        $user = User::create([
+            'name' => request()->name,
+            'lastName' => request()->lastName,
+            'email' => request()->email,
+            'password' => bcrypt(request()->password),
+            'phone' => request()->phone,
+            'phone2' => request()->phone2,
+            'birthday' => request()->birthday,
+            'country_id' => request()->country_id,
+            'state_id' => request()->state_id,
+            'city_id' => request()->state_id,
+            'direction' => request()->direction,
+            'confirmation_code' => $conf_code
+        ]);
         $data = array(
-            'name'=> 'ExportGold Test'
+            'name' => request()->name,
+            'confirmation_code' => $conf_code
         );
-        $m = Mail::to('alexdaniel2601@hotmail.com')->send(new welcome());
+        // envio de email
+        // $data = array(
+        //     'name'=> 'ExportGold Test'
+        // );
 
-        if($m){
-            return "Email Enviado!!!";
-        }else{
-            return "Email No Enviado!!!";
-        }
+        // Mail::send('emails.welcome', $data, function($message) {
+        //     $message->from('admin@xportgold.com', 'XportGold');
+        //     $message->to('alexdaniel2601@hotmail.com')->subject('Confirmación de tu correo');
+        // });
+        // Mail::to('alexdaniel2601@hotmail.com')->send();
+
+        // if($m){
+        //     return "Email Enviado!!!";
+        // }else{
+        //     return "Email No Enviado!!!";
+        // }
+
+        // return $data;
+        $datos = [
+            'name' => request()->name,
+            'lastName' => request()->lastName,
+            'email' => request()->email
+        ];
+        
+        return view('/auth.success', $datos);
+        
     }
 
     // protected function register_BK(Request $request){
