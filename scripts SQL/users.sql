@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-03-2018 a las 19:07:49
+-- Tiempo de generación: 10-04-2018 a las 03:59:18
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.1
 
@@ -33,7 +33,7 @@ CREATE TABLE `users` (
   `name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lastName` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `rollId` int(11) NOT NULL DEFAULT '0',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -44,7 +44,9 @@ CREATE TABLE `users` (
   `country_id` int(11) NOT NULL,
   `state_id` int(11) NOT NULL,
   `city_id` int(11) NOT NULL,
-  `direction` text COLLATE utf8mb4_unicode_ci
+  `direction` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `confirmed` tinyint(1) NOT NULL DEFAULT '0',
+  `confirmation_code` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -66,7 +68,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
