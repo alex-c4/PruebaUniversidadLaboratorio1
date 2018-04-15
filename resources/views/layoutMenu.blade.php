@@ -75,7 +75,7 @@
         </div>
 
         <div class="row contact-info">
-
+<!--
           <div class="col-md-4">
             <div class="contact-address">
               <i class="ion-ios-location-outline"></i>
@@ -99,7 +99,7 @@
               <p><a href="mailto:info@example.com">info@example.com</a></p>
             </div>
           </div>
-
+-->
         </div>
 
         <div class="form">
@@ -166,11 +166,8 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              
+              <strong>Email:</strong> xportgold@gmail.com<br>
             </p>
 
             <div class="social-links">
@@ -186,9 +183,7 @@
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-            <form action="" method="post">
-              <input type="email" name="emailSubscribe"><input type="submit"  value="Subscribe">
-            </form>
+            
           </div>
 
         </div>
@@ -205,8 +200,9 @@
           You can delete the links only if you purchased the pro version.
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-        -->
+        
         Best <a href="https://bootstrapmade.com/">Bootstrap Templates</a> by BootstrapMade
+		-->
       </div>
     </div>
   </footer><!-- #footer -->

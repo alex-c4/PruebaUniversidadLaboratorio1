@@ -217,7 +217,7 @@
                 <img src="img/about_ganar.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-trophy"></i></div>
               </div>
-              <h2 class="title"><a href="#">Paso 3</a></h2>
+              <h2 class="title"><a href="#">PASO 3</a></h2>
               <p>
                .... Y Gana el fabuloso "GOLD POT" que contiene las cantidades de apuestas de miles de participantes de nuestra quiniela general...
               </p>
