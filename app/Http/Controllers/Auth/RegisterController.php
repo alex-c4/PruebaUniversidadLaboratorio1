@@ -90,7 +90,7 @@ class RegisterController extends Controller
         return view('auth.register', compact('countries'));
     }
 
-    protected function register(Request $request){
+    protected function register(Request $request){ 
         // si falla nos devolvera a la vista con los errores
         $this->validator(request()->all())->validate();
 

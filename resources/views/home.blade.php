@@ -50,8 +50,8 @@
           <div class="carousel-item active" style="background-image: url('img/intro-carousel/1.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>We are professional</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h2>Rusia 2018</h2>
+                <p> Todo lo que Necesitas Saber del Mundial Rusia 2018.</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
 
@@ -64,8 +64,8 @@
           <div class="carousel-item" style="background-image: url('img/intro-carousel/2.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>At vero eos et accusamus</h2>
-                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
+                <h2>Participa</h2>
+                <p>Participa, demuestra lo que sabes y saborea el éxito.</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
               </div>
@@ -75,35 +75,13 @@
           <div class="carousel-item" style="background-image: url('img/intro-carousel/3.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>Temporibus autem quibusdam</h2>
-                <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
+                <h2>Llena tu álbum</h2>
+                <p>Llena tu álbum del mundial de una forma rápida, organizada y Divertida.</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
               </div>
             </div>
-          </div>
-
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/4.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Nam libero tempore</h2>
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/5.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Magnam aliquam quaerat</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
-              </div>
-            </div>
-          </div>
+          </div>        
 
         </div>
 
@@ -187,7 +165,8 @@
 
         </div>
       </div>
-    </section><!-- #featured-services -->
+    </section>
+    <!-- #featured-services -->
 
     <!--==========================
       About Us Section
@@ -196,7 +175,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>About Us</h3>
+          <h3>Como jugar</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </header>
 
@@ -244,12 +223,13 @@
         </div>
 
       </div>
-    </section><!-- #about -->
+    </section>
+    <!-- #about -->
 
     <!--==========================
       Services Section
     ============================-->
-    <section id="services">
+     <!--<section id="services">
       <div class="container">
 
         <header class="section-header wow fadeInUp">
@@ -293,23 +273,25 @@
         </div>
 
       </div>
-    </section><!-- #services -->
+    </section>-->
+    <!-- #services -->
 
     <!--==========================
       Call To Action Section
     ============================-->
-    <section id="call-to-action" class="wow fadeIn">
+     <!--<section id="call-to-action" class="wow fadeIn">
       <div class="container text-center">
         <h3>Call To Action</h3>
         <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <a class="cta-btn" href="#">Call To Action</a>
       </div>
-    </section><!-- #call-to-action -->
+    </section>-->
+    <!-- #call-to-action -->
 
     <!--==========================
       Skills Section
     ============================-->
-    <section id="skills">
+     <!--<section id="skills">
       <div class="container">
 
         <header class="section-header">
@@ -346,12 +328,12 @@
         </div>
 
       </div>
-    </section>
+    </section>-->
 
     <!--==========================
       Facts Section
     ============================-->
-    <section id="facts"  class="wow fadeIn">
+     <!--<section id="facts"  class="wow fadeIn">
       <div class="container">
 
         <header class="section-header">
@@ -388,8 +370,47 @@
         </div>
 
       </div>
-    </section><!-- #facts -->
+    </section>-->
+    <!-- #facts -->
 
+    <!--==========================
+      Notice section
+    ============================-->
+    <section id="notice">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Noticias</h3>
+          <p>si te gusta mantenerte informado, encontrarás valiosa esta sección. Enterate de lo mas destacado aqui. </p>
+        </header>
+
+
+        <div class="row notice-cols">
+         
+        @for ($i =0; $i <= 5; $i++)
+         
+          <div class="col-md-4 wow fadeInUp">
+            <div class="notice-col">
+              <div class="img">
+                <img src="img/notice/notice-{{$i+1}}.jpg" alt="" class="img-fluid">
+              </div>
+              <h2 class="title"><a href="{{ url('/notice/'.$misnoticias[$i]['id']) }}">{{ $misnoticias[$i]['titulo']}}</a></h2>
+              <p>
+                </br>{{ substr($misnoticias[$i]['cuerpo'],0,200).'...'}}
+              </p>
+              <a href="{{ url('/notice/'.$misnoticias[$i]['id']) }}" class="btn ">Leer mas</a>
+            </div>
+          </div>
+        @endfor
+
+
+
+        </div>
+      </div>
+    </section>
+    <!-- #notice -->
+
+  
     <!--==========================
       Portfolio Section
     ============================-->
@@ -551,12 +572,13 @@
         </div>
 
       </div>
-    </section><!-- #portfolio -->
+    </section>
+    <!-- #portfolio -->
 
     <!--==========================
       Clients Section
     ============================-->
-    <section id="clients" class="wow fadeInUp">
+     <!--<section id="clients" class="wow fadeInUp">
       <div class="container">
 
         <header class="section-header">
@@ -575,12 +597,13 @@
         </div>
 
       </div>
-    </section><!-- #clients -->
+    </section>-->
+    <!-- #clients -->
 
     <!--==========================
-      Clients Section
+      Clients Section testimonials
     ============================-->
-    <section id="testimonials" class="section-bg wow fadeInUp">
+    <!--<section id="testimonials" class="section-bg wow fadeInUp">
       <div class="container">
 
         <header class="section-header">
@@ -647,12 +670,13 @@
         </div>
 
       </div>
-    </section><!-- #testimonials -->
+    </section>-->
+    <!-- #testimonials -->
 
     <!--==========================
       Team Section
     ============================-->
-    <section id="team">
+     <!--<section id="team">
       <div class="container">
         <div class="section-header wow fadeInUp">
           <h3>Team</h3>
@@ -736,7 +760,8 @@
         </div>
 
       </div>
-    </section><!-- #team -->
+    </section>
+    <!-- #team -->
 
     
 

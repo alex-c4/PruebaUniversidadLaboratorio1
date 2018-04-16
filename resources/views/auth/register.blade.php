@@ -10,7 +10,7 @@
 </style>
 <hr/>
 
-<section id="contact" class="section-bg wow fadeInUp" >
+<section id="coct" class="section-bg wow fadeInUp" >
       <div class="container" >
 
         <div class="section-header">
