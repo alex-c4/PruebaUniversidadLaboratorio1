@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Country;
+use Mail;
+use App\Mail\welcome;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -57,13 +59,12 @@ class RegisterController extends Controller
 
         return Validator::make($data, [
             'name' => 'required|string|max:20',
-            'lastname' => 'required|string|max:20',
+            'lastName' => 'required|string|max:20',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:5|confirmed',
-            'birthdate' => 'required|min:7|max:8|date',
+            'birthday' => 'required|date',
             'country_id' => 'required|numeric',
-            'state_id' => 'required|numeric',
-            'city_id' => 'required|numeric'
+            'state_id' => 'required|numeric'
         ], $messages);
     }
 
@@ -90,7 +91,9 @@ class RegisterController extends Controller
         return view('auth.register', compact('countries'));
     }
 
-    protected function register(Request $request){ 
+    protected function register(Request $request){
+
+        // return 'register';
         // si falla nos devolvera a la vista con los errores
         $this->validator(request()->all())->validate();
 
@@ -109,17 +112,69 @@ class RegisterController extends Controller
 
 
         User::create(request()->all());
+
+        // envio de email
+        // $data = array(
+        //     'name'=> 'ExportGold Test'
+        // );
+        // Mail::to('alexdaniel2601@hotmail.com')
+        //     ->send('Probando COrreo!!!');
+
         
 
         // return $user;
     }    
 
     public function store(){
-        // return request()->all();
 
         $this->validator(request()->all())->validate();
+        // User::create(request()->all());
+        $conf_code = str_random(15);
 
-        User::create(request()->all());
+        $user = User::create([
+            'name' => request()->name,
+            'lastName' => request()->lastName,
+            'email' => request()->email,
+            'password' => bcrypt(request()->password),
+            'phone' => request()->phone,
+            'phone2' => request()->phone2,
+            'birthday' => request()->birthday,
+            'country_id' => request()->country_id,
+            'state_id' => request()->state_id,
+            'city_id' => request()->state_id,
+            'direction' => request()->direction,
+            'confirmation_code' => $conf_code
+        ]);
+        $data = array(
+            'name' => request()->name,
+            'confirmation_code' => $conf_code
+        );
+        // envio de email
+        // $data = array(
+        //     'name'=> 'ExportGold Test'
+        // );
+
+        // Mail::send('emails.welcome', $data, function($message) {
+        //     $message->from('admin@xportgold.com', 'XportGold');
+        //     $message->to('alexdaniel2601@hotmail.com')->subject('Confirmación de tu correo');
+        // });
+        // Mail::to('alexdaniel2601@hotmail.com')->send();
+
+        // if($m){
+        //     return "Email Enviado!!!";
+        // }else{
+        //     return "Email No Enviado!!!";
+        // }
+
+        // return $data;
+        $datos = [
+            'name' => request()->name,
+            'lastName' => request()->lastName,
+            'email' => request()->email
+        ];
+        
+        return view('/auth.success', $datos);
+        
     }
 
     // protected function register_BK(Request $request){

@@ -29,8 +29,10 @@ Route::view('/welcome', 'welcome');
 */
 // Route::view('/register', 'auth.register');
 Route::get('/register', 'Auth\RegisterController@create')->name('create');
+Route::view('/auth.success', 'success');
 Route::post('/register', 'Auth\RegisterController@store')->name('register');
 Route::post('login', 'Auth\LoginController@login')->name('login');
+
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 
 /*
@@ -60,3 +62,7 @@ Route::get('/msj', function(){
 })->name('mensajeria.mostrar');
 
 
+//=======
+Route::get('/verify/{code}', 'VerifyController@verify')->name('verify');
+Route::get('/verify', 'VerifyController@verifyEmpty')->name('verifyEmpty');
+//>>>>>>> c937b8297721056b07b5ff684017f57acd468c21

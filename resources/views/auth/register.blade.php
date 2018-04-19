@@ -35,9 +35,9 @@
 
             <!-- Apellido -->
             <div class="form-group col-md-6">
-              <label for="lastname">Last name</label>
-              <input type="text" class="form-control {{ $errors->has('lastname') ? 'border-danger' : '' }}" name="lastname" id="lastname" placeholder="Last name" value="{{ old('lastname') }}" >
-              {!! $errors->first('lastname', '<span class="text-danger">:message</span>') !!}
+              <label for="lastName">Last name</label>
+              <input type="text" class="form-control {{ $errors->has('lastName') ? 'border-danger' : '' }}" name="lastName" id="lastName" placeholder="Last name" value="{{ old('lastName') }}" >
+              {!! $errors->first('lastName', '<span class="text-danger">:message</span>') !!}
             </div>
 
             <!-- Email -->
@@ -66,8 +66,8 @@
               <label for="birthday">Birthdate</label>
               <div class="input-group date dp-date">
                   <input type="text" class="form-control {{ $errors->has('birthday') ? 'border-danger' : '' }}" name="birthday" id="birthday" value="{{ old('birthday') }}" >
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                   {!! $errors->first('birthday', '<span class="text-danger">:message</span>') !!}
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
               </div>
             </div>
 
@@ -92,7 +92,7 @@
                   <option value="{{ $country['id'] }}">{{ $country->name }}</option>
                 @endforeach                
               </select>
-              
+
               {!! $errors->first('country_id', '<span class="text-danger">:message</span>') !!}
             </div>
 
@@ -109,20 +109,20 @@
               <label for="city_id">City</label>
               <select type="text" class="custom-select {{ $errors->has('city_id') ? 'border-danger' : '' }}" id="city_id" name="city_id" placeholder="...">
               </select>
-              {!! $errors->first('city_id', '<span class="text-danger">:message</span>') !!}
             </div>
           </div>
 
           <!-- Direccion -->
           <div class="form-group" >
             <label for="direction">Address</label>
-            <input type="text" class="form-control" id="direction" name="direction" placeholder="1234 Main St">
+            <input type="text" class="form-control" id="direction" name="direction" placeholder="Address" value="{{ old('direction') }}">
           </div>
 
           <!-- Boton Aceptar -->
           <div class="text-center">
             <button type="submit" class="btn btn-success">Registrar</button>
           </div>
+
         </form>
 
       </div>
