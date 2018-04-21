@@ -14,11 +14,11 @@
       <div class="container" >
 
         <div class="section-header">
-          <h3>Register</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <h3>Mensajeria</h3>
+          <p>comunicate con el usuario que posee la barajita de tu interes</p>
         </div>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('enviar_msj') }}">
 
           {{ csrf_field() }}
 
