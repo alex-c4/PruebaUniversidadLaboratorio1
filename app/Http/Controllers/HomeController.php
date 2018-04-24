@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
 	public function consultar(){
 
         //$misnoticias[]=array();  
@@ -27,6 +31,7 @@ class HomeController extends Controller
         return view('home', compact('misnoticias'));  
                // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
 
+<<<<<<< HEAD
  }
 public function contacto(){
 
@@ -50,3 +55,8 @@ public function contacto(){
    
 }    
 }
+=======
+
+    }
+}    
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88

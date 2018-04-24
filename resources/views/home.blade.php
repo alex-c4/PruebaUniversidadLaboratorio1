@@ -373,12 +373,19 @@
     </section>-->
     <!-- #facts -->
 
+<<<<<<< HEAD
  
     <!--==========================
       Notice section
     ============================-->
 	
 	
+=======
+
+    <!--==========================
+      Notice section
+    ============================-->
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
     <section id="notice">
       <div class="container">
 
@@ -387,7 +394,11 @@
           <p>si te gusta mantenerte informado, encontrarás valiosa esta sección. Enterate de lo mas destacado aqui. </p>
         </header>
 
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
         <div class="row notice-cols">
          
         @for ($i =0; $i <= 5; $i++)
@@ -409,8 +420,11 @@
 
 
         </div>
+<<<<<<< HEAD
 		
 		
+=======
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
       </div>
     </section>
     <!-- #notice -->
