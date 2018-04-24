@@ -15,8 +15,7 @@
 //     return view('phpinfo');
 // });
 
-
-Route::view('/', 'home');
+Route::get('/', 'HomeController@consultar')->name('home.consultar');
 Route::view('/welcome', 'welcome');
 
 /*
@@ -34,3 +33,25 @@ Route::post('/register', 'Auth\RegisterController@store')->name('register');
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::get('/verify/{code}', 'VerifyController@verify')->name('verify');
 Route::get('/verify', 'VerifyController@verifyEmpty')->name('verifyEmpty');
+
+
+/*
+|--------------------------------------------------------------------------
+| notice Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de noticias
+|
+*/
+Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
+
+
+/*
+|--------------------------------------------------------------------------
+| Contact Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de noticias
+|
+*/
+Route::POST("/registerContact", "ContactController@store");

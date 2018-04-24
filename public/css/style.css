@@ -1262,7 +1262,8 @@ body {
   }
   
   #contact .contact-info a:hover {
-    color: #098c00;
+    /*color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
   }
   
   #contact .contact-address, #contact .contact-phone, #contact .contact-email {

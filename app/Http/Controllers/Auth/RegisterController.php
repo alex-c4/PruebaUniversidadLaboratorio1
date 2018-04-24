@@ -7,6 +7,7 @@ use App\Country;
 use Mail;
 use App\Mail\welcome;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;

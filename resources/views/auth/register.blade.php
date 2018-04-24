@@ -18,7 +18,7 @@
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
         </div>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('Register') }}">
 
           {{ csrf_field() }}
 
