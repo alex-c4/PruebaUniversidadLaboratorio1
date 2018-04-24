@@ -129,9 +129,7 @@
             </div>
             <!-- <div class="text-center"><button type="submit">Send Message</button></div> -->
             <div class="text-center"><button type="submit" class="btn btn-success">Sign in</button>
-            <label>
-            <input type="submit" name="Submit" value="Enviar">
-            </label>
+            <label></label>
           </form>
         </div>
 
