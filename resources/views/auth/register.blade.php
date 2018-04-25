@@ -12,11 +12,7 @@
           <p>comunicate con el usuario que posee la barajita de tu interes</p>
         </div>
 
-<<<<<<< HEAD
-        <form method="POST" action="{{ route('Register') }}">
-=======
-        <form method="POST" action="{{ route('enviar_msj') }}">
->>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
+        <form method="POST" action="{{ route('register') }}">
 
           {{ csrf_field() }}
 

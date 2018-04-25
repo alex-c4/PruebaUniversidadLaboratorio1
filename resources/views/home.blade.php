@@ -373,19 +373,12 @@
     </section>-->
     <!-- #facts -->
 
-<<<<<<< HEAD
  
     <!--==========================
       Notice section
     ============================-->
 	
 	
-=======
-
-    <!--==========================
-      Notice section
-    ============================-->
->>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
     <section id="notice">
       <div class="container">
 
@@ -394,37 +387,34 @@
           <p>si te gusta mantenerte informado, encontrarás valiosa esta sección. Enterate de lo mas destacado aqui. </p>
         </header>
 
-<<<<<<< HEAD
   
-=======
-
->>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
         <div class="row notice-cols">
          
-        @for ($i =0; $i <= 5; $i++)
+         @foreach($misnoticias as $noticia)
          
           <div class="col-md-4 wow fadeInUp">
             <div class="notice-col">
               <div class="img">
-                <img src="img/notice/notice-{{$i+1}}.jpg" alt="" class="img-fluid">
+                <img src="img/notice/{{$noticia['name_img']}}" alt="" class="img-fluid">
               </div>
-              <h2 class="title"><a href="{{ url('/notice/'.$misnoticias[$i]['id']) }}">{{ $misnoticias[$i]['titulo']}}</a></h2>
+              <h2 class="title"><a href="{{ url('/notice/'.$noticia['id']) }}">{{ $noticia['titulo']}}</a></h2>
               <p>
-                </br>{{ substr($misnoticias[$i]['cuerpo'],0,200).'...'}}
+                </br>{{ substr($noticia['cuerpo'],0,200).'...'}}
               </p>
-              <a href="{{ url('/notice/'.$misnoticias[$i]['id']) }}" class="btn ">Leer mas</a>
+              <a href="{{ url('/notice/'.$noticia['id']) }}" class="btn ">Leer mas</a>
+              
             </div>
           </div>
-        @endfor
+        
+         @endforeach
+
+        
 
 
 
         </div>
-<<<<<<< HEAD
 		
 		
-=======
->>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
       </div>
     </section>
     <!-- #notice -->
