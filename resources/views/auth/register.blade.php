@@ -2,12 +2,6 @@
 
 @section('content')
 
-
-<style type="text/css">
-#header{
-  background: rgba(0, 0, 0, 0.9);
-}
-</style>
 <hr/>
 
 <section id="contact" class="section-bg wow fadeInUp" >
@@ -41,10 +35,26 @@
             </div>
 
             <!-- Email -->
-            <div class="form-group col-md-6" >
+            <div class="form-group col-md-3" >
               <label for="email">Email</label>
               <input type="email" class="form-control {{ $errors->has('email') ? 'border-danger' : '' }}" name="email" placeholder="Email" value="{{ old('email') }}">
               {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
+            </div>
+
+            <!-- Genero -->
+            <div class="form-group col-md-3" >
+              <label for="genderOptions">Género</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" checked type="radio" name="genderOptions" id="inlineRadio1" value="M">
+                  <label class="form-check-label" for="inlineRadio1">Masculino</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="genderOptions" id="inlineRadio2" value="F">
+                  <label class="form-check-label" for="inlineRadio2">Femenino</label>
+                </div>
+              </div>
+              {!! $errors->first('genderOptions', '<span class="text-danger">:message</span>') !!}
             </div>
 
             <!-- Clave 1 -->
@@ -118,6 +128,12 @@
             <input type="text" class="form-control" id="direction" name="direction" placeholder="Address" value="{{ old('direction') }}">
           </div>
 
+          <!-- Terminos y condiciones -->
+          <div class="text-center">
+         
+            <label>Al hacer clic en "Registrar" acepto los <a href="" data-toggle="modal" data-target="#legalModal" class="btn-get-started scrollto">términos de GoldXport y la política de privacidad.</a></label>          
+          </div>
+
           <!-- Boton Aceptar -->
           <div class="text-center">
             <button type="submit" class="btn btn-success">Registrar</button>
@@ -126,6 +142,26 @@
         </form>
 
       </div>
+      <div class="modal fade" id="legalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle"> Términos de GoldXport y la políticas de privacidad</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, eius. Eum aliquid incidunt illo debitis optio praesentium eos. Eveniet dolores modi ratione aliquid officiis vel tempora et soluta velit? Minus.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      
     </section>
     
 @endsection

@@ -29,7 +29,11 @@
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-
+  <style type="text/css">
+    #header{
+      background: rgba(0, 0, 0, 0.9);
+    }
+  </style>
 </head>
 
 <body>
@@ -51,9 +55,12 @@
           <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
           <li><a href="#about">Como Jugar Qunielas</a></li>
           <li><a href="#services">Mundial Rusia 2018</a></li>
-               
-          <li><a href="{{ url('/register') }}">Registrar</a></li>
           
+          @if(Auth::check())
+            <li><a href="{{ url('/register') }}">Home</a></li>
+          @else
+            <li><a href="{{ url('/register') }}">Registrar</a></li>
+          @endif
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -241,6 +248,9 @@
 
   <!-- Script para datepicker -->
   <script src="js/datepicker.js"></script>
+
+  <!-- Script para barajitas -->
+  <script src="js/sticker.js"></script>
   
   
 

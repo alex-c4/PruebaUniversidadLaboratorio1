@@ -101,8 +101,8 @@
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form method="POST" action="{{ route('register') }}">
-      <input type="hidden" id="routeCurrent" value="{{ route('register') }}">
+    <form id="form_login" name="form_login" method="POST" action="{{ route('login') }}">
+      <input type="hidden" id="routeCurrent" value="{{ route('login') }}">
       <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
       
       <div class="modal-dialog" role="document">
@@ -116,20 +116,20 @@
           <div class="modal-body">
               <div class="form-group">
                 <label for="inputEmail">Correo Electrónico</label>
-                <input type="email" class="form-control {{ $errors->has('email') ? 'border-danger' : '' }}" id="inputEmail" placeholder="Email">
+                <input type="email" class="form-control {{ $errors->has('email') ? 'border-danger' : '' }}" id="email" name="email" placeholder="Email">
                 {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
               </div>
             
               <div class="form-group">
                 <label for="inputPassword">Clave</label>
-                <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" id="inputPassword" placeholder="Password">
+                <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" id="password" name="password" placeholder="Password">
                 {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}
               </div>
 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-            <button type="button" id="btnLogin" class="btn btn-outline-success">Login</button>
+            <button type="submit" id="btnLogin" class="btn btn-outline-success">Login</button>
           </div>
         </div>
       </div>

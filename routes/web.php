@@ -34,3 +34,10 @@ Route::post('/register', 'Auth\RegisterController@store')->name('register');
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::get('/verify/{code}', 'VerifyController@verify')->name('verify');
 Route::get('/verify', 'VerifyController@verifyEmpty')->name('verifyEmpty');
+
+/*
+|--------------------------------------------------------------------------
+| Login Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/sticker', 'Sticker\StickerController@index')->name('index');

@@ -9,16 +9,18 @@ use Auth;
 class LoginController extends Controller
 {
     public function login(){
-
         $credenciales = $this->validate(request(), [
             'email' => 'email|required|string',
             'password' => 'required|string'
         ]);
 
+        // return $credenciales;
+
         if(Auth::attempt($credenciales)){
+            return $credenciales;
             return 'Tu sesion a iniciado correctamente';
         }else{
-            return $credenciales;
+            return 'Datos deacceso incorrectos';
         }
 
 
