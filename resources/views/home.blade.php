@@ -52,9 +52,8 @@
               <div class="carousel-content">
                 <h2>MUNDIAL RUSIA 2018</h2>
                 <p>Todo lo que Necesitas Saber del Mundial Rusia 2018....</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -
+                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 <a href="portfolio" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Ver</a>
-
                 <!-- <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Get Started</button> -->
 
               </div>
@@ -81,10 +80,8 @@
                 <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
               </div>
             </div>
-          </div>
-
+          </div>        
         
-
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
@@ -178,7 +175,6 @@
 
         <header class="section-header">
           <h3>Como jugar Quinielas con xportgold...</h3>
-          
         </header>
 
         <div class="row about-cols">
@@ -217,7 +213,7 @@
                 <img src="img/about_ganar.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-trophy"></i></div>
               </div>
-              <h2 class="title"><a href="#">Paso 3</a></h2>
+              <h2 class="title"><a href="#">PASO 3</a></h2>
               <p>
                .... Y Gana el fabuloso "GOLD POT" que contiene las cantidades de apuestas de miles de participantes de nuestra quiniela general...
               </p>
@@ -377,6 +373,63 @@
     </section>-->
     <!-- #facts -->
 
+<<<<<<< HEAD
+ 
+    <!--==========================
+      Notice section
+    ============================-->
+	
+	
+=======
+
+    <!--==========================
+      Notice section
+    ============================-->
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
+    <section id="notice">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Noticias</h3>
+          <p>si te gusta mantenerte informado, encontrarás valiosa esta sección. Enterate de lo mas destacado aqui. </p>
+        </header>
+
+<<<<<<< HEAD
+  
+=======
+
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
+        <div class="row notice-cols">
+         
+        @for ($i =0; $i <= 5; $i++)
+         
+          <div class="col-md-4 wow fadeInUp">
+            <div class="notice-col">
+              <div class="img">
+                <img src="img/notice/notice-{{$i+1}}.jpg" alt="" class="img-fluid">
+              </div>
+              <h2 class="title"><a href="{{ url('/notice/'.$misnoticias[$i]['id']) }}">{{ $misnoticias[$i]['titulo']}}</a></h2>
+              <p>
+                </br>{{ substr($misnoticias[$i]['cuerpo'],0,200).'...'}}
+              </p>
+              <a href="{{ url('/notice/'.$misnoticias[$i]['id']) }}" class="btn ">Leer mas</a>
+            </div>
+          </div>
+        @endfor
+
+
+
+        </div>
+<<<<<<< HEAD
+		
+		
+=======
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
+      </div>
+    </section>
+    <!-- #notice -->
+
+  
     <!--==========================
       Portfolio Section
     ============================-->

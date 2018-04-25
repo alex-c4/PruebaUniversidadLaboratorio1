@@ -14,7 +14,8 @@ body {
   }
   
   a {
-    color: #098c00;
+    /*color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
     transition: 0.5s;
   }
   
@@ -40,7 +41,9 @@ body {
   .back-to-top {
     position: fixed;
     display: none;
-    background: #098c00;
+    /*background: #098c00;*/
+	background:#9e7622;/*Modificado por XportGold*/
+	
     color: #fff;
     display: inline-block;
     width: 44px;
@@ -167,7 +170,7 @@ body {
     left: 0;
     right: 0;
   }
-  
+
   #intro .carousel-content {
     text-align: center;
   }
@@ -356,7 +359,8 @@ body {
   }
   
   .nav-menu li:hover > a, .nav-menu > .menu-active > a {
-    color: #d7a02a;
+    /*color: #d7a02a;*/
+	color: #9e7622;/*Modificado por XportGold*/
   }
   
   .nav-menu > li {
@@ -384,7 +388,9 @@ body {
   }
   
   .nav-menu ul li:hover > a {
-    color: #098c00;
+    /*color: #098c00;*/
+	
+	color: #9e7622;/*Modificado por XportGold*/
   }
   
   .nav-menu ul ul {
@@ -474,7 +480,8 @@ body {
   }
   
   #mobile-nav ul .menu-has-children i.fa-chevron-up {
-    color: #098c00;
+   /* color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
   }
   
   #mobile-nav ul .menu-has-children li a {
@@ -482,7 +489,8 @@ body {
   }
   
   #mobile-nav ul .menu-item-active {
-    color: #098c00;
+   /* color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
   }
   
   #mobile-body-overly {
@@ -541,8 +549,10 @@ body {
     display: block;
     width: 40px;
     height: 3px;
-    background: #098c00;
-    bottom: 0;
+    /*background: #098c00;*/
+	background: #9e7622;/*Modificado por XportGold*/
+	  
+	bottom: 0;
     left: calc(50% - 20px);
   }
   
@@ -591,7 +601,9 @@ body {
   }
   
   #featured-services h4 a:hover {
-    color: #098c00;
+    /*color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
+	
   }
   
   #featured-services p {
@@ -693,7 +705,9 @@ body {
   }
   
   #about .about-col h2 a:hover {
-    color: #098c00;
+    /*color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
+	
   }
   
   #about .about-col p {
@@ -721,7 +735,9 @@ body {
   }
   
   #services .icon i {
-    color: #098c00;
+    /*color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
+	
     font-size: 36px;
     line-height: 1;
     transition: 0.5s;
@@ -748,6 +764,8 @@ body {
     line-height: 24px;
     margin-bottom: 0;
   }
+
+  
   
   /* Call To Action Section
   --------------------------------*/
@@ -817,6 +835,148 @@ body {
     text-align: left;
     transition: .9s;
   }
+
+/* Notice Section
+  --------------------------------*/
+  #notice {
+    background: url("../img/about-bg.jpg") center top no-repeat fixed;
+    background-size: cover;
+    padding: 60px 0 40px 0;
+    position: relative;
+  }
+  
+  #notice::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 9;
+  }
+  
+  #notice .container {
+    position: relative;
+    z-index: 10;
+  }
+  
+  #notice .notice-col {
+    background: #fff;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+  }
+  
+  #notice .notice-col .img {
+    position: relative;
+  }
+  
+  #notice .notice-col .img img {
+    border-radius: 4px 4px 0 0;
+  }
+  
+  #notice .notice-col .icon {
+    width: 64px;
+    height: 64px;
+    padding-top: 8px;
+    text-align: center;
+    position: absolute;
+    background-color: #098c00;
+    border-radius: 50%;
+    text-align: center;
+    border: 4px solid #fff;
+    left: calc( 50% - 32px);
+    bottom: -30px;
+    transition: 0.3s;
+  }
+  
+  #notice .notice-col i {
+    font-size: 36px;
+    line-height: 1;
+    color: #fff;
+    transition: 0.3s;
+  }
+  
+  #notice .notice-col:hover .icon {
+    background-color: #fff;
+  }
+  
+  #notice .notice-col:hover i {
+    color: #098c00;
+  }
+  
+  #notice .notice-col h2 {
+    color: #000;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 0;
+    margin: 40px 0 12px 0;
+  }
+  
+  #notice .notice-col h2 a {
+    color: #000;
+  }
+  
+  #notice .notice-col h2 a:hover {
+    color: #098c00;
+  }
+  
+  #notice .notice-col p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #333;
+    margin-bottom: 0;
+    padding: 0 20px 20px 20px;
+  }
+  
+  /* Services Section
+  --------------------------------*/
+  #services {
+    background: #fff;
+    background-size: cover;
+    padding: 60px 0 40px 0;
+  }
+  
+  #services .box {
+    margin-bottom: 30px;
+  }
+  
+  #services .icon {
+    float: left;
+  }
+  
+  #services .icon i {
+    color: #098c00;
+    font-size: 36px;
+    line-height: 1;
+    transition: 0.5s;
+  }
+  
+  #services .title {
+    margin-left: 60px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  
+  #services .title a {
+    color: #111;
+  }
+  
+  #services .box:hover .title a {
+    color: #098c00;
+  }
+  
+  #services .description {
+    font-size: 14px;
+    margin-left: 60px;
+    line-height: 24px;
+    margin-bottom: 0;
+  }
+  
+
   
   /* Facts Section
   --------------------------------*/
@@ -893,7 +1053,9 @@ body {
   }
   
   #portfolio #portfolio-flters li:hover, #portfolio #portfolio-flters li.filter-active {
-    background: #098c00;
+    /*background: #098c00;*/
+	background: #9e7622;/*Modificado por XportGold*/
+	
     color: #fff;
   }
   
@@ -950,7 +1112,9 @@ body {
   }
   
   #portfolio .portfolio-item figure .link-preview:hover, #portfolio .portfolio-item figure .link-details:hover {
-    background: #098c00;
+    /*background: #098c00;*/
+	background: #9e7622;/*Modificado por XportGold*/
+	
   }
   
   #portfolio .portfolio-item figure .link-preview:hover i, #portfolio .portfolio-item figure .link-details:hover i {
@@ -998,7 +1162,9 @@ body {
   }
   
   #portfolio .portfolio-item .portfolio-info h4 a:hover {
-    color: #098c00;
+    /*color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
+	
   }
   
   #portfolio .portfolio-item .portfolio-info p {
@@ -1042,7 +1208,9 @@ body {
   }
   
   #clients .owl-dot.active {
-    background-color: #098c00;
+    /*background-color: #098c00;*/
+	background-color: #9e7622;/*Modificado por XportGold*/
+	
   }
   
   /* Testimonials Section
@@ -1120,7 +1288,9 @@ body {
   }
   
   #testimonials .owl-dot.active {
-    background-color: #098c00;
+    /*background-color: #098c00;*/
+	background-color: #9e7622;/*Modificado por XportGold*/
+	
   }
   
   /* Team Section
@@ -1213,7 +1383,9 @@ body {
     font-size: 48px;
     display: inline-block;
     margin-bottom: 10px;
-    color: #098c00;
+    /*color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
+	
   }
   
   #contact .contact-info address, #contact .contact-info p {
@@ -1234,7 +1406,8 @@ body {
   }
   
   #contact .contact-info a:hover {
-    color: #098c00;
+    /*color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
   }
   
   #contact .contact-address, #contact .contact-phone, #contact .contact-email {
@@ -1255,8 +1428,12 @@ body {
   }
   
   #contact .form #sendmessage {
-    color: #098c00;
-    border: 1px solid #098c00;
+    /*color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
+	
+    /*border: 1px solid #098c00;*/
+	border: 1px solid #9e7622;/*Modificado por XportGold*/
+	
     display: none;
     text-align: center;
     padding: 15px;
@@ -1294,7 +1471,9 @@ body {
   }
   
   #contact .form button[type="submit"] {
-    background: #098c00;
+    /*background: #098c00;*/
+	background: #9e7622;/*Modificado por XportGold*/
+	
     border: 0;
     padding: 10px 30px;
     color: #fff;
@@ -1303,7 +1482,8 @@ body {
   }
   
   #contact .form button[type="submit"]:hover {
-    background: #076f00;
+    /*background: #076f00;*/
+	background: #000000;/*Modificado por XportGold*/
   }
   
   /*--------------------------------------------------------------
@@ -1360,7 +1540,9 @@ body {
   }
   
   #footer .footer-top .social-links a:hover {
-    background: #098c00;
+    /*background: #098c00;*/
+	background: #9e7622;/*Modificado por XportGold*/
+	
     color: #fff;
   }
   
@@ -1387,7 +1569,9 @@ body {
   }
   
   #footer .footer-top h4::after {
-    background: #098c00;
+    /*background: #098c00;*/
+	background: #9e7622;/*Modificado por XportGold*/
+	
     width: 60px;
   }
   
@@ -1420,7 +1604,9 @@ body {
   }
   
   #footer .footer-top .footer-links ul a:hover {
-    color: #098c00;
+    /*color: #098c00;*/
+	color: #9e7622;/*Modificado por XportGold*/
+	
   }
   
   #footer .footer-top .footer-contact {
@@ -1442,7 +1628,9 @@ body {
   }
   
   #footer .footer-top .footer-newsletter input[type="submit"] {
-    background: #098c00;
+    /*background: #098c00;*/
+	background: #9e7622;/*Modificado por XportGold*/
+	
     border: 0;
     width: 35%;
     padding: 6px 0;
@@ -1453,7 +1641,8 @@ body {
   }
   
   #footer .footer-top .footer-newsletter input[type="submit"]:hover {
-    background: #076f00;
+    /*background: #076f00;*/
+	background: #000000;
   }
   
   #footer .copyright {

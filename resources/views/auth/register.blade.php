@@ -4,15 +4,19 @@
 
 <hr/>
 
-<section id="contact" class="section-bg wow fadeInUp" >
+<section id="coct" class="section-bg wow fadeInUp" >
       <div class="container" >
 
         <div class="section-header">
-          <h3>Register</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <h3>Mensajeria</h3>
+          <p>comunicate con el usuario que posee la barajita de tu interes</p>
         </div>
 
-        <form method="POST" action="{{ route('register') }}">
+<<<<<<< HEAD
+        <form method="POST" action="{{ route('Register') }}">
+=======
+        <form method="POST" action="{{ route('enviar_msj') }}">
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
 
           {{ csrf_field() }}
 
