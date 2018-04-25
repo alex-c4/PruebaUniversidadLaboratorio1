@@ -51,7 +51,7 @@ Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta'
 | Seccion para las rutas asociadas a la parte de intercabio de barajitas
 |
 */
-Route::get('/mensajeria/', 'ChatController@consultar')->name('mensajeria.consulta');
+// Route::get('/mensajeria/', 'ChatController@consultar')->name('mensajeria.consulta');
 Route::get('/msj', function(){
 	//return'has sido redirecionado a la ruta notice-mostrar'. $arreglo;
 	//return view('notice',compact('arreglo'));
