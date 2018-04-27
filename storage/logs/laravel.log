@@ -4523,3 +4523,7 @@ Did you mean one of these?
 #35 C:\\xampp\\htdocs\\xportgold\\PruebaUniversidadLaboratorio1\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #36 {main}
 "} 
+[2018-04-27 03:30:20] local.ERROR: Maximum execution time of 30 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 30 seconds exceeded at C:\\xampp\\htdocs\\xportgold\\PruebaUniversidadLaboratorio1\\vendor\\laravel\\framework\\src\\Illuminate\\Encryption\\Encrypter.php:142)
+[stacktrace]
+#0 {main}
+"} 
