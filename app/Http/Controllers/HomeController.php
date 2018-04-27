@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
 
+
 	public function consultar(){
 
         //$misnoticias[]=array();  
@@ -28,26 +29,11 @@ class HomeController extends Controller
         return view('home', compact('misnoticias'));  
                // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
 
- }
-public function contacto(){
 
-        //$misnoticias[]=array();  
-        //$noticias= Notice::all();
-        /*
-        for ($i=0;$i<=5;$i++){
-              $arreglo = array(
-              'id' =>$noticias[$i]['id'],
-              'titulo'=>$noticias[$i]["titulo"],
-              'cuerpo'=>substr($noticias[$i]["cuerpo"],0,200).'...',
-              'fuente'=>$noticias[$i]["fuente"],
-           );       
-           $misnoticias[$i]=$arreglo;       
-         }
-         */        
-        
-        return view("home");  
-               // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
+ }
+  
+}
+
 
    
-}    
-}
+

@@ -34,7 +34,7 @@
 
 <body>
 
-  @extends('layoutMenu')
+  
 
   <!--==========================
     Intro Section
@@ -98,10 +98,9 @@
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form id="form_login" name="form_login" method="POST" action="{{ route('login') }}">
-      <input type="hidden" id="routeCurrent" value="{{ route('login') }}">
-      <input type="hidden" id="routeDashboard" value="{{ route('dasboardindex') }}">
-      <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+    <form method="POST" action="<?php echo e(route('register')); ?>">
+      <input type="hidden" id="routeCurrent" value="<?php echo e(route('register')); ?>">
+      <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
       
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -114,26 +113,22 @@
           <div class="modal-body">
               <div class="form-group">
                 <label for="inputEmail">Correo Electrónico</label>
-                <input type="email" class="form-control {{ $errors->has('email') ? 'border-danger' : '' }}" id="email" name="email" placeholder="Email">
-                {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
+                <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" id="inputEmail" placeholder="Email">
+                <?php echo $errors->first('email', '<span class="text-danger">:message</span>'); ?>
+
               </div>
             
               <div class="form-group">
                 <label for="inputPassword">Clave</label>
-                <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" id="password" name="password" placeholder="Password">
-                {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}
-              </div>
+                <input type="password" class="form-control <?php echo e($errors->has('password') ? 'border-danger' : ''); ?>" id="inputPassword" placeholder="Password">
+                <?php echo $errors->first('password', '<span class="text-danger">:message</span>'); ?>
 
-              <div class="form-group">
-                  <div id="message-got">
-                  
-                  </div>
-              </div> 
+              </div>
 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-            <button type="submit" id="btnLogin" class="btn btn-outline-success">Login</button>
+            <button type="button" id="btnLogin" class="btn btn-outline-success">Login</button>
           </div>
         </div>
       </div>
@@ -141,11 +136,7 @@
     </div>
   </section><!-- #intro -->
 
-  
-
   <main id="main">
-
-  
 
     <!--==========================
       Featured Services Section
@@ -386,11 +377,11 @@
 
 
  
+
+
     <!--==========================
       Notice section
     ============================-->
-	
-	
 
     <section id="notice">
       <div class="container">
@@ -400,28 +391,29 @@
           <p>si te gusta mantenerte informado, encontrarás valiosa esta sección. Enterate de lo mas destacado aqui. </p>
         </header>
 
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
         <div class="row notice-cols">
          
-         @foreach($misnoticias as $noticia)
+        <?php for($i =0; $i <= 5; $i++): ?>
          
           <div class="col-md-4 wow fadeInUp">
             <div class="notice-col">
               <div class="img">
-                <img src="img/notice/{{$noticia['name_img']}}" alt="" class="img-fluid">
+                <img src="img/notice/notice-<?php echo e($i+1); ?>.jpg" alt="" class="img-fluid">
               </div>
-              <h2 class="title"><a href="{{ url('/notice/'.$noticia['id']) }}">{{ $noticia['titulo']}}</a></h2>
+              <h2 class="title"><a href="<?php echo e(url('/notice/'.$misnoticias[$i]['id'])); ?>"><?php echo e($misnoticias[$i]['titulo']); ?></a></h2>
               <p>
-                </br>{{ substr($noticia['cuerpo'],0,200).'...'}}
+                </br><?php echo e(substr($misnoticias[$i]['cuerpo'],0,200).'...'); ?>
+
               </p>
-              <a href="{{ url('/notice/'.$noticia['id']) }}" class="btn ">Leer mas</a>
-              
+              <a href="<?php echo e(url('/notice/'.$misnoticias[$i]['id'])); ?>" class="btn ">Leer mas</a>
             </div>
           </div>
-        
-         @endforeach
-
-        
+        <?php endfor; ?>
 
 
 
@@ -790,3 +782,5 @@
 </html>
 
 
+
+<?php echo $__env->make('layoutMenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
