@@ -13,7 +13,7 @@ use DB;
 class StickerController extends Controller
 {
     public function __construct(){
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index(){
@@ -88,7 +88,7 @@ class StickerController extends Controller
         /**
          * Actualizar y usar el del usuario logueado
          */
-        $user_id = 2;
+        $user_id = 1;
 
         $listGot = $this->getStickerList($album_id, $user_id, 'got');
         $listFinal[] = $listGot;
@@ -120,8 +120,9 @@ class StickerController extends Controller
     }
 
     public function save(){
+
         $sticker_id = request()->sticker_id;
-        if($sticker_id == 0){
+        if($sticker_id == null){
             try{
                 // nuevo registro
                 $sticker = Sticker::create([
@@ -133,20 +134,28 @@ class StickerController extends Controller
 
             }catch(Exception $ex){
                 $res = array(
-                    "success" => "false"
+                    "success" => "false",
+                    "action" => "new",
+                    "sticker_id" =>  0
                 );
             }
 
             $res = array(
-                "success" => "true"
+                "success" => "true",
+                "action" => "new",
+                "sticker_id" =>  $sticker->id
             );
         }else{
             // actualizar registro
-            $sticker = Sticker::find($sticker_id);
+            settype($sticker_id, "int");
+            $sticker = Sticker::where("id", $sticker_id)->first();
             $sticker->quantity = request()->quantity;
-            $sticker->save();
+            $sticker->update();
+
             $res = array(
-                "success" => "true"
+                "success" => "true",
+                "action" => "upd",
+                "sticker_id" =>  $sticker_id
             );
         }
         

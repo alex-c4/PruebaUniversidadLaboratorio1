@@ -144,8 +144,12 @@ $('#btnRegisterSticker').on('click', function (event) {
             console.log(data);
 
             if(data.success == 'true'){
+                var _sticker_id = data.sticker_id;
                 // btn btn-outline-' + color + 
-                $('#btnSticker_' + _number).attr('class', 'btn btn-' + getColor(_quantity) + ' btn-sm btn-block')
+                $('#btnSticker_' + _number).attr('class', 'btn btn-' + getColor(_quantity) + ' btn-sm btn-block');
+                debugger;
+                window.listStickerGot[parseInt(_number) - 1].quantity = parseInt(_quantity)
+                window.listStickerGot[parseInt(_number) - 1].id = parseInt(_sticker_id)
 
                 $('#message-got').html('<div class="alert alert-success" role="alert">Registro satisfactorio! </div>');
             }

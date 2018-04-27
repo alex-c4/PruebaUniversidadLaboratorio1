@@ -61,7 +61,7 @@
          
           
           @if(Auth::check())
-            <li><a href="{{ url('/register') }}">Home</a></li>
+            <li><a href="{{ url('/logout') }}">Logout</a></li>
           @else
             <li><a href="{{ url('/register') }}">Register</a></li>
           @endif

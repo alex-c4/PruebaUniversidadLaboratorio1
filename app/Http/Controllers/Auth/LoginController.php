@@ -17,11 +17,20 @@ class LoginController extends Controller
         // return $credenciales;
 
         if(Auth::attempt($credenciales)){
-            return $credenciales;
-            return 'Tu sesion a iniciado correctamente';
+            $access = array(
+                "access" => true,
+                "message" => null
+            );
+
         }else{
-            return 'Datos deacceso incorrectos';
+            $access = array(
+                "access" => false,
+                "message" => "Acceso denegado, datos incorrectos!"
+            );
         }
+
+        return $access;
+        
 
 
         
@@ -36,6 +45,11 @@ class LoginController extends Controller
         //     'password' => 'required|string'
         // ]);
 
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
     }
 
     public function login2(){

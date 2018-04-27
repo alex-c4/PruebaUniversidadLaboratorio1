@@ -30,9 +30,10 @@ Route::view('/welcome', 'welcome');
 Route::get('/register', 'Auth\RegisterController@create')->name('create');
 Route::view('/auth.success', 'success');
 Route::post('/register', 'Auth\RegisterController@store')->name('register');
-Route::post('login', 'Auth\LoginController@login')->name('login');
-
+// Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,13 @@ Route::get('/msj', function(){
 Route::get('/verify/{code}', 'VerifyController@verify')->name('verify');
 Route::get('/verify', 'VerifyController@verifyEmpty')->name('verifyEmpty');
 
+/*
+|--------------------------------------------------------------------------
+| Login Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/sticker', 'Sticker\StickerController@index')->name('stickerindex');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -86,4 +94,15 @@ Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta'
 |
 */
 Route::POST("/registerContact", "ContactController@store");
+
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de noticias
+|
+*/
+Route::get('/dashboard', 'dashboard\DashboardController@index')->name('dasboardindex');
 
