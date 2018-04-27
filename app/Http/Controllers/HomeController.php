@@ -23,8 +23,9 @@ class HomeController extends Controller
            );       
            $misnoticias[$i]=$arreglo;       
          }
-         */        
-        $misnoticias= Notice::orderBy('id','desc')->limit(6)->get();   
+         */   
+        $misnoticias= Notice::orderBy('id','desc')->limit(6)->get();  
+         
         return view('home', compact('misnoticias'));  
                // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
 

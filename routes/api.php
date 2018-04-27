@@ -20,3 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/state/{id}', 'StateController@byCountry');
 
 Route::get('/city/{id}', 'CityController@byState');
+
+Route::get('/stickers/{album_id}', 'Sticker\StickerController@byAlbum');
+
+Route::post('/stickers/save', 'Sticker\StickerController@save')->name('save');
+
+
