@@ -34,17 +34,6 @@ Route::post('/register', 'Auth\RegisterController@store')->name('register');
 Route::post('login', 'Auth\LoginController@login')->name('login');
 
 Route::post('/login', 'Auth\LoginController@login')->name('login');
-
-/*
-|--------------------------------------------------------------------------
-| notice Routes
-|--------------------------------------------------------------------------
-|
-| Seccion para las rutas asociadas a la parte de noticias
-|
-*/
-Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
-
 /*
 |--------------------------------------------------------------------------
 | Stikers Routes
@@ -53,13 +42,23 @@ Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta'
 | Seccion para las rutas asociadas a la parte de intercabio de barajitas
 |
 */
-Route::get('/mensajeria/', 'ChatController@consultar')->name('mensajeria.consulta');
-Route::get('/msj', function(){
-	//return'has sido redirecionado a la ruta notice-mostrar'. $arreglo;
-	//return view('notice',compact('arreglo'));
-		return view('mesage');
+Route::get('/msj/{id_user}/{intercambio}', 'MensajeriaController@create')->name('mensajeria.create');
+Route::post('/msj','MensajeriaController@store')->name('mensajeria.register');
+Route::get('/conv','MensajeriaController@conversaciones')->name('conversaciones.lista');
+Route::get('/men/{id_intercambio}','MensajeriaController@conversacion')->name('conversacion.mostrar');
 
-})->name('mensajeria.mostrar');
+/*
+|--------------------------------------------------------------------------
+| notice Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de noticias
+|
+
+*/
+Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
+
+
 
 
 //=======
