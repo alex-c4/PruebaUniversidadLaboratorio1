@@ -61,7 +61,7 @@
           <li><a href="#services">Mundial Rusia 2018</a></li>
           
           @if(Auth::check())
-            <li><a href="{{ url('/register') }}">Home</a></li>
+            <li><a href="{{ url('/logout') }}">Logout</a></li>
           @else
             <li><a href="{{ url('/register') }}">Registrar</a></li>
           @endif
