@@ -9,17 +9,28 @@ use Auth;
 class LoginController extends Controller
 {
     public function login(){
-
         $credenciales = $this->validate(request(), [
             'email' => 'email|required|string',
             'password' => 'required|string'
         ]);
 
+        // return $credenciales;
+
         if(Auth::attempt($credenciales)){
-            return 'Tu sesion a iniciado correctamente';
+            $access = array(
+                "access" => true,
+                "message" => null
+            );
+
         }else{
-            return $credenciales;
+            $access = array(
+                "access" => false,
+                "message" => "Acceso denegado, datos incorrectos!"
+            );
         }
+
+        return $access;
+        
 
 
         
@@ -34,6 +45,11 @@ class LoginController extends Controller
         //     'password' => 'required|string'
         // ]);
 
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
     }
 
     public function login2(){

@@ -34,7 +34,7 @@
 
 <body>
 
-  @extends('layoutMenu')
+  
 
   <!--==========================
     Intro Section
@@ -98,10 +98,9 @@
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form id="form_login" name="form_login" method="POST" action="{{ route('login') }}">
-      <input type="hidden" id="routeCurrent" value="{{ route('login') }}">
-      <input type="hidden" id="routeDashboard" value="{{ route('dasboardindex') }}">
-      <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+    <form method="POST" action="<?php echo e(route('register')); ?>">
+      <input type="hidden" id="routeCurrent" value="<?php echo e(route('register')); ?>">
+      <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
       
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -114,26 +113,22 @@
           <div class="modal-body">
               <div class="form-group">
                 <label for="inputEmail">Correo Electrónico</label>
-                <input type="email" class="form-control {{ $errors->has('email') ? 'border-danger' : '' }}" id="email" name="email" placeholder="Email">
-                {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
+                <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" id="inputEmail" placeholder="Email">
+                <?php echo $errors->first('email', '<span class="text-danger">:message</span>'); ?>
+
               </div>
             
               <div class="form-group">
                 <label for="inputPassword">Clave</label>
-                <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" id="password" name="password" placeholder="Password">
-                {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}
-              </div>
+                <input type="password" class="form-control <?php echo e($errors->has('password') ? 'border-danger' : ''); ?>" id="inputPassword" placeholder="Password">
+                <?php echo $errors->first('password', '<span class="text-danger">:message</span>'); ?>
 
-              <div class="form-group">
-                  <div id="message-got">
-                  
-                  </div>
-              </div> 
+              </div>
 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-            <button type="submit" id="btnLogin" class="btn btn-outline-success">Login</button>
+            <button type="button" id="btnLogin" class="btn btn-outline-success">Login</button>
           </div>
         </div>
       </div>
@@ -141,11 +136,7 @@
     </div>
   </section><!-- #intro -->
 
-  
-
   <main id="main">
-
-  
 
     <!--==========================
       Featured Services Section
@@ -386,11 +377,11 @@
 
 
  
+
+
     <!--==========================
       Notice section
     ============================-->
-	
-	
 
     <section id="notice">
       <div class="container">
@@ -400,28 +391,29 @@
           <p>si te gusta mantenerte informado, encontrarás valiosa esta sección. Enterate de lo mas destacado aqui. </p>
         </header>
 
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> fc201758cb9d0d74a02e8df042f98f93e9597b88
         <div class="row notice-cols">
          
-         @foreach($misnoticias as $noticia)
+        <?php for($i =0; $i <= 5; $i++): ?>
          
           <div class="col-md-4 wow fadeInUp">
             <div class="notice-col">
               <div class="img">
-                <img src="img/notice/{{$noticia['name_img']}}" alt="" class="img-fluid">
+                <img src="img/notice/notice-<?php echo e($i+1); ?>.jpg" alt="" class="img-fluid">
               </div>
-              <h2 class="title"><a href="{{ url('/notice/'.$noticia['id']) }}">{{ $noticia['titulo']}}</a></h2>
+              <h2 class="title"><a href="<?php echo e(url('/notice/'.$misnoticias[$i]['id'])); ?>"><?php echo e($misnoticias[$i]['titulo']); ?></a></h2>
               <p>
-                </br>{{ substr($noticia['cuerpo'],0,200).'...'}}
+                </br><?php echo e(substr($misnoticias[$i]['cuerpo'],0,200).'...'); ?>
+
               </p>
-              <a href="{{ url('/notice/'.$noticia['id']) }}" class="btn ">Leer mas</a>
-              
+              <a href="<?php echo e(url('/notice/'.$misnoticias[$i]['id'])); ?>" class="btn ">Leer mas</a>
             </div>
           </div>
-        
-         @endforeach
-
-        
+        <?php endfor; ?>
 
 
 
@@ -785,80 +777,10 @@
     <!-- #team -->
 
     
-  <!--==========================
-      Contact Section
-    ============================-->
-    <section id="contact" class="section-bg wow fadeInUp">
-      <div class="container">
-
-        <div class="section-header">
-          <h3>Contactanos</h3>
-          <p></p>
-        </div>
-
-        <div class="row contact-info">
-<!--
-          <div class="col-md-4">
-            <div class="contact-address">
-              <i class="ion-ios-location-outline"></i>
-              <h3>Address</h3>
-              <address>A108 Adam Street, NY 535022, USA</address>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-phone">
-              <i class="ion-ios-telephone-outline"></i>
-              <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-email">
-              <i class="ion-ios-email-outline"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
-            </div>
-          </div>
--->
-        </div>
-
-        <div class="form">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
-          <div id="errormessage"></div>
-          <form action="{{ URL::asset('/registerContact') }}" method="post" role="form">
-		  
-            <div class="form-row">
-			{{csrf_field()}}
-              <div class="form-group col-md-6">
-                <input type="text" name="nameContact" class="form-control" id="nameContact" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="emailContact" id="emailContact" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validation"></div>
-            </div>
-           <div class="text-center">
-            <button type="submit" class="btn btn-success">Enviar</button>
-          </div>
-          </form>
-        </div>
-
-      </div>
-    </section><!-- #contact -->
-
 
 </body>
 </html>
 
 
+
+<?php echo $__env->make('layoutMenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

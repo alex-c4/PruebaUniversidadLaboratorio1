@@ -18,19 +18,19 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="{{ asset('lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="<?php echo e(asset('lib/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
   
 
 
   <!-- Libraries CSS Files -->
-  <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+  <link href="<?php echo e(asset('lib/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('lib/animate/animate.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('lib/ionicons/css/ionicons.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('lib/owlcarousel/assets/owl.carousel.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('lib/lightbox/css/lightbox.min.css')); ?>" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+  <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
   <style type="text/css">
     #header{
       background: rgba(0, 0, 0, 0.9);
@@ -49,29 +49,29 @@
       <div id="logo" class="pull-left">
         <!-- <h1><a href="#intro" class="scrollto">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="#intro"><img src="{{ url('img/logo.png')}}" alt="" title="" /></a>
+        <a href="#intro"><img src="<?php echo e(url('img/logo.png')); ?>" alt="" title="" /></a>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
+          <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
           <li><a href="#about">Play Quinielas</a></li>
-          <li><a href="{{ url('/#notice') }}">Notice</a></li>
-          <li><a href="{{ url('/#portfolio') }}">World Cup Russia 2018</a></li>
+          <li><a href="<?php echo e(url('/#notice')); ?>">Notice</a></li>
+          <li><a href="<?php echo e(url('/#portfolio')); ?>">World Cup Russia 2018</a></li>
          
           
-          @if(Auth::check())
-            <li><a href="{{ url('/logout') }}">Logout</a></li>
-          @else
-            <li><a href="{{ url('/register') }}">Register</a></li>
-          @endif
+          <?php if(Auth::check()): ?>
+            <li><a href="<?php echo e(url('/logout')); ?>">Logout</a></li>
+          <?php else: ?>
+            <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
+          <?php endif; ?>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
 
-  @yield('content')
+  <?php echo $__env->yieldContent('content'); ?>
 
 
   </main>
@@ -85,7 +85,7 @@
         <div class="row">
 
           <div id="logo" class="col-lg-3 col-md-6 footer-info">
-            <a href="#intro"><img src="{{ asset('img/logo.png')}}" alt="" title="XportGold" style="padding-bottom: 19px;" /></a>
+            <a href="#intro"><img src="<?php echo e(asset('img/logo.png')); ?>" alt="" title="XportGold" style="padding-bottom: 19px;" /></a>
             <p></p>            
           </div>
           <!--
@@ -152,37 +152,37 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('lib/jquery/jquery-migrate.min.js')}}"></script>
-  <script src="{{asset('lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('lib/easing/easing.min.js')}}"></script>
-  <script src="{{asset('lib/superfish/hoverIntent.js')}}"></script>
-  <script src="{{asset('lib/superfish/superfish.min.js')}}"></script>
-  <script src="{{asset('lib/wow/wow.min.js')}}"></script>
-  <script src="{{asset('lib/waypoints/waypoints.min.js')}}"></script>
-  <script src="{{asset('lib/counterup/counterup.min.js')}}"></script>
-  <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
-  <script src="{{asset('lib/isotope/isotope.pkgd.min.js')}}"></script>
-  <script src="{{asset('lib/lightbox/js/lightbox.min.js')}}"></script>
-  <script src="{{asset('lib/touchSwipe/jquery.touchSwipe.min.js')}}"></script>
+  <script src="<?php echo e(asset('lib/jquery/jquery.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/jquery/jquery-migrate.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/easing/easing.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/superfish/hoverIntent.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/superfish/superfish.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/wow/wow.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/waypoints/waypoints.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/counterup/counterup.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/owlcarousel/owl.carousel.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/isotope/isotope.pkgd.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/lightbox/js/lightbox.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('lib/touchSwipe/jquery.touchSwipe.min.js')); ?>"></script>
 
-  <script src="{{asset('js/bootstrap-datepicker.min.js')}}"></script>
-  <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.min.css')}}">
+  <script src="<?php echo e(asset('js/bootstrap-datepicker.min.js')); ?>"></script>
+  <link rel="stylesheet" href="<?php echo e(asset('css/bootstrap-datepicker.min.css')); ?>">
   <!-- Contact Form JavaScript File -->
-  <script src="{{asset('contactform/contactform.js')}}"></script>
+  <script src="<?php echo e(asset('contactform/contactform.js')); ?>"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="{{asset('js/main.js')}}"></script>
+  <script src="<?php echo e(asset('js/main.js')); ?>"></script>
 
   <!-- Script para registrar/login usuario -->
-  <script src="{{asset('js/scriptLogin.js')}}"></script>
+  <script src="<?php echo e(asset('js/scriptLogin.js')); ?>"></script>
 
   <!-- Script para datepicker -->
   <script src="js/datepicker.js"></script>
 
   <!-- Script para barajitas -->
   <script src="js/sticker.js"></script>
-  <script src="{{asset('js/datepicker.js')}}"></script>
+  <script src="<?php echo e(asset('js/datepicker.js')); ?>"></script>
   
   
 

@@ -7,6 +7,7 @@ use App\Country;
 use Mail;
 use App\Mail\welcome;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
@@ -136,6 +137,7 @@ class RegisterController extends Controller
             'lastName' => request()->lastName,
             'email' => request()->email,
             'password' => bcrypt(request()->password),
+            'gender' => request()->genderOptions,
             'phone' => request()->phone,
             'phone2' => request()->phone2,
             'birthday' => request()->birthday,

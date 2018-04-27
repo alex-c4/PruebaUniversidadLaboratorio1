@@ -82,6 +82,7 @@ class MensajeriaController extends Controller
         
         //return view('/auth.success', $datos);
         return redirect()->route('conversacion.mostrar',['id_intercambio'=>$id_intercambio]);
+        //return redirect()->function('conversacion',['id_intercambio'=>$id_intercambio]);
         
         
     }

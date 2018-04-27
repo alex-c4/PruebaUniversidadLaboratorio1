@@ -1,6 +1,4 @@
-@extends('layoutMenu')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <hr/>
 
@@ -14,33 +12,37 @@
 
 
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="<?php echo e(route('register')); ?>">
 
-          {{ csrf_field() }}
+          <?php echo e(csrf_field()); ?>
 
-          <input type="hidden" id="routeCurrent" value="{{ url('/') }}">
+
+          <input type="hidden" id="routeCurrent" value="<?php echo e(url('/')); ?>">
           
 
           <div class="form-row">
             <!-- Nombre -->
             <div class="form-group col-md-6">
               <label for="name">Name</label>
-              <input type="text" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" name="name" id="name" placeholder="Name" value="{{ old('name') }}">
-              {!! $errors->first('name', '<span class="text-danger">:message</span>') !!}
+              <input type="text" class="form-control <?php echo e($errors->has('name') ? 'border-danger' : ''); ?>" name="name" id="name" placeholder="Name" value="<?php echo e(old('name')); ?>">
+              <?php echo $errors->first('name', '<span class="text-danger">:message</span>'); ?>
+
             </div>
 
             <!-- Apellido -->
             <div class="form-group col-md-6">
               <label for="lastName">Last name</label>
-              <input type="text" class="form-control {{ $errors->has('lastName') ? 'border-danger' : '' }}" name="lastName" id="lastName" placeholder="Last name" value="{{ old('lastName') }}" >
-              {!! $errors->first('lastName', '<span class="text-danger">:message</span>') !!}
+              <input type="text" class="form-control <?php echo e($errors->has('lastName') ? 'border-danger' : ''); ?>" name="lastName" id="lastName" placeholder="Last name" value="<?php echo e(old('lastName')); ?>" >
+              <?php echo $errors->first('lastName', '<span class="text-danger">:message</span>'); ?>
+
             </div>
 
             <!-- Email -->
             <div class="form-group col-md-3" >
               <label for="email">Email</label>
-              <input type="email" class="form-control {{ $errors->has('email') ? 'border-danger' : '' }}" name="email" placeholder="Email" value="{{ old('email') }}">
-              {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
+              <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" name="email" placeholder="Email" value="<?php echo e(old('email')); ?>">
+              <?php echo $errors->first('email', '<span class="text-danger">:message</span>'); ?>
+
             </div>
 
             <!-- Genero -->
@@ -56,29 +58,33 @@
                   <label class="form-check-label" for="inlineRadio2">Femenino</label>
                 </div>
               </div>
-              {!! $errors->first('genderOptions', '<span class="text-danger">:message</span>') !!}
+              <?php echo $errors->first('genderOptions', '<span class="text-danger">:message</span>'); ?>
+
             </div>
 
             <!-- Clave 1 -->
             <div class="form-group col-md-3">
               <label for="password">Password</label>
-              <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" name="password" id="password" placeholder="Contraseña">
-              {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}
+              <input type="password" class="form-control <?php echo e($errors->has('password') ? 'border-danger' : ''); ?>" name="password" id="password" placeholder="Contraseña">
+              <?php echo $errors->first('password', '<span class="text-danger">:message</span>'); ?>
+
             </div>
 
             <!-- Clave confirm -->
             <div class="form-group col-md-3">
               <label for="password">Confirm Password</label>
-              <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" name="password_confirmation" id="password-confirm" placeholder="Contraseña">
-              {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}
+              <input type="password" class="form-control <?php echo e($errors->has('password') ? 'border-danger' : ''); ?>" name="password_confirmation" id="password-confirm" placeholder="Contraseña">
+              <?php echo $errors->first('password', '<span class="text-danger">:message</span>'); ?>
+
             </div>
 
             <!-- Fecha de Nacimiento -->
             <div class="form-group col-md-6">
               <label for="birthday">Birthdate</label>
               <div class="input-group date dp-date">
-                  <input type="text" class="form-control {{ $errors->has('birthday') ? 'border-danger' : '' }}" name="birthday" id="birthday" value="{{ old('birthday') }}" >
-                  {!! $errors->first('birthday', '<span class="text-danger">:message</span>') !!}
+                  <input type="text" class="form-control <?php echo e($errors->has('birthday') ? 'border-danger' : ''); ?>" name="birthday" id="birthday" value="<?php echo e(old('birthday')); ?>" >
+                  <?php echo $errors->first('birthday', '<span class="text-danger">:message</span>'); ?>
+
                   <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
               </div>
             </div>
@@ -86,40 +92,42 @@
             <!-- Telefono 1             -->
             <div class="form-group col-md-3">
               <label for="phone1">Phone 1</label>
-              <input type="text" class="form-control" id="phone1" name="phone1" placeholder="Phone" value="{{ old('phone1') }}">
+              <input type="text" class="form-control" id="phone1" name="phone1" placeholder="Phone" value="<?php echo e(old('phone1')); ?>">
             </div>
 
             <!-- Telefono 2 -->
             <div class="form-group col-md-3">
               <label for="phone2">Phone 2</label>
-              <input type="text" class="form-control" id="phone2" name="phone2" placeholder="Phone"  value="{{ old('phone2') }}">
+              <input type="text" class="form-control" id="phone2" name="phone2" placeholder="Phone"  value="<?php echo e(old('phone2')); ?>">
             </div>
 
             <!-- Pais -->
             <div class="form-group col-md-3">
               <label for="country_id">Country</label>
-              <select class="custom-select {{ $errors->has('country_id') ? 'border-danger' : '' }}" id="country_id" name="country_id" placeholder="...">
+              <select class="custom-select <?php echo e($errors->has('country_id') ? 'border-danger' : ''); ?>" id="country_id" name="country_id" placeholder="...">
                 <option selected>...</option>
-                @foreach($countries as $country)
-                  <option value="{{ $country['id'] }}">{{ $country->name }}</option>
-                @endforeach                
+                <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <option value="<?php echo e($country['id']); ?>"><?php echo e($country->name); ?></option>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                
               </select>
 
-              {!! $errors->first('country_id', '<span class="text-danger">:message</span>') !!}
+              <?php echo $errors->first('country_id', '<span class="text-danger">:message</span>'); ?>
+
             </div>
 
             <!-- Estado -->
             <div class="form-group col-md-3">
               <label for="state_id">State</label>
-              <select class="custom-select {{ $errors->has('state_id') ? 'border-danger' : '' }}" id="state_id" name="state_id" placeholder="...">
+              <select class="custom-select <?php echo e($errors->has('state_id') ? 'border-danger' : ''); ?>" id="state_id" name="state_id" placeholder="...">
               </select>
-              {!! $errors->first('state_id', '<span class="text-danger">:message</span>') !!}
+              <?php echo $errors->first('state_id', '<span class="text-danger">:message</span>'); ?>
+
             </div>
 
             <!-- Ciudad -->
             <div class="form-group col-md-6">
               <label for="city_id">City</label>
-              <select type="text" class="custom-select {{ $errors->has('city_id') ? 'border-danger' : '' }}" id="city_id" name="city_id" placeholder="...">
+              <select type="text" class="custom-select <?php echo e($errors->has('city_id') ? 'border-danger' : ''); ?>" id="city_id" name="city_id" placeholder="...">
               </select>
             </div>
           </div>
@@ -127,7 +135,7 @@
           <!-- Direccion -->
           <div class="form-group" >
             <label for="direction">Address</label>
-            <input type="text" class="form-control" id="direction" name="direction" placeholder="Address" value="{{ old('direction') }}">
+            <input type="text" class="form-control" id="direction" name="direction" placeholder="Address" value="<?php echo e(old('direction')); ?>">
           </div>
 
           <!-- Terminos y condiciones -->
@@ -166,4 +174,5 @@
       
     </section>
     
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layoutMenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

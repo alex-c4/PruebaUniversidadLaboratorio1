@@ -16,7 +16,6 @@
 // });
 
 
-//Route::view('/', 'home');
 Route::get('/', 'HomeController@consultar')->name('home.consultar');
 Route::view('/welcome', 'welcome');
 /*
@@ -31,15 +30,16 @@ Route::view('/welcome', 'welcome');
 Route::get('/register', 'Auth\RegisterController@create')->name('create');
 Route::view('/auth.success', 'success');
 Route::post('/register', 'Auth\RegisterController@store')->name('register');
-Route::post('login', 'Auth\LoginController@login')->name('login');
-
+// Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
 /*
 |--------------------------------------------------------------------------
 | Stikers Routes
 |--------------------------------------------------------------------------
 |
-| Seccion para las rutas asociadas a la parte de intercabio de barajitas
+| Seccion para las rutas asociadas a la parte de mensajeria para el intercabio de barajitas
 |
 */
 Route::get('/msj/{id_user}/{intercambio}', 'MensajeriaController@create')->name('mensajeria.create');
@@ -58,10 +58,38 @@ Route::get('/men/{id_intercambio}','MensajeriaController@conversacion')->name('c
 */
 Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
 
-
-
-
-//=======
 Route::get('/verify/{code}', 'VerifyController@verify')->name('verify');
 Route::get('/verify', 'VerifyController@verifyEmpty')->name('verifyEmpty');
-//>>>>>>> c937b8297721056b07b5ff684017f57acd468c21
+
+/*
+|--------------------------------------------------------------------------
+| Login Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/sticker', 'Sticker\StickerController@index')->name('stickerindex');
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Contact Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Contact
+|
+*/
+Route::POST("/registerContact", "ContactController@store");
+
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas al dashboard
+|
+*/
+Route::get('/dashboard', 'dashboard\DashboardController@index')->name('dasboardindex');
+

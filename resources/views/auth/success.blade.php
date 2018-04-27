@@ -2,12 +2,7 @@
 
 @section('content')
 
-    
-<style type="text/css">
-#header{
-  background: rgba(0, 0, 0, 0.9);
-}
-</style>
+
 <hr/>
 <section id="contact" class="section-bg wow fadeInUp" >
     <div class="section-header">

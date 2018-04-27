@@ -1,36 +1,48 @@
-$("#btnLogin").click(function(){
+$('#form_login').submit(function() {
     var _email = $("#inputEmail").val();
     var _password = $("#inputPassword").val();
-    var _route = $("#routeCurrent").val();
+    var _route = $(this).attr('action'); //$("#routeCurrent").val();
+    // var _route2 = $("#routeCurrent").val();
+    var _routeDashboard = $("#routeDashboard").val();
     var _token = $("#token").val();
 
+    // console.log($(this).serialize());
     $.ajax({
         url: _route,
         headers: { 'X-CSRF-TOKEN': _token },
         type: 'POST',
-        dataType: 'json',
-        data: {
-            email: _email,
-            password: _password
-        }
+        data: $(this).serialize()
     })
     .done(function(data, textStatus, jqXHR){
+            if(data.access == true){
+                console.log(_routeDashboard)
+                $(location).attr('href', _routeDashboard);
+            }else{
+                console.log(data.message);
+                $('#message-got').html('<div class="alert alert-danger" role="alert">' + data.message + '</div>');                
+            }
             console.log(data);
         })
     .fail(function(jqXHR, textStatus, errorThrown ){
             console.log(jqXHR.responseJSON.errors);
 
             if(jqXHR.responseJSON.errors.hasOwnProperty( 'email' )){
-                console.log(jqXHR.responseJSON.errors.email[0])
+                console.log("Email: " + jqXHR.responseJSON.errors.email[0])
             }
             if(jqXHR.responseJSON.errors.hasOwnProperty( 'password' )){
-                console.log(jqXHR.responseJSON.errors.password[0])
+                console.log("Pass: " + jqXHR.responseJSON.errors.password[0])
             }
         })
 
-    // console.log("Route" + )
+    console.log("Route")
     
+
+    return false;
 });
+
+// $("#btnLogin_").click(function(){
+    
+// });
 
 // funcion AJAX para la busqueda de los estados mediante un ID
 $('#country_id').on('change', function(){
