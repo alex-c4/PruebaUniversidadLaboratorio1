@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers\Sticker;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+use DB;
 use App\Sticker;
 use App\User;
 use App\Album;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use DB;
-
 class StickerController extends Controller
 {
     public function __construct(){
+        // if(Request::ajax()){
+        //     return true;
+        // }else{
+        //     $this->middleware('auth');
+        // }
         $this->middleware('auth');
+        
     }
 
     public function index(){
@@ -87,8 +93,8 @@ class StickerController extends Controller
     public function byAlbum($album_id){
         /**
          * Actualizar y usar el del usuario logueado
-         */
-        $user_id = 1;
+         */        
+        $user_id = 2; auth()->user()->id;
 
         $listGot = $this->getStickerList($album_id, $user_id, 'got');
         $listFinal[] = $listGot;
@@ -120,13 +126,14 @@ class StickerController extends Controller
     }
 
     public function save(){
-
+        $user_id = auth()->user()->id; 
         $sticker_id = request()->sticker_id;
+
         if($sticker_id == null){
             try{
                 // nuevo registro
                 $sticker = Sticker::create([
-                'user_id' => 1,
+                'user_id' => $user_id,
                 'number' => request()->number,
                 'quantity' => request()->quantity,
                 'album_id' => request()->album_id
