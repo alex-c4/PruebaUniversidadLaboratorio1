@@ -11,8 +11,8 @@
         </div>
 
 
-        <form method="POST" action="<?php echo e(route('register')); ?>">
 
+        <form method="POST" action="<?php echo e(route('register')); ?>">
 
           <?php echo e(csrf_field()); ?>
 

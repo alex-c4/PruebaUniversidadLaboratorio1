@@ -94,7 +94,7 @@ class StickerController extends Controller
         /**
          * Actualizar y usar el del usuario logueado
          */        
-        $user_id = 2; auth()->user()->id;
+        $user_id = auth()->user()->id;
 
         $listGot = $this->getStickerList($album_id, $user_id, 'got');
         $listFinal[] = $listGot;

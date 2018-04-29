@@ -13,8 +13,8 @@
         </div>
 
 
-        <form method="POST" action="{{ route('register') }}">
 
+        <form method="POST" action="{{ route('register') }}">
 
           {{ csrf_field() }}
 

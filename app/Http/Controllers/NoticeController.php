@@ -42,10 +42,7 @@ class NoticeController extends Controller
     }
 
 
-	public function create($id){
-        $countries = Country::all();
-        return view('auth\register', compact('countries'));
-    }
+	
 
 }    
 
