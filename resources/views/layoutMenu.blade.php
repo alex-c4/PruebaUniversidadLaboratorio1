@@ -62,6 +62,7 @@
           
           @if(Auth::check())
             <li><a href="{{ url('/logout') }}">Logout</a></li>
+            <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
           @else
             <li><a href="{{ url('/register') }}">Register</a></li>
           @endif

@@ -54,19 +54,29 @@ Route::get('/men/{id_intercambio}','MensajeriaController@conversacion')->name('c
 |
 | Seccion para las rutas asociadas a la parte de noticias
 |
-
+<<<<<<< HEAD
 */
+
+
+Route::post('/stickers/save', 'Sticker\StickerController@save')->name('stickersSave');
+Route::get('/stickers/{album_id}', 'Sticker\StickerController@byAlbum')->name('stickersByAlbum');
+
+Route::get('/sticker', 'Sticker\StickerController@index')->name('stickerindex');
+
+
+
+Route::get('/msj', function(){
+	//return'has sido redirecionado a la ruta notice-mostrar'. $arreglo;
+	//return view('notice',compact('arreglo'));
+		return view('mesage');
+
+})->name('mensajeria.mostrar');
+
+
 Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
 
 Route::get('/verify/{code}', 'VerifyController@verify')->name('verify');
 Route::get('/verify', 'VerifyController@verifyEmpty')->name('verifyEmpty');
-
-/*
-|--------------------------------------------------------------------------
-| Login Routes
-|--------------------------------------------------------------------------
-*/
-Route::get('/sticker', 'Sticker\StickerController@index')->name('stickerindex');
 
 
 
@@ -92,4 +102,5 @@ Route::POST("/registerContact", "ContactController@store");
 |
 */
 Route::get('/dashboard', 'dashboard\DashboardController@index')->name('dasboardindex');
+
 
