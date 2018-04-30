@@ -30,7 +30,7 @@
   <link href="<?php echo e(asset('lib/lightbox/css/lightbox.min.css')); ?>" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
   <style type="text/css">
     #header{
       background: rgba(0, 0, 0, 0.9);

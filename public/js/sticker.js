@@ -2,7 +2,7 @@
 $('#album_id').on('change', function(){
     var _route = $("#routeCurrent").val();
     var album_id = $(this).val();
-    var _url = _route + '/api/stickers/' + album_id;
+    var _url = _route + '/stickers/' + album_id;
 
     var _html = '';
     if(album_id != 0){
@@ -127,11 +127,11 @@ $('#btnRegisterSticker').on('click', function (event) {
     var _number = $("#htxtnumber").val();
     var _quantity = $("#txtquantity").val();
     var _album_id = $("#htxtalbid").val();
-    // var _token = $("#token").val();
+    var _token = $("#token").val();
 
     var _route = $("#routeCurrent").val();
-    var _url = _route + '/api/stickers/save';
-
+    var _url = _route + '/stickers/save';
+    
     var _data = {
         sticker_id: _sticker_id,
         number: _number,
@@ -139,29 +139,34 @@ $('#btnRegisterSticker').on('click', function (event) {
         album_id: _album_id
     }
 
-    $.post(_url, _data, null, "json")
-        .done(function(data){
-            console.log(data);
+    $.ajax({
+        url: _url,
+        headers: { 'X-CSRF-TOKEN': _token },
+        type: 'POST',
+        data: _data
+    })
+    .done(function(data, textStatus, jqXHR){
+        console.log(data);
 
-            if(data.success == 'true'){
-                var _sticker_id = data.sticker_id;
-                // btn btn-outline-' + color + 
-                $('#btnSticker_' + _number).attr('class', 'btn btn-' + getColor(_quantity) + ' btn-sm btn-block');
-                debugger;
-                window.listStickerGot[parseInt(_number) - 1].quantity = parseInt(_quantity)
-                window.listStickerGot[parseInt(_number) - 1].id = parseInt(_sticker_id)
+        if(data.success == 'true'){
+            var _sticker_id = data.sticker_id;
+            // btn btn-outline-' + color + 
+            $('#btnSticker_' + _number).attr('class', 'btn btn-' + getColor(_quantity) + ' btn-sm btn-block');
 
-                $('#message-got').html('<div class="alert alert-success" role="alert">Registro satisfactorio! </div>');
-            }
-        })
-        .fail(function(jqXHR, textStatus, errorThrown ){
-            
-            console.error(jqXHR);
-            
-            $('#message-got').html('<div class="alert alert-danger" role="alert">Error en el registro! </div>');
-        })
+            window.listStickerGot[parseInt(_number) - 1].quantity = parseInt(_quantity)
+            window.listStickerGot[parseInt(_number) - 1].id = parseInt(_sticker_id)
 
+            $('#message-got').html('<div class="alert alert-success" role="alert">Registro satisfactorio! </div>');
+        }
+    })
+    .fail(function(jqXHR, textStatus, errorThrown ){
+        console.log(jqXHR.responseJSON.errors);
+        $('#message-got').html('<div class="alert alert-danger" role="alert">Error en el registro! </div>');
+        
+
+    })
 });
+
 
 var getColor = function(quantity){
     if(quantity == 0) color = 'outline-secondary';

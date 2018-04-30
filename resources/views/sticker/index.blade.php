@@ -11,7 +11,9 @@
     <div class="section-header">
         <h3>Control Sticker</h3>
         <p>Panel de control del conjunto de sticker coleccionados y posibles sticker intercabiables</p>
-
+      
+        <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+        
         <div class="form-row align-items-center" style="margin-left: 40%;;">
             <div class="col-auto my-1">
             <select class="custom-select mr-sm-2" id="album_id" name="album_id">

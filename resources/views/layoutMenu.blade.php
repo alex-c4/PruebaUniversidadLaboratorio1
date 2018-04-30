@@ -30,7 +30,7 @@
   <link href="{{ asset('lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="{{ asset('css/style.css')}}" rel="stylesheet">
   <style type="text/css">
     #header{
       background: rgba(0, 0, 0, 0.9);
@@ -62,6 +62,7 @@
           
           @if(Auth::check())
             <li><a href="{{ url('/logout') }}">Logout</a></li>
+            <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
           @else
             <li><a href="{{ url('/register') }}">Register</a></li>
           @endif
