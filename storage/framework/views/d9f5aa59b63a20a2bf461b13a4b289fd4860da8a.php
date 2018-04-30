@@ -100,6 +100,7 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form id="form_login" name="form_login" method="POST" action="<?php echo e(route('login')); ?>">
       <input type="hidden" id="routeCurrent" value="<?php echo e(route('login')); ?>">
+      <input type="hidden" id="routeDashboard" value="<?php echo e(route('dasboardindex')); ?>">
       <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
       
       <div class="modal-dialog" role="document">
@@ -125,6 +126,12 @@
 
               </div>
 
+              <div class="form-group">
+                  <div id="message-got">
+                  
+                  </div>
+              </div> 
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
@@ -136,7 +143,11 @@
     </div>
   </section><!-- #intro -->
 
+  
+
   <main id="main">
+
+  
 
     <!--==========================
       Featured Services Section

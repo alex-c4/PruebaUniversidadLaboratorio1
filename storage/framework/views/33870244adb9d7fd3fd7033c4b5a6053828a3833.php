@@ -61,7 +61,7 @@
          
           
           <?php if(Auth::check()): ?>
-            <li><a href="<?php echo e(url('/register')); ?>">Home</a></li>
+            <li><a href="<?php echo e(url('/logout')); ?>">Logout</a></li>
           <?php else: ?>
             <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
           <?php endif; ?>
