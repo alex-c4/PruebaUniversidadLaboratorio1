@@ -32,7 +32,7 @@
             <label for="mensaje">Escribe un mensaje para <b>{{$user->name."".$user->lastName}}</b>:</label>
             <textarea class="form-control" name="mensaje" id="mensaje" rows="5" data-rule="required" data-msg=" por favor, debes escribir algo" placeholder="Mensaje"></textarea>
             <div class="validation"></div>
-            {!! $errors->first('mensaje', '<span class="text-danger">:message</span>') !!}
+            {!! $errors->first('texto', '<span class="text-danger">:message</span>') !!}
           </div>
             <!-- Boton Aceptar -->
           <div id="oscuro" class="text-center">
