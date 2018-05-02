@@ -101,7 +101,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Panel de Sticker</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-info-circle fa-lg"></i> &nbsp; Panel de Sticker</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -129,6 +129,36 @@
                         <input type="hidden" name="htxtnumber" id="htxtnumber">
                     </div>
                     
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">&nbsp;</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><i class="fas fa-user-circle fa-lg"></i></th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td><button type="button" class="btn btn-outline-success btn-sm"><i class="far fa-envelope"></i></i></button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><i class="fas fa-user-circle fa-lg"></i></th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td><button type="button" class="btn btn-outline-success btn-sm"><i class="far fa-comments"></i></button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><i class="fas fa-user-circle fa-lg"></i></th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td><button type="button" class="btn btn-outline-success btn-sm"><i class="far fa-comments"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                     </form>
                 </div>
                 <div class="modal-footer">
