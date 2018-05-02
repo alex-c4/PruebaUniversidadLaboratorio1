@@ -25,7 +25,7 @@ class MensajeriaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+//$this->middleware('guest');
     }
 
 
@@ -43,10 +43,10 @@ class MensajeriaController extends Controller
         ];
 
         return Validator::make($data, [
-            'id_remitente' => 'required|numeric|max:10',
-            'id_destinatario' => 'required|numeric|max:10',
-            'id_intercambio' => 'required|numeric|max:10',
-            'texto' => 'required|string|max:300'
+            'id_remitente' => 'required|numeric',
+            'id_destinatario' => 'required|numeric',
+            'id_intercambio' => 'required|numeric',
+            'mensaje' => 'required|string|max:300'
         ], $messages);
     }
 
@@ -60,7 +60,7 @@ class MensajeriaController extends Controller
     //registro de mensajes en bd
     public function store(){
         //DESSCOMENTA LA SIGUIENTE LINEA PARA ACTIVAR VAIDACIONDE FORMULARIO-------------------------------------------<<<<<<<<<<<<<<<<< LEE LEE
-        //$this->validator(request()->all())->validate(); 
+        $this->validator(request()->all())->validate(); 
 
 
         $mensaje = Mensaje::create([

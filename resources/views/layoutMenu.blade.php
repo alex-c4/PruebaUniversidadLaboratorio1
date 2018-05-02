@@ -56,9 +56,9 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
-          <li><a href="#about">Play Quinielas</a></li>
-          <li><a href="{{ url('/#notice') }}">Notice</a></li>
-          <li><a href="{{ url('/#portfolio') }}">World Cup Russia 2018</a></li>
+          <li><a href="#about">Intercambiar Cromos</a></li>
+          <li><a href="{{ url('/#notice') }}">Noticias</a></li>
+          <li><a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
          
           
           @if(Auth::check())

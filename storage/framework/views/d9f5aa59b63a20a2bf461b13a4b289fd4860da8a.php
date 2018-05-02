@@ -74,8 +74,8 @@
           <div class="carousel-item" style="background-image: url('img/intro-carousel/3_xp.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>INTERCAMBIA TUS BARAJITAS</h2>
-                <p>Llena tu álbum del mundial de una forma rápida, organizada y Divertida...</p>
+                <h2>INTERCAMBIA TUS CROMOS</h2>
+                <p>Llena tu álbum del mundial de forma Rápida, organizada y Divertida...</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
               </div>
@@ -171,8 +171,8 @@
 
           <div class="col-lg-4 box">
             <i class="ion-ios-bookmarks-outline"></i>
-            <h4 class="title"><a href="">BARAJITAS</a></h4>
-            <p class="description">Por fin un sitio web donde podras administrar tus barajitas y ademas la posibilidad de intercambiar las repetidas con otros usuarios... </p>
+            <h4 class="title"><a href="">CROMOS</a></h4>
+            <p class="description">Por fin un sitio web donde podras administrar tus cromos y ademas la posibilidad de intercambiar las repetidas con otros usuarios... </p>
           </div>
 
         </div>
@@ -187,7 +187,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Como jugar Quinielas con xportgold...</h3>
+          <h3>Como Intercambiar tus cromos...</h3>
         </header>
 
         <div class="row about-cols">
@@ -200,8 +200,7 @@
               </div>
               <h2 class="title"><a href="#">PASO 1:</a></h2>
               <p>
-               Registra de forma rápida y sencilla tus datos basicos y disfruta la experiencia de ser un usuario exclusivo de xportgold.
-				
+               Registra de forma rápida y sencilla tus datos y disfruta la experiencia de ser un usuario exclusivo de xportgold.			
 				 
               </p>
             </div>
@@ -210,12 +209,12 @@
           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
             <div class="about-col">
               <div class="img">
-                <img src="img/about_quiniela.jpg" alt="" class="img-fluid">
+                <img src="img/about_panel.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-list-outline"></i></div>
               </div>
               <h2 class="title"><a href="#">PASO 2</a></h2>
               <p>
-                Demuestra tus conocimientos y habilidades en el deporte rey pronosticando los resultados de los partidos del mundial Rusia 2018.
+           	Marca en tu panel interactivo los cromos adquiridos y los repetidos para intercambiar otros usuarios...
               </p>
             </div>
           </div>
@@ -223,12 +222,12 @@
           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
             <div class="about-col">
               <div class="img">
-                <img src="img/about_ganar.jpg" alt="" class="img-fluid">
+                <img src="img/about_album.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-trophy"></i></div>
               </div>
               <h2 class="title"><a href="#">PASO 3</a></h2>
               <p>
-               .... Y Gana el fabuloso "GOLD POT" que contiene las cantidades de apuestas de miles de participantes de nuestra quiniela general...
+               ....Intercambia con otros usuarios de tu localidad los cromos que tengan repetidos y que tu necesitas para completar tu Album...
               </p>
             </div>
           </div>
@@ -449,153 +448,163 @@
           <div class="col-lg-12">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Calendario</li>
-              <li data-filter=".filter-card">Estadios</li>
+              <li data-filter=".filter-app">Estadios</li>
+              <li data-filter=".filter-card">Selecciones</li>
               <li data-filter=".filter-web">Imagenes Oficiales</li>
             </ul>
           </div>
         </div>
 
+		<!-- ESTADIO 1 Ekaterimburgo-->
         <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+		   <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/galeria/galeria_estadio1.jpg" class="img-fluid" alt="">
-                <a href="img/galeria/galeria_estadio1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/Ekaterimburgo.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/Ekaterimburgo.jpg" data-lightbox="portfolio" data-title="Ekaterimburgo" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
-
               <div class="portfolio-info">
-                <h4><a href="#">App 1</a></h4>
-                <p>App</p>
+                <h4><a href="#">Ekaterimburgo</a></h4>
+                <p>Ruso: Центра́льный стадио́н</p>
               </div>
             </div>
           </div>
+
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/galeria/galeria_estadio2.jpg" class="img-fluid" alt="">
-                <a href="img/galeria/galeria_estadio2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/oficial_logo.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/oficial_logo.jpg" class="link-preview" data-lightbox="portfolio" data-title="Logo Oficial" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Web 3</a></h4>
-                <p>Web</p>
+                <h4><a href="#">Logo Oficial</a></h4>
+                <p>Logo Oficial</p>
               </div>
             </div>
           </div>
 
+  <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/seleccion_argentina.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/seleccion_argentina.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Seleccion de Argentina</a></h4>
+                <p>Albiceleste</p>
+              </div>
+            </div>
+          </div>
+
+
+	<!-- ESTADIO 2 Luzhniki_Stadium-->
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/galeria/galeria_estadio3.jpg" class="img-fluid" alt="">
-                <a href="img/galeria/galeria_estadio3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/Luzhniki_Stadium.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/Luzhniki_Stadium.jpg" class="link-preview" data-lightbox="portfolio" data-title="Luzhniki_Stadium" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">App 2</a></h4>
-                <p>App</p>
+                <h4><a href="#">Luzhniki_Stadium</a></h4>
+                <p>Ruso: Большая спортивная арена Олимпийский комплекс „Лужники“</p>
               </div>
             </div>
           </div>
+
+
+ <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/oficial_mascota.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/oficial_mascota.jpg" class="link-preview" data-lightbox="portfolio" data-title="Mascota Oficial" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Mascota Oficial</a></h4>
+                <p>"Zabivaka"</p>
+              </div>
+            </div>
+          </div>
+
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/galeria/galeria_copa.jpg" class="img-fluid" alt="">
-                <a href="img/galeria/galeria_copa.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/seleccion_brasil.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/seleccion_brasil.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Card 2</a></h4>
-                <p>Card</p>
+                <h4><a href="#">Seleccion de Brasil</a></h4>
+                <p>"La Canarinha"</p>
               </div>
             </div>
           </div>
+
+<!-- ESTADIO 3 Otkrytie Arena-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/Otkrytie_Arena.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/Otkrytie_Arena.jpg" class="link-preview" data-lightbox="portfolio" data-title="Otkrytie Arena" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Otkrytie Arena</a></h4>
+                <p>Ruso: Открытие Арена</p>
+              </div>
+            </div>
+          </div>
+
+
+
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/galeria/galeria_balon.jpg" class="img-fluid" alt="">
-                <a href="img/galeria/galeria_balon.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/oficial_balon.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/oficial_balon.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Web 2</a></h4>
-                <p>Web</p>
+                <h4><a href="#">Balon Oficial</a></h4>
+                <p>Adidas Telstar 18</p>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/galeria/galeria_mascota.jpg" class="img-fluid" alt="">
-                <a href="img/galeria/galeria_mascota.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
 
-              <div class="portfolio-info">
-                <h4><a href="#">App 3</a></h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
+
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/card1.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/card1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="img/galeria/seleccion_colombia.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/seleccion_colombia.jpg" class="link-preview" data-lightbox="portfolio" data-title="Seleccion de Colombia" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Card 1</a></h4>
-                <p>Card</p>
+                <h4><a href="#">Seleccion de Colombia</a></h4>
+                <p>Los Cafeteros</p>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/portfolio/card3.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/card3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
 
-              <div class="portfolio-info">
-                <h4><a href="#">Card 3</a></h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="img/portfolio/web1.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/web1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="#">Web 1</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
+ 
     </section>
     <!-- #portfolio -->
 
