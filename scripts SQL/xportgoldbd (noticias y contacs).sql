@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `contacts`
 --
 
+DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE `contacts` (
   `id` int(10) UNSIGNED NOT NULL,
   `nameContact` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -43,7 +44,7 @@ CREATE TABLE `contacts` (
 --
 -- Estructura de tabla para la tabla `noticias`
 --
-
+DROP TABLE IF EXISTS `noticias`;
 CREATE TABLE `noticias` (
   `id` int(10) UNSIGNED NOT NULL,
   `titulo` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,

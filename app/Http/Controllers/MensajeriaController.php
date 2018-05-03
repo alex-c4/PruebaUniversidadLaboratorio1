@@ -59,9 +59,7 @@ class MensajeriaController extends Controller
 
     //registro de mensajes en bd
     public function store(){
-        //DESSCOMENTA LA SIGUIENTE LINEA PARA ACTIVAR VAIDACIONDE FORMULARIO-------------------------------------------<<<<<<<<<<<<<<<<< LEE LEE
         $this->validator(request()->all())->validate(); 
-
 
         $mensaje = Mensaje::create([
             'id_remitente' => request()->id_remitente,
@@ -88,36 +86,65 @@ class MensajeriaController extends Controller
     }
 
 
-    //funcion para buscar inercambios de barajitas para  el usuario logueado,
+    //funcion para buscar inercambios de stickers para  el usuario logueado,
     //y en base a estos listar conversaciones
     public function conversaciones(){
-        //join entre intercambios, barajitas y users
+        //join entre intercambios, stickers y users
         $id_usu='99';//id que debera salir de datos de session
-        $intercambios=DB::table('intercambios')
+        /*$intercambios=DB::table('intercambios')
             ->join('barajitas','barajitas.id_barajita','=','intercambios.id_barajita','inner',false)
             ->join('users','users.id','=','barajitas.id_user','inner',false)
             ->select('intercambios.id_intercambio','intercambios.id_usuario_solicitante','intercambios.id_barajita','intercambios.estatus','barajitas.id_user as id_propietario','barajitas.numero as barajita_num','users.name','users.lastName')
             ->where ('intercambios.id_usuario_solicitante','=',$id_usu)
             ->orwhere('users.id','=',$id_usu)
+            ->get(); */
+        //solicitados por el usuario logueado    
+        $intercambios=DB::table('intercambios')
+            ->join('stickers','stickers.id','=','intercambios.id_barajita','inner',false)
+            ->join('users','users.id','=','stickers.user_id','inner',false)        
+            ->select('intercambios.id_intercambio','intercambios.id_usuario_solicitante','intercambios.id_barajita','intercambios.estatus','stickers.user_id as id_propietario','stickers.number as sticker_num','users.name','users.lastName')
+            ->where ('intercambios.id_usuario_solicitante','=',$id_usu)
             ->get();
+
+        //intercambio de sticker propiedad del usuario logueado solicitado por otro
+            $intercambios2=DB::table('intercambios')
+            ->join('stickers','stickers.id','=','intercambios.id_barajita','inner',false)
+            ->join('users','users.id','=','intercambios.id_usuario_solicitante','inner',false)        
+            ->select('intercambios.id_intercambio','intercambios.id_usuario_solicitante','intercambios.id_barajita','intercambios.estatus','stickers.user_id as id_propietario','stickers.number as sticker_num','users.name','users.lastName')
+            ->where('stickers.user_id','=',$id_usu)
+            ->get();            
+        
     
-        return view('conversaciones',compact('intercambios'));
-       // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
+        return view('conversaciones',compact('intercambios','intercambios2'));
     }
 
     
     //funcion para retornar todos los mensajes sociados a un intercambio en especifico
     public function conversacion($id_intercambio){ 
         //return "estas la fucion con el id ".$id_intercambio;
+        $datos_intercambio=Intercambio::where('id_intercambio',$id_intercambio)->first();
         $conversacion=Mensaje::where('id_intercambio',$id_intercambio)->orderBy('created_at','asc')->get();
 
-        //join entre intercambios, barajitas y users paraobtener datos generales de unintercambio en especifico
-        $datos=DB::table('intercambios')
-            ->join('barajitas','barajitas.id_barajita','=','intercambios.id_barajita','inner',false)
-            ->join('users','users.id','=','barajitas.id_user','inner',false)
-            ->select('intercambios.id_intercambio','intercambios.id_usuario_solicitante','intercambios.id_barajita','intercambios.estatus','barajitas.id_user as id_propietario','barajitas.numero as barajita_num','users.name','users.lastName')
+        ////joins entre intercambios, stickers y users para obtener datos generales de unintercambio en especifico
+        //solicitados por usuario logueado
+        if($datos_intercambio->id_usuario_solicitante=='99'){
+            $datos=DB::table('intercambios')
+            ->join('stickers','stickers.id','=','intercambios.id_barajita','inner',false)
+            ->join('users','users.id','=','stickers.user_id','inner',false)
+            ->select('intercambios.id_intercambio','intercambios.id_usuario_solicitante','intercambios.id_barajita','intercambios.estatus','stickers.user_id as id_propietario','stickers.number as sticker_num','users.name','users.lastName')
             ->where ('intercambios.id_intercambio','=',$id_intercambio)
             ->first();
+         }else {
+            $datos=DB::table('intercambios')
+            ->join('stickers','stickers.id','=','intercambios.id_barajita','inner',false)
+            ->join('users','users.id','=','intercambios.id_usuario_solicitante','inner',false)
+            ->select('intercambios.id_intercambio','intercambios.id_usuario_solicitante','intercambios.id_barajita','intercambios.estatus','stickers.user_id as id_propietario','stickers.number as sticker_num','users.name','users.lastName')
+            ->where ('intercambios.id_intercambio','=',$id_intercambio)
+            ->first();
+         }
+         //solicitados por usuario logueado
+
+            
 
         //dd($datos);
 
