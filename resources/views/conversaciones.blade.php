@@ -23,12 +23,21 @@
         <div class="container">
           <div class="row oscuro">
             <div class="col-lg-12 oscuro-links"> 
-              <h4>conversaciones privadas: <span class="vinculogris"><i class="fa">{{$intercambios->count()}}</i></span></h4>             
+              <h4>intercambios solicitados por mi: <span class="vinculogris"><i class="fa">{{$intercambios->count()}}</i></span></h4>             
               <ul>
                 @foreach($intercambios as $intercambio)  
                   <li>
                     <i class="ion-ios-arrow-right"></i> <a href="{{ url('/men/'.$intercambio->id_intercambio)}}">{{$intercambio->name." ".$intercambio->lastName}}</a>
-                    barajita:{{ $intercambio->barajita_num}}
+                    barajita:{{ $intercambio->sticker_num}}
+                  </li>
+                @endforeach
+              </ul>
+              <h4>intercambios solicitados por otros: <span class="vinculogris"><i class="fa">{{$intercambios2->count()}}</i></span></h4>
+              <ul>
+                @foreach($intercambios2 as $intercambio)  
+                  <li>
+                    <i class="ion-ios-arrow-right"></i> <a href="{{ url('/men/'.$intercambio->id_intercambio)}}">{{$intercambio->name." ".$intercambio->lastName}}</a>
+                    barajita:{{ $intercambio->sticker_num}}
                   </li>
                 @endforeach
               </ul>
