@@ -55,9 +55,9 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
-          <li><a href="#about">Play Quinielas</a></li>
-          <li><a href="<?php echo e(url('/#notice')); ?>">Notice</a></li>
-          <li><a href="<?php echo e(url('/#portfolio')); ?>">World Cup Russia 2018</a></li>
+          <li><a href="#about">Intercambiar Cromos</a></li>
+          <li><a href="<?php echo e(url('/#notice')); ?>">Noticias</a></li>
+          <li><a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
          
           
           <?php if(Auth::check()): ?>
