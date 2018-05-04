@@ -25,10 +25,10 @@
               <h4>Mensajes: <span class="vinculogris"><i class="fa">{{$conversacion->count()}}</i></span></h4>             
               
                 @foreach($conversacion as $mensaje)  
-                  @if($mensaje->id_remitente =='99')
+                  @if($mensaje->id_remitente == $user_log)
                     <div><i class="ion-ios-arrow-right"></i><b>Yo: </b>{{$mensaje->texto." "}}</div> 
                   @endif    
-                  @if($mensaje->id_remitente != '99')
+                  @if($mensaje->id_remitente != $user_log)
                    <div class="gris-interlinea";"><b>{{ $datos->name."".$datos->lastName}}:</b> {{$mensaje->texto." " }}<i class="ion-ios-arrow-left pull-right"></i></div> 
                   @endif
                   
@@ -37,7 +37,7 @@
             </div>      
           </div>  
            <div  id="area-botones" class="text-center">
-            <a href="{{ route('mensajeria.create',['user'=>$datos->id_propietario,'intercambio'=>$datos->id_intercambio])}}" id="escribir" class=" btn btn-data-target">Escribir</a>       
+            <a href="{{ route('mensajeria.create',['intercambio'=>$datos->id_intercambio])}}" id="escribir" class=" btn btn-data-target">Escribir</a>       
           </div> 
         </div>
     </div>
