@@ -199,14 +199,14 @@ var btnSendEmail = function(sticker_id, user_id){
                         
                         $.alert({
                             title: 'Información',
-                            content: 'Error enviando el correo electrónico, por favor intente nuevamente',
+                            content: data
                         });
                     })
                     .fail(function(jqXHR, textStatus, errorThrown ){
                         console.log(jqXHR.responseJSON.errors);
                         $.alert({
                             title: 'Información',
-                            content: data,
+                            content: 'Error enviando el correo electrónico, por favor intente nuevamente',
                         });
                     })
                 }

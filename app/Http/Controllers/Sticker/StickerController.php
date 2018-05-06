@@ -200,6 +200,7 @@ class StickerController extends Controller
                 'lastNameCurrUser' => auth()->user()->lastName,
                 'nameUser'=> $user[0]->name,
                 'lastNameUser'=> $user[0]->lastName,
+                'user_id'=> $user_id,
                 'stickerId' => $sticker_id,
                 'stickerNumber' => $sticker[0]->number
             );
