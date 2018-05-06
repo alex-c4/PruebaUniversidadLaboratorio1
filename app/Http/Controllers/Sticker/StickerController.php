@@ -9,6 +9,8 @@ use DB;
 use App\Sticker;
 use App\User;
 use App\Album;
+use Mail;
+use App\Mail\contactUser;
 
 class StickerController extends Controller
 {
@@ -69,7 +71,7 @@ class StickerController extends Controller
                 //                     ->orderBy('number', 'ASC')
                 //                     ->get();
                 
-                $stickerListWaiting = DB::select('CALL sp_getStikersWaiting(?,?)', array($user_id,$album_id) );
+                $stickerListWaiting = DB::select('CALL sp_getStickersWaiting(?,?)', array($user_id,$album_id) );
 
                 while($count <= $CANT_STICKERS - 1){
                     $num = $count + 1;
@@ -167,5 +169,51 @@ class StickerController extends Controller
         }
         
         return  $res;
+    }
+
+    public function contactUser(){
+        $user_id = auth()->user()->id; 
+        $user_city_id = auth()->user()->city_id;
+        $album_id = request()->album_id;
+        $number = request()->number;
+
+        $userList = DB::select('CALL sp_getUserStickersWaiting(?,?,?,?)', array($user_id, $album_id, $user_city_id, $number) );
+        
+        return $userList;
+    }
+
+    public function sentEmailToUser(){
+        try{
+
+            $current_user_id = auth()->user()->id;
+
+            $user_id = request()->user_id;
+            $user = User::where('id', $user_id)->get();
+         
+            $sticker_id = request()->sticker_id;
+            $sticker = Sticker::where('id', $sticker_id)->get();
+
+
+            // envio de email
+            $data = array(
+                'nameCurrUser' => auth()->user()->name,
+                'lastNameCurrUser' => auth()->user()->lastName,
+                'nameUser'=> $user[0]->name,
+                'lastNameUser'=> $user[0]->lastName,
+                'stickerId' => $sticker_id,
+                'stickerNumber' => $sticker[0]->number
+            );
+
+            Mail::send('emails.contactUser', $data, function($message) use($user) {
+                $message->from('admin@xportgold.com', 'XportGold');
+                $message->to($user[0]->email_)->subject('Intercambio de Cromo');
+            });
+            // Mail::to('alexdaniel2601@hotmail.com')->send(new ContactUser($data));
+
+            return "Email Enviado!!!";
+        
+        }catch(Exception $e){
+            return "Error email no enviado!!!";            
+        }
     }
 }

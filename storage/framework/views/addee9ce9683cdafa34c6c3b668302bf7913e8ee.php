@@ -1,26 +1,24 @@
-@extends('layoutMenu')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <hr/>
 
-<input type="hidden" id="routeCurrent" value="{{ url('/') }}">
+<input type="hidden" id="routeCurrent" value="<?php echo e(url('/')); ?>">
 
 <section id="contact" class="section-bg wow fadeInUp" >
     <div class="section-header">
         <h3>Control Sticker</h3>
         <p>Panel de control del conjunto de sticker coleccionados y posibles sticker intercabiables</p>
       
-        <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+        <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
         
         <div class="form-row align-items-center" style="margin-left: 40%;;">
             <div class="col-auto my-1">
                 <select class="custom-select mr-sm-2" id="album_id" name="album_id">
-                @foreach($albumList as $album)
+                <?php $__currentLoopData = $albumList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $album): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <option value="0" selected>...</option>
-                    <option value="{{ $album['id'] }}">{{ $album['name'] }}</option>
-                @endforeach
+                    <option value="<?php echo e($album['id']); ?>"><?php echo e($album['name']); ?></option>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
             
             </div>
@@ -145,4 +143,5 @@
 
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layoutMenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

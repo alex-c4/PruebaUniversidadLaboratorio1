@@ -54,14 +54,18 @@ Route::get('/men/{id_intercambio}','MensajeriaController@conversacion')->name('c
 |
 | Seccion para las rutas asociadas a la parte de noticias
 |
-<<<<<<< HEAD
 */
 
+Route::post('/stickers/contactUser', 'Sticker\StickerController@contactUser')->name('stickersContactUser');
+
+Route::post('/stickers/sentEmailToUser', 'Sticker\StickerController@sentEmailToUser')->name('stickerSentEmailToUser');
 
 Route::post('/stickers/save', 'Sticker\StickerController@save')->name('stickersSave');
+
 Route::get('/stickers/{album_id}', 'Sticker\StickerController@byAlbum')->name('stickersByAlbum');
 
 Route::get('/sticker', 'Sticker\StickerController@index')->name('stickerindex');
+
 
 
 
