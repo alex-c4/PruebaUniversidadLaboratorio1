@@ -603,7 +603,212 @@
             </div>
           </div>
 
+<!-- ESTADIO 4 Krestovski-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/Krestovski.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/Krestovski.jpg" class="link-preview" data-lightbox="portfolio" data-title="Krestovski" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
 
+              <div class="portfolio-info">
+                <h4><a href="#">Krestovski</a></h4>
+                <p>Ruso: Стадион Крестовский</p>
+              </div>
+            </div>
+          </div>
+ 
+ <!-- ESTADIO 5 Kaliningrado-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/Kaliningrado.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/Kaliningrado.jpg" class="link-preview" data-lightbox="portfolio" data-title="Kaliningrado" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Kaliningrado</a></h4>
+                <p>Ruso: Калининградская область</p>
+              </div>
+            </div>
+          </div>
+ 
+ 
+ <!-- ESTADIO 6 Nizhni Nóvgorod-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/nizhny_novgorod.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/nizhny_novgorod.jpg" class="link-preview" data-lightbox="portfolio" data-title="Nizhni Nóvgorod" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Nizhni Nóvgorod</a></h4>
+                <p>Ruso: Ни́жний Но́вгород</p>
+              </div>
+            </div>
+          </div>
+ 
+ 
+<div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/seleccion_uruguay.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/seleccion_uruguay.jpg" class="link-preview" data-lightbox="portfolio" data-title="Seleccion de Uruguay" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Seleccion de Uruguay</a></h4>
+                <p>La Garra Charrúa</p>
+              </div>
+            </div>
+          </div>
+ 
+ 
+ <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/seleccion_peru.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/seleccion_peru.jpg" class="link-preview" data-lightbox="portfolio" data-title="Selección de Peru" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Seleccion de Peru</a></h4>
+                <p>Los Incas</p>
+              </div>
+            </div>
+          </div>
+		  
+		  
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/seleccion_espana.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/seleccion_espana.jpg" class="link-preview" data-lightbox="portfolio" data-title="Seleccion de España" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Seleccion de España</a></h4>
+                <p>La Roja</p>
+              </div>
+            </div>
+          </div>
+ 
+ 
+ <!-- ESTADIO 7 Volgogrado Arena-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/volgograd_arena.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/volgograd_arena.jpg" class="link-preview" data-lightbox="portfolio" data-title="Volgogrado Arena" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="https://es.wikipedia.org/wiki/Volgogrado_Arena">Volgogrado Arena</a></h4>
+                <p>Ruso: Волгоград Арена</p>
+              </div>
+            </div>
+          </div>
+ 
+ 
+ <!-- ESTADIO 8 Olímpico Fisht-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/olimpico_fisht.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/olimpico_fisht.jpg" class="link-preview" data-lightbox="portfolio" data-title="Olímpico Fisht" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Olímpico Fisht</a></h4>
+                <p>Ruso: Олимпийский стадион «Фишт»</p>
+              </div>
+            </div>
+          </div>
+		  
+		  
+		  
+		  
+		  <!-- ESTADIO 9 Rostov Arena-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/rostov_arena.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/rostov_arena.jpg" class="link-preview" data-lightbox="portfolio" data-title="Rostov Arena" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Rostov Arena</a></h4>
+                <p>Rostov Arena</p>
+              </div>
+            </div>
+          </div>
+		  
+		  
+		  
+		  <!-- ESTADIO 10 Mordovia Arena-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/mordovia_arena.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/mordovia_arena.jpg" class="link-preview" data-lightbox="portfolio" data-title="Mordovia Arena" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#a">Mordovia Arena</a></h4>
+                <p>Ruso: Мордовия Арена</p>
+              </div>
+            </div>
+          </div>
+ 
+ 
+ <!-- ESTADIO 11 Samara Arena-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/samara_arena.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/samara_arena.jpg" class="link-preview" data-lightbox="portfolio" data-title="Samara Arena" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Samara Arena</a></h4>
+                <p>Ruso: Космос Арен</p>
+              </div>
+            </div>
+          </div>
+		  
+		  
+		  
+		  
+		  <!-- ESTADIO 12 Kazán Arena-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="img/galeria/kazan_arena.jpg" class="img-fluid" alt="">
+                <a href="img/galeria/kazan_arena.jpg" class="link-preview" data-lightbox="portfolio" data-title="Kazán Arena" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
+
+              <div class="portfolio-info">
+                <h4><a href="#">Kazán Arena</a></h4>
+                <p>Ruso: Казань-арена</p>
+              </div>
+            </div>
+          </div> 
+		  
+		  
+		  
  
     </section>
     <!-- #portfolio -->

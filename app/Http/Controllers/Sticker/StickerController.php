@@ -206,7 +206,7 @@ class StickerController extends Controller
 
             Mail::send('emails.contactUser', $data, function($message) use($user) {
                 $message->from('admin@xportgold.com', 'XportGold');
-                $message->to($user[0]->email_)->subject('Intercambio de Cromo');
+                $message->to($user[0]->email)->subject('Intercambio de Cromo');
             });
             // Mail::to('alexdaniel2601@hotmail.com')->send(new ContactUser($data));
 
