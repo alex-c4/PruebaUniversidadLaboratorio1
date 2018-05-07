@@ -18,16 +18,16 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="<?php echo e(asset('lib/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
-  
-
-
+  <link href="<?php echo e(asset('lib/bootstrap/css/bootstrap.css')); ?>" rel="stylesheet">
+    
   <!-- Libraries CSS Files -->
-  <link href="<?php echo e(asset('lib/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('css/fontawesome.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/animate/animate.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/ionicons/css/ionicons.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/owlcarousel/assets/owl.carousel.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/lightbox/css/lightbox.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('css/jquery-confirm.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('css/jquery-confirm.less')); ?>" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
   <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
@@ -51,7 +51,13 @@
         <!-- Uncomment below if you prefer to use an image logo -->
         <a href="#intro"><img src="<?php echo e(url('img/logo.png')); ?>" alt="" title="" /></a>
       </div>
-
+	
+	<div id="logo" class="pull-left">
+        <!-- <h1><a href="#intro" class="scrollto">BizPage</a></h1>-->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="#intro"><img src="<?php echo e(url('img/logo.png')); ?>" alt="" title="" /></a>
+      </div>
+	
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
@@ -166,6 +172,7 @@
   <script src="<?php echo e(asset('lib/isotope/isotope.pkgd.min.js')); ?>"></script>
   <script src="<?php echo e(asset('lib/lightbox/js/lightbox.min.js')); ?>"></script>
   <script src="<?php echo e(asset('lib/touchSwipe/jquery.touchSwipe.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('js/jquery-confirm.js')); ?>"></script>
 
   <script src="<?php echo e(asset('js/bootstrap-datepicker.min.js')); ?>"></script>
   <link rel="stylesheet" href="<?php echo e(asset('css/bootstrap-datepicker.min.css')); ?>">
