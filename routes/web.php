@@ -27,6 +27,9 @@ Route::view('/welcome', 'welcome');
 |
 */
 // Route::view('/register', 'auth.register');
+// Route::get('/verify2', function () {
+//     return view('/auth.verify');
+// });
 Route::get('/register', 'Auth\RegisterController@create')->name('create');
 Route::view('/auth.success', 'success');
 Route::post('/register', 'Auth\RegisterController@store')->name('register');
@@ -81,6 +84,10 @@ Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta'
 
 Route::get('/verify/{code}', 'VerifyController@verify')->name('verify');
 Route::get('/verify', 'VerifyController@verifyEmpty')->name('verifyEmpty');
+// Route::get('/verifyOk', 'VerifyController@verifyEmpty')->name('verifyEmpty');
+Route::get('verifyOk', function($data){
+	return view('auth.verify', $data);
+})->name('verifyOk');
 
 
 

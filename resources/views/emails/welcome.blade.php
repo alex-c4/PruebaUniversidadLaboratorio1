@@ -13,7 +13,7 @@
         <p>Por favor confirma tu correo electrónico</p>
         <p>Para ello simplemente debes hacer click en el siguiente enlace:</p>
         <a href="{{ url('verify/' . $confirmation_code) }}">enlace</a>
-
+        
     </div>
 </body>
 </html>

@@ -151,15 +151,12 @@ class RegisterController extends Controller
             'name' => request()->name,
             'confirmation_code' => $conf_code
         );
-        // envio de email
-        // $data = array(
-        //     'name'=> 'ExportGold Test'
-        // );
-
-        // Mail::send('emails.welcome', $data, function($message) {
-        //     $message->from('admin@xportgold.com', 'XportGold');
-        //     $message->to('alexdaniel2601@hotmail.com')->subject('Confirmación de tu correo');
-        // });
+        
+        $req = request();
+        Mail::send('emails.welcome', $data, function($message) use($req) {
+            $message->from('admin@xportgold.com', 'XportGold');
+            $message->to($req->email)->subject('Confirmación de tu correo');
+        });
         // Mail::to('alexdaniel2601@hotmail.com')->send();
 
         // if($m){

@@ -209,7 +209,7 @@ class StickerController extends Controller
                 $message->from('admin@xportgold.com', 'XportGold');
                 $message->to($user[0]->email)->subject('Intercambio de Cromo');
             });
-            // Mail::to('alexdaniel2601@hotmail.com')->send(new ContactUser($data));
+            
 
             return "Email Enviado!!!";
         
