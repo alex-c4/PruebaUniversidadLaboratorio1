@@ -19,7 +19,7 @@ $('#form_login').submit(function() {
                 $(location).attr('href', _routeDashboard);
             }else{
                 console.log(data.message);
-                $('#message-got').html('<div class="alert alert-danger" role="alert">' + data.message + '</div>');                
+                $('#message-got').html('<div class="alert alert-warning" role="alert">' + data.message + '</div>');                
             }
             console.log(data);
         })

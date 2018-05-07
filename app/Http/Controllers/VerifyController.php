@@ -15,19 +15,36 @@ class VerifyController extends Controller
         if(!$user){
             // mensaje de error codigo no valido y rediccionar a pagina
             // return redirect('/');
-            return "Codigo no coincide";
+            $data = [
+                'title' => 'Información',
+                'message' => 'Codigo no válido!!!',
+                'footer' => 'Muchas gracias por elegirnos'
+            ];
+
+            // return view('verifyOk', ['title' => 'Bienvenid@']);
+            
+            return $this->verifyOk($data);
         }
 
         $user->confirmed = true;
         $user->confirmation_code = null;
         $user->save();
+        $data = [
+            'title' => 'Bienvenid@!!!',
+            'message' => 'Su correo electorónico fue validado correctamente',
+            'footer' => 'Muchas gracias por elegirnos y esperemos disfrute y gane!.'
+        ];
 
-        return 'Bienvenido, hemos confirmado su correo';
-
+        return view('auth.verify', $data);
     }
 
     public function verifyEmpty(){
         return redirect('/');
+    }
+
+    public function verifyOk($data){
+        
+        return view('auth.verify', $data);
     }
     
 }
