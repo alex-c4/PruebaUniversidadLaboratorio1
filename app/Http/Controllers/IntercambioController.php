@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Intercambio
+use App\Intercambio;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,29 +23,29 @@ class IntercambioController extends Controller
         ];
 
         return Validator::make($data, [
-            'id_barajita' => 'required|numeric',
-            'id_solicitante' => 'required|numeric',
+            'id_barajita' => 'required|numeric|max:10',
+            'id_solicitante' => 'required|numeric|max:10',
           ], $messages);
     }
 
 
 
 		public function store($id_solicitante,$id_sticker){
-        //$this->validator(request()->all())->validate(); -- -----------------  es necesario validardatos??
+        //$this->validator(request()->all())->validate();  es necesario validar datos??
+        $intercambio=Intercambio::where('id_barajita',$id_sticker)->where('id_usuario_solicitante',$id_solicitante)->first();    
 
-        $mensaje = Intercambio::create([
-            'id_usuario_solicitante' => $id_solicitante,
-            'id_barajita' => $id_sticker,
-            'estatus' => 'EN PROCESO'//-----------------agregar nuevas columnas created at y updated at a la tabla  eincluir aqui
+        if ($intercambio==null){//pendiente validar  respuesta del query antes de pasar respuesta a la ruta
+            $respuesta = Intercambio::create([
+                'id_barajita' => $id_sticker,
+                'id_usuario_solicitante' => $id_solicitante,
+                'estatus' => 'EN PROCESO'
+            ])->id;
 
-
-        ]);/// caputurar id creado al momento de hacer create!!
-
-       $id_intercambio=request()->id_intercambio;      
-        
-        return redirect()->route('conversacion.mostrar',['id_intercambio'=>$id_intercambio]);
-        //return redirect()->function('conversacion',['id_intercambio'=>$id_intercambio]);
-        
+            return redirect()->route('mensajeria.create',['id_intercambio'=>$respuesta]);
+        }else{
+            // si ya existe un intercambio para este usuario y sticker;
+            return redirect()->route('conversacion.mostrar',['id_intercambio'=>$intercambio->id_intercambio]);
+        }
         
     }
 

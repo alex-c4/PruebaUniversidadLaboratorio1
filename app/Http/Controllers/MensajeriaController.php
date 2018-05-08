@@ -51,6 +51,7 @@ class MensajeriaController extends Controller
     public function datosIntercambioUserLog ($id_intercambio){
         $user_id = auth()->user()->id;
         $datos_intercambio=Intercambio::where('id_intercambio',$id_intercambio)->first();
+        //return($datos_intercambio);
         ////joins entre intercambios, stickers y users para obtener datos generales de unintercambio en especifico
         //solicitados por usuario logueado
         if($datos_intercambio->id_usuario_solicitante==$user_id){
@@ -73,9 +74,8 @@ class MensajeriaController extends Controller
 
 
     public function create($intercambio){ 
-        //$user= User::where('id','=',$destinatario)->first();
-        $datos = $this->datosIntercambioUserLog($intercambio);                 
-
+       //$user= User::where('id','=',$destinatario)->first();
+        $datos = $this->datosIntercambioUserLog($intercambio);
         return view('mensaje',compact('datos','intercambio'));
     }
 
@@ -95,9 +95,6 @@ class MensajeriaController extends Controller
        $id_intercambio=request()->id_intercambio;      
         
         return redirect()->route('conversacion.mostrar',['id_intercambio'=>$id_intercambio]);
-        //return redirect()->function('conversacion',['id_intercambio'=>$id_intercambio]);
-        
-        
     }
 
 
