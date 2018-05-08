@@ -27,6 +27,9 @@ Route::view('/welcome', 'welcome');
 |
 */
 // Route::view('/register', 'auth.register');
+// Route::get('/verify2', function () {
+//     return view('/auth.verify');
+// });
 Route::get('/register', 'Auth\RegisterController@create')->name('create');
 Route::view('/auth.success', 'success');
 Route::post('/register', 'Auth\RegisterController@store')->name('register');
@@ -56,14 +59,18 @@ Route::get('/intercambio/{id_solicitante}/{id_stiker}', 'IntercambioController@s
 |
 | Seccion para las rutas asociadas a la parte de noticias
 |
-<<<<<<< HEAD
 */
 
+Route::post('/stickers/contactUser', 'Sticker\StickerController@contactUser')->name('stickersContactUser');
+
+Route::post('/stickers/sentEmailToUser', 'Sticker\StickerController@sentEmailToUser')->name('stickerSentEmailToUser');
 
 Route::post('/stickers/save', 'Sticker\StickerController@save')->name('stickersSave');
+
 Route::get('/stickers/{album_id}', 'Sticker\StickerController@byAlbum')->name('stickersByAlbum');
 
 Route::get('/sticker', 'Sticker\StickerController@index')->name('stickerindex');
+
 
 
 
@@ -79,6 +86,10 @@ Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta'
 
 Route::get('/verify/{code}', 'VerifyController@verify')->name('verify');
 Route::get('/verify', 'VerifyController@verifyEmpty')->name('verifyEmpty');
+// Route::get('/verifyOk', 'VerifyController@verifyEmpty')->name('verifyEmpty');
+Route::get('verifyOk', function($data){
+	return view('auth.verify', $data);
+})->name('verifyOk');
 
 
 

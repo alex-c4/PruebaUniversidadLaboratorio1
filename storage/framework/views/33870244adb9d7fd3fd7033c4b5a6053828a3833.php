@@ -18,16 +18,16 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="<?php echo e(asset('lib/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
-  
-
-
+  <link href="<?php echo e(asset('lib/bootstrap/css/bootstrap.css')); ?>" rel="stylesheet">
+    
   <!-- Libraries CSS Files -->
-  <link href="<?php echo e(asset('lib/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('css/fontawesome.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/animate/animate.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/ionicons/css/ionicons.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/owlcarousel/assets/owl.carousel.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/lightbox/css/lightbox.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('css/jquery-confirm.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('css/jquery-confirm.less')); ?>" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
   <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
@@ -50,11 +50,22 @@
         <!-- <h1><a href="#intro" class="scrollto">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
         <a href="#intro"><img src="<?php echo e(url('img/logo.png')); ?>" alt="" title="" /></a>
-      </div>
+     
+	  
+	 </div>
+
+ 
+		  
+		 
+		 
+
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
+          
+		  
+		  
+		  <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
           <li><a href="#about">Intercambiar Cromos</a></li>
           <li><a href="<?php echo e(url('/#notice')); ?>">Noticias</a></li>
           <li><a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
@@ -70,7 +81,14 @@
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
+	
+<div style="margin: 0px 0px 0px;" align="center"><noscript><div style="width: 140px; border: 1px solid rgb(204, 204, 204); text-align: center; color: rgb(158, 118, 34); font-weight: bold; font-size: 12px; background-color: rgb(0, 0, 0);" align="center"><a href="http://mycountdown.org/tag.php?tag=world cup" style="text-decoration: none; font-size: inherit; color: rgb(158, 118, 34);">World cup Countdown</a></div></noscript><script type="text/javascript" src="http://mycountdown.org/countdown.php?cp2_Hex=000000&cp1_Hex=9e7622&img=1&hbg=0&fwdt=300&lab=1&ocd=Tournament&text1=Rusia 2018&text2=&group=Event&countdown=Tournament&widget_number=3011&event_time=1528934400&timezone=America/Caracas"></script>
+</div>
+
   </header><!-- #header -->
+
+ 
+		  
 
   <?php echo $__env->yieldContent('content'); ?>
 
@@ -166,6 +184,7 @@
   <script src="<?php echo e(asset('lib/isotope/isotope.pkgd.min.js')); ?>"></script>
   <script src="<?php echo e(asset('lib/lightbox/js/lightbox.min.js')); ?>"></script>
   <script src="<?php echo e(asset('lib/touchSwipe/jquery.touchSwipe.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('js/jquery-confirm.js')); ?>"></script>
 
   <script src="<?php echo e(asset('js/bootstrap-datepicker.min.js')); ?>"></script>
   <link rel="stylesheet" href="<?php echo e(asset('css/bootstrap-datepicker.min.css')); ?>">
