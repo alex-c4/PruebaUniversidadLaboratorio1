@@ -18,21 +18,20 @@
     <div class="container" >
       <div class="section-header">
          <h3>Nuevo Mensaje</h3>
-         <p class="help-block">contacta al usuario que posee la brajita de tu interes.</p>
+         <p class="help-block">contacta al usuario de tu interes.</p>
       </div>
        <form method="POST" action="{{ route('mensajeria.register') }}">
 
         {{ csrf_field() }}
         
-        <input type="hidden" class="form-control" name="id_remitente" id="id_remitente" value="99">        
-        <input type="hidden" id="id_destinatario" name="id_destinatario" value="{{$user->id}}">
+        <input type="hidden" id="id_destinatario" name="id_destinatario" value="{{$datos->id_destinatario}}">
         <input type="hidden" id="id_intercambio" name="id_intercambio" value="{{$intercambio}}">
         <input type="hidden" id="routeCurrent" value="{{ url('/') }}">
           <div class="form-group"> 
-            <label for="mensaje">Escribe un mensaje para <b>{{$user->name."".$user->lastName}}</b>:</label>
+            <label for="mensaje">Escribe un mensaje para <b>{{$datos->name."".$datos->lastName}}</b>:</label>
             <textarea class="form-control" name="mensaje" id="mensaje" rows="5" data-rule="required" data-msg=" por favor, debes escribir algo" placeholder="Mensaje"></textarea>
             <div class="validation"></div>
-            {!! $errors->first('texto', '<span class="text-danger">:message</span>') !!}
+            {!! $errors->first('mensaje', '<span class="text-danger">:message</span>') !!}
           </div>
             <!-- Boton Aceptar -->
           <div id="oscuro" class="text-center">

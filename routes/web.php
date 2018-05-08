@@ -45,10 +45,12 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 | Seccion para las rutas asociadas a la parte de mensajeria para el intercabio de barajitas
 |
 */
-Route::get('/msj/{id_user}/{intercambio}', 'MensajeriaController@create')->name('mensajeria.create');
+Route::get('/msj/{intercambio}', 'MensajeriaController@create')->name('mensajeria.create');
 Route::post('/msj','MensajeriaController@store')->name('mensajeria.register');
 Route::get('/conv','MensajeriaController@conversaciones')->name('conversaciones.lista');
 Route::get('/men/{id_intercambio}','MensajeriaController@conversacion')->name('conversacion.mostrar');
+
+Route::get('/intercambio/{id_solicitante}/{id_stiker}', 'IntercambioController@store')->name('intercambio.store');
 
 /*
 |--------------------------------------------------------------------------
