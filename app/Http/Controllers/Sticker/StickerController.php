@@ -198,9 +198,9 @@ class StickerController extends Controller
             $data = array(
                 'nameCurrUser' => auth()->user()->name,
                 'lastNameCurrUser' => auth()->user()->lastName,
+                'user_id'=> auth()->user()->id,
                 'nameUser'=> $user[0]->name,
                 'lastNameUser'=> $user[0]->lastName,
-                'user_id'=> $user_id,
                 'stickerId' => $sticker_id,
                 'stickerNumber' => $sticker[0]->number
             );
