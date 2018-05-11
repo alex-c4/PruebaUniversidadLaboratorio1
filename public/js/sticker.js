@@ -247,6 +247,9 @@ $('#stickerModal').on('show.bs.modal', function (event) {
     modal.find('.modal-body #htxtstickerid').val(sticker_id);
     modal.find('.modal-body #htxtnumber').val(number);
 
+    // var _html = '<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button> &nbsp;' +
+    //             '<button type="button" id="btnRegisterSticker" name="btnRegisterSticker" class="btn btn-success btn-sm" >Registrar</button>';
+    // $('#modal-footer-content').html(_html);
     $('#message-got').html('');
 
 })
@@ -290,31 +293,50 @@ $('#btnRegisterSticker').on('click', function (event) {
         album_id: _album_id
     }
 
-    $.ajax({
-        url: _url,
-        headers: { 'X-CSRF-TOKEN': _token },
-        type: 'POST',
-        data: _data
-    })
-    .done(function(data, textStatus, jqXHR){
+    if(validateRegisterSticker(_data)){
+        $.ajax({
+            url: _url,
+            headers: { 'X-CSRF-TOKEN': _token },
+            type: 'POST',
+            data: _data
+        })
+        .done(function(data, textStatus, jqXHR){
 
-        if(data.success == 'true'){
-            var _sticker_id = data.sticker_id;
-            // btn btn-outline-' + color + 
-            $('#btnSticker_' + _number).attr('class', 'btn btn-' + getColor(_quantity) + ' btn-sm btn-block');
+            if(data.success == 'true'){
+                var _sticker_id = data.sticker_id;
+                // btn btn-outline-' + color + 
+                $('#btnSticker_' + _number).attr('class', 'btn btn-' + getColor(_quantity) + ' btn-sm btn-block');
 
-            window.listStickerGot[parseInt(_number) - 1].quantity = parseInt(_quantity)
-            window.listStickerGot[parseInt(_number) - 1].id = parseInt(_sticker_id)
+                window.listStickerGot[parseInt(_number) - 1].quantity = parseInt(_quantity)
+                window.listStickerGot[parseInt(_number) - 1].id = parseInt(_sticker_id)
 
-            $('#message-got').html('<div class="alert alert-success" role="alert">Registro satisfactorio! </div>');
-        }
-    })
-    .fail(function(jqXHR, textStatus, errorThrown ){
-        console.log(jqXHR.responseJSON.errors);
-        $('#message-got').html('<div class="alert alert-danger" role="alert">Error en el registro! </div>');
-        
+                $('#htxtstickerid').val(data.sticker_id);
 
-    })
+                $('#message-got').html('<div class="alert alert-success" role="alert">Registro satisfactorio! </div>');
+
+                // var _html = '<div>' +
+                //             '<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>'+
+                //             '</div>';
+                // $('#modal-footer-content').html(_html);
+                
+            }
+        })
+        .fail(function(jqXHR, textStatus, errorThrown ){
+            console.log(jqXHR.responseJSON.errors);
+            $('#message-got').html('<div class="alert alert-danger" role="alert">Error en el registro! </div>');
+            
+
+        })
+    }else{
+        $.alert({
+            title: 'Información',
+            content: 'Información incorrecta, por favor verifique en intente nuevamente',
+            type: 'dark',
+            columnClass: 'col-md-6',
+            animationBounce: 2.5,
+        });
+    }
+
 });
 
 
@@ -324,4 +346,15 @@ var getColor = function(quantity){
     if(quantity > 1) color = 'warning';
 
     return color;
+}
+
+var validateRegisterSticker = function(data){
+    try{
+        var expReg = /^([1-9])+([0-9])*$/
+        return expReg.test(parseInt(data.quantity));
+
+    }catch(ex){
+        console.log(ex);
+        return false;
+    }
 }
