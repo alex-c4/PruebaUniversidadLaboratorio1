@@ -81,9 +81,13 @@
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
-	
+
+<!-- Contador -->
+<!--	
 <div style="margin: 0px 0px 0px;" align="center"><noscript><div style="width: 140px; border: 1px solid rgb(204, 204, 204); text-align: center; color: rgb(158, 118, 34); font-weight: bold; font-size: 12px; background-color: rgb(0, 0, 0);" align="center"><a href="http://mycountdown.org/tag.php?tag=world cup" style="text-decoration: none; font-size: inherit; color: rgb(158, 118, 34);">World cup Countdown</a></div></noscript><script type="text/javascript" src="http://mycountdown.org/countdown.php?cp2_Hex=000000&cp1_Hex=9e7622&img=1&hbg=0&fwdt=300&lab=1&ocd=Tournament&text1=Rusia 2018&text2=&group=Event&countdown=Tournament&widget_number=3011&event_time=1528934400&timezone=America/Caracas"></script>
 </div>
+-->
+
 
   </header><!-- #header -->
 
