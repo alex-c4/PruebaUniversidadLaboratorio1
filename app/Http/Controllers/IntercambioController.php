@@ -41,7 +41,9 @@ class IntercambioController extends Controller
 
         //se valida que el solicitante y elstiker aintercambiar exitan
         if ($id_solicitante == null or $id_sticker == null){
-           return 'los datos sumbinistrados no son correctos verifique';
+            $mensaje='ejemplode variable mensaje';
+           //return 'los datos sumbinistrados no son correctos verifique';
+            return view('alert', compact('mensaje'));
 
         }else{
             $intercambio=Intercambio::where('id_barajita',$id_sticker)->where('id_usuario_solicitante',$id_solicitante)->first();
