@@ -114,6 +114,6 @@ Route::POST("/registerContact", "ContactController@store");
 | Seccion para las rutas asociadas al dashboard
 |
 */
-Route::get('/dashboard', 'dashboard\DashboardController@index')->name('dasboardindex');
+Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardindex');
 
 
