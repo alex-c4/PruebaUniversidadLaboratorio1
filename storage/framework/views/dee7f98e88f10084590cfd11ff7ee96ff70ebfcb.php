@@ -7,8 +7,8 @@
 
 <section id="contact" class="section-bg wow fadeInUp" >
     <div class="section-header">
-        <h3>Control Sticker</h3>
-        <p>Panel de control del conjunto de sticker coleccionados y posibles sticker intercabiables</p>
+        <h3>Control Cromo</h3>
+        <p>Panel de control del conjunto de cromos coleccionados y posibles cromos intercabiables</p>
       
         <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
         
@@ -29,8 +29,34 @@
         </div>
     </div>
 
-    <h1>Panel de Sticker</h1>
-                
+    <h1>Panel de Cromos</h1>
+    <div class="container-fluid">
+            
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Descripción</h5>
+                    <p class="card-text">Cromos de tu álbum + repetidos.</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-6 text-right">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Descripción</h5>
+                    <p class="card-text">Selecciona el cromo faltante para que intercambies.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
     <div class="container-fluid" >
         <div class=row>
             <div class="col-12" id="div-container-stickerPanel"></div>
@@ -56,22 +82,22 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Panel de Sticker</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Panel de Cromos</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form>
-                    <h1><i> sticker <strong class="num-sticker" style="color:#9e7622;">#</strong></i></h1>
+                    <h1><i> Cromo <strong class="num-sticker" style="color:#9e7622;">#</strong></i></h1>
 
                     <div class="form-group">
-                        <label for="txtquantity">¿Cuantas tienes?</label>
+                        <label for="txtquantity">¿Cuantos tienes?</label>
                     </div>
                                      
                     <div class="form-group">                    
                         <div class="input-group mb-3">
-                            <input id="txtquantity" name="txtquantity" type="text" class="form-control" placeholder="Cantidad de sticker" aria-label="Cantidad de sticker" aria-describedby="basic-addon2">
+                            <input placeholder="cantidad" id="txtquantity" name="txtquantity" type="text" class="form-control" placeholder="Cantidad de cromos" aria-label="Cantidad de cromos" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">Cantidad</span>
                             </div>
@@ -92,10 +118,11 @@
                     
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
-                    <button type="button" id="btnRegisterSticker" name="btnRegisterSticker" class="btn btn-success btn-sm" >Registrar</button>
-                    
+                <div class="modal-footer" >
+                    <div >
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+                        <button type="button" id="btnRegisterSticker" name="btnRegisterSticker" class="btn btn-success btn-sm" >Registrar</button>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -106,14 +133,14 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-info-circle fa-lg"></i> &nbsp; Panel de Sticker</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-info-circle fa-lg"></i> &nbsp; Panel de Cromo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form>
-                    <h1><i> sticker <strong class="num-sticker" style="color:#9e7622;">#</strong></i></h1>
+                    <h1><i> Cromo <strong class="num-sticker" style="color:#9e7622;">#</strong></i></h1>
 
                     <div class="form-group">
                         <input type="hidden" name="htxtalbid" id="htxtalbid">

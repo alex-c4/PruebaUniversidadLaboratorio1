@@ -139,12 +139,12 @@
         									<li class="header_row">
         										<h1>Cromos</h1>
         									</li>
-        									<li>Panel de Cromos<a class="tt" href="<?php echo e(url('sticker')); ?>"> (-- Ir --)<span class="tooltip"><span class="triangle-obtuse">Puedes consultar tus cromos adquiridas, repetidas y de interes desde tu panel</span></span></a></li>
-	                        <li>Mensajerias de Intercambio<a class="tt" href="<?php echo e(url('conv')); ?>"> (-- Ir --)<span class="tooltip"><span class="triangle-obtuse">Consulta tus intercambios de cromos y sus respectivas conversaciones </span></span></a></li>
+        									<li><a class="tt" href="<?php echo e(url('sticker')); ?>">  -- Panel de Cromos --<span class="tooltip"><span class="triangle-obtuse">Puedes consultar tus cromos adquiridas, repetidas y de interes desde tu panel</span></span></a></li>
+	                        <li><a class="tt" href="<?php echo e(url('conv')); ?>"> Mensajerias de Intercambio <span class="tooltip"><span class="triangle-obtuse">Consulta tus intercambios de cromos y sus respectivas conversaciones </span></span></a></li>
                           <li>-</li>
 
 
-        									<li class="footer_row"><a href="#" class="hosting-button">cromos</a></li>
+        									<li class="footer_row"><a href="<?php echo e(url('sticker')); ?>" class="hosting-button">cromos</a></li>
         								</ul>
         							</div><!--/ column-->
         						</div><!--/ Table Style-->
@@ -162,8 +162,8 @@
           									<li class="header_row">
           										<h1>Quinielas</h1>
           									</li>
-          									<li>Nueva Quiniela Privada<a class="tt" href="#"> (-- Ir --)<span class="tooltip"><span class="triangle-obtuse">Puedes consultar tus cromos adquiridas, repetidas y de interes desde tu panel</span></span></a></li>
-  	                        <li>Quiniela Principal<a class="tt" href="#"> (-- Ir --)<span class="tooltip"><span class="triangle-obtuse">Consulta tus intercambios de cromos y sus respectivas conversaciones </span></span></a></li>
+          									<li><a class="tt" href="#"> Nueva Quiniela Privada<span class="tooltip"><span class="triangle-obtuse">Puedes crear tu propia quiniela</span></span></a></li>
+  	                        <li><a class="tt" href="#"> Quiniela Mundial<span class="tooltip"><span class="triangle-obtuse">Juega en la quiniela Mundial </span></span></a></li>
                             <li>-</li>
 
           									<li class="footer_row"><a href="#" class="hosting-button">QUINIELAS</a></li>

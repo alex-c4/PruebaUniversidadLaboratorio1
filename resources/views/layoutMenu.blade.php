@@ -52,7 +52,7 @@
         <a href="#intro"><img src="{{ url('img/logo.png')}}" alt="" title="" /></a>
      
 	  
-	 </div>
+	   </div>
 
  
 		  
@@ -66,18 +66,24 @@
 		  
 		  
 		  <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
-          <li><a href="#about">Intercambiar Cromos</a></li>
+          @if(Auth::check())
+            <li><a href="{{ url('sticker') }}">Intercambiar Cromos</a></li>
+          @else
+            <li><a href="#about">Intercambiar Cromos</a></li>
+          @endif
           <li><a href="{{ url('/#notice') }}">Noticias</a></li>
           <li><a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
-         
-          
-          @if(Auth::check())
-            <li><a href="{{ url('/logout') }}">Logout</a></li>
-            <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-          @else
-            <li><a href="{{ url('/register') }}">Registro</a></li>
-          @endif
           <li><a href="#contact">Contact</a></li>
+          <br>
+          @if(Auth::check())            
+            <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>
+          @else
+            <li><a href="{{ url('/register') }}">Registrarse</a></li>
+            <li><a href="" data-toggle="modal" data-target="#exampleModal">Iniciar sesion</a></li>
+          @endif
+          
+          
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
