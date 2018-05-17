@@ -11,7 +11,7 @@
 
 </style>
    <div id="espaciador"></div>
-   <div class="container-fluid">
+   <div class="container">
 
         <div class="section-header">
           <h3>Noticias XportGold</h3>

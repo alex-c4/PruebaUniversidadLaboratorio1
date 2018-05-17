@@ -75,7 +75,7 @@
             <li><a href="{{ url('/logout') }}">Logout</a></li>
             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
           @else
-            <li><a href="{{ url('/register') }}">Register</a></li>
+            <li><a href="{{ url('/register') }}">Registro</a></li>
           @endif
           <li><a href="#contact">Contact</a></li>
         </ul>

@@ -53,20 +53,9 @@
                 <h2>MUNDIAL RUSIA 2018</h2>
                 <p>Todo lo que Necesitas Saber del Mundial Rusia 2018....</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="portfolio" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Ver</a>
+                <a href="#notice" class="btn-get-started scrollto">Ver</a>
                 <!-- <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Get Started</button> -->
 
-              </div>
-            </div>
-          </div>
-          
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xp.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>LA MEJOR QUINIELA</h2>
-                <p>Participa, demuestra lo que sabes y saborea el éxito....</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
               </div>
             </div>
           </div>
@@ -80,7 +69,19 @@
                 <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
               </div>
             </div>
-          </div>        
+          </div>  
+          
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xp.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>LA MEJOR QUINIELA</h2>
+                <p>Participa, demuestra lo que sabes y saborea el éxito....</p>
+                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
+                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+              </div>
+            </div>
+          </div>
+             
         
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
@@ -198,7 +199,7 @@
                 <img src="img/about_registro.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-edit"></i></div>
               </div>
-              <h2 class="title"><a href="#">PASO 1:</a></h2>
+              <h2 class="title"><a href="<?php echo e(url('/register')); ?>">PASO 1:</a></h2>
               <p>
                Registra de forma rápida y sencilla tus datos y disfruta la experiencia de ser un usuario exclusivo de xportgold.			
 				 
@@ -212,9 +213,9 @@
                 <img src="img/about_panel.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-list-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">PASO 2</a></h2>
+              <h2 class="title"><a href="" data-toggle="modal" data-target="#exampleModal">PASO 2</a></h2>
               <p>
-           	Marca en tu panel interactivo los cromos adquiridos y los repetidos para intercambiar otros usuarios...
+           	Ingresa como usuario XportGold, marca en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar con otros usuarios...
               </p>
             </div>
           </div>
@@ -227,7 +228,7 @@
               </div>
               <h2 class="title"><a href="#">PASO 3</a></h2>
               <p>
-               ....Intercambia con otros usuarios de tu localidad los cromos que tengan repetidos y que tu necesitas para completar tu Album...
+               ...Completa tu album buscando facilmente los cromos que te faltan en el panel e intercambia con usuarios de tu localidad...
               </p>
             </div>
           </div>

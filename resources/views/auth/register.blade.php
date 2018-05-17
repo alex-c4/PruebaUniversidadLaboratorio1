@@ -8,8 +8,9 @@
       <div class="container" >
 
         <div class="section-header">
-          <h3>Register</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <br>
+          <h3>Registro</h3>
+          <p>Registrate y disfruta el privilegio de ser un usuario XportGold...</p>
         </div>
 
 
