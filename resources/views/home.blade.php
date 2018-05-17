@@ -396,7 +396,7 @@
 
         <header class="section-header">
           <h3>Noticias</h3>
-          <p>si te gusta mantenerte informado, encontrarás valiosa esta sección. Enterate de lo mas destacado aqui. </p>
+          <p>Enterate de lo mas destacado del Mundial Rusia 2018 </p>
         </header>
 
   
@@ -408,10 +408,14 @@
             <div class="notice-col">
               <div class="img">
                 <img src="img/notice/{{$noticia['name_img']}}" alt="" class="img-fluid">
+                
+                
               </div>
               <h2 class="title"><a href="{{ url('/notice/'.$noticia['id']) }}">{{ $noticia['titulo']}}</a></h2>
-              <p>
-                </br>{{ substr($noticia['cuerpo'],0,200).'...'}}
+
+              <p style="text-align: justify;">
+                </br>{{ substr($noticia['fecha_publicacion'],0,10)}}
+                </br></br>{{ substr($noticia['cuerpo'],0,200).'...'}}
               </p>
               <a href="{{ url('/notice/'.$noticia['id']) }}" class="btn ">Leer mas</a>
               

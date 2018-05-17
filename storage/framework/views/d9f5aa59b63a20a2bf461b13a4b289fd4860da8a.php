@@ -398,7 +398,7 @@
 
         <header class="section-header">
           <h3>Noticias</h3>
-          <p>si te gusta mantenerte informado, encontrarás valiosa esta sección. Enterate de lo mas destacado aqui. </p>
+          <p>Enterate de lo mas destacado del Mundial Rusia 2018 </p>
         </header>
 
   
@@ -410,10 +410,15 @@
             <div class="notice-col">
               <div class="img">
                 <img src="img/notice/<?php echo e($noticia['name_img']); ?>" alt="" class="img-fluid">
+                
+                
               </div>
               <h2 class="title"><a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>"><?php echo e($noticia['titulo']); ?></a></h2>
-              <p>
-                </br><?php echo e(substr($noticia['cuerpo'],0,200).'...'); ?>
+
+              <p style="text-align: justify;">
+                </br><?php echo e(substr($noticia['fecha_publicacion'],0,10)); ?>
+
+                </br></br><?php echo e(substr($noticia['cuerpo'],0,200).'...'); ?>
 
               </p>
               <a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>" class="btn ">Leer mas</a>

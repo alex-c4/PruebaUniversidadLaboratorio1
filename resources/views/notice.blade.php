@@ -14,26 +14,35 @@
    <div class="container-fluid">
 
         <div class="section-header">
-          <h3>noticias </h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h3>Noticias XportGold</h3>
+        
         </div>
 
 
-          <div class="row" style="text-align: center;">
-            <div class="text-center">
+          <div class="row" style="text-align: justify;">
+            <div class="text-justify">
             <div class=" col-xs-6 col-lg-8">  
               <div class="thumbnail">
-                <img src="{{asset('img/notice/notice-2.jpg')}}" alt="" class="img-thumbnail">
+                <img src="{{asset('img/notice/'.$arreglo[3])}}" alt="" class="img-thumbnail">
+              <p> {{ $arreglo[4] }}</p> 
               </div>
             </div>
 
             <div class=" col-xs-6 col-lg-8">
               <div class="caption">
-                 <br>
+                 
                  <h2 class="title">{{ $arreglo[0] }}</h2>
-                <p>
-                  {{$arreglo[1]}} 
-                </p>
+               <p>
+                    Fuente: {{ $arreglo[2] }}
+                    <br>
+                    <br>
+                    {!! nl2br(e($arreglo[1])) !!}
+
+                 <br>                  
+                </p> 
+
+                <a href="{{ url('/#notice') }}" class="btn ">Volver</a>
+
               </div>
 
             </div>

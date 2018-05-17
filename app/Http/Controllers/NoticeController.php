@@ -31,9 +31,11 @@ class NoticeController extends Controller
        // $json={["titulo:"nueva notiacia","cuerpo":" micuerpo noticia","fuente":"midiario tv"]};
         $titulo=$minoticia[0]["titulo"];
 		$cuerpo=$minoticia[0]["cuerpo"];
-        $fuente=$minoticia[0]["fuente"];
+        $fuente_noticia=$minoticia[0]["fuente_noticia"];
+        $imagen=$minoticia[0]["name_img"];
+        $fuente_imagen=$minoticia[0]["fuente_imagen"];
         $arreglo=[];
-        $arreglo=[$titulo,$cuerpo,$fuente];
+        $arreglo=[$titulo,$cuerpo,$fuente_noticia,$imagen,$fuente_imagen];
         return view('notice',compact('arreglo'));
        // return json_encode($arr);
                // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
