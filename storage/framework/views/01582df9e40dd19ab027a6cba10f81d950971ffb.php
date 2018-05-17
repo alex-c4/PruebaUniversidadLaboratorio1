@@ -134,6 +134,7 @@
 
           </div>
           <div class="modal-footer">
+            <a href="<?php echo e(route('register')); ?>" class="btn btn-outline-info">Registrarse</a>
             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
             <button type="submit" id="btnLogin" class="btn btn-outline-success">Login</button>
           </div>
@@ -398,7 +399,7 @@
 
         <header class="section-header">
           <h3>Noticias</h3>
-          <p>si te gusta mantenerte informado, encontrarás valiosa esta sección. Enterate de lo mas destacado aqui. </p>
+          <p>Enterate de lo mas destacado del Mundial Rusia 2018 </p>
         </header>
 
   
@@ -410,10 +411,15 @@
             <div class="notice-col">
               <div class="img">
                 <img src="img/notice/<?php echo e($noticia['name_img']); ?>" alt="" class="img-fluid">
+                
+                
               </div>
               <h2 class="title"><a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>"><?php echo e($noticia['titulo']); ?></a></h2>
-              <p>
-                </br><?php echo e(substr($noticia['cuerpo'],0,200).'...'); ?>
+
+              <p style="text-align: justify;">
+                </br><?php echo e(substr($noticia['fecha_publicacion'],0,10)); ?>
+
+                </br></br><?php echo e(substr($noticia['cuerpo'],0,200).'...'); ?>
 
               </p>
               <a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>" class="btn ">Leer mas</a>

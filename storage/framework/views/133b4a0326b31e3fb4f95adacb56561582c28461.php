@@ -4,7 +4,7 @@
   background: rgba(0, 0, 0, 0.9);
 }
 #espaciador{
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 </style>
@@ -12,42 +12,43 @@
    <div class="container-fluid">
 
         <div class="section-header">
-          <h3>noticias </h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h3>Noticias XportGold</h3>
+        
         </div>
 
 
-          <div class="row" style="text-align: center;">
-
+          <div class="row" style="text-align: justify;">
+            <div class="text-justify">
             <div class=" col-xs-6 col-lg-8">  
               <div class="thumbnail">
-                <img src="<?php echo e(asset('img/notice/notice-2.jpg')); ?>" alt="" class="img-thumbnail">
+                <img src="<?php echo e(asset('img/notice/'.$arreglo[3])); ?>" alt="" class="img-thumbnail">
+              <p> <?php echo e($arreglo[4]); ?></p> 
               </div>
             </div>
 
             <div class=" col-xs-6 col-lg-8">
               <div class="caption">
-                 <br>
-                 <h2 class="title"><a href="#"><?php echo e($arreglo[0]); ?></a></h2>
-                <p>
-                  <?php echo e($arreglo[1]); ?> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                </p>
+                 
+                 <h2 class="title"><?php echo e($arreglo[0]); ?></h2>
+               <p>
+                    Fuente: <?php echo e($arreglo[2]); ?>
+
+                    <br>
+                    <br>
+                    <?php echo nl2br(e($arreglo[1])); ?>
+
+
+                 <br>                  
+                </p> 
+
+                <a href="<?php echo e(url('/#notice')); ?>" class="btn ">Volver</a>
+
               </div>
+
+            </div>
             </div >
 
-          </div>    
-              <!--</div><div class="panel">              
-                 <h2 class="title"><a href="#"><?php echo e($arreglo[0]); ?></a></h2>
-                 <p>
-                  <?php echo e($arreglo[1]); ?>
-
-                </p>
-                <p><?php echo e($arreglo[2]); ?></p> 
-              </div>
-            </div >          
-          </div>-->
+          </div>       
 
       </div>
     
