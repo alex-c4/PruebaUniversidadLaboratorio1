@@ -133,6 +133,7 @@
 
           </div>
           <div class="modal-footer">
+            <a href="{{ route('register') }}" class="btn btn-outline-info">Registrarse</a>
             <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
             <button type="submit" id="btnLogin" class="btn btn-outline-success">Login</button>
           </div>
