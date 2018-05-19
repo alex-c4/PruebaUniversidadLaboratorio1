@@ -58,6 +58,8 @@ $('#country_id').on('change', function(){
             html_select += '<option value="' + data[i].id + '">' + data[i].name + '</option>';
         }
         $('#state_id').html(html_select);
+
+        $('#city_id').html('<option selected></option>');
     })
     .fail(function(jqXHR, textStatus, errorThrown ){
         console.log(jqXHR.responseJSON.errors);

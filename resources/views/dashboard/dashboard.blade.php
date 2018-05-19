@@ -118,7 +118,7 @@
 				<br>
 					<div class="info-user">
 						<span aria-hidden="true" class="li_user fs1"></span>
-						<span aria-hidden="true" class="li_settings fs1"></span>
+						<a href="{{ route('userEdit') }}"><span aria-hidden="true" class="li_settings fs1"></a></span>
 						<span aria-hidden="true" class="li_mail fs1"></span>
 						<span aria-hidden="true" class="li_key fs1"></span>
 					</div>

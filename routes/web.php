@@ -32,10 +32,13 @@ Route::view('/welcome', 'welcome');
 // });
 Route::get('/register', 'Auth\RegisterController@create')->name('create');
 Route::view('/auth.success', 'success');
+Route::view('/auth.successEdit', 'successEdit');
 Route::post('/register', 'Auth\RegisterController@store')->name('register');
 // Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/settings', 'Auth\SettingsController@edit')->name('userEdit');
+Route::post('/update', 'Auth\SettingsController@update')->name('userUpdate');
 
 /*
 |--------------------------------------------------------------------------

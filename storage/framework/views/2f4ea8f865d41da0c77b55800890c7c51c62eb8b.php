@@ -6,8 +6,9 @@
       <div class="container" >
 
         <div class="section-header">
-          <h3>Register</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <br>
+          <h3>Registro</h3>
+          <p>Registrate y disfruta el privilegio de ser un usuario XportGold...</p>
         </div>
 
 
@@ -170,9 +171,13 @@
         </div>
       </div>
     </div>
+    
+    ;
 
-      
     </section>
     
 <?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layoutLogin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('layoutMenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
