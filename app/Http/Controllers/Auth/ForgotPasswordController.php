@@ -72,7 +72,7 @@ class ForgotPasswordController extends Controller
             //     $message->to($req->email)->subject('Confirmación de tu correo');
             // });
 
-            return redirect('forgotPassw')->with('message', 'Clave actualizada exitosamente');
+            return redirect('forgotPassw')->with('message', 'Clave actualizada exitosamente, por favor revisa tu bandeja de entrada');
 
         }else{
             return redirect('forgotPassw')->with('error', 'Correo no existe!');
