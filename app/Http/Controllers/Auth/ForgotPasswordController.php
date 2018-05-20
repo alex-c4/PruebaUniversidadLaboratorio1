@@ -49,12 +49,11 @@ class ForgotPasswordController extends Controller
 
         $user = User::where('email', $email)->get();
         
-        
         if(count($user) > 0){
             $newPassw = $this->generateRandomString();
 
-            // $user->password = bcrypt($newPassw);
-            // $user->save();
+            $user[0]->password = bcrypt($newPassw);
+            $user[0]->save();
 
             $data = array(
                 'name' => $user[0]->name,
@@ -62,9 +61,9 @@ class ForgotPasswordController extends Controller
                 'newPassw' => $newPassw
             );
 
-            Mail::send('emails.forgotPassw', $data, function($message)  {
+            Mail::send('emails.forgotPassw', $data, function($message) use($user) {
                 $message->from('admin@xportgold.com', 'XportGold');
-                $message->to('alexdaniel2601@hotmail.com')->subject('Restablecimiento de clave');
+                $message->to($user[0]->email)->subject('Restablecimiento de clave');
             });
 
             // $req = request();
