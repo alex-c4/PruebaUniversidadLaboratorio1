@@ -6,8 +6,21 @@ use App\Contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Validator;
+
 class ContactController extends Controller
 {
+    
+
+ /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/home/#contact';
+
+     
+
     /**
      * Display a listing of the resource.
      *
@@ -36,6 +49,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $this->validator(request()->all())->validate();
+       
+        
+        Contact::create($request->all());
+
+
         //dd($request->all());
 		//return "store";
 		
@@ -48,13 +68,43 @@ class ContactController extends Controller
 	   $contact->save();
 	   */
 	   
-	   Contact::create($request->all());
-	   
-	   
-	   return "Completado"; 
+
+       return view('/contact.success');
+	  
 		
 		
     }
+
+
+/**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+       // return view('/contact.success');
+
+
+        
+        $messages = [
+            'numeric' => 'The field is required.',
+            'required' => 'The field is required.'
+        ];
+
+        return Validator::make($data, [
+            'nameContact' => 'required|string|max:100',
+            'emailContact' => 'required|string|email|max:100',
+            'subject' => 'required|string|min:2',
+            'mensaje' => 'required|string|min:10',
+
+           
+        ], $messages);
+        
+        
+    }
+
 
     /**
      * Display the specified resource.
