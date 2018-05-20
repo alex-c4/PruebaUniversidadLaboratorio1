@@ -41,7 +41,7 @@
             <!-- Email -->
             <div class="form-group col-md-3" >
               <label for="email">Email</label>
-              <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" name="email" placeholder="Email" value="<?php echo e(old('email')); ?>">
+              <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" name="email" id="email" placeholder="Email" value="<?php echo e(old('email')); ?>">
               <?php echo $errors->first('email', '<span class="text-danger">:message</span>'); ?>
 
             </div>

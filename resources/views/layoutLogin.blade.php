@@ -32,8 +32,12 @@
                 <div id="message-got">
                 
                 </div>
-                <button type="submit" id="btnLogin" class="btn btn-outline-success">Entrar</button>
+                <button type="submit" id="btnLogin" class="btn btn-success btn-block btn-sm">Entrar</button>
             </div> 
+
+            <div class="form-group" style="text-align: right;">
+                <a href="{{ route('forgotPassw') }}">¿Se te olvidó tu contraseña?</a>
+            </div>
 
         </div>
         <div class="modal-footer">

@@ -51,7 +51,10 @@ class SettingsController extends Controller
 
     public function update(){
 
+
         $user_id = auth()->user()->id;
+
+
 
         $this->validator(request()->all())->validate();
 
