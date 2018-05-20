@@ -6,8 +6,9 @@
       <div class="container" >
 
         <div class="section-header">
-          <h3>Register</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <br>
+          <h3>Registro</h3>
+          <p>Registrate y disfruta el privilegio de ser un usuario XportGold...</p>
         </div>
 
 
@@ -40,7 +41,7 @@
             <!-- Email -->
             <div class="form-group col-md-3" >
               <label for="email">Email</label>
-              <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" name="email" placeholder="Email" value="<?php echo e(old('email')); ?>">
+              <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" name="email" id="email" placeholder="Email" value="<?php echo e(old('email')); ?>">
               <?php echo $errors->first('email', '<span class="text-danger">:message</span>'); ?>
 
             </div>
@@ -170,9 +171,13 @@
         </div>
       </div>
     </div>
+    
+    ;
 
-      
     </section>
     
 <?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layoutLogin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('layoutMenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

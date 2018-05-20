@@ -94,4 +94,6 @@ class LoginController extends Controller
 
         return $arrayName;
     }
+
+    
 }

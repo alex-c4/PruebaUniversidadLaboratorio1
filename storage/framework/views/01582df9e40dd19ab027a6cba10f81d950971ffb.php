@@ -53,20 +53,9 @@
                 <h2>MUNDIAL RUSIA 2018</h2>
                 <p>Todo lo que Necesitas Saber del Mundial Rusia 2018....</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="portfolio" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Ver</a>
+                <a href="#notice" class="btn-get-started scrollto">Ver</a>
                 <!-- <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Get Started</button> -->
 
-              </div>
-            </div>
-          </div>
-          
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xp.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>LA MEJOR QUINIELA</h2>
-                <p>Participa, demuestra lo que sabes y saborea el éxito....</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
               </div>
             </div>
           </div>
@@ -80,7 +69,19 @@
                 <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
               </div>
             </div>
-          </div>        
+          </div>  
+          
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xp.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>LA MEJOR QUINIELA</h2>
+                <p>Participa, demuestra lo que sabes y saborea el éxito....</p>
+                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
+                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+              </div>
+            </div>
+          </div>
+             
         
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
@@ -97,58 +98,15 @@
       
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form id="form_login" name="form_login" method="POST" action="<?php echo e(route('login')); ?>">
-      <input type="hidden" id="routeCurrent" value="<?php echo e(route('login')); ?>">
-      <input type="hidden" id="routeDashboard" value="<?php echo e(route('dasboardindex')); ?>">
-      <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
-      
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-              <div class="form-group">
-                <label for="inputEmail">Correo Electrónico</label>
-                <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" id="email" name="email" placeholder="Email">
-                <?php echo $errors->first('email', '<span class="text-danger">:message</span>'); ?>
-
-              </div>
-            
-              <div class="form-group">
-                <label for="inputPassword">Clave</label>
-                <input type="password" class="form-control <?php echo e($errors->has('password') ? 'border-danger' : ''); ?>" id="password" name="password" placeholder="Password">
-                <?php echo $errors->first('password', '<span class="text-danger">:message</span>'); ?>
-
-              </div>
-
-              <div class="form-group">
-                  <div id="message-got">
-                  
-                  </div>
-              </div> 
-
-          </div>
-          <div class="modal-footer">
-            <a href="<?php echo e(route('register')); ?>" class="btn btn-outline-info">Registrarse</a>
-            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-            <button type="submit" id="btnLogin" class="btn btn-outline-success">Login</button>
-          </div>
-        </div>
-      </div>
-    </form>
-    </div>
+    
   </section><!-- #intro -->
 
   
 
   <main id="main">
 
-  
+    
+    
 
     <!--==========================
       Featured Services Section
@@ -199,7 +157,7 @@
                 <img src="img/about_registro.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-edit"></i></div>
               </div>
-              <h2 class="title"><a href="#">PASO 1:</a></h2>
+              <h2 class="title"><a href="<?php echo e(url('/register')); ?>">PASO 1:</a></h2>
               <p>
                Registra de forma rápida y sencilla tus datos y disfruta la experiencia de ser un usuario exclusivo de xportgold.			
 				 
@@ -213,9 +171,9 @@
                 <img src="img/about_panel.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-list-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">PASO 2</a></h2>
+              <h2 class="title"><a href="" data-toggle="modal" data-target="#exampleModal">PASO 2</a></h2>
               <p>
-           	Marca en tu panel interactivo los cromos adquiridos y los repetidos para intercambiar otros usuarios...
+           	Ingresa como usuario XportGold, marca en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar con otros usuarios...
               </p>
             </div>
           </div>
@@ -228,7 +186,7 @@
               </div>
               <h2 class="title"><a href="#">PASO 3</a></h2>
               <p>
-               ....Intercambia con otros usuarios de tu localidad los cromos que tengan repetidos y que tu necesitas para completar tu Album...
+               ...Completa tu album buscando facilmente los cromos que te faltan en el panel e intercambia con usuarios de tu localidad...
               </p>
             </div>
           </div>
@@ -1079,6 +1037,8 @@
         </div>
 
       </div>
+
+      
     </section><!-- #contact -->
 
 
@@ -1087,4 +1047,5 @@
 
 
 
+<?php echo $__env->make('layoutLogin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('layoutMenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -178,6 +178,9 @@
 		-->
       </div>
     </div>
+
+    
+     
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -217,7 +220,7 @@
   <script src="{{asset('js/datepicker.js')}}"></script>
   
   
-
+  
 </body>
 </html>
   

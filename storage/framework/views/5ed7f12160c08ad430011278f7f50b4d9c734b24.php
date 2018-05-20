@@ -52,7 +52,7 @@
         <a href="#intro"><img src="<?php echo e(url('img/logo.png')); ?>" alt="" title="" /></a>
      
 	  
-	 </div>
+	   </div>
 
  
 		  
@@ -66,18 +66,24 @@
 		  
 		  
 		  <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
-          <li><a href="#about">Intercambiar Cromos</a></li>
+          <?php if(Auth::check()): ?>
+            <li><a href="<?php echo e(url('sticker')); ?>">Intercambiar Cromos</a></li>
+          <?php else: ?>
+            <li><a href="#about">Intercambiar Cromos</a></li>
+          <?php endif; ?>
           <li><a href="<?php echo e(url('/#notice')); ?>">Noticias</a></li>
           <li><a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
-         
-          
-          <?php if(Auth::check()): ?>
-            <li><a href="<?php echo e(url('/logout')); ?>">Logout</a></li>
-            <li><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a></li>
-          <?php else: ?>
-            <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
-          <?php endif; ?>
           <li><a href="#contact">Contact</a></li>
+          <br>
+          <?php if(Auth::check()): ?>            
+            <li><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a></li>
+            <li><a href="<?php echo e(url('/logout')); ?>">Cerrar sesion</a></li>
+          <?php else: ?>
+            <li><a href="<?php echo e(url('/register')); ?>">Registrarse</a></li>
+            <li><a href="" data-toggle="modal" data-target="#exampleModal">Iniciar sesion</a></li>
+          <?php endif; ?>
+          
+          
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -170,6 +176,9 @@
 		-->
       </div>
     </div>
+
+    
+     
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -209,7 +218,7 @@
   <script src="<?php echo e(asset('js/datepicker.js')); ?>"></script>
   
   
-
+  
 </body>
 </html>
   
