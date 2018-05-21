@@ -142,7 +142,7 @@
           <!-- Terminos y condiciones -->
           <div class="text-center">
          
-            <label>Al hacer clic en "Registrar" acepto los <a href="" data-toggle="modal" data-target="#legalModal-lg" class="btn-get-started scrollto">términos de GoldXport y la política de privacidad.</a></label>          
+            <label>Al hacer clic en "Registrar" acepto los <a href="" data-toggle="modal" data-target="#legalModal" class="btn-get-started scrollto">términos de GoldXport y la política de privacidad.</a></label>          
           </div>
 
           <!-- Boton Aceptar -->
@@ -153,7 +153,7 @@
         </form>
 
       </div>
-      <div class="modal fade-lg" id="legalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal fade" id="legalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
