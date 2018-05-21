@@ -29,7 +29,11 @@
                     <div><i class="ion-ios-arrow-right"></i><b>Yo: </b>{{$mensaje->texto." "}}</div> 
                   @endif    
                   @if($mensaje->id_remitente != $user_log)
-                   <div class="gris-interlinea";"><b>{{ $datos->name."".$datos->lastName}}:</b> {{$mensaje->texto." " }}<i class="ion-ios-arrow-left pull-right"></i></div> 
+                   <div class="gris-interlinea ";">
+                    <b>{{ $datos->name."".$datos->lastName}}:</b>
+                      {{$mensaje->texto." " }}
+                      <span class="derecha"><i class="ion-ios-arrow-left"></i></span>
+                  </div> 
                   @endif
                   
                 @endforeach
@@ -37,7 +41,8 @@
             </div>      
           </div>  
            <div  id="area-botones" class="text-center">
-            <a href="{{ route('mensajeria.create',['intercambio'=>$datos->id_intercambio])}}" id="escribir" class=" btn btn-data-target">Escribir</a>       
+            <a href="{{ route('mensajeria.create',['intercambio'=>$datos->id_intercambio])}}" id="escribir" class=" btn btn-data-target">Escribir</a>
+            <a href="{{ route('conversaciones.lista')}}" id="escribir" class=" btn btn-data-target">volver</a>       
           </div> 
         </div>
     </div>

@@ -39,7 +39,7 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 /*
 |--------------------------------------------------------------------------
-| Stikers Routes
+| Mensaje Routes
 |--------------------------------------------------------------------------
 |
 | Seccion para las rutas asociadas a la parte de mensajeria para el intercabio de barajitas
@@ -51,7 +51,10 @@ Route::get('/conv','MensajeriaController@conversaciones')->name('conversaciones.
 Route::get('/men/{id_intercambio}','MensajeriaController@conversacion')->name('conversacion.mostrar');
 
 Route::get('/intercambio/{id_solicitante}/{id_stiker}', 'IntercambioController@store')->name('intercambio.store');
+Route::get('/intercambio_actualizar/{id_intercambio}/{estatus}/{id_sticker}/{id_propietario}', 'IntercambioController@act_intercambio')->name('intercambio.act');
 
+
+// Route::get('/alert/{data}', function($data){ return view('mensaje.alert', $data); })->name('mensaje.alert');
 /*
 |--------------------------------------------------------------------------
 | notice Routes
@@ -60,7 +63,16 @@ Route::get('/intercambio/{id_solicitante}/{id_stiker}', 'IntercambioController@s
 | Seccion para las rutas asociadas a la parte de noticias
 |
 */
+Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
 
+/*
+|--------------------------------------------------------------------------
+| Stickers Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de panel stickers
+|
+*/
 Route::post('/stickers/contactUser', 'Sticker\StickerController@contactUser')->name('stickersContactUser');
 
 Route::post('/stickers/sentEmailToUser', 'Sticker\StickerController@sentEmailToUser')->name('stickerSentEmailToUser');
@@ -74,15 +86,8 @@ Route::get('/sticker', 'Sticker\StickerController@index')->name('stickerindex');
 
 
 
-Route::get('/msj', function(){
-	//return'has sido redirecionado a la ruta notice-mostrar'. $arreglo;
-	//return view('notice',compact('arreglo'));
-		return view('mesage');
-
-})->name('mensajeria.mostrar');
 
 
-Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
 
 Route::get('/verify/{code}', 'VerifyController@verify')->name('verify');
 Route::get('/verify', 'VerifyController@verifyEmpty')->name('verifyEmpty');

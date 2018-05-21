@@ -217,4 +217,5 @@ class StickerController extends Controller
             return "Error email no enviado!!!";            
         }
     }
+
 }

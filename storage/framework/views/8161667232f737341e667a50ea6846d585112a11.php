@@ -27,7 +27,12 @@
                     <div><i class="ion-ios-arrow-right"></i><b>Yo: </b><?php echo e($mensaje->texto." "); ?></div> 
                   <?php endif; ?>    
                   <?php if($mensaje->id_remitente != $user_log): ?>
-                   <div class="gris-interlinea";"><b><?php echo e($datos->name."".$datos->lastName); ?>:</b> <?php echo e($mensaje->texto." "); ?><i class="ion-ios-arrow-left pull-right"></i></div> 
+                   <div class="gris-interlinea ";">
+                    <b><?php echo e($datos->name."".$datos->lastName); ?>:</b>
+                      <?php echo e($mensaje->texto." "); ?>
+
+                      <span class="derecha"><i class="ion-ios-arrow-left"></i></span>
+                  </div> 
                   <?php endif; ?>
                   
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -35,7 +40,8 @@
             </div>      
           </div>  
            <div  id="area-botones" class="text-center">
-            <a href="<?php echo e(route('mensajeria.create',['intercambio'=>$datos->id_intercambio])); ?>" id="escribir" class=" btn btn-data-target">Escribir</a>       
+            <a href="<?php echo e(route('mensajeria.create',['intercambio'=>$datos->id_intercambio])); ?>" id="escribir" class=" btn btn-data-target">Escribir</a>
+            <a href="<?php echo e(route('conversaciones.lista')); ?>" id="escribir" class=" btn btn-data-target">volver</a>       
           </div> 
         </div>
     </div>

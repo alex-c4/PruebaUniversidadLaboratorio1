@@ -29,16 +29,37 @@
                   <li>
                     <i class="ion-ios-arrow-right"></i> <a href="{{ url('/men/'.$intercambio->id_intercambio)}}">{{$intercambio->name." ".$intercambio->lastName}}</a>
                     barajita:{{ $intercambio->sticker_num}}
+                    @if ($intercambio->estatus=='EN PROCESO')
+                        <span class="botones-filas ">
+                          <a class="derecha" href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'INCOMPLETO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}"  class="btn  btn-sm btn-data-target"><i class="fa">X</i></a>
+                        </span>                     
+                    @else
+                      <span class="derecha">{{ $intercambio->estatus}}</span>
+                    @endif
                   </li>
                 @endforeach
               </ul>
               <h4>intercambios solicitados por otros: <span class="vinculogris"><i class="fa">{{$intercambios2->count()}}</i></span></h4>
               <ul>
                 @foreach($intercambios2 as $intercambio)  
+                                     
                   <li>
-                    <i class="ion-ios-arrow-right"></i> <a href="{{ url('/men/'.$intercambio->id_intercambio)}}">{{$intercambio->name." ".$intercambio->lastName}}</a>
-                    barajita:{{ $intercambio->sticker_num}}
+                    <i class="ion-ios-arrow-right"></i>
+                    <a href="{{ url('/men/'.$intercambio->id_intercambio)}}">{{$intercambio->name." ".$intercambio->lastName}}</a>
+                     - barajita:{{ $intercambio->sticker_num}}
+                    @if ($intercambio->estatus=='EN PROCESO')
+                        <span class="botones-filas ">
+                          <a title="dar por concretado el intercambio y disminuir el numero de cromos" class="derecha" href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'COMPLETADO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}" id="completado" class=" btn  btn-sm btn-data-target"><i class="fa fa-check"></i></a>
+
+                          <a title="cancelar el intercambio" class="derecha" href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'INCOMPLETO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}"  class="btn  btn-sm btn-data-target"><i class="fa">X</i></a>
+                        </span>                     
+                    @else
+                      <span class="derecha">{{ $intercambio->estatus}}</span>
+                    @endif
+                  
                   </li>
+                
+
                 @endforeach
               </ul>
             </div>       

@@ -66,7 +66,7 @@
 		  
 		  
 		  <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
-          <li><a href="#about">Intercambiar Cromos</a></li>
+          <li><a href="{{ url('/#about') }}"#about">Intercambiar Cromos</a></li>
           <li><a href="{{ url('/#notice') }}">Noticias</a></li>
           <li><a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
          

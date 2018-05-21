@@ -66,7 +66,7 @@
 		  
 		  
 		  <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
-          <li><a href="#about">Intercambiar Cromos</a></li>
+          <li><a href="<?php echo e(url('/#about')); ?>"#about">Intercambiar Cromos</a></li>
           <li><a href="<?php echo e(url('/#notice')); ?>">Noticias</a></li>
           <li><a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
          

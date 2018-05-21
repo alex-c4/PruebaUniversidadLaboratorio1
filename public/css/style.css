@@ -1781,4 +1781,28 @@ body {
     /*background: #076f00;*/
   background: #000000;/*Modificado por XportGold*/
   }
+
+  #oscuro .botones-filas button,  #oscuro .botones-filas a{
+    /*background: #098c00;*/
   
+    font-size: 10px;
+    border: 1;
+    padding: 5px 10px;   
+    transition: 0.4s;
+    cursor: pointer;
+    background: #2E2E2E;
+    color: #A0A090;
+    
+  }
+
+
+   #oscuro .botones-filas button :hover, #oscuro .botones-filas a :hover {
+    /*background: 10#076f00;*/
+    background: #9e7622;/*Modificado por XportGold*/ 
+  }
+  
+  .derecha{
+    float: right;
+    margin-right: 5px;
+   
+}

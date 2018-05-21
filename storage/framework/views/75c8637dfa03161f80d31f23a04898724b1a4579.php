@@ -16,7 +16,7 @@
     <div class="container" >
       <div class="section-header">
          <h3>Nuevo Mensaje</h3>
-         <p class="help-block">contacta al usuario de tu interes.</p>
+         <p class="help-block">contacta al usuario para realizar un intercambio.</p>
       </div>
        <form method="POST" action="<?php echo e(route('mensajeria.register')); ?>">
 
