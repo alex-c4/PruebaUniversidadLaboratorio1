@@ -26,6 +26,7 @@
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+ 
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
@@ -1003,29 +1004,47 @@
 -->
         </div>
 
+
+
         <div class="form">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
           <form action="{{ URL::asset('/registerContact') }}" method="post" role="form">
 		  
             <div class="form-row">
+
 			{{csrf_field()}}
+
+              <!-- Nombre Contacto-->
               <div class="form-group col-md-6">
-                <input type="text" name="nameContact" class="form-control" id="nameContact" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="emailContact" id="emailContact" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
-              </div>
+                <input type="hidden" id="routeCurrent" value="{{ url('/#contacto') }}">
+                <input type="text" class="form-control {{ $errors->has('nameContact') ? 'border-danger' : '' }}" name="nameContact" id="nameContact" placeholder="Name" value="{{ old('nameContact') }}">
+              {!! $errors->first('nameContact', '<span class="text-danger">:message</span>') !!}
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
+
+
+               
+
+               <!-- Mail -->
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control {{ $errors->has('emailContact') ? 'border-danger' : '' }}" name="emailContact" id="emailContact" placeholder="Mail" value="{{ old('emailContact') }}">
+              {!! $errors->first('emailContact', '<span class="text-danger">:message</span>') !!}
             </div>
+          </div>
+
+            <!-- Asunto -->
             <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validation"></div>
+             <input type="text" class="form-control {{ $errors->has('subject') ? 'border-danger' : '' }}" name="subject" id="subject" placeholder="Asunto" value="{{ old('subject') }}">
+              {!! $errors->first('subject', '<span class="text-danger">:message</span>') !!}
+            </div>
+
+             <!-- Mensaje -->  
+            <div class="form-group">
+              <textarea class="form-control {{ $errors->has('mensaje') ? 'border-danger' : '' }}" name="mensaje" id="mensaje" rows="5" placeholder="Mensaje" value="{{ old('mensaje') }}"></textarea>
+                 {!! $errors->first('mensaje', '<span class="text-danger">:message</span>') !!}
+
+              
+              
             </div>
            <div class="text-center">
             <button type="submit" class="btn btn-success">Enviar</button>

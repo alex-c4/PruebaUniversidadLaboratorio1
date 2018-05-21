@@ -20,8 +20,10 @@
   <!-- Bootstrap CSS File -->
   <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
     
-  <!-- Libraries CSS Files -->
-  <link href="{{ asset('css/fontawesome.css')}}" rel="stylesheet">
+  <!-- Libraries CSS Files -->   
+  <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+  <!--<link href="{{ asset('css/fontawesome.css')}}" rel="stylesheet"> Sustitido por la de arriba--> 
   <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
   <link href="{{ asset('lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
   <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
@@ -73,7 +75,7 @@
           @endif
           <li><a href="{{ url('/#notice') }}">Noticias</a></li>
           <li><a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
           <br>
           @if(Auth::check())            
             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
@@ -126,11 +128,11 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/') }}">Home</a></li> 
+              <li><i class="ion-ios-arrow-right"></i> <a href="#about">Intercambiar Cromos</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/#notice') }}">Noticias</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/#contact') }}">Contactanos</a></li>
             </ul>
           </div>
 
@@ -138,7 +140,7 @@
             <h4>Contact Us</h4>
             <p>
               
-              <strong>Email:</strong> xportgold@gmail.com<br>
+              <strong>Email:</strong> xportgoldmail@gmail.com<br>
             </p>
 
             <div class="social-links">
@@ -153,7 +155,7 @@
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+            <p>Atentos a nuestro lanzamiento de la forma mas divertida y millonaria de vivir el mundial...</p>
             
           </div>
 
