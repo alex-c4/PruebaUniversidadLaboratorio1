@@ -3,7 +3,6 @@
 -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <form id="form_login" name="form_login" method="POST" action="{{ route('login') }}">
-    <input type="hidden" id="routeCurrent" value="{{ route('login') }}">
     <input type="hidden" id="routeDashboard" value="{{ route('dasboardindex') }}">
     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
     
@@ -17,15 +16,15 @@
         </div>
         <div class="modal-body">
             <div class="form-group">
-            <label for="inputEmail">Correo Electrónico</label>
-            <input type="email" class="form-control {{ $errors->has('email') ? 'border-danger' : '' }}" id="email" name="email" placeholder="Email">
-            {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
+            <label for="emailLogin">Correo Electrónico</label>
+            <input type="emailLogin" class="form-control {{ $errors->has('emailLogin') ? 'border-danger' : '' }}" id="emailLogin" name="emailLogin" placeholder="Email">
+            {!! $errors->first('emailLogin', '<span class="text-danger">:message</span>') !!}
             </div>
         
             <div class="form-group">
             <label for="inputPassword">Clave</label>
-            <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" id="password" name="password" placeholder="Password">
-            {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}
+            <input type="password" class="form-control {{ $errors->has('passwordLogin') ? 'border-danger' : '' }}" id="passwordLogin" name="passwordLogin" placeholder="Password">
+            {!! $errors->first('passwordLogin', '<span class="text-danger">:message</span>') !!}
             </div>
 
             <div class="form-group">

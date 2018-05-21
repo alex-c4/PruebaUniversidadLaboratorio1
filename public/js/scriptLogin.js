@@ -1,11 +1,11 @@
 $('#form_login').submit(function() {
-    var _email = $("#inputEmail").val();
-    var _password = $("#inputPassword").val();
+    // var _email = $("#inputEmail").val();
+    // var _password = $("#inputPassword").val();
     var _route = $(this).attr('action'); //$("#routeCurrent").val();
     // var _route2 = $("#routeCurrent").val();
     var _routeDashboard = $("#routeDashboard").val();
     var _token = $("#token").val();
-
+    
     // console.log($(this).serialize());
     $.ajax({
         url: _route,
@@ -46,12 +46,15 @@ $('#form_login').submit(function() {
 
 // funcion AJAX para la busqueda de los estados mediante un ID
 $('#country_id').on('change', function(){
-    var _route = $("#routeCurrent").val();
+    // var _route = $("#routeCurrent").val();
+    var _route = 'http://127.0.0.1:8000';
+    
     var country_id = $(this).val();
     var _url = _route + '/api/state/' + country_id;
-
+    
     $.get(_url)
     .done(function(data, textStatus, jqXHR){
+        
         var html_select = '<option selected>...</option>';
 
         for(var i = 0; i < data.length; i++){
