@@ -99,61 +99,15 @@
       
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form id="form_login" name="form_login" method="POST" action="<?php echo e(route('login')); ?>">
-      <input type="hidden" id="routeCurrent" value="<?php echo e(route('login')); ?>">
-      <input type="hidden" id="routeDashboard" value="<?php echo e(route('dasboardindex')); ?>">
-      <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
-      
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-              <div class="form-group">
-                <label for="inputEmail">Correo Electrónico</label>
-                <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" id="email" name="email" placeholder="Email">
-                <?php echo $errors->first('email', '<span class="text-danger">:message</span>'); ?>
-
-              </div>
-            
-              <div class="form-group">
-                <label for="inputPassword">Clave</label>
-                <input type="password" class="form-control <?php echo e($errors->has('password') ? 'border-danger' : ''); ?>" id="password" name="password" placeholder="Password">
-                <?php echo $errors->first('password', '<span class="text-danger">:message</span>'); ?>
-
-              </div>
-
-              <div class="form-group">
-                  <div id="message-got">
-                  
-                  </div>
-                  <button type="submit" id="btnLogin" class="btn btn-outline-success">Entrar</button>
-              </div> 
-
-          </div>
-          <div class="modal-footer">
-            
-            <label>¿No estas registrado aun?</label>
-            <a href="<?php echo e(route('register')); ?>" class="btn btn-outline-info">Registrarse</a>
-           
-            
-          </div>
-        </div>
-      </div>
-    </form>
-    </div>
+    
   </section><!-- #intro -->
 
   
 
   <main id="main">
 
-  
+    
+    
 
     <!--==========================
       Featured Services Section
@@ -169,16 +123,16 @@
             <p class="description">En nuestro sitio encontraras la mejor opcion para estar informado sobre el mundial Rusia 2018... </p>
           </div>
 
-          <div class="col-lg-4 box box-bg">
-            <i class="ion-compose"></i>
-            <h4 class="title"><a href="">QUNIELAS</a></h4>
-            <p class="description">Te ofrecemos las mejor y divertida forma de ganar dinero por tus conocimientos del futbol munidal, jugando nuestra quiniela general o creando la tuya propia....  </p>
-          </div>
-
           <div class="col-lg-4 box">
             <i class="ion-ios-bookmarks-outline"></i>
             <h4 class="title"><a href="">CROMOS</a></h4>
             <p class="description">Por fin un sitio web donde podras administrar tus cromos y ademas la posibilidad de intercambiar las repetidas con otros usuarios... </p>
+          </div>
+
+           <div class="col-lg-4 box box-bg">
+            <i class="ion-compose"></i>
+            <h4 class="title"><a href="">QUINIELA</a></h4>
+            <p class="description">Te ofrecemos las mejor y divertida forma de ganar dinero por tus conocimientos del futbol munidal, jugando nuestra quiniela general o creando la tuya propia...  </p>
           </div>
 
         </div>
@@ -220,7 +174,7 @@
               </div>
               <h2 class="title"><a href="" data-toggle="modal" data-target="#exampleModal">PASO 2</a></h2>
               <p>
-           	Ingresa como usuario XportGold, marca en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar con otros usuarios...
+           	Ingresa como usuario XportGold, marca en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar...
               </p>
             </div>
           </div>
@@ -233,7 +187,7 @@
               </div>
               <h2 class="title"><a href="#">PASO 3</a></h2>
               <p>
-               ...Completa tu album buscando facilmente los cromos que te faltan en el panel e intercambia con usuarios de tu localidad...
+               ...Completa tu album seleccionando facilmente los cromos que te faltan en el panel e intercambia con usuarios de tu localidad...
               </p>
             </div>
           </div>
@@ -1106,6 +1060,8 @@
         </div>
 
       </div>
+
+      
     </section><!-- #contact -->
 
 
@@ -1114,4 +1070,5 @@
 
 
 
+<?php echo $__env->make('layoutLogin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('layoutMenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

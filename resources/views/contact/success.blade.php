@@ -12,7 +12,7 @@
     </div>
     <div>
         <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">¡Un ordianl Saludo! </h4>
+            <h4 class="alert-heading">¡Un Cordial Saludo! </h4>
             <p>Su mensaje ha sido recibido con exito, en breve le estaremos respondiendo al correo suministrado...</p>
             <hr>
             <p class="mb-0">¡Muchas gracias por contactarnos!</p>
