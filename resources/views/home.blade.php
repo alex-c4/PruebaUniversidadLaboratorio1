@@ -132,7 +132,7 @@
            <div class="col-lg-4 box box-bg">
             <i class="ion-compose"></i>
             <h4 class="title"><a href="">QUINIELA</a></h4>
-            <p class="description">Te ofrecemos las mejor y divertida forma de ganar dinero por tus conocimientos del futbol munidal, jugando nuestra quiniela general o creando la tuya propia...  </p>
+            <p class="description">Te ofrecemos las fomra mas divertida y millonaria de vivir el mundial Rusia 2018, demostrando tus conocimientos jugando la Quiniela XportGold...  </p>
           </div>
 
         </div>
