@@ -149,10 +149,10 @@ var showModalToExchange = function(number){
                     '<tbody>';
         for(var i = 0; i < data.length; i++){
             _html += '<tr>' +
-                        '<th scope="row"><i class="fas fa-user-circle fa-lg"></i></th>' +
+                        '<th scope="row"><i class="fa fa-user-o fa-lg"></i></th>' +
                         '<td>' + data[i].name + '</td>' +
                         '<td>' + data[i].lastName + '</td>' +
-                        '<td><button onclick="btnSendEmail(' + data[i].stickerId + ', ' + data[i].userId + ')" type="button" class="btn btn-outline-success btn-sm"><i class="far fa-envelope"></i></i></button></td>' +
+                        '<td><button onclick="btnSendEmail(' + data[i].stickerId + ', ' + data[i].userId + ')" type="button" class="btn btn-outline-success btn-sm"><i class="fa fa-envelope"></i></i></button></td>' +
                     '</tr>';
         }
 

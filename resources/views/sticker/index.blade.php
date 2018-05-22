@@ -25,13 +25,15 @@
             
             </div>
             <div class="col-auto my-1">
-                <button id="btn-update" type="button" class="btn btn-outline-success"><i class="fas fa-sync-alt"></i></button>
+                <button id="btn-update" type="button" title="Actualizar panel" class="btn btn-outline-success"><i class="fa fa-refresh"></i></button>
             </div>
-            
+            <div class="col-auto my-1">
+                <a alt="Ir panel de mensajes" title="Ir panel de mensajes" class="btn btn-outline-info" href="{{ url('conv') }}"><i class="fa fa-commenting"></i></a>
+            </div>
         </div>
     </div>
 
-    <h1>Panel de Cromos</h1>
+    <h1>Panel de Cromos</h1> 
     <div class="container-fluid">
             
         <div class="row">
@@ -135,7 +137,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-info-circle fa-lg"></i> &nbsp; Panel de Cromo</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-info-circle fa-lg"></i> &nbsp; Panel de Cromo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
