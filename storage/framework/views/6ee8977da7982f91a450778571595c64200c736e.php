@@ -3,7 +3,6 @@
 -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <form id="form_login" name="form_login" method="POST" action="<?php echo e(route('login')); ?>">
-    <input type="hidden" id="routeCurrent" value="<?php echo e(route('login')); ?>">
     <input type="hidden" id="routeDashboard" value="<?php echo e(route('dasboardindex')); ?>">
     <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
     
@@ -17,16 +16,16 @@
         </div>
         <div class="modal-body">
             <div class="form-group">
-            <label for="inputEmail">Correo Electrónico</label>
-            <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" id="email" name="email" placeholder="Email">
-            <?php echo $errors->first('email', '<span class="text-danger">:message</span>'); ?>
+            <label for="emailLogin">Correo Electrónico</label>
+            <input type="emailLogin" class="form-control <?php echo e($errors->has('emailLogin') ? 'border-danger' : ''); ?>" id="emailLogin" name="emailLogin" placeholder="Email">
+            <?php echo $errors->first('emailLogin', '<span class="text-danger">:message</span>'); ?>
 
             </div>
         
             <div class="form-group">
             <label for="inputPassword">Clave</label>
-            <input type="password" class="form-control <?php echo e($errors->has('password') ? 'border-danger' : ''); ?>" id="password" name="password" placeholder="Password">
-            <?php echo $errors->first('password', '<span class="text-danger">:message</span>'); ?>
+            <input type="password" class="form-control <?php echo e($errors->has('passwordLogin') ? 'border-danger' : ''); ?>" id="passwordLogin" name="passwordLogin" placeholder="Password">
+            <?php echo $errors->first('passwordLogin', '<span class="text-danger">:message</span>'); ?>
 
             </div>
 
