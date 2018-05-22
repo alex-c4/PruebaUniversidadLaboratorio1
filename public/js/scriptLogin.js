@@ -46,8 +46,8 @@ $('#form_login').submit(function() {
 
 // funcion AJAX para la busqueda de los estados mediante un ID
 $('#country_id').on('change', function(){
-    // var _route = $("#routeCurrent").val();
-    var _route = 'http://127.0.0.1:8000';
+    var _route = $("#routeCurrent").val();
+    // var _route = 'http://127.0.0.1:8000';
     
     var country_id = $(this).val();
     var _url = _route + '/api/state/' + country_id;
