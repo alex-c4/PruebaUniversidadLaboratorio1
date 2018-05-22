@@ -91,7 +91,7 @@ class IntercambioController extends Controller
 
     public function act_intercambio($id_intercambio,$estatus,$id_sticker,$id_propietario){
         $decrementar=1;
-        if ($estatus =='COMPLETADO'){
+        if ($estatus =='CONCRETADO'){
            // return "id_intercambio:". $id_intercambio."estatus: ". $estatus;
           $decrementar= $this->decrementar_sticker($id_sticker, $id_propietario);
           //return $decrementar;
@@ -101,7 +101,7 @@ class IntercambioController extends Controller
             return redirect()->route('conversaciones.lista');// retornar a la vista con un mensaje de exito, crear vista de exito similar aalert.blade o implementar lerts o venanas modales
         }else{
             $data = ['title' => 'Algo anda mal!!',
-                     'message' => 'No se ha podido actualzar el intercambio, verifique los datos heintente nevamente',
+                     'message' => 'No se ha podido actualzar el intercambio, '.$decrementar.' verifique los datos e intente nevamente',
                      'footer' => 'Gracias!'
                     ];
                         return $this->muestraAlert($data);
@@ -114,8 +114,13 @@ class IntercambioController extends Controller
         //return " impresion desde function decrementar_sticker! id_intercambio:". $id_sticker."propietario: ". $id_propietario;
         try{
             $quantity=Sticker::where("id",'=', $id_sticker)->where("user_id",'=', $id_propietario)->value('quantity');
-            $updates = Sticker::where("id",'=', $id_sticker)->where("user_id",'=', $id_propietario)->update(['quantity' =>$quantity-1]);
-            return 1;
+            if ($quantity >0) {
+                $updates = Sticker::where("id",'=', $id_sticker)->where("user_id",'=', $id_propietario)->update(['quantity' =>$quantity-1]);
+                return 1;
+            }else{
+                return "El propietario no tiene distponibilidad de este cromo para realizar intercambio";
+            }            
+            
         }catch(Exception $e){
             return "Error no se pudo decrementar el numero de stickers !!!";                       
         }

@@ -12,7 +12,7 @@
 
 </style>
 <hr/>    
-  <section id="contact" style="background:#f7f7f7">  
+  <section id="contact" style="background: #f7f7f7">  
    
     <div class="section-header">
       <h3>Conversaciones </h3>
@@ -31,7 +31,10 @@
                     barajita:{{ $intercambio->sticker_num}}
                     @if ($intercambio->estatus=='EN PROCESO')
                         <span class="botones-filas ">
-                          <a class="derecha" href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'INCOMPLETO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}"  class="btn  btn-sm btn-data-target"><i class="fa">X</i></a>
+                          <a title="cancelar el intercambio" 
+                              href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'CANCELADO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}"
+                           class="btn btn-data-target btn-sm derecha"> <i class="fa">X</i>
+                         </a>
                         </span>                     
                     @else
                       <span class="derecha">{{ $intercambio->estatus}}</span>
@@ -49,10 +52,19 @@
                      - barajita:{{ $intercambio->sticker_num}}
                     @if ($intercambio->estatus=='EN PROCESO')
                         <span class="botones-filas ">
-                          <a title="dar por concretado el intercambio y disminuir el numero de cromos" class="derecha" href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'COMPLETADO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}" id="completado" class=" btn  btn-sm btn-data-target"><i class="fa fa-check"></i></a>
+                          <a title="cancelar el intercambio" 
+                             href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'CANCELADO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}"
+                             class="btn btn-data-target btn-sm derecha" ><i class="fa">X</i>
+                           </a>
+                             <!--href="#ventana1" data-toggle="modal"-->
 
-                          <a title="cancelar el intercambio" class="derecha" href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'INCOMPLETO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}"  class="btn  btn-sm btn-data-target"><i class="fa">X</i></a>
-                        </span>                     
+                          <a title="dar por concretado el intercambio y disminuir el numero de cromos"  
+                              href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'CONCRETADO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}"                                
+                              class="btn btn-data-target btn-sm derecha"  ><i class="fa fa-check"></i>
+                          </a>
+                              <!--href="#ventana1"  data-toggle="modal"-->
+                        </span>               
+                              
                     @else
                       <span class="derecha">{{ $intercambio->estatus}}</span>
                     @endif
@@ -64,7 +76,60 @@
               </ul>
             </div>       
             
-          </div>        
+          </div>
+          <!-- ventana modal 1-->
+          <div class="modal fade" id="ventana1">
+              <div class="modal-dialog">
+                  <div class="modal-content"> 
+                        <!-- header-->  
+                        <div class="modal-header">
+                          <h5 class="modal-title">concretar intercambio</h5>
+                          <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <!-- contenido-->    
+                        <div class ="modal-body">
+                          <p> Esta a punto de concretar el intercambio con <strong>{{$intercambio->name." ".$intercambio->lastName}}</strong>, esto actualizara su cantidad de cromos del numero:<strong>{{ $intercambio->sticker_num}}</strong>. ¿desea continuar?</p>
+                          
+                        </div>
+                        <!-- footer-->    
+                        <div class ="modal-footer ">
+                          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancelar</button>
+                          <a href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'CONCRETADO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}" 
+                             id="completado" class=" btn btn-sm btn-success ">Continuar</a>
+                        </div>                   
+                  </div>
+              </div>
+          </div>
+
+          <!-- fin ventana modal 1-->
+
+          <!-- ventana modal 2-->
+          <div class="modal fade" id="ventana2">
+              <div class="modal-dialog">
+                  <div class="modal-content"> 
+                        <!-- header-->  
+                        <div class="modal-header">
+                          <h5 class="modal-title">cancelar intercambio</h5>
+                          <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <!-- contenido-->    
+                        <div class ="modal-body">
+                          <p> Esta a punto de cancelar el intercambio con <strong>{{$intercambio->name." ".$intercambio->lastName}}</strong>, ¿desea continuar?</p>
+                          
+                        </div>
+                        <!-- footer-->    
+                        <div class ="modal-footer ">
+                          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancelar</button>
+                          <a href="{{ route('intercambio.act',['id_intercambio'=>$intercambio->id_intercambio, 'estatus'=>'CANCELADO', 'id_sticker'=>$intercambio->id_barajita, 'id_propietario'=>$intercambio->id_propietario])}}" id="completado" class=" btn btn-sm btn-success ">Continuar</a>
+                        </div>                   
+                  </div>
+              </div>
+          </div>
+
+          <!-- fin ventana modal 2-->
+
+
+
         </div>
     </div>
   </section>

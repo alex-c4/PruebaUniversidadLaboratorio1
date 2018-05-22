@@ -116,6 +116,8 @@ class MensajeriaController extends Controller
             ->join('users','users.id','=','stickers.user_id','inner',false)        
             ->select('intercambios.id_intercambio','intercambios.id_usuario_solicitante','intercambios.id_barajita','intercambios.estatus','stickers.user_id as id_propietario','stickers.number as sticker_num','users.name','users.lastName')
             ->where ('intercambios.id_usuario_solicitante','=',$user_id)
+            ->where('intercambios.estatus','!=', 'CANCELADO')
+            ->orderBy('intercambios.estatus','desc')
             ->orderBy('intercambios.created_at','desc')
             ->get();
 
@@ -125,6 +127,8 @@ class MensajeriaController extends Controller
             ->join('users','users.id','=','intercambios.id_usuario_solicitante','inner',false)        
             ->select('intercambios.id_intercambio','intercambios.id_usuario_solicitante','intercambios.id_barajita','intercambios.estatus','stickers.user_id as id_propietario','stickers.number as sticker_num','users.name','users.lastName')
             ->where('stickers.user_id','=',$user_id)
+            ->where('intercambios.estatus','!=', 'CANCELADO')
+            ->orderBy('intercambios.estatus','desc')
             ->orderBy('intercambios.created_at','desc')
             ->get();            
         
