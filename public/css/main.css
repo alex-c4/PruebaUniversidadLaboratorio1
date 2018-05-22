@@ -756,12 +756,14 @@ ul#jstwitter li a{
 
 /**********Link Styling**********/
 a {
-  color: #b2c831;
+  color: #9e7622;/*Modificado por XportGold*/
+  /*color: #b2c831;*/
   text-decoration: none;
 }
 
 a:hover {
-  color: #dff948;
+  color: #B6121b;/*Modificado por XportGold*/
+  /*color: #b2c831;*/
   text-decoration: none;
 }
 

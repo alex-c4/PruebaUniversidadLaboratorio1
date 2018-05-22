@@ -26,6 +26,7 @@
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+ 
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
@@ -53,20 +54,9 @@
                 <h2>MUNDIAL RUSIA 2018</h2>
                 <p>Todo lo que Necesitas Saber del Mundial Rusia 2018....</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="portfolio" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Ver</a>
+                <a href="#notice" class="btn-get-started scrollto">Ver</a>
                 <!-- <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Get Started</button> -->
 
-              </div>
-            </div>
-          </div>
-          
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xp.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>LA MEJOR QUINIELA</h2>
-                <p>Participa, demuestra lo que sabes y saborea el éxito....</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
               </div>
             </div>
           </div>
@@ -80,7 +70,19 @@
                 <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
               </div>
             </div>
-          </div>        
+          </div>  
+          
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xp.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>LA MEJOR QUINIELA</h2>
+                <p>Participa, demuestra lo que sabes y saborea el éxito....</p>
+                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
+                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+              </div>
+            </div>
+          </div>
+             
         
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
@@ -97,57 +99,15 @@
       
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form id="form_login" name="form_login" method="POST" action="<?php echo e(route('login')); ?>">
-      <input type="hidden" id="routeCurrent" value="<?php echo e(route('login')); ?>">
-      <input type="hidden" id="routeDashboard" value="<?php echo e(route('dasboardindex')); ?>">
-      <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
-      
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-              <div class="form-group">
-                <label for="inputEmail">Correo Electrónico</label>
-                <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" id="email" name="email" placeholder="Email">
-                <?php echo $errors->first('email', '<span class="text-danger">:message</span>'); ?>
-
-              </div>
-            
-              <div class="form-group">
-                <label for="inputPassword">Clave</label>
-                <input type="password" class="form-control <?php echo e($errors->has('password') ? 'border-danger' : ''); ?>" id="password" name="password" placeholder="Password">
-                <?php echo $errors->first('password', '<span class="text-danger">:message</span>'); ?>
-
-              </div>
-
-              <div class="form-group">
-                  <div id="message-got">
-                  
-                  </div>
-              </div> 
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-            <button type="submit" id="btnLogin" class="btn btn-outline-success">Login</button>
-          </div>
-        </div>
-      </div>
-    </form>
-    </div>
+    
   </section><!-- #intro -->
 
   
 
   <main id="main">
 
-  
+    
+    
 
     <!--==========================
       Featured Services Section
@@ -163,16 +123,16 @@
             <p class="description">En nuestro sitio encontraras la mejor opcion para estar informado sobre el mundial Rusia 2018... </p>
           </div>
 
-          <div class="col-lg-4 box box-bg">
-            <i class="ion-compose"></i>
-            <h4 class="title"><a href="">QUNIELAS</a></h4>
-            <p class="description">Te ofrecemos las mejor y divertida forma de ganar dinero por tus conocimientos del futbol munidal, jugando nuestra quiniela general o creando la tuya propia....  </p>
-          </div>
-
           <div class="col-lg-4 box">
             <i class="ion-ios-bookmarks-outline"></i>
             <h4 class="title"><a href="">CROMOS</a></h4>
             <p class="description">Por fin un sitio web donde podras administrar tus cromos y ademas la posibilidad de intercambiar las repetidas con otros usuarios... </p>
+          </div>
+
+           <div class="col-lg-4 box box-bg">
+            <i class="ion-compose"></i>
+            <h4 class="title"><a href="">QUINIELA</a></h4>
+            <p class="description">Te ofrecemos las mejor y divertida forma de ganar dinero por tus conocimientos del futbol munidal, jugando nuestra quiniela general o creando la tuya propia...  </p>
           </div>
 
         </div>
@@ -198,7 +158,7 @@
                 <img src="img/about_registro.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-edit"></i></div>
               </div>
-              <h2 class="title"><a href="#">PASO 1:</a></h2>
+              <h2 class="title"><a href="<?php echo e(url('/register')); ?>">PASO 1:</a></h2>
               <p>
                Registra de forma rápida y sencilla tus datos y disfruta la experiencia de ser un usuario exclusivo de xportgold.			
 				 
@@ -212,9 +172,9 @@
                 <img src="img/about_panel.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-list-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">PASO 2</a></h2>
+              <h2 class="title"><a href="" data-toggle="modal" data-target="#exampleModal">PASO 2</a></h2>
               <p>
-           	Marca en tu panel interactivo los cromos adquiridos y los repetidos para intercambiar otros usuarios...
+           	Ingresa como usuario XportGold, marca en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar...
               </p>
             </div>
           </div>
@@ -227,7 +187,7 @@
               </div>
               <h2 class="title"><a href="#">PASO 3</a></h2>
               <p>
-               ....Intercambia con otros usuarios de tu localidad los cromos que tengan repetidos y que tu necesitas para completar tu Album...
+               ...Completa tu album seleccionando facilmente los cromos que te faltan en el panel e intercambia con usuarios de tu localidad...
               </p>
             </div>
           </div>
@@ -398,7 +358,7 @@
 
         <header class="section-header">
           <h3>Noticias</h3>
-          <p>si te gusta mantenerte informado, encontrarás valiosa esta sección. Enterate de lo mas destacado aqui. </p>
+          <p>Enterate de lo mas destacado del Mundial Rusia 2018 </p>
         </header>
 
   
@@ -410,10 +370,15 @@
             <div class="notice-col">
               <div class="img">
                 <img src="img/notice/<?php echo e($noticia['name_img']); ?>" alt="" class="img-fluid">
+                
+                
               </div>
               <h2 class="title"><a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>"><?php echo e($noticia['titulo']); ?></a></h2>
-              <p>
-                </br><?php echo e(substr($noticia['cuerpo'],0,200).'...'); ?>
+
+              <p style="text-align: justify;">
+                </br><?php echo e(substr($noticia['fecha_publicacion'],0,10)); ?>
+
+                </br></br><?php echo e(substr($noticia['cuerpo'],0,200).'...'); ?>
 
               </p>
               <a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>" class="btn ">Leer mas</a>
@@ -1041,30 +1006,52 @@
 -->
         </div>
 
+
+
         <div class="form">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
           <form action="<?php echo e(URL::asset('/registerContact')); ?>" method="post" role="form">
 		  
             <div class="form-row">
+
 			<?php echo e(csrf_field()); ?>
 
+
+              <!-- Nombre Contacto-->
               <div class="form-group col-md-6">
-                <input type="text" name="nameContact" class="form-control" id="nameContact" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="emailContact" id="emailContact" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
-              </div>
+                <input type="hidden" id="routeCurrent" value="<?php echo e(url('/#contacto')); ?>">
+                <input type="text" class="form-control <?php echo e($errors->has('nameContact') ? 'border-danger' : ''); ?>" name="nameContact" id="nameContact" placeholder="Name" value="<?php echo e(old('nameContact')); ?>">
+              <?php echo $errors->first('nameContact', '<span class="text-danger">:message</span>'); ?>
+
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-              <div class="validation"></div>
+
+
+               
+
+               <!-- Mail -->
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control <?php echo e($errors->has('emailContact') ? 'border-danger' : ''); ?>" name="emailContact" id="emailContact" placeholder="Mail" value="<?php echo e(old('emailContact')); ?>">
+              <?php echo $errors->first('emailContact', '<span class="text-danger">:message</span>'); ?>
+
             </div>
+          </div>
+
+            <!-- Asunto -->
             <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-              <div class="validation"></div>
+             <input type="text" class="form-control <?php echo e($errors->has('subject') ? 'border-danger' : ''); ?>" name="subject" id="subject" placeholder="Asunto" value="<?php echo e(old('subject')); ?>">
+              <?php echo $errors->first('subject', '<span class="text-danger">:message</span>'); ?>
+
+            </div>
+
+             <!-- Mensaje -->  
+            <div class="form-group">
+              <textarea class="form-control <?php echo e($errors->has('mensaje') ? 'border-danger' : ''); ?>" name="mensaje" id="mensaje" rows="5" placeholder="Mensaje" value="<?php echo e(old('mensaje')); ?>"></textarea>
+                 <?php echo $errors->first('mensaje', '<span class="text-danger">:message</span>'); ?>
+
+
+              
+              
             </div>
            <div class="text-center">
             <button type="submit" class="btn btn-success">Enviar</button>
@@ -1073,6 +1060,8 @@
         </div>
 
       </div>
+
+      
     </section><!-- #contact -->
 
 
@@ -1081,4 +1070,5 @@
 
 
 
+<?php echo $__env->make('layoutLogin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('layoutMenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

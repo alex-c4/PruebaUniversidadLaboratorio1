@@ -11,15 +11,14 @@ use App\User;
 class LoginController extends Controller
 {
     public function login(){
+
         $credenciales = $this->validate(request(), [
-            'email' => 'email|required|string',
-            'password' => 'required|string'
+            'emailLogin' => 'email|required|string',
+            'passwordLogin' => 'required|string'
         ]);
-
-        // return $credenciales;
         
-        $user = User::where('email', request()->email)->get();
-
+        $user = User::where('email', request()->emailLogin)->get();
+        
         if(!$user->count() > 0){
             $access = array(
                 "access" => false,
@@ -33,7 +32,9 @@ class LoginController extends Controller
             );
 
         }else{
-            if(Auth::attempt($credenciales)){
+            // if(Auth::attempt($credenciales)){
+            
+            if(Auth::attempt(['email' => $credenciales['emailLogin'], 'password' => $credenciales['passwordLogin']])){
                 $access = array(
                     "access" => true,
                     "message" => null
@@ -94,4 +95,6 @@ class LoginController extends Controller
 
         return $arrayName;
     }
+
+    
 }

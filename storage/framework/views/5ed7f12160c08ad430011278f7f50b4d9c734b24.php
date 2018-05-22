@@ -20,8 +20,10 @@
   <!-- Bootstrap CSS File -->
   <link href="<?php echo e(asset('lib/bootstrap/css/bootstrap.css')); ?>" rel="stylesheet">
     
-  <!-- Libraries CSS Files -->
-  <link href="<?php echo e(asset('css/fontawesome.css')); ?>" rel="stylesheet">
+  <!-- Libraries CSS Files -->   
+  <link href="<?php echo e(asset('lib/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('lib/font-awesome/css/font-awesome.css')); ?>" rel="stylesheet">
+  <!--<link href="<?php echo e(asset('css/fontawesome.css')); ?>" rel="stylesheet"> Sustitido por la de arriba--> 
   <link href="<?php echo e(asset('lib/animate/animate.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/ionicons/css/ionicons.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/owlcarousel/assets/owl.carousel.min.css')); ?>" rel="stylesheet">
@@ -52,7 +54,7 @@
         <a href="#intro"><img src="<?php echo e(url('img/logo.png')); ?>" alt="" title="" /></a>
      
 	  
-	 </div>
+	   </div>
 
  
 		  
@@ -66,24 +68,34 @@
 		  
 		  
 		  <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
-          <li><a href="#about">Intercambiar Cromos</a></li>
+          <?php if(Auth::check()): ?>
+            <li><a href="<?php echo e(url('sticker')); ?>">Intercambiar Cromos</a></li>
+          <?php else: ?>
+            <li><a href="#about">Intercambiar Cromos</a></li>
+          <?php endif; ?>
           <li><a href="<?php echo e(url('/#notice')); ?>">Noticias</a></li>
           <li><a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
-         
-          
-          <?php if(Auth::check()): ?>
-            <li><a href="<?php echo e(url('/logout')); ?>">Logout</a></li>
+          <li><a href="<?php echo e(url('/#contact')); ?>">Contactanos</a></li>
+          <br>
+          <?php if(Auth::check()): ?>            
             <li><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a></li>
+            <li><a href="<?php echo e(url('/logout')); ?>">Cerrar sesion</a></li>
           <?php else: ?>
-            <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
+            <li><a href="<?php echo e(url('/register')); ?>">Registrarse</a></li>
+            <li><a href="" data-toggle="modal" data-target="#exampleModal">Iniciar sesion</a></li>
           <?php endif; ?>
-          <li><a href="#contact">Contact</a></li>
+          
+          
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
-	
+
+<!-- Contador -->
+<!--	
 <div style="margin: 0px 0px 0px;" align="center"><noscript><div style="width: 140px; border: 1px solid rgb(204, 204, 204); text-align: center; color: rgb(158, 118, 34); font-weight: bold; font-size: 12px; background-color: rgb(0, 0, 0);" align="center"><a href="http://mycountdown.org/tag.php?tag=world cup" style="text-decoration: none; font-size: inherit; color: rgb(158, 118, 34);">World cup Countdown</a></div></noscript><script type="text/javascript" src="http://mycountdown.org/countdown.php?cp2_Hex=000000&cp1_Hex=9e7622&img=1&hbg=0&fwdt=300&lab=1&ocd=Tournament&text1=Rusia 2018&text2=&group=Event&countdown=Tournament&widget_number=3011&event_time=1528934400&timezone=America/Caracas"></script>
 </div>
+-->
+
 
   </header><!-- #header -->
 
@@ -116,11 +128,11 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo e(url('/')); ?>">Home</a></li> 
+              <li><i class="ion-ios-arrow-right"></i> <a href="#about">Intercambiar Cromos</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo e(url('/#notice')); ?>">Noticias</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo e(url('/#contact')); ?>">Contactanos</a></li>
             </ul>
           </div>
 
@@ -128,7 +140,7 @@
             <h4>Contact Us</h4>
             <p>
               
-              <strong>Email:</strong> xportgold@gmail.com<br>
+              <strong>Email:</strong> xportgoldmail@gmail.com<br>
             </p>
 
             <div class="social-links">
@@ -143,7 +155,7 @@
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+            <p>Atentos a nuestro lanzamiento de la forma mas divertida y millonaria de vivir el mundial...</p>
             
           </div>
 
@@ -166,6 +178,9 @@
 		-->
       </div>
     </div>
+
+    
+     
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -205,7 +220,7 @@
   <script src="<?php echo e(asset('js/datepicker.js')); ?>"></script>
   
   
-
+  
 </body>
 </html>
   

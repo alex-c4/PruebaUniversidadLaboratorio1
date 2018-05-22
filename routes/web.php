@@ -32,10 +32,19 @@ Route::view('/welcome', 'welcome');
 // });
 Route::get('/register', 'Auth\RegisterController@create')->name('create');
 Route::view('/auth.success', 'success');
+Route::view('/auth.successEdit', 'successEdit');
 Route::post('/register', 'Auth\RegisterController@store')->name('register');
 // Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/settings', 'Auth\SettingsController@edit')->name('userEdit');
+Route::post('/update', 'Auth\SettingsController@update')->name('userUpdate');
+Route::get('/resetPassw', 'Auth\ResetPasswordController@index')->name('resetPassw');
+Route::post('/updatePassw', 'Auth\ResetPasswordController@update')->name('updatePassw');
+
+Route::get('/forgotPassw', 'Auth\ForgotPasswordController@index')->name('forgotPassw');
+Route::post('/forgotPassw', 'Auth\ForgotPasswordController@forgotPassw')->name('forgotPasswEmail');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -121,4 +130,6 @@ Route::POST("/registerContact", "ContactController@store");
 */
 Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardindex');
 
+
+Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
 

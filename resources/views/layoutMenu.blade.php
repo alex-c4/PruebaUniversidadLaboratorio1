@@ -20,8 +20,10 @@
   <!-- Bootstrap CSS File -->
   <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
     
-  <!-- Libraries CSS Files -->
-  <link href="{{ asset('css/fontawesome.css')}}" rel="stylesheet">
+  <!-- Libraries CSS Files -->   
+  <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+  <!--<link href="{{ asset('css/fontawesome.css')}}" rel="stylesheet"> Sustitido por la de arriba--> 
   <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
   <link href="{{ asset('lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
   <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
@@ -52,7 +54,7 @@
         <a href="#intro"><img src="{{ url('img/logo.png')}}" alt="" title="" /></a>
      
 	  
-	 </div>
+	   </div>
 
  
 		  
@@ -66,18 +68,25 @@
 		  
 		  
 		  <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
-          <li><a href="{{ url('/#about') }}"#about">Intercambiar Cromos</a></li>
+
+          @if(Auth::check())
+            <li><a href="{{ url('sticker') }}">Intercambiar Cromos</a></li>
+          @else
+           <li><a href="{{ url('/#about') }}">Intercambiar Cromos</a></li>
+          @endif
           <li><a href="{{ url('/#notice') }}">Noticias</a></li>
           <li><a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
-         
-          
-          @if(Auth::check())
-            <li><a href="{{ url('/logout') }}">Logout</a></li>
+          <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
+          <br>
+          @if(Auth::check())            
             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>
           @else
-            <li><a href="{{ url('/register') }}">Register</a></li>
+            <li><a href="{{ url('/register') }}">Registrarse</a></li>
+            <li><a href="" data-toggle="modal" data-target="#exampleModal">Iniciar sesion</a></li>
           @endif
-          <li><a href="#contact">Contact</a></li>
+          
+          
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -120,11 +129,11 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/') }}">Home</a></li> 
+              <li><i class="ion-ios-arrow-right"></i> <a href="#about">Intercambiar Cromos</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/#notice') }}">Noticias</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/#contact') }}">Contactanos</a></li>
             </ul>
           </div>
 
@@ -132,13 +141,13 @@
             <h4>Contact Us</h4>
             <p>
               
-              <strong>Email:</strong> xportgold@gmail.com<br>
+              <strong>Email:</strong> xportgoldmail@gmail.com<br>
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="https://twitter.com/xportg"  target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.facebook.com/XportGold-203618576920498/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
               <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
               <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
             </div>
@@ -147,7 +156,7 @@
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+            <p>Atentos a nuestro lanzamiento de la forma mas divertida y millonaria de vivir el mundial...</p>
             
           </div>
 
@@ -170,6 +179,9 @@
 		-->
       </div>
     </div>
+
+    
+     
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -209,7 +221,7 @@
   <script src="{{asset('js/datepicker.js')}}"></script>
   
   
-
+  
 </body>
 </html>
   
