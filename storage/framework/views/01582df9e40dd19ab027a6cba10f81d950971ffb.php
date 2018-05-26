@@ -123,16 +123,16 @@
             <p class="description">En nuestro sitio encontraras la mejor opcion para estar informado sobre el mundial Rusia 2018... </p>
           </div>
 
-          <div class="col-lg-4 box box-bg">
-            <i class="ion-compose"></i>
-            <h4 class="title"><a href="">QUNIELAS</a></h4>
-            <p class="description">Te ofrecemos las mejor y divertida forma de ganar dinero por tus conocimientos del futbol munidal, jugando nuestra quiniela general o creando la tuya propia....  </p>
-          </div>
-
           <div class="col-lg-4 box">
             <i class="ion-ios-bookmarks-outline"></i>
             <h4 class="title"><a href="">CROMOS</a></h4>
             <p class="description">Por fin un sitio web donde podras administrar tus cromos y ademas la posibilidad de intercambiar las repetidas con otros usuarios... </p>
+          </div>
+
+           <div class="col-lg-4 box box-bg">
+            <i class="ion-compose"></i>
+            <h4 class="title"><a href="">QUINIELA</a></h4>
+            <p class="description">Te ofrecemos las fomra mas divertida y millonaria de vivir el mundial Rusia 2018, demostrando tus conocimientos jugando la Quiniela XportGold...  </p>
           </div>
 
         </div>
@@ -174,7 +174,7 @@
               </div>
               <h2 class="title"><a href="" data-toggle="modal" data-target="#exampleModal">PASO 2</a></h2>
               <p>
-           	Ingresa como usuario XportGold, marca en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar con otros usuarios...
+           	Ingresa como usuario XportGold, marca en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar...
               </p>
             </div>
           </div>
@@ -187,7 +187,7 @@
               </div>
               <h2 class="title"><a href="#">PASO 3</a></h2>
               <p>
-               ...Completa tu album buscando facilmente los cromos que te faltan en el panel e intercambia con usuarios de tu localidad...
+               ...Completa tu album seleccionando facilmente los cromos que te faltan en el panel e intercambia con usuarios de tu localidad...
               </p>
             </div>
           </div>
