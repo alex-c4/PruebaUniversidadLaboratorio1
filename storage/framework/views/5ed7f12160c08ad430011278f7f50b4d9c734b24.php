@@ -68,10 +68,11 @@
 		  
 		  
 		  <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
+
           <?php if(Auth::check()): ?>
             <li><a href="<?php echo e(url('sticker')); ?>">Intercambiar Cromos</a></li>
           <?php else: ?>
-            <li><a href="#about">Intercambiar Cromos</a></li>
+           <li><a href="<?php echo e(url('/#about')); ?>">Intercambiar Cromos</a></li>
           <?php endif; ?>
           <li><a href="<?php echo e(url('/#notice')); ?>">Noticias</a></li>
           <li><a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
@@ -144,9 +145,9 @@
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="https://twitter.com/xportg"  target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.facebook.com/XportGold-203618576920498/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
               <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
               <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
             </div>
