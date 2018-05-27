@@ -68,15 +68,12 @@
 		  
 		  
 		  <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
-<<<<<<< HEAD
-          <li><a href="<?php echo e(url('/#about')); ?>"#about">Intercambiar Cromos</a></li>
-=======
+
           <?php if(Auth::check()): ?>
             <li><a href="<?php echo e(url('sticker')); ?>">Intercambiar Cromos</a></li>
           <?php else: ?>
-            <li><a href="#about">Intercambiar Cromos</a></li>
+           <li><a href="<?php echo e(url('/#about')); ?>">Intercambiar Cromos</a></li>
           <?php endif; ?>
->>>>>>> 5d5490f22b132bd9f0558c94745b2504e67203dc
           <li><a href="<?php echo e(url('/#notice')); ?>">Noticias</a></li>
           <li><a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
           <li><a href="<?php echo e(url('/#contact')); ?>">Contactanos</a></li>
