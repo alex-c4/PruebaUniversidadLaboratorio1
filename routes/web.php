@@ -18,6 +18,7 @@
 
 Route::get('/', 'HomeController@consultar')->name('home.consultar');
 Route::view('/welcome', 'welcome');
+
 /*
 |--------------------------------------------------------------------------
 | Login Routes

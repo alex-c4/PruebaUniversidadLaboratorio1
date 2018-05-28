@@ -9,7 +9,7 @@
 
   <!-- Favicons -->
   
-  <link href="img/favicon.ico" rel="icon">
+  <link href="<?php echo e(asset('img/favicon.ico')); ?>" rel="icon">
   <!-- 
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon"> 
   -->

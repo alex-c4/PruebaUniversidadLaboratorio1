@@ -10,7 +10,7 @@
    
     <div>
         <div class="alert alert-danger" role="alert">
-            <h4 class="alert-dager">{!! $title !!}</h4>
+            <h4 class="alert-danger">{!! $title !!}</h4>
             <p> <i><b>{!! $message !!}</b></i></p>
             <hr>
             <p class="mb-0">{!! $footer !!}</p>
