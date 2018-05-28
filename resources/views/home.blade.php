@@ -9,7 +9,7 @@
 
   <!-- Favicons -->
   
-  <link href="img/favicon.ico" rel="icon">
+  <link href="{{ asset('img/favicon.ico') }}" rel="icon">
   <!-- 
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon"> 
   -->

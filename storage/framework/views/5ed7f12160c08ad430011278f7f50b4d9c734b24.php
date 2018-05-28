@@ -8,8 +8,7 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  
-  <link href="img/favicon.ico" rel="icon">
+  <!-- <link href="<?php echo e(asset('img/favicon.ico')); ?>" rel="icon"> -->
   <!-- 
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon"> 
   -->
@@ -29,7 +28,7 @@
   <link href="<?php echo e(asset('lib/owlcarousel/assets/owl.carousel.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/lightbox/css/lightbox.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('css/jquery-confirm.css')); ?>" rel="stylesheet">
-  <link href="<?php echo e(asset('css/jquery-confirm.less')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('css/jquery-confirm.less')); ?>" >
 
   <!-- Main Stylesheet File -->
   <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
@@ -219,6 +218,9 @@
   <!-- Script para barajitas -->
   <script src="js/sticker.js"></script>
   <script src="<?php echo e(asset('js/datepicker.js')); ?>"></script>
+
+  <!-- script para registro de usuario -->
+  <script src="<?php echo e(asset('js/register.js')); ?>"></script>
   
   
   
