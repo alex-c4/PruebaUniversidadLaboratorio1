@@ -133,3 +133,16 @@ Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardi
 
 Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
 
+
+/*
+|--------------------------------------------------------------------------
+| Result Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Resultados
+|
+*/
+Route::get('/result', 'Auth\ResultController@create')->name('create');
+//Route::post('/result', 'Auth\ResultController@store');
+Route::post('/result', 'Auth\ResultController@store')->name('result');
+//Route::post('/register', 'Auth\RegisterController@store')->name('register');
