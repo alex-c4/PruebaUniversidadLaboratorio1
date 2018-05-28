@@ -132,7 +132,11 @@
            <div class="col-lg-4 box box-bg">
             <i class="ion-compose"></i>
             <h4 class="title"><a href="">QUINIELA</a></h4>
+<<<<<<< HEAD
             <p class="description">Te ofrecemos las fomra mas divertida y millonaria de vivir el mundial Rusia 2018, demostrando tus conocimientos jugando la Quiniela XportGold...  </p>
+=======
+            <p class="description">Te ofrecemos la fomra mas divertida y millonaria de vivir el mundial Rusia 2018, jugando nuestra Quiniela XportGold...  </p>
+>>>>>>> d8959cd0df0de82dd83cc099850c4bb29d9845bf
           </div>
 
         </div>
@@ -174,7 +178,7 @@
               </div>
               <h2 class="title"><a href="" data-toggle="modal" data-target="#exampleModal">PASO 2</a></h2>
               <p>
-           	Ingresa como usuario XportGold, marca en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar...
+           	Ingresa como usuario XportGold, regsitra en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar...
               </p>
             </div>
           </div>

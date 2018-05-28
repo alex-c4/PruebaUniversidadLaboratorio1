@@ -27,7 +27,7 @@
         <input type="hidden" id="id_intercambio" name="id_intercambio" value="<?php echo e($intercambio); ?>">
         <input type="hidden" id="routeCurrent" value="<?php echo e(url('/')); ?>">
           <div class="form-group"> 
-            <label for="mensaje">Escribe un mensaje para <b><?php echo e($datos->name."".$datos->lastName); ?></b>:</label>
+            <label for="mensaje">Escribe un mensaje para <b><?php echo e($datos->name."".$datos->lastName); ?></b> para intercambiar el cromo numero: <b><?php echo e($datos->sticker_num); ?></b>:</label>
             <textarea class="form-control" name="mensaje" id="mensaje" rows="5" data-rule="required" data-msg=" por favor, debes escribir algo" placeholder="Mensaje"></textarea>
             <div class="validation"></div>
             <?php echo $errors->first('mensaje', '<span class="text-danger">:message</span>'); ?>

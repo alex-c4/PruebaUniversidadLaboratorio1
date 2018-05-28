@@ -132,8 +132,18 @@ class MensajeriaController extends Controller
             ->orderBy('intercambios.created_at','desc')
             ->get();            
         
-    
-        return view('conversaciones',compact('intercambios','intercambios2'));
+        if (($intercambios->count()<=0) and ($intercambios2->count()<=0)){
+
+            $data = [
+                'title' => 'Informacion',
+                'message' => 'Aun no posees ninguna conversacion, debes de tener intercambios de cormos en curso para poder compartir mensajes con otos usuario.',
+                'footer' => 'Gracias!'                
+            ];
+
+            return view('warning',$data);
+        } else {
+            return view('conversaciones',compact('intercambios','intercambios2'));            
+        }    
     }
 
     

@@ -60,8 +60,8 @@ class IntercambioController extends Controller
                 ];
                 return $this->muestraAlert($data);
             }else{
-                $intercambio=Intercambio::where('id_barajita',$id_sticker)->where('id_usuario_solicitante',$id_solicitante)->first();
-                if ($intercambio==null){//pendiente validar  respuesta del query antes de pasar respuesta a la ruta
+                $intercambio=Intercambio::where('id_barajita',$id_sticker)->where('id_usuario_solicitante',$id_solicitante)->where('estatus','EN PROCESO')->first();
+                if ($intercambio==null){//se valida que no exista un ntercambio con estatus en procesopara este sticker e id_usuario 
                     if($id_propietario == $user_log){//se valida que quien esta aceptando elintercambio sea el propietario del cromo o sticker para q se pueda registrar                     
                        $respuesta = Intercambio::create([
                         'id_barajita' => $id_sticker,
@@ -110,15 +110,15 @@ class IntercambioController extends Controller
             
     }
 
-        public function decrementar_sticker($id_sticker, $id_propietario){
+    public function decrementar_sticker($id_sticker, $id_solicitante){
         //return " impresion desde function decrementar_sticker! id_intercambio:". $id_sticker."propietario: ". $id_propietario;
         try{
             $quantity=Sticker::where("id",'=', $id_sticker)->where("user_id",'=', $id_propietario)->value('quantity');
-            if ($quantity >0) {
+            if ($quantity >1) {
                 $updates = Sticker::where("id",'=', $id_sticker)->where("user_id",'=', $id_propietario)->update(['quantity' =>$quantity-1]);
                 return 1;
             }else{
-                return "El propietario no tiene distponibilidad de este cromo para realizar intercambio";
+                return "El propietario no tiene repetido este cromo, no puede realizar intercambios";
             }            
             
         }catch(Exception $e){
@@ -126,6 +126,7 @@ class IntercambioController extends Controller
         }
     }
 
+    
     public function muestraAlert($data){
         //return$data;
         return view('alert', $data);
