@@ -121,7 +121,7 @@
              <!-- 
 						<a href="{{ route('userEdit') }}"><span aria-hidden="true" class="li_settings fs1"></span></a>
             -->
-            
+
 						<!--<span aria-hidden="true" class="li_mail fs1"></span>-->
 						<a href="{{ route('resetPassw') }}"><span aria-hidden="true" class="li_key fs1"></span></a>
 					</div>
@@ -146,9 +146,8 @@
         									</li>
         									<li><a class="tt" href="{{ url('sticker') }}">  -- Panel de Cromos --<span class="tooltip"><span class="triangle-obtuse">Puedes consultar tus cromos adquiridas, repetidas y de interes desde tu panel</span></span></a></li>
 	                        <li><a class="tt" href="{{ url('conv') }}"> Mensajerias de Intercambio <span class="tooltip"><span class="triangle-obtuse">Consulta tus intercambios de cromos y sus respectivas conversaciones </span></span></a></li>
-                          <li>-</li>
-
-
+                          <li><a class="tt" href="files/Instructivo Intercambio Cromos XportGold.pdf" target="_blank">Descargar Instructivo Cromos <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicara como intercambiar fácilmente tus cromos a través de nuestro sitio</span></span></a></li>
+                          
         									<li class="footer_row"><a href="{{ url('sticker') }}" class="hosting-button">cromos</a></li>
         								</ul>
         							</div><!--/ column-->
@@ -167,8 +166,8 @@
           									<li class="header_row">
           										<h1>Quinielas</h1>
           									</li>
-          									<li><a class="tt" href="#"> Quiniela Rusia 2018<span class="tooltip"><span class="triangle-obtuse">Pronto habilitada estada opcion... </span></span></a></li>
-  	                        <li><a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse"> Pronto habilitada estada opcion... </span></span></a></li>
+          									<li><a class="tt" href="#">Quiniela Rusia 2018<span class="tooltip"><span class="triangle-obtuse">Pronto estara habilitada estada opcion... </span></span></a></li>
+  	                        <li><a class="tt" href="#">Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">Pronto estara habilitada estada opcion... </span></span></a></li>
                             <li>-</li>
 
           									<li class="footer_row"><a href="#" class="hosting-button">QUINIELAS</a></li>
