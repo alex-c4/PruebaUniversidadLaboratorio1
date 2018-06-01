@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2018 a las 03:55:39
+-- Tiempo de generación: 30-05-2018 a las 03:53:37
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.3
 
@@ -25,36 +25,40 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `quinielas`
+-- Estructura de tabla para la tabla `bets`
 --
 
-CREATE TABLE `quinielas` (
+CREATE TABLE `bets` (
+  `id` int(11) NOT NULL,
   `id_quiniela` int(11) NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `id_user_creador` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id_user` int(11) NOT NULL,
+  `ref_pago` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `payment_date` date DEFAULT NULL,
+  `amount` decimal(10,0) DEFAULT NULL,
+  `verification` tinyint(4) NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `quinielas`
+-- Indices de la tabla `bets`
 --
-ALTER TABLE `quinielas`
-  ADD PRIMARY KEY (`id_quiniela`);
+ALTER TABLE `bets`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `quinielas`
+-- AUTO_INCREMENT de la tabla `bets`
 --
-ALTER TABLE `quinielas`
-  MODIFY `id_quiniela` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `bets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
