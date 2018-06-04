@@ -13,4 +13,7 @@ class Game extends Model{
     protected $fillable = [
         
     ];
+
+    // The table associated with the model.
+    protected $table = 'games';
 }

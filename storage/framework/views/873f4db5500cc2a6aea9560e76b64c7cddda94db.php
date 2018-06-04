@@ -21,17 +21,8 @@
           <input type="hidden" id="routeCurrent" value="<?php echo e(url('/')); ?>">
           
 
-           <div class="form-row">
-            <!-- Resultado Equipo 1 -->
-            <div class="form-group col-md-6">
-              <label for="name">Juego</label>
-              <input type="text" class="form-control <?php echo e($errors->has('resultado_1') ? 'border-danger' : ''); ?>" name="resultado_1" id="resultado_1e" placeholder="Resultado equipo 1" value="<?php echo e(old('resultado_1')); ?>">
-              <?php echo $errors->first('resultado_1', '<span class="text-danger">:message</span>'); ?>
-
-            </div>
-
-             <div class="form-group col-md-3">
-              <label for="country_id">Country</label>
+            <div class="form-group col-md-3">
+              <label for="country_id">Juego</label>
               <select class="custom-select <?php echo e($errors->has('country_id') ? 'border-danger' : ''); ?>" id="country_id" name="country_id" placeholder="...">
                 <option selected>...</option>
                 <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
