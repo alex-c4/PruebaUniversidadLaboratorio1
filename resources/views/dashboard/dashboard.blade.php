@@ -118,7 +118,10 @@
 				<br>
 					<div class="info-user">
 						<a href="{{ route('userEdit') }}"><span aria-hidden="true" class="li_user fs1"></span>
+             <!-- 
 						<a href="{{ route('userEdit') }}"><span aria-hidden="true" class="li_settings fs1"></span></a>
+            -->
+            
 						<!--<span aria-hidden="true" class="li_mail fs1"></span>-->
 						<a href="{{ route('resetPassw') }}"><span aria-hidden="true" class="li_key fs1"></span></a>
 					</div>
@@ -164,7 +167,7 @@
           									<li class="header_row">
           										<h1>Quinielas</h1>
           									</li>
-          									<li><a class="tt" href="#"> Quiniela Rusia 2018<span class="tooltip"><span class="triangle-obtuse">Pronto habilitada estada opcion... </span></span></a></li>
+          									<li><a class="tt" href="{{ route('quiniela') }}"> Quinielas Rusia 2018</a></li>
   	                        <li><a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse"> Pronto habilitada estada opcion... </span></span></a></li>
                             <li>-</li>
 

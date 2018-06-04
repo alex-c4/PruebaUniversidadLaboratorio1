@@ -62,7 +62,7 @@
 
     </div>
     <div class="container-fluid" >
-        <div class=row>
+        <div class="row">
             <div class="col-12" id="div-container-stickerPanel"></div>
         </div>
         <div class="row">

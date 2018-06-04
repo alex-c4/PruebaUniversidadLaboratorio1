@@ -8,7 +8,7 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <!-- <link href="<?php echo e(asset('img/favicon.ico')); ?>" rel="icon"> -->
+  <link href="<?php echo e(asset('img/favicon.ico')); ?>" rel="icon">
   <!-- 
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon"> 
   -->
@@ -229,6 +229,9 @@
 
   <!-- script para registro de usuario -->
   <script src="<?php echo e(asset('js/register.js')); ?>"></script>
+
+  <!-- script para registro de quiniela -->
+  <script src="<?php echo e(asset('js/quiniela.js')); ?>"></script>
   
   
   

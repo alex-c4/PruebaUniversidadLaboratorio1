@@ -8,7 +8,7 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <!-- <link href="{{ asset('img/favicon.ico') }}" rel="icon"> -->
+  <link href="{{ asset('img/favicon.ico') }}" rel="icon">
   <!-- 
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon"> 
   -->
@@ -229,6 +229,9 @@
 
   <!-- script para registro de usuario -->
   <script src="{{ asset('js/register.js') }}"></script>
+
+  <!-- script para registro de quiniela -->
+  <script src="{{ asset('js/quiniela.js') }}"></script>
   
   
   

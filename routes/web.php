@@ -133,4 +133,21 @@ Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardi
 
 
 Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
+Route::post('quiniela/save', 'Quiniela\QuinielaController@savePronostic')->name('savePronostic');
+Route::get('quiniela/searchGames/{quiniela_id}', 'Quiniela\QuinielaController@searchGames')->name('searchGames');
+Route::view('addGames', 'addGames');
+Route::view('quiniela.saveSuccessfull', 'saveSuccessfull');
 
+
+/*
+|--------------------------------------------------------------------------
+| Result Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Resultados
+|
+*/
+Route::get('/result', 'Auth\ResultController@create')->name('create');
+//Route::post('/result', 'Auth\ResultController@store');
+Route::post('/result', 'Auth\ResultController@store')->name('result');
+//Route::post('/register', 'Auth\RegisterController@store')->name('register');
