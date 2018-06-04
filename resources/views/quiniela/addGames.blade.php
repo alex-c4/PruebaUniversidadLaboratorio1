@@ -40,10 +40,10 @@
                                     {{ $game->nombre_club_1}}<img src="{{ asset('img/banderas/Francia.png') }}" alt="">
                                     </div>
                                     <div class="col-2">
-                                    <input type="number" id="input_{{ $game->id_game }}_1" name="input_{{ $game->id_game }}_1" class="form-control col-sm" max="99" min="0" >
+                                    <input type="number" id="input_{{ $game->id }}_1" name="input_{{ $game->id }}_1" class="form-control col-sm" max="99" min="0" >
                                     </div>
                                     <div class="col-2">
-                                    <input type="number" id="input_{{ $game->id_game }}_2" name="input_{{ $game->id_game }}_2" class="form-control col-sm" max="99" min="0" >
+                                    <input type="number" id="input_{{ $game->id }}_2" name="input_{{ $game->id }}_2" class="form-control col-sm" max="99" min="0" >
                                     </div>
                                     <div class="col-4">
                                         <img src="{{ asset('img/banderas/Rusia.png') }}" alt="">{{ $game->nombre_club_2 }} 

@@ -23,7 +23,7 @@ class QuinielaController extends Controller
 
         $misQuinelasPublicas = DB::select('CALL sp_getMyQuinielasPublic()');
 
-        $misQuinielasPrivadas = DB::select('CALL sp_getMyQuinielas(?)', array($user_id) );
+        $misQuinielasPrivadas = DB::select('CALL sp_getMyQuinielasPrivate(?)', array($user_id) );
         
         // $pronostic_id = date("YmdHis") . rand(1000, 9999);
         return view('quiniela.index', compact('misQuinielasPrivadas', 'misQuinelasPublicas'));
@@ -39,7 +39,7 @@ class QuinielaController extends Controller
             'id_user' => $id_user
         ])->id;
 
-        $game_count = Game::where('id_championship', $championship_id)->count();
+        $game_count = Game::where('id_champ', $championship_id)->count();
 
         $req = request()->all();
 

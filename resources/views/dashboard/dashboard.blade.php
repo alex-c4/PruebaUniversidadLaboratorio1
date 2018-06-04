@@ -166,13 +166,8 @@
           									<li class="header_row">
           										<h1>Quinielas</h1>
           									</li>
-<<<<<<< HEAD
           									<li><a class="tt" href="{{ route('quiniela') }}"> Quinielas Rusia 2018</a></li>
   	                        <li><a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse"> Pronto habilitada estada opcion... </span></span></a></li>
-=======
-          									<li><a class="tt" href="#">Quiniela Rusia 2018<span class="tooltip"><span class="triangle-obtuse">Pronto estara habilitada estada opcion... </span></span></a></li>
-  	                        <li><a class="tt" href="#">Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">Pronto estara habilitada estada opcion... </span></span></a></li>
->>>>>>> aacb2a4ea5b4c78093025cba4da7fe311eb1db7d
                             <li>-</li>
 
           									<li class="footer_row"><a href="#" class="hosting-button">QUINIELAS</a></li>
