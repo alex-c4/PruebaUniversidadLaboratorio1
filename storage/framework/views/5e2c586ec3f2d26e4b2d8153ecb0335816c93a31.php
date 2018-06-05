@@ -164,7 +164,7 @@
           									<li class="header_row">
           										<h1>Quinielas</h1>
           									</li>
-          									<li><a class="tt" href="#"> Quiniela Rusia 2018<span class="tooltip"><span class="triangle-obtuse">Pronto habilitada estada opcion... </span></span></a></li>
+          									<li><a class="tt" href="<?php echo e(route('quiniela')); ?>"> Quinielas Rusia 2018</a></li>
   	                        <li><a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse"> Pronto habilitada estada opcion... </span></span></a></li>
                             <li>-</li>
 
