@@ -131,6 +131,7 @@ Route::POST("/registerContact", "ContactController@store");
 */
 Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardindex');
 
-
 Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
 
+Route::get('quinielas/{user_id}', 'Quiniela\QuinielaController@listarQuinielas')->name('quinielas.list');
+Route::post('puntuaciones', 'Quiniela\QuinielaController@quinielaPuntaciones')->name('quiniela.puntuaciones');

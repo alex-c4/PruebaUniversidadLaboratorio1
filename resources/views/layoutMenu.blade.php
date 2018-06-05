@@ -227,6 +227,9 @@
   <!-- Script para barajitas -->
   <script src="js/sticker.js"></script>
   <script src="{{asset('js/datepicker.js')}}"></script>
+
+   <!-- Script para puntuaciones quinielas -->
+  <script src="{{asset('js/puntuaciones.js')}}"></script>
   
   
   

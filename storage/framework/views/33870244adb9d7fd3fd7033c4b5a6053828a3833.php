@@ -227,6 +227,9 @@
   <!-- Script para barajitas -->
   <script src="js/sticker.js"></script>
   <script src="<?php echo e(asset('js/datepicker.js')); ?>"></script>
+
+   <!-- Script para puntuaciones quinielas -->
+  <script src="<?php echo e(asset('js/puntuaciones.js')); ?>"></script>
   
   
   
