@@ -16,7 +16,7 @@ $('#btn-update').on('click', function(){
     requestSticker(album_id);
     
     /**
-     * Deshabilitando boton por 1 inuto
+     * Deshabilitando boton por 5 segundos
      */
     $('#btn-update').prop('disabled', true);
     setTimeout(() => {

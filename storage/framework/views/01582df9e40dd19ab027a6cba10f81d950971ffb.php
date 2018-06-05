@@ -9,7 +9,7 @@
 
   <!-- Favicons -->
   
-  <link href="img/favicon.ico" rel="icon">
+  <link href="<?php echo e(asset('img/favicon.ico')); ?>" rel="icon">
   <!-- 
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon"> 
   -->
@@ -132,7 +132,7 @@
            <div class="col-lg-4 box box-bg">
             <i class="ion-compose"></i>
             <h4 class="title"><a href="">QUINIELA</a></h4>
-            <p class="description">Te ofrecemos las fomra mas divertida y millonaria de vivir el mundial Rusia 2018, demostrando tus conocimientos jugando la Quiniela XportGold...  </p>
+            <p class="description">Te ofrecemos la forma mas divertida y millonaria de vivir el mundial Rusia 2018, jugando nuestra Quiniela XportGold...  </p>
           </div>
 
         </div>
@@ -174,7 +174,7 @@
               </div>
               <h2 class="title"><a href="" data-toggle="modal" data-target="#exampleModal">PASO 2</a></h2>
               <p>
-           	Ingresa como usuario XportGold, marca en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar...
+           	Ingresa como usuario XportGold, registra en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar...
               </p>
             </div>
           </div>

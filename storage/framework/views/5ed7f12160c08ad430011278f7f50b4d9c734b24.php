@@ -8,8 +8,7 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  
-  <link href="img/favicon.ico" rel="icon">
+  <link href="<?php echo e(asset('img/favicon.ico')); ?>" rel="icon">
   <!-- 
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon"> 
   -->
@@ -29,7 +28,7 @@
   <link href="<?php echo e(asset('lib/owlcarousel/assets/owl.carousel.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/lightbox/css/lightbox.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('css/jquery-confirm.css')); ?>" rel="stylesheet">
-  <link href="<?php echo e(asset('css/jquery-confirm.less')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('css/jquery-confirm.less')); ?>" >
 
   <!-- Main Stylesheet File -->
   <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
@@ -57,8 +56,16 @@
 	   </div>
 
  
-		  
-		 
+		 <!-- Boton PayPal -->
+     <!-- 
+		 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="D3NT46NQVQJYG">
+<input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+</form>
+-->
+
 		 
 
 
@@ -219,6 +226,12 @@
   <!-- Script para barajitas -->
   <script src="js/sticker.js"></script>
   <script src="<?php echo e(asset('js/datepicker.js')); ?>"></script>
+
+  <!-- script para registro de usuario -->
+  <script src="<?php echo e(asset('js/register.js')); ?>"></script>
+
+  <!-- script para registro de quiniela -->
+  <script src="<?php echo e(asset('js/quiniela.js')); ?>"></script>
   
   
   

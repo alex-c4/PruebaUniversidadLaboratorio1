@@ -62,7 +62,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:20',
             'lastName' => 'required|string|max:20',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:5|confirmed',
+            'password' => 'required|string|min:4|confirmed',
             'birthday' => 'required|date',
             'country_id' => 'required|numeric',
             'state_id' => 'required|numeric'
@@ -132,6 +132,8 @@ class RegisterController extends Controller
         // User::create(request()->all());
         $conf_code = str_random(15);
 
+        $pathToFile = storage_path('app') . '\\' . 'instructivo.doc';
+
         $user = User::create([
             'name' => request()->name,
             'lastName' => request()->lastName,
@@ -153,17 +155,12 @@ class RegisterController extends Controller
         );
         
         $req = request();
-        Mail::send('emails.welcome', $data, function($message) use($req) {
+        Mail::send('emails.welcome', $data, function($message) use($req, $pathToFile) {
             $message->from('admin@xportgold.com', 'XportGold');
             $message->to($req->email)->subject('Confirmación de tu correo');
+            $message->attach($pathToFile);
         });
-        // Mail::to('alexdaniel2601@hotmail.com')->send();
-
-        // if($m){
-        //     return "Email Enviado!!!";
-        // }else{
-        //     return "Email No Enviado!!!";
-        // }
+        
 
         // return $data;
         $datos = [

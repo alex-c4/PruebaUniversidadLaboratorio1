@@ -1836,6 +1836,13 @@ body {
     background: #9e7622;/*Modificado por XportGold*/ 
   }
 
-  #espaciador{
+  #divEspaciador{
   margin-top: 10%;
 }
+
+  .textGold{
+  color: #9e7622;
+  font-style: bold;
+}
+
+

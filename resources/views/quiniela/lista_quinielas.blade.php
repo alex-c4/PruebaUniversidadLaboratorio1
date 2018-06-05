@@ -18,10 +18,13 @@
         <div class="form-row align-items-center" style="margin-left: 40%;">
             <div class="col-auto my-1">
                 <select class="custom-select mr-sm-2" id="quiniela_id" name="quiniela_id">
-                @foreach($publicas as $quiniela)
                     <option value="0" selected>...</option>
-                    <option value="{{ $quiniela->id_quiniela }}">{{ $quiniela->nombre }}</option>
-                @endforeach                  
+                    @foreach($publicas as $quiniela)                    
+                        <option value="{{ $quiniela->id_quiniela }}">{{ $quiniela->nombre }}</option>
+                    @endforeach
+                    @foreach($privadas as $quiniela)
+                        <option value="{{ $quiniela->id_quiniela }}">{{ $quiniela->nombre }}</option>
+                    @endforeach                  
                 </select>
             
             </div>

@@ -16,7 +16,7 @@
    
     <div class="section-header">
       <h3>Puntuaciones </h3>
-      <p> listado de pronosticos </p>
+      <p> listado de puntuaciones por pronostico </p>
     </div>
     <div id="oscuro" >
         
@@ -25,13 +25,14 @@
             <div class="col-lg-12 oscuro-links"> 
              
               </ul>
-              <h4>{{$quiniela->nombre}} - participantes:<span class="vinculogris"><i class="fa">{{$puntuaciones->count()}}</i></span></h4>
+              <h4 class="text-center">{{$quiniela->nombre}} </h4>
+              <p>Total Pronosticos registrados:<span class="vinculogris"><i class="fa">{{$puntuaciones->count()}}</i></span></p>
               <ul>
                 @foreach($puntuaciones as $puntuacion)                                       
                   <li>
                     <i class="ion-ios-arrow-right"></i>
-                    <a href="#">{{$puntuacion->name." ".$puntuacion->lastName}}</a>
-                    - puntuacion:{{ $puntuacion->puntos}}                        
+                    <a href="#">{{ $puntuacion->name." ".$puntuacion->lastName ."  - apuesta Nro: ". $puntuacion->bet_id }}</a>
+                    - Total: <strong class="textGold">{{ $puntuacion->puntos}}</strong> Ptos.                        
                   
                   </li>    
 
