@@ -233,6 +233,9 @@
   <!-- script para registro de quiniela -->
   <script src="{{ asset('js/quiniela.js') }}"></script>
   
+  <!-- Script para puntuaciones quinielas -->
+  <script src="{{asset('js/puntuaciones.js')}}"></script>
+  
   
   
 </body>

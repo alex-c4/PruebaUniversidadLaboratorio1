@@ -232,6 +232,12 @@
 
   <!-- script para registro de quiniela -->
   <script src="<?php echo e(asset('js/quiniela.js')); ?>"></script>
+<<<<<<< HEAD
+=======
+  
+  <!-- Script para puntuaciones quinielas -->
+  <script src="<?php echo e(asset('js/puntuaciones.js')); ?>"></script>
+>>>>>>> c01181dd67c9510e69cf31441bf56f1429e4ac73
   
   
   
