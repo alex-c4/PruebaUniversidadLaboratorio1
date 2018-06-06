@@ -89,7 +89,7 @@ class MensajeriaController extends Controller
             'id_intercambio' => request()->id_intercambio,
             'texto' => request()->mensaje,
             'fecha' => now(),
-            'hora' => noW()            
+            'hora' => now()            
         ]);
 
        $id_intercambio=request()->id_intercambio;      

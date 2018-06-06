@@ -13,6 +13,8 @@ class HomeController extends Controller
 
         //$misnoticias[]=array();  
         //$noticias= Notice::all();
+        //return bcrypt('123');
+  
         /*
         for ($i=0;$i<=5;$i++){
               $arreglo = array(
