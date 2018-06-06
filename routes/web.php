@@ -135,8 +135,11 @@ Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardi
 Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
 Route::post('quiniela/save', 'Quiniela\QuinielaController@savePronostic')->name('savePronostic');
 Route::get('quiniela/searchGames/{quiniela_id}', 'Quiniela\QuinielaController@searchGames')->name('searchGames');
-Route::view('addGames', 'addGames');
+// Route::view('addGames', 'addGames');
 Route::view('quiniela.saveSuccessfull', 'saveSuccessfull');
+Route::get('quiniela.searchPronostics', 'Quiniela\QuinielaController@searchPronostics')->name('searchPronostics');
+Route::view('quiniela/pronostics', 'pronostics');
+Route::get('quiniela/pronosticEdit/{betId}', 'Quiniela\QuinielaController@pronosticEdit')->name('pronosticEdit');
 
 
 /*

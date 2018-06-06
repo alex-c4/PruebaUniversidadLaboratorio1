@@ -168,7 +168,7 @@
           									</li>
           									<li><a class="tt" href="{{ route('quiniela') }}"> Quinielas Rusia 2018</a></li>
   	                        <li><a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse"> Pronto habilitada estada opcion... </span></span></a></li>
-                            <li>-</li>
+                            <li><a class="tt" href="{{ route('searchPronostics') }}">Mis pronosticos</a></li>
 
           									<li class="footer_row"><a href="#" class="hosting-button">QUINIELAS</a></li>
           								</ul>

@@ -94,4 +94,17 @@ class QuinielaController extends Controller
         return view('quiniela.addGames', compact('games', 'info'));
         
     }
+
+    // Pronosticos
+    public function searchPronostics(){
+        $id_user = auth()->user()->id;
+
+        $pronostics = DB::select('CALL sp_getMyPronotics(?)', array($id_user));
+        return view('quiniela.pronostics', compact('pronostics'));
+    }
+
+    public function pronosticEdit($betId){
+
+        return view('quiniela.pronosticEdit', compact('betId'));
+    }
 }
