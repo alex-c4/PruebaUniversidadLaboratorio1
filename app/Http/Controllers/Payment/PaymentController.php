@@ -135,7 +135,7 @@ class PaymentController extends Controller
  
 
 
-    //return view('/result.success');
+    return view('/payment.success');
 
 
         
