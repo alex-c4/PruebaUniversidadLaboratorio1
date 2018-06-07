@@ -122,9 +122,18 @@ class QuinielaController extends Controller
 		->orderby('name','asc')->get(); 
     	//($quiniela);
         return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones'));
- 	
-
 
 	}
+
+    public function quinielaPuntacionesPor_id($quiniela_id){    
+        $quiniela=DB::table('quinielas')->where('id_quiniela',$quiniela_id)->first();   
+
+        $puntuaciones=DB::table('v_quinielas_scores')->where('id_quiniela',$quiniela_id)
+        ->orderby('puntos','desc')
+        ->orderby('name','asc')->get(); 
+        //($quiniela);
+        return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones'));
+
+    }
 
 }

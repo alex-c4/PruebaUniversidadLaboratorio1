@@ -165,7 +165,7 @@
           										<h1>Quinielas</h1>
           									</li>
           									<li><a class="tt" href="<?php echo e(route('quiniela')); ?>"> Quinielas Rusia 2018</a></li>
-  	                        <li><a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse"> Pronto habilitada estada opcion... </span></span></a></li>
+  	                        <li><a class="tt" href="<?php echo e(url('/puntuacionesQui/1')); ?>"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse"> Pronto habilitada esta opcion... </span></span></a></li>
                             <li>-</li>
           									<li class="footer_row"><a href="<?php echo e(url('/quinielas/'.auth()->user()->id)); ?>" class="hosting-button">QUINIELAS</a></li>
           								</ul>
