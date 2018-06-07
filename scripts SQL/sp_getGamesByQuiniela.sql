@@ -11,7 +11,9 @@ SELECT
     gm.grupo,
     gm.date,
     gm.estadium,
-    gm.location
+    gm.location,
+    (SELECT imagen_bandera FROM clubs AS c WHERE c.id_club = gm.id_club_1) AS img_club_1,
+    (SELECT imagen_bandera FROM clubs AS c WHERE c.id_club = gm.id_club_2) AS img_club_2
 FROM games AS gm 
 	INNER JOIN championships AS ch ON gm.id_champ = ch.id
     INNER JOIN quinielas AS qu ON qu.id_championship = ch.id
