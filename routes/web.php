@@ -138,7 +138,8 @@ Route::get('quiniela/searchGames/{quiniela_id}', 'Quiniela\QuinielaController@se
 Route::view('quiniela.saveSuccessfull', 'saveSuccessfull');
 Route::get('quiniela.searchPronostics', 'Quiniela\QuinielaController@searchPronostics')->name('searchPronostics');
 Route::view('quiniela/pronostics', 'pronostics');
-Route::get('quiniela/pronosticEdit/{betId}', 'Quiniela\QuinielaController@pronosticEdit')->name('pronosticEdit');
+Route::get('quiniela.pronosticEdit/{betId}', 'Quiniela\QuinielaController@pronosticEdit')->name('pronosticEdit');
+Route::post('quiniela.updatePronostic', 'Quiniela\QuinielaController@updatePronostic')->name('updatePronostic');
 
 /*
 |--------------------------------------------------------------------------

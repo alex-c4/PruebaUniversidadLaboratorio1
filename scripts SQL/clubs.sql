@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2018 a las 03:54:19
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.3
+-- Tiempo de generación: 07-06-2018 a las 13:05:03
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `xportgoldbd_pruebas`
+-- Base de datos: `xportgoldbd`
 --
 
 -- --------------------------------------------------------
@@ -40,38 +40,38 @@ CREATE TABLE `clubs` (
 --
 
 INSERT INTO `clubs` (`id_club`, `nombre`, `imagen_bandera`, `imagen_logo`) VALUES
-(1, 'Alemania', '', ''),
-(2, 'Arabia Saudí', '', ''),
-(3, 'Argentina', '', ''),
-(4, 'Australia', '', ''),
-(5, 'Bélgica', '', ''),
-(6, 'Brasil', '', ''),
-(7, 'Colombia', '', ''),
-(8, 'Costa Rica', '', ''),
-(9, 'Croacia', '', ''),
-(10, 'Dinamarca', '', ''),
-(11, 'Egipto', '', ''),
-(12, 'España', '', ''),
-(13, 'Francia', '', ''),
-(14, 'Inglaterra', '', ''),
-(15, 'Islandia', '', ''),
-(16, 'Japón', '', ''),
-(17, 'Marruecos', '', ''),
-(18, 'México', '', ''),
-(19, 'Nigeria', '', ''),
-(20, 'Panamá', '', ''),
-(21, 'Perú', '', ''),
-(22, 'Polonia', '', ''),
-(23, 'Portugal', '', ''),
-(24, 'República de Corea', '', ''),
-(25, 'RI de Irán', '', ''),
-(26, 'Rusia', '', ''),
-(27, 'Senegal', '', ''),
-(28, 'Serbia', '', ''),
-(29, 'Suecia', '', ''),
-(30, 'Suiza', '', ''),
-(31, 'Túnez', '', ''),
-(32, 'Uruguay', '', '');
+(1, 'Alemania', 'Alemania.png', ''),
+(2, 'Arabia Saudí', 'ArabiaSaudita.png', ''),
+(3, 'Argentina', 'Argentina.png', ''),
+(4, 'Australia', 'Australia.png', ''),
+(5, 'Bélgica', 'Belgica.png', ''),
+(6, 'Brasil', 'Brasil.png', ''),
+(7, 'Colombia', 'Colombia.png', ''),
+(8, 'Costa Rica', 'CostaRica.png', ''),
+(9, 'Croacia', 'Croacia.png', ''),
+(10, 'Dinamarca', 'Dinamarca.png', ''),
+(11, 'Egipto', 'Egipto.png', ''),
+(12, 'España', 'Espana.png', ''),
+(13, 'Francia', 'Francia.png', ''),
+(14, 'Inglaterra', 'Inglaterra.png', ''),
+(15, 'Islandia', 'Islandia.png', ''),
+(16, 'Japón', 'Japon.png', ''),
+(17, 'Marruecos', 'Marruecos.png', ''),
+(18, 'México', 'Mexico.png', ''),
+(19, 'Nigeria', 'Nigeria.png', ''),
+(20, 'Panamá', 'Panama.png', ''),
+(21, 'Perú', 'Peru.png', ''),
+(22, 'Polonia', 'Polonia.png', ''),
+(23, 'Portugal', 'Portugal.png', ''),
+(24, 'República de Corea', 'CoreaDelSur.png', ''),
+(25, 'RI de Irán', 'Iran.png', ''),
+(26, 'Rusia', 'Rusia.png', ''),
+(27, 'Senegal', 'Senegal.png', ''),
+(28, 'Serbia', 'Serbia.png', ''),
+(29, 'Suecia', 'Suecia.png', ''),
+(30, 'Suiza', 'Suiza.png', ''),
+(31, 'Túnez', 'Tunez.png', ''),
+(32, 'Uruguay', 'Uruguay.png', '');
 
 --
 -- Índices para tablas volcadas
