@@ -1,5 +1,5 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getGamesByQuiniela`(IN `id_quiniela` INT)
+CREATE DEFINER=`` PROCEDURE `sp_getGamesByQuiniela`(IN `id_quiniela` INT)
     NO SQL
     COMMENT 'Devuelve todos los juegos asociados a una quiniela en particular'
 BEGIN

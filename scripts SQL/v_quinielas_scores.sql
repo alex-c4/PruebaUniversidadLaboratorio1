@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Estructura para la vista `v_quinielas_scores`
 --
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_quinielas_scores`  AS  select `pro`.`bet_id` AS `bet_id`,`be`.`id_user` AS `id_user`,`us`.`name` AS `name`,`us`.`lastName` AS `lastName`,sum(`pro`.`pronostic_score`) AS `puntos`,`q`.`id_quiniela` AS `id_quiniela` from ((((`pronostics` `pro` join `bets` `be` on((`pro`.`bet_id` = `be`.`id`))) join `users` `us` on((`be`.`id_user` = `us`.`id`))) join `quinielas` `q` on((`q`.`id_quiniela` = `be`.`id_quiniela`))) join `games` `ga` on((`ga`.`id` = `pro`.`id_game`))) where (`ga`.`estatus` = 'FINALIZADO') group by `pro`.`bet_id`,`be`.`id_user`,`us`.`name`,`us`.`lastName`,`q`.`id_quiniela` order by `q`.`id_quiniela`,sum(`pro`.`pronostic_score`) desc ;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `v_quinielas_scores`  AS  select `pro`.`bet_id` AS `bet_id`,`be`.`id_user` AS `id_user`,`us`.`name` AS `name`,`us`.`lastName` AS `lastName`,sum(`pro`.`pronostic_score`) AS `puntos`,`q`.`id_quiniela` AS `id_quiniela` from ((((`pronostics` `pro` join `bets` `be` on((`pro`.`bet_id` = `be`.`id`))) join `users` `us` on((`be`.`id_user` = `us`.`id`))) join `quinielas` `q` on((`q`.`id_quiniela` = `be`.`id_quiniela`))) join `games` `ga` on((`ga`.`id` = `pro`.`id_game`))) where (`ga`.`estatus` = 'FINALIZADO') group by `pro`.`bet_id`,`be`.`id_user`,`us`.`name`,`us`.`lastName`,`q`.`id_quiniela` order by `q`.`id_quiniela`,sum(`pro`.`pronostic_score`) desc ;
 
 --
 -- VIEW  `v_quinielas_scores`

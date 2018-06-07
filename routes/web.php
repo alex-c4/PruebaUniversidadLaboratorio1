@@ -131,23 +131,9 @@ Route::POST("/registerContact", "ContactController@store");
 */
 Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardindex');
 
+
 Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
-Route::post('quiniela/save', 'Quiniela\QuinielaController@savePronostic')->name('savePronostic');
-Route::get('quiniela/searchGames/{quiniela_id}', 'Quiniela\QuinielaController@searchGames')->name('searchGames');
-Route::view('addGames', 'addGames');
-Route::view('quiniela.saveSuccessfull', 'saveSuccessfull');
 
-/*
-|--------------------------------------------------------------------------
-| Dashboard
-|--------------------------------------------------------------------------
-|
-| Seccion para las rutas asociadas a consulta de quinielas y puntuaciones 
-|
-*/
-
-Route::get('quinielas/{user_id}', 'Quiniela\QuinielaController@listarQuinielas')->name('quinielas.list');
-Route::post('puntuaciones', 'Quiniela\QuinielaController@quinielaPuntaciones')->name('quiniela.puntuaciones');
 
 /*
 |--------------------------------------------------------------------------
@@ -161,3 +147,22 @@ Route::get('/result', 'Result\ResultController@create')->name('create');
 //Route::post('/result', 'Auth\ResultController@store');
 Route::post('/result', 'Result\ResultController@store')->name('result');
 //Route::post('/register', 'Auth\RegisterController@store')->name('register');
+
+/*
+|--------------------------------------------------------------------------
+| Payment Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de pagos
+|
+*/
+//Route::view('/payment.formpayment', 'formpayment');
+Route::get('/payment{id_bet}', 'Payment\PaymentController@create')->name('payment');
+//Route::get('/payment', 'Payment\PaymentController@create')->name('payment');
+
+Route::POST('/payment', 'Payment\PaymentController@store')->name('payment');
+/*
+Route::get('/formpayment', function () {
+    return view('/payment.formpayment');
+});*/
+//Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');

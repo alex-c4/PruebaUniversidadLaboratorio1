@@ -1,5 +1,5 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getMyQuinielasPublic`()
+CREATE PROCEDURE `sp_getMyQuinielasPublic`()
     NO SQL
 BEGIN
     SELECT 

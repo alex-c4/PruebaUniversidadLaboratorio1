@@ -1,5 +1,5 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getMyQuinielasPrivate`(IN `userID` INT)
+CREATE PROCEDURE `sp_getMyQuinielasPrivate`(IN `userID` INT)
     READS SQL DATA
     COMMENT 'Devuelve todas las quiniela creadas por un usuario'
 BEGIN
