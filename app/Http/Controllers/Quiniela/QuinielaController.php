@@ -150,7 +150,7 @@ class QuinielaController extends Controller
     
             settype($pronostic_id, "int");
             
-            $pronostic = DB::table('Pronostics')
+            $pronostic = DB::table('pronostics')
                     ->where('id', '=', $pronostic_id)
                     ->where('id_user', '=', $id_user)
                     ->get();
