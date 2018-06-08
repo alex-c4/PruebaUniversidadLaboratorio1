@@ -5,7 +5,7 @@
 <hr/>
 
 <section id="contact" class="section-bg wow bounceInLeft" >
-<form method="POST" action="{{ route('savePronostic') }}" method>
+<form method="POST" action="{{ route('savePronostic') }}" id="formAddPronostics">
 
     <div class="section-header">
 
@@ -19,8 +19,6 @@
             </div>
                 
             <div class="section-header">
-                    <h3>Registro Juegos</h3>
-                    <p>Módulo para el registro de pronósticos</p>
                         <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                         
                         <input type="hidden" name="quiniela_id" id="quiniela_id" value="{{ $info['id_quiniela'] }}">
@@ -37,7 +35,7 @@
                                     <span class="text-success"> {{ $game->estadium }} </span> / <span class="font-weight-bold">Grupo {{ $game->grupo }}</span>
                                     </div>
                                     <div class="col-4 text-right">
-                                    {{ $game->nombre_club_1}}<img src="{{ asset('img/banderas/Francia.png') }}" alt="">
+                                    {{ $game->nombre_club_1}}<img src="{{ asset('img/banderas/') }}/{{ $game->img_club_1 }}" alt="">
                                     </div>
                                     <div class="col-2">
                                     <input type="number" id="input_{{ $game->id }}_1" name="input_{{ $game->id }}_1" class="form-control col-sm" max="99" min="0" >
@@ -46,7 +44,7 @@
                                     <input type="number" id="input_{{ $game->id }}_2" name="input_{{ $game->id }}_2" class="form-control col-sm" max="99" min="0" >
                                     </div>
                                     <div class="col-4">
-                                        <img src="{{ asset('img/banderas/Rusia.png') }}" alt="">{{ $game->nombre_club_2 }} 
+                                        <img src="{{ asset('img/banderas/') }}/{{ $game->img_club_2 }}" alt="">{{ $game->nombre_club_2 }} 
                                     </div>
                                 @endforeach
                             </div>
@@ -61,7 +59,7 @@
         <br>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-success">Enviar</button>
+            <button type="button" id="btnAddPronostic" name="btnAddPronostic" class="btn btn-success">Enviar</button>
         </div>
         
     </div>
