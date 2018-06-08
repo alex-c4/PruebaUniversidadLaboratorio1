@@ -131,8 +131,6 @@ Route::POST("/registerContact", "ContactController@store");
 */
 Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardindex');
 
-<<<<<<< HEAD
-=======
 Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
 Route::post('quiniela/save', 'Quiniela\QuinielaController@savePronostic')->name('savePronostic');
 Route::get('quiniela/searchGames/{quiniela_id}', 'Quiniela\QuinielaController@searchGames')->name('searchGames');
@@ -142,9 +140,7 @@ Route::get('quiniela.searchPronostics', 'Quiniela\QuinielaController@searchProno
 Route::view('quiniela/pronostics', 'pronostics');
 Route::get('quiniela.pronosticEdit/{betId}', 'Quiniela\QuinielaController@pronosticEdit')->name('pronosticEdit');
 Route::post('quiniela.updatePronostic', 'Quiniela\QuinielaController@updatePronostic')->name('updatePronostic');
->>>>>>> baaf9384f9040c1f9bcb46a774b2c7009efa8b06
-
-Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
+Route::get('payQuiniela', 'Quiniela\QuinielaController@payQuiniela')->name('payQuiniela');
 
 
 /*

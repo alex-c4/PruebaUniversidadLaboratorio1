@@ -167,4 +167,8 @@ class QuinielaController extends Controller
             return "Fallo la actualización, por favor intente nuevamente";
         }
     }
+
+    public function payQuiniela(){
+        return view('/quiniela.payQuiniela');
+    }
 }

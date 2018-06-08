@@ -4,7 +4,7 @@
 
 <hr/>
 
-<section id="contact" class="section-bg wow flip" >
+<section id="contact" class="section-bg wow jackInTheBox" >
 <form method="POST" action="{{ route('savePronostic') }}" method>
 
     <div class="section-header">
@@ -32,7 +32,7 @@
                         <td>{{ $pronostic->quiniela }}</td>
                         <td>{{ $pronostic->championshipName }}</td>
                         <td><a href="{{ url('quiniela.pronosticEdit/') }}/{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Editar pronóstico"><i class="fa fa-edit fa-sm"></i></a></td>
-                        <td><a href="#" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a></td>
+                        <td><a href="{{ url('payQuiniela/') }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a></td>
                     </tr>
 
                     @endforeach
