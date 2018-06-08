@@ -131,6 +131,7 @@ Route::POST("/registerContact", "ContactController@store");
 */
 Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardindex');
 
+
 Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
 Route::post('quiniela/save', 'Quiniela\QuinielaController@savePronostic')->name('savePronostic');
 Route::get('quiniela/searchGames/{quiniela_id}', 'Quiniela\QuinielaController@searchGames')->name('searchGames');
@@ -142,6 +143,10 @@ Route::get('quiniela.pronosticEdit/{betId}', 'Quiniela\QuinielaController@pronos
 Route::post('quiniela.updatePronostic', 'Quiniela\QuinielaController@updatePronostic')->name('updatePronostic');
 Route::get('payQuiniela', 'Quiniela\QuinielaController@payQuiniela')->name('payQuiniela');
 
+
+Route::get('quinielas/{user_id}', 'Quiniela\QuinielaController@listarQuinielas')->name('quinielas.list');
+Route::post('puntuaciones', 'Quiniela\QuinielaController@quinielaPuntaciones')->name('quiniela.puntuaciones');
+Route::get('puntuacionesQui/{quiniela_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
 
 /*
 |--------------------------------------------------------------------------

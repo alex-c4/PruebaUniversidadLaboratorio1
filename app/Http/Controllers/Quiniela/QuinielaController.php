@@ -107,37 +107,8 @@ class QuinielaController extends Controller
         return view('quiniela.pronosticEdit', compact('pronosticsDetails'));
     }
 
-    public function listarQuinielas($user_id){
-    	//$user_id = auth()->user()->id;//usuario logueado
-    	$publicas=DB::table('quinielas')->where('id_type','1')->get();  	
-    	
-    	//quinielas privadas al las q el user esta asociado
-        $privadas=DB::table('joinquiniela')
-		->join('quinielas','quinielas.id_quiniela','=','joinquiniela.id_quiniela','inner',false)
-		->select ('quinielas.id_quiniela','quinielas.nombre')
-		->where('quinielas.id_type','=','2')
-		->where('joinquiniela.id_user','=',$user_id)
-        ->get();	    
-	   
-	    //dd($privadas, $publicas);
-	    return view('/quiniela.lista_quinielas',compact('publicas','privadas'));
-	}
 
-
-	public function quinielaPuntaciones(){
-		$quiniela_id=request()->quiniela_id;
-		$quiniela=DB::table('quinielas')->where('id_quiniela',$quiniela_id)->first();  	
-
-		$puntuaciones=DB::table('v_quinielas_scores')->where('id_quiniela',$quiniela_id)
-		->orderby('puntos','desc')
-		->orderby('name','asc')->get(); 
-    	//($quiniela);
-        return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones'));
- 	
-
-
-    }
-    
+        
     public function updatePronostic(){
         
         try{
@@ -168,7 +139,51 @@ class QuinielaController extends Controller
         }
     }
 
+    public function listarQuinielas($user_id){
+        //$user_id = auth()->user()->id;//usuario logueado
+        $publicas=DB::table('quinielas')->where('id_type','1')->get();      
+        
+        //quinielas privadas al las q el user esta asociado
+        $privadas=DB::table('joinquiniela')
+        ->join('quinielas','quinielas.id_quiniela','=','joinquiniela.id_quiniela','inner',false)
+        ->select ('quinielas.id_quiniela','quinielas.nombre')
+        ->where('quinielas.id_type','=','2')
+        ->where('joinquiniela.id_user','=',$user_id)
+        ->get();        
+       
+        //dd($privadas, $publicas);
+        return view('/quiniela.lista_quinielas',compact('publicas','privadas'));
+    }
+
+
+    public function quinielaPuntaciones(){
+        $quiniela_id=request()->quiniela_id;
+        $quiniela=DB::table('quinielas')->where('id_quiniela',$quiniela_id)->first();   
+
+        $puntuaciones=DB::table('v_quinielas_scores')->where('id_quiniela',$quiniela_id)
+        ->orderby('puntos','desc')
+        ->orderby('name','asc')->get(); 
+        //($quiniela);
+        return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones'));
+
+
+    }
+
+
+    public function quinielaPuntacionesPor_id($quiniela_id){    
+        $quiniela=DB::table('quinielas')->where('id_quiniela',$quiniela_id)->first();   
+
+        $puntuaciones=DB::table('v_quinielas_scores')->where('id_quiniela',$quiniela_id)
+        ->orderby('puntos','desc')
+        ->orderby('name','asc')->get(); 
+        //($quiniela);
+        return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones'));
+
+    }
+
     public function payQuiniela(){
         return view('/quiniela.payQuiniela');
     }
+
+
 }
