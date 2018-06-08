@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Quiniela;
 
-use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -96,6 +95,21 @@ class QuinielaController extends Controller
         
     }
 
+    // Pronosticos
+    public function searchPronostics(){
+        $id_user = auth()->user()->id;
+
+        $pronostics = DB::select('CALL sp_getMyPronotics(?)', array($id_user));
+        return view('quiniela.pronostics', compact('pronostics'));
+    }
+
+    public function pronosticEdit($betId){
+
+        $pronosticsDetails = DB::select('CALL sp_getMyPronosticsDetails(?)', array($betId));
+
+        return view('quiniela.pronosticEdit', compact('pronosticsDetails'));
+    }
+
     public function listarQuinielas($user_id){
     	//$user_id = auth()->user()->id;//usuario logueado
     	$publicas=DB::table('quinielas')->where('id_type','1')->get();  	
@@ -124,6 +138,7 @@ class QuinielaController extends Controller
         return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones'));
 
 	}
+<<<<<<< HEAD
 
     public function quinielaPuntacionesPor_id($quiniela_id){    
         $quiniela=DB::table('quinielas')->where('id_quiniela',$quiniela_id)->first();   
@@ -136,4 +151,6 @@ class QuinielaController extends Controller
 
     }
 
+=======
+>>>>>>> 347a761af30a7dd12a5c90006bc7f3591f5da3f7
 }

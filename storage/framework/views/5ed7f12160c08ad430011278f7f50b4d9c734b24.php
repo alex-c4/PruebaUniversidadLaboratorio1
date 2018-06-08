@@ -233,6 +233,9 @@
   <!-- script para registro de quiniela -->
   <script src="<?php echo e(asset('js/quiniela.js')); ?>"></script>
   
+  <!-- Script para puntuaciones quinielas -->
+  <script src="<?php echo e(asset('js/puntuaciones.js')); ?>"></script>
+  
   
   
 </body>
