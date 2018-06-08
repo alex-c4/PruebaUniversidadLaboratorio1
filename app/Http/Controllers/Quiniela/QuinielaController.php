@@ -39,7 +39,7 @@ class QuinielaController extends Controller
             'id_quiniela' => $quiniela_id,
             'id_user' => $id_user
         ])->id;
-
+        
         $game_count = Game::where('id_champ', $championship_id)->count();
 
         $req = request()->all();
