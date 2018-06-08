@@ -3,7 +3,7 @@
 <hr/>
 
 <section id="contact" class="section-bg wow bounceInLeft" >
-<form method="POST" action="<?php echo e(route('savePronostic')); ?>" method>
+<form method="POST" action="<?php echo e(route('savePronostic')); ?>" id="formAddPronostics">
 
     <div class="section-header">
 
@@ -17,8 +17,6 @@
             </div>
                 
             <div class="section-header">
-                    <h3>Registro Juegos</h3>
-                    <p>Módulo para el registro de pronósticos</p>
                         <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
                         
                         <input type="hidden" name="quiniela_id" id="quiniela_id" value="<?php echo e($info['id_quiniela']); ?>">
@@ -36,7 +34,7 @@
                                     <span class="text-success"> <?php echo e($game->estadium); ?> </span> / <span class="font-weight-bold">Grupo <?php echo e($game->grupo); ?></span>
                                     </div>
                                     <div class="col-4 text-right">
-                                    <?php echo e($game->nombre_club_1); ?><img src="<?php echo e(asset('img/banderas/Francia.png')); ?>" alt="">
+                                    <?php echo e($game->nombre_club_1); ?><img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($game->img_club_1); ?>" alt="">
                                     </div>
                                     <div class="col-2">
                                     <input type="number" id="input_<?php echo e($game->id); ?>_1" name="input_<?php echo e($game->id); ?>_1" class="form-control col-sm" max="99" min="0" >
@@ -45,7 +43,7 @@
                                     <input type="number" id="input_<?php echo e($game->id); ?>_2" name="input_<?php echo e($game->id); ?>_2" class="form-control col-sm" max="99" min="0" >
                                     </div>
                                     <div class="col-4">
-                                        <img src="<?php echo e(asset('img/banderas/Rusia.png')); ?>" alt=""><?php echo e($game->nombre_club_2); ?> 
+                                        <img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($game->img_club_2); ?>" alt=""><?php echo e($game->nombre_club_2); ?> 
                                     </div>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
@@ -60,7 +58,7 @@
         <br>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-success">Enviar</button>
+            <button type="button" id="btnAddPronostic" name="btnAddPronostic" class="btn btn-success">Enviar</button>
         </div>
         
     </div>

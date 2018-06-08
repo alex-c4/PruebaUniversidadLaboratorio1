@@ -23,13 +23,15 @@
             
             </div>
             <div class="col-auto my-1">
-                <button id="btn-update" type="button" class="btn btn-outline-success"><i class="fas fa-sync-alt"></i></button>
+                <button id="btn-update" type="button" title="Actualizar panel" class="btn btn-outline-success"><i class="fa fa-refresh"></i></button>
             </div>
-            
+            <div class="col-auto my-1">
+                <a alt="Ir panel de mensajes" title="Ir panel de mensajes" class="btn btn-outline-info" href="<?php echo e(url('conv')); ?>"><i class="fa fa-commenting"></i></a>
+            </div>
         </div>
     </div>
 
-    <h1>Panel de Cromos</h1>
+    <h1>Panel de Cromos</h1> 
     <div class="container-fluid">
             
         <div class="row">
@@ -58,7 +60,7 @@
 
     </div>
     <div class="container-fluid" >
-        <div class=row>
+        <div class="row">
             <div class="col-12" id="div-container-stickerPanel"></div>
         </div>
         <div class="row">
@@ -97,11 +99,7 @@
                                      
                     <div class="form-group">                    
                         <div class="input-group mb-3">
-<<<<<<< HEAD
-                            <input placeholder="cantidad" id="txtquantity" name="txtquantity" type="text" class="form-control" placeholder="Cantidad de sticker" aria-label="Cantidad de sticker" aria-describedby="basic-addon2">
-=======
                             <input placeholder="cantidad" id="txtquantity" name="txtquantity" type="text" class="form-control" placeholder="Cantidad de cromos" aria-label="Cantidad de cromos" aria-describedby="basic-addon2">
->>>>>>> 5d5490f22b132bd9f0558c94745b2504e67203dc
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">Cantidad</span>
                             </div>
@@ -137,7 +135,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-info-circle fa-lg"></i> &nbsp; Panel de Cromo</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-info-circle fa-lg"></i> &nbsp; Panel de Cromo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
