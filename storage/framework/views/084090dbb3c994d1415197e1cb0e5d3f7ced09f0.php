@@ -67,7 +67,7 @@
         				
                   <div class="cont3 col-lg-6">
                     
-                      <p><ok>Tu Pronostico ID:</ok> 01 </p>                
+                      <p><ok>Tu Pronostico ID:</ok> <?php echo e($id_bet); ?> </p>                
                     
                   </div>
 
@@ -134,9 +134,13 @@
                     -->
 
         		        	<!-- Referencia de pago -->
-    		        		<label for="ref_pago">Codigo de Referencia de pago</label>
-    		        		<input name="ref_pago" class="input-huge" type="text" id="ref_pago" >
-        		        	
+    		        		<label for="ref_pago">ID de Referencia de pago</label>
+    		        		<input type="text" name="ref_pago" class="input-huge  <?php echo e($errors->has('name') ? 'border-danger' : ''); ?>"  id="ref_pago" value="<?php echo e(old('ref_pago')); ?>">
+                    <?php echo $errors->first('ref_pago', '<span class="text-danger">:message<br></span>'); ?>
+
+        		        
+                      
+
                     <!-- Monto pago --> 
                      <input type="hidden" id="amount" name="amount" value="10.0">
 

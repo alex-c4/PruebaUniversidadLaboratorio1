@@ -62,13 +62,11 @@ class PaymentController extends Controller
         ];
 
         return Validator::make($data, [
-            'name' => 'required|string|max:20',
-            'lastName' => 'required|string|max:20',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:5|confirmed',
-            'birthday' => 'required|date',
-            'country_id' => 'required|numeric',
-            'state_id' => 'required|numeric'
+
+
+            'ref_pago' => 'required|string|max:20',
+            'payment_date' => 'required|date',
+            
         ], $messages);
     }
 
@@ -96,6 +94,9 @@ class PaymentController extends Controller
        // return view('result.result', compact('games'));
 
        //echo $id;
+        
+          
+
         return view('payment.payment', compact('id_bet'));
         //return view('payment.payment');
     }
@@ -104,7 +105,7 @@ class PaymentController extends Controller
     public function store(Request $request){
 
      //dd($request->all());
-
+    $this->validator(request()->all())->validate();
         
      $id_bet = $request->input('id_bet');    
      $ref_pago = $request->input('ref_pago'); 
