@@ -12,10 +12,10 @@
         <p>
             
         Detalle de la transacción como aporte al “GOLPOT”<br><br>
-        Aporte = 10$ (Recibirá XportGold)<br>
+        Aporte = $ 10.00 USD (Recibirá XportGold)<br>
         + Comisión de PayPal (5,4%) <br>
-        + Comisión de PayPal = 0,3 $<br><br>
-        Total a transferir = 10,89 $
+        + Comisión de PayPal = $ 0.3 USD<br><br>
+        Total a transferir = $ 10.89 USD
     
 
         </p>

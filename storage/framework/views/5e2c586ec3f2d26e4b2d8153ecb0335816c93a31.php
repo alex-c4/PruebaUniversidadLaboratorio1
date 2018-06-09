@@ -181,12 +181,12 @@
                       <!-- Saldo del Usuario -->
                           <div class="col-sm-3 col-lg-3">
                             <div class="dash-unit">
-                              <dtitle>GoldPot</dtitle>
+                              <dtitle>GoldPot (Premio de la Quiniela)</dtitle>
                               <hr>
                               <div class="cont">
                                 <br>
                                 
-                            <p><bold>0</bold> | <ok> GOLD</ok></p>
+                            <p><bold><?php echo e($goldpot); ?></bold> | <ok> GOLD</ok></p>
                             <br>
                           </div>
                           <div class="thumbnail">
