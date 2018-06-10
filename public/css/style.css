@@ -1840,9 +1840,12 @@ body {
   margin-top: 10%;
 }
 
-  .textGold{
-  color: #9e7622;
-  font-style: bold;
-}
+  .divEspaciadorDos{
+    margin-top: 3%;
+  }
+    .textGold{
+    color: #9e7622;
+    font-style: bold;
+  }
 
 

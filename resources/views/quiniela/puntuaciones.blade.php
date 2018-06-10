@@ -26,12 +26,12 @@
              
               </ul>
               <h4 class="text-center">{{$quiniela->nombre}} </h4>
-              <p>Total Pronosticos registrados:<span class="vinculogris"><i class="fa">{{$puntuaciones->count()}}</i></span></p>
+              <p>Total Pronosticos registrados:<span class="vinculogris"><i class="fa">{{count($puntuaciones)}}</i></span></p>
               <ul>
                 @foreach($puntuaciones as $puntuacion)                                       
                   <li>
                     <i class="ion-ios-arrow-right"></i>
-                    <a href="#">{{ $puntuacion->name." ".$puntuacion->lastName ."  - apuesta Nro: ". $puntuacion->bet_id }}</a>
+                    <a href="{{ route('pronosticGet',['betId'=>$puntuacion->bet_id])}}">{{ $puntuacion->name." ".$puntuacion->lastName ."  - Pronostico Nro: ". $puntuacion->bet_id }}</a>
                     - Total: <strong class="textGold">{{ $puntuacion->puntos}}</strong> Ptos.                        
                   
                   </li>    

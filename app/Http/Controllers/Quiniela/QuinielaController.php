@@ -107,6 +107,17 @@ class QuinielaController extends Controller
         return view('quiniela.pronosticEdit', compact('pronosticsDetails'));
     }
 
+    public function pronosticGet($betId){
+
+        $pronosticsDetails = DB::select('CALl sp_getMyGames_PronosticsDetails(?)', array($betId));
+        //$puntuacion=DB::table('v_quinielas_scores')->where('bet_id',$betId)->first(); 
+        $puntuacion= DB::select('CALL sp_bet_score(?,?)', array(1,$betId));
+        //dd($puntuacion);
+        //return $puntuacion['0']->bet_id;
+        return view('quiniela.pronosticGet', compact('pronosticsDetails','puntuacion'));
+
+    }
+
 
         
     public function updatePronostic(){
@@ -162,7 +173,8 @@ class QuinielaController extends Controller
 
         $puntuaciones=DB::table('v_quinielas_scores')->where('id_quiniela',$quiniela_id)
         ->orderby('puntos','desc')
-        ->orderby('name','asc')->get(); 
+        ->orderby('name','asc')->get();
+
         //($quiniela);
         return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones'));
 
@@ -173,10 +185,13 @@ class QuinielaController extends Controller
     public function quinielaPuntacionesPor_id($quiniela_id){    
         $quiniela=DB::table('quinielas')->where('id_quiniela',$quiniela_id)->first();   
 
-        $puntuaciones=DB::table('v_quinielas_scores')->where('id_quiniela',$quiniela_id)
+       /* $puntuaciones=DB::table('v_quinielas_scores')->where('id_quiniela',$quiniela_id)
         ->orderby('puntos','desc')
-        ->orderby('name','asc')->get(); 
+        ->orderby('name','asc')->get(); */
         //($quiniela);
+
+        $puntuaciones = DB::select('CALl sp_quinielas_scores(?)', array($quiniela_id));
+        //dd($puntuaciones);
         return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones'));
 
     }
