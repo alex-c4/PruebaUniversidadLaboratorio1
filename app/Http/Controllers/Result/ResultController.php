@@ -44,7 +44,13 @@ class ResultController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('admin');
+        
+        // $rollId = auth()->user()->rollId;
+        return auth()->user();
+        if($rollId != 1){
+            return view('/');
+        }
     }
 
     /**
