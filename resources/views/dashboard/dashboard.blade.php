@@ -202,7 +202,7 @@
                               <dtitle>GOLDPOT:PREMIO DE QUINIELA</dtitle>
                               <hr>
                               <div class="cont">
-                                <p>¿ Quien se llevara el gran premio ?</p>
+                                <p>¿ Quien se llevará el gran premio ?</p>
                                 <br>
                                  <div class="thumbnail">
                                     <img src="img/quien_ganara.png" class="img-circle">
