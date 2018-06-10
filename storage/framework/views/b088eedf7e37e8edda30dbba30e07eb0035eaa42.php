@@ -13,7 +13,7 @@
   <section id="contact" style="background: #f7f7f7">  
    
     <div class="section-header">
-      <h3>Puntuaciones </h3>
+      <h3>Tabla de Posiciones Quiniela </h3>
       <p> listado de puntuaciones por pronostico </p>
     </div>
     <div id="oscuro" >
