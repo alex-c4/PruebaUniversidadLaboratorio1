@@ -85,7 +85,10 @@
           <li><a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
           <li><a href="<?php echo e(url('/#contact')); ?>">Contactanos</a></li>
           <br>
-          <?php if(Auth::check()): ?>            
+          <?php if(Auth::check()): ?>   
+            <?php if(Auth::user()->rollId == 1): ?>         
+              <li><a href="<?php echo e(url('/result')); ?>">Result</a></li>
+            <?php endif; ?>
             <li><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a></li>
             <li><a href="<?php echo e(url('/logout')); ?>">Cerrar sesion</a></li>
           <?php else: ?>

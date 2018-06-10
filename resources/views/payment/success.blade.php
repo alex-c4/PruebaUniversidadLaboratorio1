@@ -15,6 +15,7 @@
             
             <p>Su pago fue realizado con exito...</p>
             <hr>
+            <p><a href="{{ route('searchPronostics') }}" class="btn btn-outline-info">Volver a mis pronósticos</a></p>
             
         </div>
     </div>  

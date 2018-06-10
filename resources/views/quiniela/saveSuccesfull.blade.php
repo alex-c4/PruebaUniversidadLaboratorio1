@@ -16,8 +16,8 @@
             <div >
                 <div class="alert alert-info" role="alert">
                     <h4 class="alert-heading">Registro Satisfactorio</h4>
-                    <p>Su registro fue exitoso!, Gracias por preferirnos, el equipo de XportGold les desea mucho éxito en su pronostico!</p>
-                    <p><a href="{{ route('searchPronostics') }}" class="btn btn-outline-info">Ver mis quinielas</a></p>
+                    <p>Su registro fue exitoso!, Gracias por preferirnos, el equipo de <b>XportGold</b> le desea mucho éxito en su pronóstico!</p>
+                    <p><a href="{{ route('searchPronostics') }}" class="btn btn-outline-info">Ver mis pronósticos</a></p>
                 </div>
             </div>
         </div>

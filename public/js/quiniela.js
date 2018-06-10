@@ -100,7 +100,7 @@ var updatePronostic = function(pronostic_id){
 $("#btnAddPronostic").on('click', function(){
     $.confirm({
         title: 'Información',
-        content: 'Se le informa que aquellos pronósticos que esten vacios, es decir, no hayan colocado algún valor, el sistema tomará como valor por defecto cero ( 0 ), recuerde que tambien tendra la oportunidad de cambiar el resultado cuando lo desea en el modulo de pronosticos este moódulo estará hailitado hasta horas antes del inicio del primer encuentro',
+        content: 'Se le informa que aquellos pronósticos que esten vacios, es decir, no hayan colocado algún valor, el sistema tomará como valor por defecto cero ( 0 ), recuerde que también tendrá la oportunidad de cambiar el resultado en el modulo de pronósticos, este módulo estará habilitado hasta horas antes del inicio del primer encuentro',
         type: 'dark',
         columnClass: 'col-md-6',
         animationBounce: 2.5,
@@ -115,7 +115,7 @@ $("#btnAddPronostic").on('click', function(){
                 }
             },
             cancel: {
-                text: 'Volver',
+                text: 'Cancelar',
                 action: function(){
                     // $.alert('Cancelado!')
                 }

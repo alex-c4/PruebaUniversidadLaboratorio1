@@ -85,7 +85,10 @@
           <li><a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
           <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
           <br>
-          @if(Auth::check())            
+          @if(Auth::check())   
+            @if(Auth::user()->rollId == 1)         
+              <li><a href="{{ url('/result') }}">Result</a></li>
+            @endif
             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
             <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>
           @else

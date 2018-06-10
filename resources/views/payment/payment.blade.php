@@ -171,6 +171,29 @@
           </div>
         		    </form>
         		</div>
+
+              <div class="modal fade" id="legalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"> Términos de GoldXport y la políticas de privacidad</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" style="font-size: 12px;">
+                    <p class="c3"><span class="c5">Acepto y entiendo el pago exigido por <b>XportGold</b> a través de <b>PayPal</b> explicado en su <a href="{{ asset('/files/Instructivo Quinielas XportGold.pdf') }}" target="_blank">reglamento del Juego online</a>  a través de la página Web <a class="c22" href="{{ url('/') }}">www.xportgold.com</a> y bajo ningún concepto será motivo de reintegro, devolución o reclamación. Declino cualquier posibilidad de abrir una disputa ante el vendedor <a class="c22" href="{{ url('/') }}">www.xportgold.com</a> e igualmente que esta operación es efectuada por mí y no por un tercero.</span></p>
+                    
+                    <p class="c7 c4"><span class="c2"></span></p><p class="c3"><span class="c5">Al celebrar este acuerdo, ratificas que XportGold es marca propiedad de Y3A Tecnology C.A</span></p>
+                    
+                    <p class="c8"><span class="c5">Copyright &copy; 2018 Y3A Tecnology C.A. Todos los derechos reservados.</span></p><p class="c3 c4"><span class="c2"></span></p><p class="c3 c4"><span class="c2"></span></p><p class="c3 c4"><span class="c2"></span></p><p class="c11 c4"><span class="c14 c10"></span></p>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button  type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+                  </div>
+                </div>
+              </div>
         	</div>
 
         </div>

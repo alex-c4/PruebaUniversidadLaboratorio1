@@ -18,6 +18,8 @@
 
         <div class="container">
 
+            <p><a href="{{ route('searchPronostics') }}" class="btn btn-dark"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a></p>
+            
             <div class="row align-items-center">
                 @foreach($pronosticsDetails as $pronostic)
                     

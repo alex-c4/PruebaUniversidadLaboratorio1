@@ -56,7 +56,7 @@
 
   	<!-- Google Fonts call. Font Used Open Sans & Raleway -->
 	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
-  	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -133,8 +133,8 @@
               	
 
                   <!-- OPCION 1 Cromos -->
-              			<div class="col-sm-3 col-lg-3">
-              				<div id="hosting-table">
+              		<div class="col-sm-3 col-lg-3">
+              		<div id="hosting-table">
         						<div class="table_style4">
         							<div class="column">
         								<ul>
@@ -144,63 +144,78 @@
         									</li>
         									<li><a class="tt" href="<?php echo e(url('sticker')); ?>">  -- Panel de Cromos --<span class="tooltip"><span class="triangle-obtuse">Puedes consultar tus cromos adquiridas, repetidas y de interes desde tu panel</span></span></a></li>
 	                        <li><a class="tt" href="<?php echo e(url('conv')); ?>"> Mensajerias de Intercambio <span class="tooltip"><span class="triangle-obtuse">Consulta tus intercambios de cromos y sus respectivas conversaciones </span></span></a></li>
-                          <li><a class="tt" href="files/Instructivo Intercambio Cromos XportGold.pdf" target="_blank">Descargar Instructivo Cromos <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicara como intercambiar fácilmente tus cromos a través de nuestro sitio</span></span></a></li>
+
+                          <!--<li><a class="tt" href="files/Instructivo Intercambio Cromos XportGold.pdf" target="_blank">Descargar Instructivo Cromos <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicara como intercambiar fácilmente tus cromos a través de nuestro sitio</span></span></a></li>
                           
-        									<li class="footer_row"><a href="<?php echo e(url('sticker')); ?>" class="hosting-button">cromos</a></li>
+        									<li class="footer_row"><a href="<?php echo e(url('sticker')); ?>" class="hosting-button">cromos</a></li>-->
+
+                          <li><a class="tt" href="<?php echo e(asset('files/Instructivo Intercambio Cromos XportGold.pdf')); ?>  " target="_blank">Descargar Instructivo Cromos <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicara como intercambiar fácilmente tus cromos a través de nuestro sitio</span></span></a></li>
+                          <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>
+                          <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>  
+        									
         								</ul>
         							</div><!--/ column-->
         						</div><!--/ Table Style-->
         					</div><!--/ Hosting Table-->
-              			</div><!-- /span3 -->
+              		</div><!-- /span3 -->
 
 
-                    <!-- OPCION 2 Quinielas -->
-                			<div class="col-sm-3 col-lg-3">
-                				<div id="hosting-table">
-          						<div class="table_style4">
-          							<div class="column">
-          								<ul>
+                  <!-- OPCION 2 Quinielas -->
+              		<div class="col-sm-3 col-lg-3">
+              		<div id="hosting-table">
+        						<div class="table_style4">
+        							<div class="column">
+        								<ul>
 
-          									<li class="header_row">
-          										<h1>Quinielas</h1>
-          									</li>
-          									<li><a class="tt" href="<?php echo e(route('quiniela')); ?>"> Quinielas Rusia 2018</a></li>
+        									<li class="header_row">
+        										<h1>Quinielas</h1>
+        									</li>
 
-  	                        <li><a class="tt" href="<?php echo e(url('/puntuacionesQui/1')); ?>"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a></li>
-                            
-                            <li><a class="tt" href="<?php echo e(route('searchPronostics')); ?>">Mis pronosticos</a></li>
 
-          									<li class="footer_row"><a href="<?php echo e(url('/quinielas/'.auth()->user()->id)); ?>" class="hosting-button">QUINIELAS</a></li>
-          								</ul>
-          							</div><!--/ column-->
-          						</div><!--/ Table Style-->
-          					</div><!--/ Hosting Table-->
-                			</div><!-- /span3 -->
+	                        <li>
+                            <a class="tt" href="<?php echo e(route('quiniela')); ?>">Registrar nuevo pronóstico</a>
+                          </li>
+                          <li><a class="tt" href="<?php echo e(url('/puntuacionesQui/1')); ?>"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
+                          </li>
 
-                      <!-- Saldo del Usuario -->
-                          <div class="col-sm-3 col-lg-3">
-                            <div class="dash-unit">
-                              <dtitle>GoldPots</dtitle>
-                              <hr>
-                              <div class="cont">
-                                <br>
-                                
+	                        <li>
+                            <a class="tt" href="<?php echo e(route('searchPronostics')); ?>">Mis pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
+                          </li>
+
+                          <li>
+                            <!-- <a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">Opción habilitada cuando comiencen los juegos del mundial…</span></span></a> -->
+                            <a class="tt" href="<?php echo e(asset('/files/Instructivo Quinielas XportGold.pdf')); ?> " target="_blank">Descargar Instructivo Quinielas<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                          
+                          </li>
+                                                 
+                         <li>
+                          <a class="tt" href="<?php echo e(asset('/files/Reglas del Juego.pdf')); ?> " target="_blank">Descargar reglas del juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                        </li>
+        									
+        								</ul>
+        							</div><!--/ column-->
+        						</div><!--/ Table Style-->
+        					</div><!--/ Hosting Table-->
+              		</div><!-- /span3 -->
+
+                  <!-- Saldo del Usuario -->
+                  <div class="col-sm-3 col-lg-3">
+                    <div class="dash-unit">
+                      <dtitle>GoldPots</dtitle>
+                        <hr>
+                          <div class="cont">
+                            <br>                                  
                             <p><bold>0</bold> | <ok> GOLD</ok></p>
                             <br>
                           </div>
                           <div class="thumbnail">
                             <img src="img/goldpot.png" class="img-circle">
                           </div><!-- /thumbnail -->
-                        </div>
-                          </div>
-
-
-              	
-
-	</div> <!-- /container -->
-
-
-</body></html>
+                    </div>
+                  </div>            	
+    </div> <!-- /container -->
+  </body>
+</html>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layoutMenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
