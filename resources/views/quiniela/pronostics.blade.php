@@ -9,8 +9,8 @@
 
     <div class="section-header">
 
-        <h3>Quiniela Creadas</h3>
-        <p>Panel con las quinielas registradas, podra realizar el pago o actualización de alguna de ellas</p>
+        <h3>Pronósticos Creados</h3>
+        <p>Panel con los pronósticos registrados, podra realizar el pago o actualización de alguno de ellos</p>
 
         <div class="container">
 
@@ -21,7 +21,6 @@
                     <th scope="col">Quiniela</th>
                     <th scope="col">Campeonato</th>
                     <th scope="col"></th>
-                    <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,9 +30,13 @@
                         <th scope="row">{{ $key+1 }}</th>
                         <td>{{ $pronostic->quiniela }}</td>
                         <td>{{ $pronostic->championshipName }}</td>
-                        <td><a href="{{ url('quiniela.pronosticEdit/') }}/{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Editar pronóstico"><i class="fa fa-edit fa-sm"></i></a></td>
-                        <td><a href="{{ url('payQuiniela/') }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a></td>
-                        <td><a href="{{ url('payment') }}{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-credit-card fa-sm"></i></a></td>
+                        <td>
+                            <a href="{{ url('quiniela.pronosticEdit/') }}/{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Editar pronóstico"><i class="fa fa-edit fa-sm"></i></a>
+                            <a href="{{ url('payQuiniela/') }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a>
+                            @if($pronostic->refPago == '')
+                                <a href="{{ url('payment') }}{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-credit-card fa-sm"></i></a>
+                            @endif
+                        </td>
                     </tr>
 
                     @endforeach
