@@ -158,7 +158,7 @@ class RegisterController extends Controller
         Mail::send('emails.welcome', $data, function($message) use($req, $pathToFile) {
             $message->from('admin@xportgold.com', 'XportGold');
             $message->to($req->email)->subject('Confirmación de tu correo');
-            $message->attach($pathToFile);
+            //$message->attach($pathToFile);
         });
         
 

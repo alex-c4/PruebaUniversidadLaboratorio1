@@ -175,10 +175,14 @@
                               <a class="tt" href="{{ route('searchPronostics') }}">Mis pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
                             </li>
 
-                            <li><a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">Opción habilitada cuando comiencen los juegos del mundial…</span></span></a></li>
+                            <li>
+                              <!-- <a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">Opción habilitada cuando comiencen los juegos del mundial…</span></span></a> -->
+                              <a class="tt" href="{{ asset('/files/Instructivo Quinielas XportGold.pdf') }} " target="_blank">Descargar Instructivo Quinielas<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                            
+                            </li>
                                                    
                            <li>
-                            <a class="tt" href="{{ asset('/files/Instructivo Quinielas XportGold.pdf') }} " target="_blank">Descargar Instructivo Quinielas<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                            <a class="tt" href="{{ asset('/files/Reglas del Juego.pdf') }} " target="_blank">Descargar reglas del juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
                           </li>
           									
           								</ul>
