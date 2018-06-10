@@ -144,7 +144,7 @@
         									</li>
         									<li><a class="tt" href="<?php echo e(url('sticker')); ?>"> Panel de Cromos <span class="tooltip"><span class="triangle-obtuse">Puedes consultar tus cromos adquiridas, repetidas y de interes desde tu panel</span></span></a></li>
 	                        <li><a class="tt" href="<?php echo e(url('conv')); ?>"> Mensajerias de Intercambio <span class="tooltip"><span class="triangle-obtuse">Consulta tus intercambios de cromos y sus respectivas conversaciones </span></span></a></li>
-                          <li><a class="tt" href="files/Instructivo Intercambio Cromos XportGold.pdf" target="_blank">Descargar Instructivo Cromos <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicara como intercambiar fácilmente tus cromos a través de nuestro sitio</span></span></a></li>
+                          <li><a class="tt" href="<?php echo e(asset('files/Instructivo Intercambio Cromos XportGold.pdf')); ?>  " target="_blank">Descargar Instructivo Cromos <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicara como intercambiar fácilmente tus cromos a través de nuestro sitio</span></span></a></li>
                           <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>
         									
         								</ul>
@@ -164,13 +164,29 @@
           									<li class="header_row">
           										<h1>Quinielas</h1>
           									</li>
-          									<li><a class="tt" href="<?php echo e(route('quiniela')); ?>">Registrar nuevo pronóstico<span class="tooltip"><span class="triangle-obtuse">Demuestra tus concociemitos pronosticando los resultados del mundial...</span></span></a></li>
 
-  	                        <li><a class="tt" href="<?php echo e(route('searchPronostics')); ?>">Mis pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a></li>
-
-                            <li><a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">Opción habilitada cuando comiencen los juegos del mundial…</span></span></a></li>
-                                                   
-                           <li><a class="tt" href="files/Instructivo Quinielas XportGold.pdf" target="_blank">Descargar Instructivo Quinielas <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a></li>
+  	                        <li>
+                                <a class="tt" href="<?php echo e(asset('/files/Instructivo Quinielas XportGold.pdf')); ?> " target="_blank">Instructivo de Juego <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                              
+                            </li>
+                            <li>
+                                <a class="tt" href="<?php echo e(asset('/files/Reglamento Quiniela Rusia 2018 de XportGold.pdf')); ?> " target="_blank">Reglamento de Juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                            </li>
+                            <li>
+                            
+                              <a class="tt" href="<?php echo e(route('quiniela')); ?>">Nuevo Pronóstico</a>
+                            
+                            </li>
+  	                        <li>
+                              <a class="tt" href="<?php echo e(route('searchPronostics')); ?>">Mis Pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
+                            </li>
+                            <!--
+                            <li>
+                               <a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">Opción habilitada cuando comiencen los juegos del mundial…</span></span></a> 
+                                                          
+                            </li>
+                             -->                      
+                          
           									
           								</ul>
           							</div><!--/ column-->
@@ -181,17 +197,21 @@
                       <!-- Saldo del Usuario -->
                           <div class="col-sm-3 col-lg-3">
                             <div class="dash-unit">
-                              <dtitle>GoldPot (Premio de la Quiniela)</dtitle>
+                              <dtitle>GOLDPOT:PREMIO DE QUINIELA</dtitle>
                               <hr>
                               <div class="cont">
+                                <p>¿ Quien se llevara el gran premio ?</p>
                                 <br>
-                                
+                                 <div class="thumbnail">
+                                    <img src="img/quien_ganara.png" class="img-circle">
+                                </div><!-- /thumbnail -->
+                             <!--   
                             <p><bold><?php echo e($goldpot); ?></bold> | <ok> GOLD</ok></p>
                             <br>
+                          -->
+                          <p><ok>Puedes ser tu...</ok></p>
                           </div>
-                          <div class="thumbnail">
-                            <img src="img/goldpot.png" class="img-circle">
-                          </div><!-- /thumbnail -->
+                         
                         </div>
                           </div>
 

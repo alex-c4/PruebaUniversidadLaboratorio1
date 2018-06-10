@@ -16,7 +16,7 @@
 
             <input type="hidden" id="routeCurrent" value="<?php echo e(url('/')); ?>">
             
-            Publicas
+            <h2>Publicas</h2>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -24,7 +24,6 @@
                     <th scope="col">Quiniela</th>
                     <th scope="col">Campeonato</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Creación</th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
@@ -36,7 +35,6 @@
                         <td><?php echo e($quinielaPublica->nombreQuiniela); ?></td>
                         <td><?php echo e($quinielaPublica->nombreCampeonato); ?></td>
                         <td><?php echo e($quinielaPublica->tipoQuiniela); ?></td>
-                        <td><?php echo e($quinielaPublica->fechaCreacionQuiniela); ?></td>
                         <td><a href="<?php echo e(url('quiniela/searchGames/')); ?>/<?php echo e($quinielaPublica->idQuiniela); ?>" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-plus-circle fa-sm"></i></a></td>
                     </tr>
 
@@ -44,8 +42,9 @@
                 </tbody>
             </table>
 
+            <?php if(count($misQuinielasPrivadas) > 0): ?>
 
-            Privadas
+            <h2>Privadas</h2>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -53,7 +52,6 @@
                     <th scope="col">Quiniela</th>
                     <th scope="col">Campeonato</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Creación</th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
@@ -65,13 +63,14 @@
                         <td><?php echo e($quinielaPrivada->nombreQuiniela); ?></td>
                         <td><?php echo e($quinielaPrivada->nombreCampeonato); ?></td>
                         <td><?php echo e($quinielaPrivada->tipoQuiniela); ?></td>
-                        <td><?php echo e($quinielaPrivada->fechaCreacionQuiniela); ?></td>
                         <td><a href="<?php echo e(url('quiniela/searchGames/')); ?>/<?php echo e($quinielaPrivada->idQuiniela); ?>" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-plus-circle fa-sm"></i></a></td>
                     </tr>
 
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
+
+            <?php endif; ?>
 
 
 
