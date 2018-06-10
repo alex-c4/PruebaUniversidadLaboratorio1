@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class Admin
 {
@@ -16,12 +17,16 @@ class Admin
 
     public function handle($request, Closure $next)
     {
-        $rollId = auth()->user()->rollId;
-        if($rollId != 1){
-            return redirect('/dashboard');
+        if(Auth::check()) {
+            $rollId = auth()->user()->rollId;
+            if($rollId != 1){
+                return redirect('/dashboard');
+            }
+            return $next($request);
+        }else{
+            return redirect('/register');            
         }
         
-        return $next($request);
 
     }
 }

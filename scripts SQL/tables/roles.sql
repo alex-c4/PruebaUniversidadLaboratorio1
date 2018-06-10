@@ -39,7 +39,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`) VALUES
 (1, 'Administrator'),
-(2, 'Member');
+(2, 'Member'),
 (3, 'Guest');
 
 --
