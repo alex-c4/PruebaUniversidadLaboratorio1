@@ -173,49 +173,58 @@
         										<h1>Quinielas</h1>
         									</li>
 
-
-	                        <li>
-                            <a class="tt" href="{{ route('quiniela') }}">Registrar nuevo pronóstico</a>
+                         <li>
+                              <a class="tt" href="{{ asset('/files/Instructivo Quinielas XportGold.pdf') }} " target="_blank">Instructivo de Juego <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                            
                           </li>
-                          <li><a class="tt" href="{{ url('/puntuacionesQui/1') }}"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
-                          </li>
-
-	                        <li>
-                            <a class="tt" href="{{ route('searchPronostics') }}">Mis pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
-                          </li>
-
                           <li>
-                            <!-- <a class="tt" href="#"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">Opción habilitada cuando comiencen los juegos del mundial…</span></span></a> -->
-                            <a class="tt" href="{{ asset('/files/Instructivo Quinielas XportGold.pdf') }} " target="_blank">Descargar Instructivo Quinielas<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                              <a class="tt" href="{{ asset('/files/Reglamento Quiniela Rusia 2018 de XportGold.pdf') }} " target="_blank">Reglamento de Juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                          </li>
+                          <li>
+                          
+                            <a class="tt" href="{{ route('quiniela') }}">Nuevo Pronóstico</a>
                           
                           </li>
-                                                 
-                         <li>
-                          <a class="tt" href="{{ asset('/files/Reglas del Juego.pdf') }} " target="_blank">Descargar reglas del juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
-                        </li>
-        									
+                          <li>
+                            <a class="tt" href="{{ route('searchPronostics') }}">Mis Pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
+                          </li>
+                          <li>
+                            <a class="tt" href="{{ url('/puntuacionesQui/1') }}"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
+                          </li>	                               									
         								</ul>
         							</div><!--/ column-->
         						</div><!--/ Table Style-->
         					</div><!--/ Hosting Table-->
               		</div><!-- /span3 -->
 
-                  <!-- Saldo del Usuario -->
+
+                      <!-- Saldo del Usuario -->
                   <div class="col-sm-3 col-lg-3">
                     <div class="dash-unit">
-                      <dtitle>GoldPots</dtitle>
-                        <hr>
-                          <div class="cont">
-                            <br>                                  
-                            <p><bold>0</bold> | <ok> GOLD</ok></p>
+                      <dtitle>GOLDPOT:PREMIO DE QUINIELA</dtitle>
+                      <hr>
+                      <div class="cont">
+                        <p>¿ Quien se llevará el gran premio ?</p>
+                        <br>
+                         <div class="thumbnail">
+                            <img src="img/quien_ganara.png" class="img-circle">
+                        </div>
+                        <!-- /thumbnail -->
+                             <!--   
+                            <p><bold>{{ $goldpot }}</bold> | <ok> GOLD</ok></p>
+>>>>>>> 2bf35e377c0d34e58249a65179c0db744b76ab06
                             <br>
-                          </div>
-                          <div class="thumbnail">
+                          -->
+                        <p><ok>Puedes ser tu...</ok></p>
+                      </div>
+
+                          <!--<div class="thumbnail">
                             <img src="img/goldpot.png" class="img-circle">
-                          </div><!-- /thumbnail -->
-                    </div>
+                          </div><!-- /thumbnail 
+                    </div>-->
                   </div>            	
     </div> <!-- /container -->
   </body>
 </html>
+
 @endsection
