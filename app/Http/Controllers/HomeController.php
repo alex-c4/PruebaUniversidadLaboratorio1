@@ -5,6 +5,8 @@ use App\Notice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use DB;
+
 class HomeController extends Controller
 {
 
@@ -26,8 +28,11 @@ class HomeController extends Controller
            $misnoticias[$i]=$arreglo;       
          }
          */   
+
+        $myResults = DB::select('CALL sp_getLastResult');
+
         $misnoticias= Notice::orderBy('id','desc')->limit(6)->get();  
-        return view('home', compact('misnoticias'));  
+        return view('home', compact('misnoticias', 'myResults'));  
                // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
 
 
