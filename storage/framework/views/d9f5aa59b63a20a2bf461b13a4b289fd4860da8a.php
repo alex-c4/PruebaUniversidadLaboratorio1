@@ -140,6 +140,48 @@
     </section>
     <!-- #featured-services -->
 
+<!--==========================
+      Facts Section
+    ============================-->
+    <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Resultados</h3>
+          <p>Resultados de los últimos encuentros del mundial Rusia 2018</p>
+        </header>
+
+        <div class="row counters">
+          <div class="container">
+            <div class="row align-items-center">
+            <?php $__currentLoopData = $myResults; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $result): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="col-12 text-center font-italic text-info">
+                    <?php echo e($result->estadium); ?> <?php echo e($result->date); ?> (<b>Grupo <?php echo e($result->grupo); ?></b>)
+                </div>
+                <div class="col-5 text-right">
+                  <?php echo e($result->nombre_club_1); ?><img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($result->img_club_1); ?>" alt="">
+                </div>
+                <div class="col-1">
+                  <span data-toggle="counter-up" class="text-center"><?php echo e($result->resultado_club_1); ?></span>
+                </div>
+                <div class="col-1">
+                  <span data-toggle="counter-up" class="text-center"><?php echo e($result->resultado_club_2); ?></span>
+                </div>
+                <div class="col-5">
+                  <img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($result->img_club_2); ?>" alt=""><?php echo e($result->nombre_club_2); ?>
+
+                </div>
+                
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+          </div>
+
+  			</div>
+        <br>
+      </div>
+    </section>
+    <!-- #facts -->
+
     <!--==========================
       About Us Section
     ============================-->
@@ -346,6 +388,9 @@
     <!-- #facts -->
 
 
+
+
+
  
     <!--==========================
       Notice section
@@ -373,7 +418,9 @@
                 
                 
               </div>
-              <h2 class="title"><a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>"><?php echo e($noticia['titulo']); ?></a></h2>
+              <h2 class="title"><a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>"><?php echo e($noticia['titulo']); ?>
+
+              </a></h2>
 
               <p style="text-align: justify;">
                 </br><?php echo e(substr($noticia['fecha_publicacion'],0,10)); ?>
@@ -382,6 +429,9 @@
 
               </p>
               <a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>" class="btn ">Leer mas</a>
+              <br>
+              <a href="whatsapp://send" data-text="Cómo crear el botón de Compartir en WhatsApp en tu sitio:" data-href="" class="btn btn-outline-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm"></i></a>
+
               
             </div>
           </div>

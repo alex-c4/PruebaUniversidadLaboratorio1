@@ -417,13 +417,17 @@
                 
                 
               </div>
-              <h2 class="title"><a href="{{ url('/notice/'.$noticia['id']) }}">{{ $noticia['titulo']}}</a></h2>
+              <h2 class="title"><a href="{{ url('/notice/'.$noticia['id']) }}">{{ $noticia['titulo']}}
+              </a></h2>
 
               <p style="text-align: justify;">
                 </br>{{ substr($noticia['fecha_publicacion'],0,10)}}
                 </br></br>{{ substr($noticia['cuerpo'],0,200).'...'}}
               </p>
               <a href="{{ url('/notice/'.$noticia['id']) }}" class="btn ">Leer mas</a>
+              <br>
+              <a href="whatsapp://send" data-text="Cómo crear el botón de Compartir en WhatsApp en tu sitio:" data-href="" class="btn btn-outline-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm"></i></a>
+
               
             </div>
           </div>
