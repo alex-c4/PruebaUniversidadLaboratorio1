@@ -30,8 +30,8 @@
                             <td><?php echo e($pronostic->championshipName); ?></td>
                             <td>
                                 <a href="<?php echo e(url('quiniela.pronosticEdit/')); ?>/<?php echo e($pronostic->betId); ?>" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Editar pronóstico"><i class="fa fa-edit fa-sm"></i></a>
+                                <a href="<?php echo e(url('payQuiniela/')); ?>" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a>
                                 <?php if($pronostic->refPago == ''): ?>
-                                    <a href="<?php echo e(url('payQuiniela/')); ?>" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a>
                                     <a href="<?php echo e(url('payment')); ?><?php echo e($pronostic->betId); ?>" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-credit-card fa-sm"></i></a>
                                 <?php endif; ?>
                             </td>

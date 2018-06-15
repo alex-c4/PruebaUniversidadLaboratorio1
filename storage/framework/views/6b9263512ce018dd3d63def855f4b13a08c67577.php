@@ -16,6 +16,8 @@
 
         <div class="container">
 
+            <p><a href="<?php echo e(route('searchPronostics')); ?>" class="btn btn-dark"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a></p>
+            
             <div class="row align-items-center">
                 <?php $__currentLoopData = $pronosticsDetails; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pronostic): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     
