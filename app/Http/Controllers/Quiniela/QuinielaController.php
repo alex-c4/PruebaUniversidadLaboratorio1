@@ -80,6 +80,7 @@ class QuinielaController extends Controller
         $games = DB::select('CALL sp_getGamesByQuiniela(?)', array($quiniela_id));
 
         $quiniela = Quiniela::where('id_quiniela', $quiniela_id)->get();
+        //dd($quiniela);
 
         $championship_id = $quiniela[0]['id_championship'];
 
