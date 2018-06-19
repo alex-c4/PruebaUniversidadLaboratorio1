@@ -162,10 +162,10 @@
                   {{ $result->nombre_club_1 }}<img src="{{ asset('img/banderas/') }}/{{ $result->img_club_1 }}" alt="">
                 </div>
                 <div class="col-1">
-                  <span data-toggle="counter-up" class="text-center">{{ $result->resultado_club_1 }}</span>
+                  <span  class="text-center">{{ $result->resultado_club_1 }}</span>
                 </div>
                 <div class="col-1">
-                  <span data-toggle="counter-up" class="text-center">{{ $result->resultado_club_2 }}</span>
+                  <span  class="text-center">{{ $result->resultado_club_2 }}</span>
                 </div>
                 <div class="col-5">
                   <img src="{{ asset('img/banderas/') }}/{{ $result->img_club_2 }}" alt="">{{ $result->nombre_club_2 }}

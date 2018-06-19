@@ -26,27 +26,42 @@
 
                         <div class="container">
                             <div class="row align-items-center">
-                                @foreach($games as $game)
-                                    
-                                    <div class="col-12 text-center font-italic text-info">
-                                        {{ $game->date }}
+
+                                @if(true)
+                                <div class="container">
+                                    <div >
+                                        <div class="alert alert-info" role="alert">
+                                            <h4 class="alert-heading">Tiempo agotado</h4>
+                                            <p>El tiempo para el registro de pronósticos se ha agotado</p>
+                                        </div>
                                     </div>
-                                    <div class="col-12 text-center font-weight-light">
-                                    <span class="text-success"> {{ $game->estadium }} </span> / <span class="font-weight-bold">Grupo {{ $game->grupo }}</span>
-                                    </div>
-                                    <div class="col-4 text-right">
-                                    {{ $game->nombre_club_1}}<img src="{{ asset('img/banderas/') }}/{{ $game->img_club_1 }}" alt="">
-                                    </div>
-                                    <div class="col-2">
-                                    <input type="number" id="input_{{ $game->id }}_1" name="input_{{ $game->id }}_1" class="form-control col-sm" max="99" min="0" >
-                                    </div>
-                                    <div class="col-2">
-                                    <input type="number" id="input_{{ $game->id }}_2" name="input_{{ $game->id }}_2" class="form-control col-sm" max="99" min="0" >
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="{{ asset('img/banderas/') }}/{{ $game->img_club_2 }}" alt="">{{ $game->nombre_club_2 }} 
-                                    </div>
-                                @endforeach
+                                </div>
+
+                                @else
+
+                                    @foreach($games as $game)
+                                        
+                                        <div class="col-12 text-center font-italic text-info">
+                                            {{ $game->date }}
+                                        </div>
+                                        <div class="col-12 text-center font-weight-light">
+                                        <span class="text-success"> {{ $game->estadium }} </span> / <span class="font-weight-bold">Grupo {{ $game->grupo }}</span>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                        {{ $game->nombre_club_1}}<img src="{{ asset('img/banderas/') }}/{{ $game->img_club_1 }}" alt="">
+                                        </div>
+                                        <div class="col-2">
+                                        <input type="number" id="input_{{ $game->id }}_1" name="input_{{ $game->id }}_1" class="form-control col-sm" max="99" min="0" >
+                                        </div>
+                                        <div class="col-2">
+                                        <input type="number" id="input_{{ $game->id }}_2" name="input_{{ $game->id }}_2" class="form-control col-sm" max="99" min="0" >
+                                        </div>
+                                        <div class="col-4">
+                                            <img src="{{ asset('img/banderas/') }}/{{ $game->img_club_2 }}" alt="">{{ $game->nombre_club_2 }} 
+                                        </div>
+                                    @endforeach
+                                @endif
+                                
                             </div>
                             
                         </div>
@@ -57,11 +72,11 @@
         </div
 
         <br>
-
+        @if(false)
         <div class="text-center">
             <button type="button" id="btnAddPronostic" name="btnAddPronostic" class="btn btn-success">Enviar</button>
         </div>
-        
+        @endif
     </div>
     
 </form>
