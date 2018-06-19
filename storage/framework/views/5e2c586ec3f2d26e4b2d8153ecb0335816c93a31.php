@@ -202,25 +202,19 @@
                       <dtitle>GOLDPOT:PREMIO DE QUINIELA</dtitle>
                       <hr>
                       <div class="cont">
-                        <p>¿ Quien se llevará el gran premio ?</p>
-                        <br>
-                         <div class="thumbnail">
-                            <img src="img/quien_ganara.png" class="img-circle">
-                        </div>
-                        <!-- /thumbnail -->
-                             <!--   
-                            <p><bold><?php echo e($goldpot); ?></bold> | <ok> GOLD</ok></p>
->>>>>>> 2bf35e377c0d34e58249a65179c0db744b76ab06
                             <br>
-                          -->
-                        <p><ok>Puedes ser tu...</ok></p>
-                      </div>
+                       
 
-                          <!--<div class="thumbnail">
+                            <p><bold>1.350</bold> | <ok> GOLD</ok></p>
+                            <br>
+                            </div>
+                            <div class="thumbnail">
                             <img src="img/goldpot.png" class="img-circle">
-                          </div><!-- /thumbnail 
-                    </div>-->
-                  </div>            	
+
+
+                          </div><!-- /thumbnail  -->
+                    </div>
+                  </div>              
     </div> <!-- /container -->
   </body>
 </html>

@@ -129,6 +129,18 @@ body {
       max-height: 40px;
     }
   }
+  /*Modificado por XportGold*/
+  #header bold{
+  font-size:25px;
+  font-weight:bold;
+  color:#ffffff
+  /*color:#b2c831*/
+}
+
+  #header ok {
+  font-size:15px;
+  color:#9e7622;/*Modificado por XportGold*/
+}
   
   /*--------------------------------------------------------------
   # Intro Section

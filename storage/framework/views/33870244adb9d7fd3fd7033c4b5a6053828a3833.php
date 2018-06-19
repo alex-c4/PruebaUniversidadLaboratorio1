@@ -32,6 +32,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
+ 
   <style type="text/css">
     #header{
       background: rgba(0, 0, 0, 0.9);
@@ -53,29 +54,24 @@
         <a href="#intro"><img src="<?php echo e(url('img/logo.png')); ?>" alt="" title="" /></a>
      
 	  
-	   </div>
+	     </div>
 
- 
-		 <!-- Boton PayPal -->
-     <!-- 
-		 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="D3NT46NQVQJYG">
-<input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-</form>
--->
-
+    <!-- Ubicacions del gold pot -->
 		 
-
-
+            &emsp;&emsp;&emsp;&emsp;&emsp;
+            <img src="img/goldpot_menu.png" class="img-circle">
+            
+            <bold>1.350</bold> | <ok> GOLD</ok>
+        
+                        
+  
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           
 		  
 		  
 		  <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
-
+           <li><a href="<?php echo e(url('/#facts')); ?>">Resultados</a></li>
           <?php if(Auth::check()): ?>
             <li><a href="<?php echo e(url('sticker')); ?>">Intercambiar Cromos</a></li>
           <?php else: ?>
