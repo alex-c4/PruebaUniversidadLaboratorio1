@@ -393,7 +393,7 @@
 
  
     <!--==========================
-      Notice section
+      News section
     ============================-->
 	
 	
@@ -430,8 +430,9 @@
               </p>
               <a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>" class="btn ">Leer mas</a>
               <br>
+              <!--
               <a href="whatsapp://send" data-text="Cómo crear el botón de Compartir en WhatsApp en tu sitio:" data-href="" class="btn btn-outline-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm"></i></a>
-
+              
               
             </div>
           </div>
