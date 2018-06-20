@@ -57,9 +57,10 @@
 	     </div>
 
     <!-- Ubicacions del gold pot -->
-		 
-            &emsp;&emsp;&emsp;&emsp;&emsp;
-            <img src="img/goldpot_menu.png" class="img-circle">
+		  
+            &emsp;&emsp;&emsp;
+            <img src="{{ url('img/goldpot_menu.png')}}" class="img-circle">
+
             
             <bold>1.350</bold> | <ok> GOLD</ok>
         
@@ -77,7 +78,7 @@
           @else
            <li><a href="{{ url('/#about') }}">Intercambiar Cromos</a></li>
           @endif
-          <li><a href="{{ url('/#notice') }}">Noticias</a></li>
+          <li><a href="{{ url('/#news') }}">Noticias</a></li>
           <li><a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
           <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
           <br>
@@ -153,7 +154,7 @@
             <div class="social-links">
               <a href="https://twitter.com/xportg"  target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
               <a href="https://www.facebook.com/XportGold-203618576920498/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="https://www.instagram.com/xport.gold/"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
               <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
               <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
             </div>

@@ -73,7 +73,7 @@ Route::get('/intercambio_actualizar/{id_intercambio}/{estatus}/{id_sticker}/{id_
 | Seccion para las rutas asociadas a la parte de noticias
 |
 */
-Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
+Route::get('/news/{id}', 'NoticeController@consultar')->name('notice.consulta');
 
 /*
 |--------------------------------------------------------------------------

@@ -41,7 +41,7 @@
                  <br>                  
                 </p> 
 
-                <a href="{{ url('/#notice') }}" class="btn ">Volver</a>
+                <a href="{{ url('/#news') }}" class="btn ">Volver</a>
 
               </div>
 

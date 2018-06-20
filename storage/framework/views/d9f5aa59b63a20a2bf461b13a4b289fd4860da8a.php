@@ -148,9 +148,16 @@
 
         <header class="section-header">
           <h3>Resultados</h3>
-          <p>Resultados de los últimos encuentros del mundial Rusia 2018</p>
+          <p>Resultados de los últimos encuentros del mundial Rusia 2018
+
+            <br><br>
+            <a href="whatsapp://send?text=Resultados Mundial Rusia 2018 - <?php echo e(url('/#facts')); ?>" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
+
+
+          </p>
         </header>
 
+        
         <div class="row counters">
           <div class="container">
             <div class="row align-items-center">
@@ -162,18 +169,24 @@
                   <?php echo e($result->nombre_club_1); ?><img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($result->img_club_1); ?>" alt="">
                 </div>
                 <div class="col-1">
-                  <span  class="text-center"><?php echo e($result->resultado_club_1); ?></span>
+                  <span data-toggle="counter-up" class="text-center"><?php echo e($result->resultado_club_1); ?></span>
+                  
+                  <hr>
                 </div>
                 <div class="col-1">
-                  <span  class="text-center"><?php echo e($result->resultado_club_2); ?></span>
+                  <span data-toggle="counter-up" class="text-center"><?php echo e($result->resultado_club_2); ?></span>
+                  <hr/>
                 </div>
                 <div class="col-5">
                   <img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($result->img_club_2); ?>" alt=""><?php echo e($result->nombre_club_2); ?>
 
+
                 </div>
                 
+
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
+
           </div>
 
   			</div>
@@ -393,12 +406,12 @@
 
  
     <!--==========================
-      News section
+      Notice section
     ============================-->
 	
 	
 
-    <section id="notice">
+    <section id="news">
       <div class="container">
 
         <header class="section-header">
@@ -407,18 +420,18 @@
         </header>
 
   
-        <div class="row notice-cols">
+        <div class="row news-cols">
          
          <?php $__currentLoopData = $misnoticias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $noticia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
          
           <div class="col-md-4 wow fadeInUp">
-            <div class="notice-col">
+            <div class="news-col">
               <div class="img">
                 <img src="img/notice/<?php echo e($noticia['name_img']); ?>" alt="" class="img-fluid">
                 
                 
               </div>
-              <h2 class="title"><a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>"><?php echo e($noticia['titulo']); ?>
+              <h2 class="title"><a href="<?php echo e(url('/news/'.$noticia['id'])); ?>"><?php echo e($noticia['titulo']); ?>
 
               </a></h2>
 
@@ -428,10 +441,14 @@
                 </br></br><?php echo e(substr($noticia['cuerpo'],0,200).'...'); ?>
 
               </p>
-              <a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>" class="btn ">Leer mas</a>
+              <a href="<?php echo e(url('/news/'.$noticia['id'])); ?>" class="btn ">Leer mas</a>
               <br>
-              <br>
-              <a href="whatsapp://send?text=><?php echo e($noticia['titulo']); ?> - https://pruebas.xportgold.com/#news" data-text="Cómo crear el botón de Compartir en WhatsApp en tu sitio:"  data-action="share/whatsapp/share" target="_blank" class="btn btn-outline-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm"></i></a>
+              <a href="whatsapp://send?text=<?php echo e($noticia['titulo']); ?> - <?php echo e(url('/news/'.$noticia['id'])); ?>" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
+              
+
+              <!--              
+              <a href="whatsapp://send?text=Como crear un boton de compartir en whatsapp - https://jonathanmelgoza.com/blog/boton-de-compartir-en-whatsapp" data-action="share/whatsapp/share" target="_blank"><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png" style="display: inline;" data-lazy-loaded="true"><noscript><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png"/></noscript></a>
+              -->
               
             </div>
           </div>
