@@ -41,7 +41,7 @@
                  <br>                  
                 </p> 
 
-                <a href="<?php echo e(url('/#notice')); ?>" class="btn ">Volver</a>
+                <a href="<?php echo e(url('/#news')); ?>" class="btn ">Volver</a>
 
               </div>
 

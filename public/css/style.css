@@ -129,6 +129,20 @@ body {
       max-height: 40px;
     }
   }
+
+
+/*Modificado por XportGold*/
+  #header bold{
+  font-size:25px;
+  font-weight:bold;
+  color:#ffffff
+  /*color:#b2c831*/
+}
+
+  #header ok {
+  font-size:15px;
+  color:#9e7622;/*Modificado por XportGold*/
+}
   
   /*--------------------------------------------------------------
   # Intro Section
@@ -840,14 +854,14 @@ body {
 
 /* Notice Section
   --------------------------------*/
-  #notice {
+  #news {
     background: url("../img/about-bg.jpg") center top no-repeat fixed;
     background-size: cover;
     padding: 60px 0 40px 0;
     position: relative;
   }
   
-  #notice::before {
+  #news::before {
     content: '';
     position: absolute;
     left: 0;
@@ -858,27 +872,27 @@ body {
     z-index: 9;
   }
   
-  #notice .container {
+  #news .container {
     position: relative;
     z-index: 10;
   }
   
-  #notice .notice-col {
+  #news .news-col {
     background: #fff;
     border-radius: 0 0 4px 4px;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
     margin-bottom: 20px;
   }
   
-  #notice .notice-col .img {
+  #news .news-col .img {
     position: relative;
   }
   
-  #notice .notice-col .img img {
+  #news .news-col .img img {
     border-radius: 4px 4px 0 0;
   }
   
-  #notice .notice-col .icon {
+  #news .news-col .icon {
     width: 64px;
     height: 64px;
     padding-top: 8px;
@@ -893,22 +907,23 @@ body {
     transition: 0.3s;
   }
   
-  #notice .notice-col i {
-    font-size: 36px;
+  #news .news-col i {
+    /*font-size: 36px;*/
+    font-size: 15px;
     line-height: 1;
     color: #fff;
     transition: 0.3s;
   }
   
-  #notice .notice-col:hover .icon {
+  #news .news-col:hover .icon {
     background-color: #fff;
   }
   
-  #notice .notice-col:hover i {
+  #news .news-col:hover i {
     color: #098c00;
   }
   
-  #notice .notice-col h2 {
+  #news .news-col h2 {
     color: #000;
     text-align: center;
     font-weight: 700;
@@ -917,15 +932,15 @@ body {
     margin: 40px 0 12px 0;
   }
   
-  #notice .notice-col h2 a {
+  #news .news-col h2 a {
     color: #000;
   }
   
-  #notice .notice-col h2 a:hover {
+  #news .news-col h2 a:hover {
     color: #098c00;
   }
   
-  #notice .notice-col p {
+  #news .news-col p {
     font-size: 14px;
     line-height: 24px;
     color: #333;
@@ -1027,6 +1042,7 @@ body {
     text-align: center;
     padding-top: 30px;
   }
+
   
   /* Portfolio Section
   --------------------------------*/

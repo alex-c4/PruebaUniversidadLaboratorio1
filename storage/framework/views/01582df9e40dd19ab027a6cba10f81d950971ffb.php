@@ -162,10 +162,10 @@
                   <?php echo e($result->nombre_club_1); ?><img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($result->img_club_1); ?>" alt="">
                 </div>
                 <div class="col-1">
-                  <span data-toggle="counter-up" class="text-center"><?php echo e($result->resultado_club_1); ?></span>
+                  <span  class="text-center"><?php echo e($result->resultado_club_1); ?></span>
                 </div>
                 <div class="col-1">
-                  <span data-toggle="counter-up" class="text-center"><?php echo e($result->resultado_club_2); ?></span>
+                  <span  class="text-center"><?php echo e($result->resultado_club_2); ?></span>
                 </div>
                 <div class="col-5">
                   <img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($result->img_club_2); ?>" alt=""><?php echo e($result->nombre_club_2); ?>
@@ -393,7 +393,7 @@
 
  
     <!--==========================
-      Notice section
+      News section
     ============================-->
 	
 	
@@ -418,7 +418,9 @@
                 
                 
               </div>
-              <h2 class="title"><a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>"><?php echo e($noticia['titulo']); ?></a></h2>
+              <h2 class="title"><a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>"><?php echo e($noticia['titulo']); ?>
+
+              </a></h2>
 
               <p style="text-align: justify;">
                 </br><?php echo e(substr($noticia['fecha_publicacion'],0,10)); ?>
@@ -427,6 +429,9 @@
 
               </p>
               <a href="<?php echo e(url('/notice/'.$noticia['id'])); ?>" class="btn ">Leer mas</a>
+              <br>
+              <br>
+              <a href="whatsapp://send?text=><?php echo e($noticia['titulo']); ?> - https://pruebas.xportgold.com/#news" data-text="Cómo crear el botón de Compartir en WhatsApp en tu sitio:"  data-action="share/whatsapp/share" target="_blank" class="btn btn-outline-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm"></i></a>
               
             </div>
           </div>
