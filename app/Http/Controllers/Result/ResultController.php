@@ -44,8 +44,8 @@ class ResultController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin');
-        
+       //$this->middleware('admin');
+        $this->middleware('auth');
         // $rollId = auth()->user()->rollId;
         return auth()->user();
         if($rollId != 1){
@@ -96,15 +96,32 @@ class ResultController extends Controller
     }
 
 
-    public function create(){
-        $games = Game::all();
+    public function create($fase_id){
+       
+
+        if ($fase_id==1){
+
+            $fase='ELIMINATORIAS';
+        }else{
+            $fase='OCTAVOS';
+        }       
+
+       
+           
+        
+        
+        //$game_count = Game::where('id_champ', $championship_id)->count();
+        //$games = Game::all();
+        //$cities= City::where('state_id', $user->state_id)->get();
+        $games = Game::where('fase',$fase )->get();
         return view('result.result', compact('games'));
     }
 
     
     public function store(Request $request){
 
-         
+    //dd($request->all());
+
      $id_game_form = $request->input('id_game'); 
      $result_form_1 = $request->input('resultado_1');
      $result_form_2 = $request->input('resultado_2');
@@ -185,7 +202,7 @@ class ResultController extends Controller
         /*    
         echo "El ganador del pronostico es: ".$ganador_pronostic."<br>";
         echo "Puntuacion: ".$puntuacion."<br><br>";
-       */
+        */       
 
 
      }

@@ -31,6 +31,8 @@
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
 
+  
+
 </head>
 
 <body>
@@ -143,6 +145,7 @@
 <!--==========================
       Facts Section
     ============================-->
+    <!--
     <section id="facts"  class="wow fadeIn">
       <div class="container">
 
@@ -192,12 +195,131 @@
         <br>
       </div>
     </section>
+    -->
     <!-- #facts -->
 
     <!--==========================
-      About Us Section
+      Result Us Section
     ============================-->
-    <section id="about">
+    <section id="result">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Tabla de posiciones Quinielas...</h3>
+        </header>
+
+        <div class="row about-cols">
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+
+
+                  
+                  
+            <div class="about-col"> 
+
+
+                 <div id="oscuro" > 
+
+                      <div class="row oscuro">
+                        
+                        <br>
+                          <img src="img/goldpot.png" class="img-circle">
+                          
+                          <h4 class="text-center">{{$quiniela->nombre." "." **GOLD**"}} </h4>
+                          
+                          <ul>
+                            @foreach($puntuaciones as $puntuacion)                                       
+                              <li>
+                                
+                                <a href="{{ route('pronosticGet',['betId'=>$puntuacion->bet_id])}}">{{ $puntuacion->name." ".$puntuacion->lastName ."  - Pro ID: ". $puntuacion->bet_id }}</a>
+                                - Total: <strong class="textGold">{{ $puntuacion->puntos}}</strong> Ptos.                        
+                              
+                              </li>    
+
+                            @endforeach
+                          </ul>
+                      </div>                  
+                  </div>                
+             </div>
+          </div>
+
+          
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="about-col">
+             
+              <h2 class="title">RESULTADOS:</h2>
+              
+
+                <div class="row align-items-center">
+                @foreach($myResults as $result)
+                    <div class="col-12 text-center font-italic text-info">
+                      <hr style="color: #ffffff;" />
+                        {{ $result->date }} 
+
+                    </div>
+
+                    <div class="col-5 text-right">
+                        {{ $result->nombre_club_1 }}<img src="{{ asset('img/banderas/') }}/{{ $result->img_club_1 }}" alt="">
+                    </div>
+                    <div class="col-1">
+                             
+                      <span data-toggle="counter-up" class="text-center">{{ $result->resultado_club_1 }}</span>
+                    </div>
+                    <div class="col-1">
+                      <span data-toggle="counter-up" class="text-center">{{ $result->resultado_club_2 }}</span>
+                 
+                    </div>
+                    <div class="col-5">
+                        <img src="{{ asset('img/banderas/') }}/{{ $result->img_club_2 }}" alt="">{{ $result->nombre_club_2 }}
+
+                    </div>
+                
+
+                @endforeach
+                <!-- Boton whatsapp
+                <p>
+                  <a href="whatsapp://send?text=Resultados Mundial Rusia 2018 - {{ url('/#result') }}" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
+                </p>    
+                -->
+                </div>
+
+
+            </div>
+          </div>
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="about-col">              
+                 <div id="oscuro" >           
+                      <div class="row oscuro">
+                          
+                          <h4 class="text-center">{{$quiniela->nombre}} </h4>
+                          <ul>
+                            @foreach($puntuaciones as $puntuacion)                                       
+                              <li>
+                                
+                                <a href="{{ route('pronosticGet',['betId'=>$puntuacion->bet_id])}}">{{ $puntuacion->name." ".$puntuacion->lastName ."  - Pro ID: ". $puntuacion->bet_id }}</a>
+                                - Total: <strong class="textGold">{{ $puntuacion->puntos}}</strong> Ptos.                        
+                              
+                              </li>    
+
+                            @endforeach
+                          </ul>
+                      </div>                  
+                  </div>                
+             </div>
+          </div>
+
+        
+
+      </div>
+    </section>
+    <!-- #about -->
+
+    <!--==========================
+      About Us Section modificado
+    ============================-->
+    <section id="about_mod">
       <div class="container">
 
         <header class="section-header">
@@ -214,8 +336,8 @@
               </div>
               <h2 class="title"><a href="{{ url('/register') }}">PASO 1:</a></h2>
               <p>
-               Registra de forma rápida y sencilla tus datos y disfruta la experiencia de ser un usuario exclusivo de xportgold.			
-				 
+               Registra de forma rápida y sencilla tus datos y disfruta la experiencia de ser un usuario exclusivo de xportgold.      
+         
               </p>
             </div>
           </div>
@@ -228,7 +350,7 @@
               </div>
               <h2 class="title"><a href="" data-toggle="modal" data-target="#exampleModal">PASO 2</a></h2>
               <p>
-           	Ingresa como usuario XportGold, registra en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar...
+            Ingresa como usuario XportGold, registra en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar...
               </p>
             </div>
           </div>
@@ -439,9 +561,12 @@
               </p>
               <a href="{{ url('/news/'.$noticia['id']) }}" class="btn ">Leer mas</a>
               <br>
-              <a href="whatsapp://send?text={{ $noticia['titulo']}} - {{ url('/news/'.$noticia['id']) }}" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
-              
-
+              <a href="whatsapp://send?text={{ $noticia['titulo']}} - {{ url('/news/'.$noticia['id']) }}" img src="img/notice/{{$noticia['name_img']}}" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style="" ><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
+              <!--
+              <a href="whatsapp://send?text=https://scriptbc.com" data-action="share/whatsapp/share">
+                <img src="RUTA-IMAGEN" width="XX" height="YY">
+              </a>
+              -->
               <!--              
               <a href="whatsapp://send?text=Como crear un boton de compartir en whatsapp - https://jonathanmelgoza.com/blog/boton-de-compartir-en-whatsapp" data-action="share/whatsapp/share" target="_blank"><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png" style="display: inline;" data-lazy-loaded="true"><noscript><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png"/></noscript></a>
               -->
