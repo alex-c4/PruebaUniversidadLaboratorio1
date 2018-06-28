@@ -67,13 +67,17 @@ Route::get('/intercambio_actualizar/{id_intercambio}/{estatus}/{id_sticker}/{id_
 // Route::get('/alert/{data}', function($data){ return view('mensaje.alert', $data); })->name('mensaje.alert');
 /*
 |--------------------------------------------------------------------------
-| notice Routes
+| News Routes
 |--------------------------------------------------------------------------
 |
 | Seccion para las rutas asociadas a la parte de noticias
 |
 */
 Route::get('/news/{id}', 'NoticeController@consultar')->name('notice.consulta');
+
+Route::get('/news', 'News\NewsController@create')->name('create');
+//Route::post('/result', 'Auth\ResultController@store');
+Route::post('/news', 'News\NewsController@store')->name('news');
 
 /*
 |--------------------------------------------------------------------------
@@ -158,7 +162,7 @@ Route::get('pronosticos.mostrar/{pronostic_id}', 'Quiniela\QuinielaController@qu
 | Seccion para las rutas asociadas a la parte de Resultados
 |
 */
-Route::get('/result', 'Result\ResultController@create')->name('create');
+Route::get('/result/{pronostic_id}', 'Result\ResultController@create')->name('create');
 //Route::post('/result', 'Auth\ResultController@store');
 Route::post('/result', 'Result\ResultController@store')->name('result');
 //Route::post('/register', 'Auth\RegisterController@store')->name('register');

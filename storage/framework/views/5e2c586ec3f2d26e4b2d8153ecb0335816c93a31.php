@@ -151,7 +151,7 @@
 
                           <li><a class="tt" href="<?php echo e(asset('files/Instructivo Intercambio Cromos XportGold.pdf')); ?>  " target="_blank">Descargar Instructivo Cromos <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicara como intercambiar fácilmente tus cromos a través de nuestro sitio</span></span></a></li>
                           <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>
-                          <!-- <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>   -->
+                          <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>  
         									
         								</ul>
         							</div><!--/ column-->
@@ -214,7 +214,7 @@
 
                           </div><!-- /thumbnail  -->
                     </div>
-                  </div>              
+                  </div>            	
     </div> <!-- /container -->
   </body>
 </html>

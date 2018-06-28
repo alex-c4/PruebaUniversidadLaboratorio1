@@ -28,14 +28,31 @@ class HomeController extends Controller
            $misnoticias[$i]=$arreglo;       
          }
          */   
+        $quiniela_id=1;
+
+
+        //Para consultar los pronosticos GOLD
+        $quiniela=DB::table('quinielas')->where('id_quiniela',$quiniela_id)->first();          
+        $puntuaciones = DB::select('CALl sp_quinielas_scores(?)', array($quiniela_id));       
+        
+
+        //Para consultar los pronosticos FREE                
+        $puntuaciones_free = DB::select('CALl sp_quinielas_scores_free(?)', array($quiniela_id));
 
         $myResults = DB::select('CALL sp_getLastResult');
 
         $misnoticias= Notice::orderBy('id','desc')->limit(6)->get();  
-        return view('home', compact('misnoticias', 'myResults'));  
+        return view('home', compact('misnoticias', 'myResults','quiniela','puntuaciones','puntuaciones_free'));  
                // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
 
+        //Informacion antes de la modificacion para la tabla de resultados 
+        /*
+        $myResults = DB::select('CALL sp_getLastResult');
 
+        $misnoticias= Notice::orderBy('id','desc')->limit(6)->get();  
+        return view('home', compact('misnoticias', 'myResults',));  
+               // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
+        */
  }
   
 }
