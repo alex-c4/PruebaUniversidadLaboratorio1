@@ -123,3 +123,31 @@ $("#btnAddPronostic").on('click', function(){
         }
     });
 })
+
+
+$("#btnAddPronosticByPhase").on('click', function(){
+    $.confirm({
+        title: 'Información',
+        content: 'Se le informa que aquellos pronósticos que esten vacios, es decir, no hayan colocado algún valor, el sistema tomará como valor por defecto cero ( 0 )',
+        type: 'dark',
+        columnClass: 'col-md-6',
+        animationBounce: 2.5,
+        buttons: {
+            confirm: {
+                text: 'Ok',
+                btnClass: 'btn-blue',
+                action: function(){
+                    // $.alert('Acepto!')
+                    $('#btnAddPronosticByPhase').attr("disabled", true);
+                    $("#formAddPronosticsByPhase").submit();
+                }
+            },
+            cancel: {
+                text: 'Cancelar',
+                action: function(){
+                    // $.alert('Cancelado!')
+                }
+            }
+        }
+    });
+});

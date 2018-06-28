@@ -18,18 +18,8 @@
 
         <div class="container">
 
-            <p><a href="{{ route('searchPronostics') }}" class="btn btn-dark"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a></p>
-            @if(true)
-                <div class="container">
-                    <div >
-                        <div class="alert alert-info" role="alert">
-                            <h4 class="alert-heading">Tiempo agotado</h4>
-                            <p>El tiempo para el registro de pronósticos se ha agotado</p>
-                        </div>
-                    </div>
-                </div>
-
-            @else
+            <p><a href="{{ url('quiniela.searchPronostics') }}" class="btn btn-dark"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a></p>
+            
                 <div class="row align-items-center">
                     @foreach($pronosticsDetails as $pronostic)
                         
@@ -58,7 +48,6 @@
                         </div>
                     @endforeach
                 </div>
-            @endif
         </div>
     </div>
 

@@ -27,17 +27,6 @@
                         <div class="container">
                             <div class="row align-items-center">
 
-                                @if(true)
-                                <div class="container">
-                                    <div >
-                                        <div class="alert alert-info" role="alert">
-                                            <h4 class="alert-heading">Tiempo agotado</h4>
-                                            <p>El tiempo para el registro de pronósticos se ha agotado</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @else
 
                                     @foreach($games as $game)
                                         
@@ -60,7 +49,6 @@
                                             <img src="{{ asset('img/banderas/') }}/{{ $game->img_club_2 }}" alt="">{{ $game->nombre_club_2 }} 
                                         </div>
                                     @endforeach
-                                @endif
                                 
                             </div>
                             
@@ -72,11 +60,11 @@
         </div
 
         <br>
-        @if(false)
+        
         <div class="text-center">
             <button type="button" id="btnAddPronostic" name="btnAddPronostic" class="btn btn-success">Enviar</button>
         </div>
-        @endif
+        
     </div>
     
 </form>
