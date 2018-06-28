@@ -214,7 +214,7 @@
 
                           </div><!-- /thumbnail  -->
                     </div>
-                  </div>              
+                  </div>            	
     </div> <!-- /container -->
   </body>
 </html>

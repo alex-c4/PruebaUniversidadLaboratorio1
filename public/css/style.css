@@ -129,7 +129,9 @@ body {
       max-height: 40px;
     }
   }
-  /*Modificado por XportGold*/
+
+
+/*Modificado por XportGold*/
   #header bold{
   font-size:25px;
   font-weight:bold;
@@ -626,7 +628,139 @@ body {
     color: #fff;
     margin-bottom: 0;
   }
+
+  /* Result Us Section
+  --------------------------------*/
+
+  #result {
+    background: url("../img/rusia_bg.jpg") center top no-repeat fixed;
+    background-size: cover;
+    padding: 60px 0 40px 0;
+    position: relative;
+  }
   
+  #result::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 9;
+  }
+  
+  #result .container {
+    position: relative;
+    z-index: 10;
+  }
+  
+  #result .about-col {
+    background: #fff;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+  }
+  
+  #result .about-col .img {
+    position: relative;
+  }
+  
+  #result .about-col .img img {
+    border-radius: 4px 4px 0 0;
+  }
+  
+  #result .about-col .icon {
+    /*width: 64px;
+    height: 64px;*/
+  width: 50px;
+    height: 50px;
+    padding-top: 8px;
+    text-align: center;
+    position: absolute;
+    
+  
+  background-color: #9E7622;
+  /*background-color: #098c00;*/
+    border-radius: 50%;
+    text-align: center;
+    border: 4px solid #fff;
+    left: calc( 50% - 32px);
+    bottom: -30px;
+    transition: 0.3s;
+  }
+  
+  #result .about-col i {
+    /*font-size: 36px;*/
+  font-size: 25px;
+    line-height: 1;
+    color: #fff;
+    transition: 0.3s;
+  }
+  
+  #result .about-col:hover .icon {
+    background-color: #fff;
+  }
+  
+  #result .about-col:hover i {
+  
+    color: #907232;
+    /*color: #098c00;*/
+  }
+  
+  #result .about-col h2 {
+    color: #000;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 0;
+    /*margin: 40px 0 12px 0;*/
+  }
+  
+  #result .about-col h2 a {
+    color: #000;
+  }
+  
+  #result .about-col h2 a:hover {
+    /*color: #098c00;*/
+  color: #9e7622;/*Modificado por XportGold*/
+  
+  }
+  
+   #result .about-col h3 {
+    color: #000;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 0;
+    margin: 40px 0 12px 0;
+  }
+
+  #result .about-col h6 {
+  /*color:#b2c831;
+  margin-left:5px;*/
+  font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    position: center;
+    
+    margin: 50px 0 12px 0;
+}
+
+
+
+
+  #result .about-col p {
+    font-size: 30px;
+    line-height: 24px;
+    color: #ffffff;
+    margin-bottom: 0;
+    padding: 0 20px 20px 20px;
+  }
+  
+  
+
   /* About Us Section
   --------------------------------*/
   #about {
@@ -852,14 +986,14 @@ body {
 
 /* Notice Section
   --------------------------------*/
-  #notice {
+  #news {
     background: url("../img/about-bg.jpg") center top no-repeat fixed;
     background-size: cover;
     padding: 60px 0 40px 0;
     position: relative;
   }
   
-  #notice::before {
+  #news::before {
     content: '';
     position: absolute;
     left: 0;
@@ -870,27 +1004,27 @@ body {
     z-index: 9;
   }
   
-  #notice .container {
+  #news .container {
     position: relative;
     z-index: 10;
   }
   
-  #notice .notice-col {
+  #news .news-col {
     background: #fff;
     border-radius: 0 0 4px 4px;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
     margin-bottom: 20px;
   }
   
-  #notice .notice-col .img {
+  #news .news-col .img {
     position: relative;
   }
   
-  #notice .notice-col .img img {
+  #news .news-col .img img {
     border-radius: 4px 4px 0 0;
   }
   
-  #notice .notice-col .icon {
+  #news .news-col .icon {
     width: 64px;
     height: 64px;
     padding-top: 8px;
@@ -905,22 +1039,23 @@ body {
     transition: 0.3s;
   }
   
-  #notice .notice-col i {
-    font-size: 36px;
+  #news .news-col i {
+    /*font-size: 36px;*/
+    font-size: 15px;
     line-height: 1;
     color: #fff;
     transition: 0.3s;
   }
   
-  #notice .notice-col:hover .icon {
+  #news .news-col:hover .icon {
     background-color: #fff;
   }
   
-  #notice .notice-col:hover i {
+  #news .news-col:hover i {
     color: #098c00;
   }
   
-  #notice .notice-col h2 {
+  #news .news-col h2 {
     color: #000;
     text-align: center;
     font-weight: 700;
@@ -929,15 +1064,15 @@ body {
     margin: 40px 0 12px 0;
   }
   
-  #notice .notice-col h2 a {
+  #news .news-col h2 a {
     color: #000;
   }
   
-  #notice .notice-col h2 a:hover {
+  #news .news-col h2 a:hover {
     color: #098c00;
   }
   
-  #notice .notice-col p {
+  #news .news-col p {
     font-size: 14px;
     line-height: 24px;
     color: #333;
@@ -1039,6 +1174,7 @@ body {
     text-align: center;
     padding-top: 30px;
   }
+
   
   /* Portfolio Section
   --------------------------------*/

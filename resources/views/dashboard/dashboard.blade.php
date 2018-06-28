@@ -153,7 +153,7 @@
 
                           <li><a class="tt" href="{{ asset('files/Instructivo Intercambio Cromos XportGold.pdf') }}  " target="_blank">Descargar Instructivo Cromos <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicara como intercambiar fácilmente tus cromos a través de nuestro sitio</span></span></a></li>
                           <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>
-                          <!-- <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>   -->
+                          <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>  
         									
         								</ul>
         							</div><!--/ column-->
@@ -199,7 +199,9 @@
                             <a class="tt" href="{{ route('createPrivateQuiniela') }}">Crear quiniela<span class="tooltip"><span class="triangle-obtuse">Registrar nueva quiniela</span></span></a>
                           </li>
                           @endif
-
+                          <li>
+                            <a class="tt" href="{{ url('/puntuacionesQui/1') }}"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
+                          </li>	                               									
         								</ul>
         							</div><!--/ column-->
         						</div><!--/ Table Style-->
@@ -225,7 +227,7 @@
 
                           </div><!-- /thumbnail  -->
                     </div>
-                  </div>              
+                  </div>            	
     </div> <!-- /container -->
   </body>
 </html>

@@ -57,9 +57,10 @@
 	     </div>
 
     <!-- Ubicacions del gold pot -->
-		 
-            &emsp;&emsp;&emsp;&emsp;&emsp;
-            <img src="img/goldpot_menu.png" class="img-circle">
+		  
+            &emsp;&emsp;&emsp;
+            <img src="{{ url('img/goldpot_menu.png')}}" class="img-circle">
+
             
             <bold>1.350</bold> | <ok> GOLD</ok>
         
@@ -71,19 +72,19 @@
 		  
 		  
 		  <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
-           <li><a href="{{ url('/#facts') }}">Resultados</a></li>
+           <li><a href="{{ url('/#result') }}">Posiciones Quiniela</a></li>
           @if(Auth::check())
-            <li><a href="{{ url('sticker') }}">Intercambiar Cromos</a></li>
+            <li><a href="{{ url('/dashboard') }}">Quiniela Rusia 2018</a></li>
           @else
-           <li><a href="{{ url('/#about') }}">Intercambiar Cromos</a></li>
+           <li><a href="{{ url('/#about') }}">Quiniela Rusia 2018</a></li>
           @endif
-          <li><a href="{{ url('/#notice') }}">Noticias</a></li>
+          <li><a href="{{ url('/#news') }}">Noticias</a></li>
           <li><a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
           <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
           <br>
           @if(Auth::check())   
             @if(Auth::user()->rollId == 1)         
-              <li><a href="{{ url('/result') }}">Result</a></li>
+              <li><a href="{{ url('/result/2') }}">Result</a></li>
             @endif
             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
             <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>
@@ -153,7 +154,7 @@
             <div class="social-links">
               <a href="https://twitter.com/xportg"  target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
               <a href="https://www.facebook.com/XportGold-203618576920498/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="https://www.instagram.com/xport.gold/"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
               <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
               <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
             </div>
