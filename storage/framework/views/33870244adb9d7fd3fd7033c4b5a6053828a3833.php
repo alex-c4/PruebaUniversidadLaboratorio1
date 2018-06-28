@@ -72,11 +72,11 @@
 		  
 		  
 		  <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
-           <li><a href="<?php echo e(url('/#facts')); ?>">Resultados</a></li>
+           <li><a href="<?php echo e(url('/#result')); ?>">Posiciones Quiniela</a></li>
           <?php if(Auth::check()): ?>
-            <li><a href="<?php echo e(url('sticker')); ?>">Intercambiar Cromos</a></li>
+            <li><a href="<?php echo e(url('/dashboard')); ?>">Quiniela Rusia 2018</a></li>
           <?php else: ?>
-           <li><a href="<?php echo e(url('/#about')); ?>">Intercambiar Cromos</a></li>
+           <li><a href="<?php echo e(url('/#about')); ?>">Quiniela Rusia 2018</a></li>
           <?php endif; ?>
           <li><a href="<?php echo e(url('/#news')); ?>">Noticias</a></li>
           <li><a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
@@ -84,7 +84,7 @@
           <br>
           <?php if(Auth::check()): ?>   
             <?php if(Auth::user()->rollId == 1): ?>         
-              <li><a href="<?php echo e(url('/result')); ?>">Result</a></li>
+              <li><a href="<?php echo e(url('/result/2')); ?>">Result</a></li>
             <?php endif; ?>
             <li><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a></li>
             <li><a href="<?php echo e(url('/logout')); ?>">Cerrar sesion</a></li>

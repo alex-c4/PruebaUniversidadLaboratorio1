@@ -208,17 +208,10 @@
         <header class="section-header">
           <h3>Tabla de posiciones Quinielas...</h3>
         </header>
-
         <div class="row about-cols">
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-
-
-                  
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">               
                   
             <div class="about-col"> 
-
-
                  <div id="oscuro" > 
 
                       <div class="row oscuro">
@@ -295,9 +288,9 @@
                  <div id="oscuro" >           
                       <div class="row oscuro">
                           
-                          <h4 class="text-center"><?php echo e($quiniela->nombre); ?> </h4>
+                          <h4 class="text-center"><?php echo e($quiniela->nombre." "." **FREE**"); ?> </h4>
                           <ul>
-                            <?php $__currentLoopData = $puntuaciones; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $puntuacion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                                       
+                            <?php $__currentLoopData = $puntuaciones_free; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $puntuacion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                                       
                               <li>
                                 
                                 <a href="<?php echo e(route('pronosticGet',['betId'=>$puntuacion->bet_id])); ?>"><?php echo e($puntuacion->name." ".$puntuacion->lastName ."  - Pro ID: ". $puntuacion->bet_id); ?></a>
@@ -321,11 +314,11 @@
     <!--==========================
       About Us Section modificado
     ============================-->
-    <section id="about_mod">
+    <section id="about">
       <div class="container">
 
         <header class="section-header">
-          <h3>Como Intercambiar tus cromos...</h3>
+          <h3>Como Jugar Quiniela Rusia 2018...</h3>
         </header>
 
         <div class="row about-cols">
@@ -338,7 +331,7 @@
               </div>
               <h2 class="title"><a href="<?php echo e(url('/register')); ?>">PASO 1:</a></h2>
               <p>
-               Registra de forma rápida y sencilla tus datos y disfruta la experiencia de ser un usuario exclusivo de xportgold.      
+               Registra de forma rápida y sencilla tus datos y disfruta la experiencia de ser un usuario exclusivo de XportGold.      
          
               </p>
             </div>
@@ -347,12 +340,12 @@
           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
             <div class="about-col">
               <div class="img">
-                <img src="img/about_panel.jpg" alt="" class="img-fluid">
+                <img src="img/about_pronosticos.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-list-outline"></i></div>
               </div>
               <h2 class="title"><a href="" data-toggle="modal" data-target="#exampleModal">PASO 2</a></h2>
               <p>
-            Ingresa como usuario XportGold, registra en tu panel interactivo los cromos adquiridos y los repetidos que desees intercambiar...
+            Ingresa como usuario XportGold, registra tu pronóstico y realiza el pago Online correspondiente a tu cuota de participación...
               </p>
             </div>
           </div>
@@ -360,12 +353,12 @@
           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
             <div class="about-col">
               <div class="img">
-                <img src="img/about_album.jpg" alt="" class="img-fluid">
+                <img src="img/about_goldpot.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-trophy"></i></div>
               </div>
               <h2 class="title"><a href="#">PASO 3</a></h2>
               <p>
-               ...Completa tu album seleccionando facilmente los cromos que te faltan en el panel e intercambia con usuarios de tu localidad...
+               ...Demuestra tus conocimientos ganándole el Fabuloso “GOLDPOT” acumulado a los mejores en quinielas a nivel mundial...
               </p>
             </div>
           </div>

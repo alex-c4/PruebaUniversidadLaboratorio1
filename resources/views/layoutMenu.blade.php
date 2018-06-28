@@ -72,11 +72,11 @@
 		  
 		  
 		  <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
-           <li><a href="{{ url('/#facts') }}">Resultados</a></li>
+           <li><a href="{{ url('/#result') }}">Posiciones Quiniela</a></li>
           @if(Auth::check())
-            <li><a href="{{ url('sticker') }}">Intercambiar Cromos</a></li>
+            <li><a href="{{ url('/dashboard') }}">Quiniela Rusia 2018</a></li>
           @else
-           <li><a href="{{ url('/#about') }}">Intercambiar Cromos</a></li>
+           <li><a href="{{ url('/#about') }}">Quiniela Rusia 2018</a></li>
           @endif
           <li><a href="{{ url('/#news') }}">Noticias</a></li>
           <li><a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
@@ -84,7 +84,7 @@
           <br>
           @if(Auth::check())   
             @if(Auth::user()->rollId == 1)         
-              <li><a href="{{ url('/result') }}">Result</a></li>
+              <li><a href="{{ url('/result/2') }}">Result</a></li>
             @endif
             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
             <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>
