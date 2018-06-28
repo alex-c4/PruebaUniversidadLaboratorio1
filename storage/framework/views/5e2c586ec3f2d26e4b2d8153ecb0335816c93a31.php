@@ -186,9 +186,9 @@
                           <li>
                             <a class="tt" href="<?php echo e(route('searchPronostics')); ?>">Mis Pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
                           </li>
-                          <!-- <li>
+                          <li>
                             <a class="tt" href="<?php echo e(url('/puntuacionesQui/1')); ?>"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
-                          </li>	                               									 -->
+                          </li>	                               									
         								</ul>
         							</div><!--/ column-->
         						</div><!--/ Table Style-->
