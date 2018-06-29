@@ -221,7 +221,7 @@
                         <br>
                           <img src="img/goldpot.png" class="img-circle">
                           
-                          <h4 class="text-center"><?php echo e($quiniela->nombre." "." **GOLD**"); ?> </h4>
+                          <h4 class="text-center">CDSM<?php echo e($quiniela->nombre." "." **GOLD**"); ?> </h4>
                           
                           <ul>
                             <?php $__currentLoopData = $puntuaciones; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $puntuacion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                                       
@@ -313,8 +313,9 @@
 
       </div>
     </section>
+    -->
     <!-- #about -->
--->
+
     <!--==========================
       About Us Section modificado
     ============================-->

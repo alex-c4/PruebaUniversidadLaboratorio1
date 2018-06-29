@@ -85,6 +85,7 @@
           <?php if(Auth::check()): ?>   
             <?php if(Auth::user()->rollId == 1): ?>         
               <li><a href="<?php echo e(url('/result/2')); ?>">Result</a></li>
+              <li><a href="<?php echo e(url('/listarBetsPay')); ?>">Valadar Pagos</a></li>
             <?php endif; ?>
             <li><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a></li>
             <li><a href="<?php echo e(url('/logout')); ?>">Cerrar sesion</a></li>
