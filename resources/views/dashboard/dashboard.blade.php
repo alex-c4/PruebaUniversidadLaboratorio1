@@ -174,11 +174,11 @@
         									</li>
 
                          <li>
-                              <a class="tt" href="{{ asset('/files/Instructivo Quinielas XportGold.pdf') }} " target="_blank">Instructivo de Juego <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                              <a class="tt" href="{{ asset('/files/Instructivo Quiniela Fase Final Rusia 2018_XportGold.pdf') }} " target="_blank">Instructivo de Juego <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
                             
                           </li>
                           <li>
-                              <a class="tt" href="{{ asset('/files/Reglamento Quiniela Rusia 2018 de XportGold.pdf') }} " target="_blank">Reglamento de Juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                              <a class="tt" href="{{ asset('/files/Reglamento Quiniela Fase Final Rusia 2018 XportGold.pdf') }} " target="_blank">Reglamento de Juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
                           </li>
                           <li>
                           
@@ -188,6 +188,17 @@
                           <li>
                             <a class="tt" href="{{ route('searchPronostics') }}">Mis Pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
                           </li>
+                          <li>
+                            <a class="tt" href="{{ route('addPronosticsNewPhase') }}">Agregar resultado nueva fase<span class="tooltip"><span class="triangle-obtuse">Agrega pronostico para la nueva fase</span></span></a>
+                          </li>
+                          <!-- <li>
+                            <a class="tt" href="{{ url('/puntuacionesQui/1') }}"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
+                          </li>-->
+                          @if(Auth::user()->rollId == 1)      
+                          <li>
+                            <a class="tt" href="{{ route('createPrivateQuiniela') }}">Crear quiniela<span class="tooltip"><span class="triangle-obtuse">Registrar nueva quiniela</span></span></a>
+                          </li>
+                          @endif
                           <li>
                             <a class="tt" href="{{ url('/puntuacionesQui/1') }}"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
                           </li>	                               									

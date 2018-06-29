@@ -19,6 +19,9 @@
         </div>
     </div>  
 </div>
+
+@extends('layoutLogin');
+
 </section>
 
 @endsection

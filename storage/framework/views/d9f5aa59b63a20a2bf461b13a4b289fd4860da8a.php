@@ -145,7 +145,7 @@
 <!--==========================
       Facts Section
     ============================-->
-    <!--
+    
     <section id="facts"  class="wow fadeIn">
       <div class="container">
 
@@ -196,12 +196,14 @@
         <br>
       </div>
     </section>
-    -->
+   
     <!-- #facts -->
 
     <!--==========================
       Result Us Section
     ============================-->
+
+    <!--
     <section id="result">
       <div class="container">
 
@@ -272,11 +274,13 @@
                 
 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                -->
                 <!-- Boton whatsapp
                 <p>
                   <a href="whatsapp://send?text=Resultados Mundial Rusia 2018 - <?php echo e(url('/#result')); ?>" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
                 </p>    
                 -->
+                 <!--
                 </div>
 
 
@@ -310,7 +314,7 @@
       </div>
     </section>
     <!-- #about -->
-
+-->
     <!--==========================
       About Us Section modificado
     ============================-->
@@ -318,7 +322,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Como Jugar Quiniela Rusia 2018...</h3>
+          <h3>Como Jugar Quiniela "Fase Final Rusia 2018..."</h3>
         </header>
 
         <div class="row about-cols">

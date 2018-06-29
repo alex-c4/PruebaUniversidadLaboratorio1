@@ -18,11 +18,13 @@
         </div>
     </div> 
 
+
     <div id="oscuro">
     	<div id="area-botones" class="container text-center">
     		<a class="btn btn-data-target" href="{{ URL::previous() }}">volver</a>
     	</div>
     </div>	
+    
 
 
 </div>

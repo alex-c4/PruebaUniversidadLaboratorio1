@@ -4,11 +4,15 @@ namespace App\Http\Controllers\Quiniela;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 use App\Game;
 use App\Bet;
 use App\Pronostic;
 use App\Quiniela;
+use App\Championship;
+use App\Quinielatipo;
+
 use DB;
 
 class QuinielaController extends Controller
@@ -91,6 +95,30 @@ class QuinielaController extends Controller
         
         return view('quiniela.addGames', compact('games', 'info'));
         
+    }
+
+    public function searchGamesyPhase($quiniela_id, $phase){
+        switch($phase){
+            case '8vos':
+                $phase = 'octavos';
+            break;
+            case '4tos':
+                $phase = 'cuartos';
+            break;
+        }
+        
+        $games = DB::select('CALL sp_getGamesByQuinielaPhase(?,?)', array($quiniela_id, $phase));
+
+        $quiniela = Quiniela::where('id_quiniela', $quiniela_id)->get();
+
+        $championship_id = $quiniela[0]['id_championship'];
+
+        $info = array(
+            'id_quiniela' => $quiniela_id,
+            'id_championship' => $championship_id
+        );
+        
+        return view('quiniela.addGames', compact('games', 'info', 'phase'));
     }
 
     // Pronosticos
@@ -232,6 +260,155 @@ class QuinielaController extends Controller
 
     public function payQuiniela(){
         return view('/quiniela.payQuiniela');
+    }
+
+    private function getMisQuinielas($userId){
+        return DB::select('CALL sp_getQuinielasCreatedByMe(?)', array($userId));
+    }
+    private function getChampionships(){
+        return Championship::where('isActive', true)->get();
+    }
+    private function getTypes($userRollId){
+        if($userRollId == 1){
+            $types = Quinielatipo::get();
+        }else{
+            $types = Quinielatipo::where('id', 2)->get();
+        }
+
+        return $types;
+    }
+    
+    public function createPrivateQuiniela(){
+        $userRollId = auth()->user()->rollId;
+        $userId = auth()->user()->id;
+
+        $misQuinielas = $this->getMisQuinielas($userId);
+
+        $championships = $this->getChampionships();
+
+        $types = $this->getTypes($userRollId);
+        
+
+        return view('/quiniela.createQuiniela', compact('championships', 'types', 'misQuinielas'));
+    }
+
+    protected function validateQuiniela(array $data)
+    {
+        $messages = [
+            'numeric' => 'The field is required.',
+            'required' => 'The field is required.'
+        ];
+
+        return Validator::make($data, [
+            'champ_id' => 'required|numeric',
+            'name' => 'required|string|max:255',
+            'type_id' => 'required|numeric'
+        ], $messages);
+    }
+
+    public function saveNewQuinielaPrivate(){
+        $userId = auth()->user()->id;
+        $userRollId = auth()->user()->rollId;
+        
+        $this->validateQuiniela(request()->all())->validate();
+
+        $quiniela = Quiniela::create([
+            'id_championship' => request()->champ_id,
+            'nombre' => request()->name,
+            'id_type' => request()->type_id,
+            'id_user_creador' => $userId,
+            'code' => str_random(15)
+        ]);
+
+        $misQuinielas = $this->getMisQuinielas($userId);
+
+        $championships = $this->getChampionships();
+
+        $types = $this->getTypes($userRollId);
+
+        return view('/quiniela.createQuiniela', compact('championships', 'types', 'misQuinielas'));
+    }
+
+    public function codeQuiniela(){
+        return view('/quiniela.codeQuiniela');
+    }
+
+    public function addPronosticsNewPhase(){
+        
+        $id_user = auth()->user()->id;
+
+        $pronostics = DB::select('CALL sp_getMyPronotics(?)', array($id_user));
+        return view('/quiniela/listPronosticsNewPhase', compact('pronostics'));
+    }
+
+    public function showNewPronosticByPhase($id_quiniela ,$bet_id, $phase){
+        $id_user = auth()->user()->id;
+
+
+        $games = DB::select('CALL sp_getGamesByQuinielaPhase(?,?)', array($id_quiniela, $phase));
+
+        // se valida primero si el usuario ya ha registrado previamente
+        // un pronostico para las siguientes condiciones:
+        // bet_id, id_quiniela, id_user, id_game
+        foreach($games as $game){
+            $count = Pronostic::where('bet_id', $bet_id)
+                ->where('id_quiniela', $id_quiniela)
+                ->where('id_user', $id_user)
+                ->where('id_game', $game->id)
+                ->count();
+            
+            if($count > 0){
+                $title = 'Información';
+                $message = 'Ud ya posee registro realizado para esta fase';
+                $footer = "XportGold";
+                return view('warning', compact('title', 'message', 'footer'));
+                // return "Ya posee juego registrado para esta fase";
+            }
+        }
+
+        // $pronosticsWritten = DB::select('CALL sp_getPronosticsByPhaseToWrite(?,?)', array($bet_id, $phase));
+
+        return view('/quiniela.addGameByPhase', compact('games', 'id_quiniela', 'bet_id'));
+        
+    }
+
+    public function savePronosticByPhase(){
+        $bet_id = request()->hbet_id;
+        $id_quiniela = request()->hid_quiniela;
+        $id_user = auth()->user()->id;
+
+        $req = request()->all();
+
+        $flag = false;
+
+        foreach($req as $key => $input){
+            $values = explode('_', $key);
+            if($values[0] == 'input'){
+                $id_game = $values[1];
+                if(!$flag){
+                    $flag = true;
+                    $pronostic1 = ($input == null) ? 0 : $input;
+
+                }else{
+                    $flag = false;
+                    $pronostic2 = ($input == null) ? 0 : $input;
+
+                    $pronostic = Pronostic::create([
+                        'bet_id' => $bet_id,
+                        'id_quiniela' => $id_quiniela,
+                        'id_user' => $id_user,
+                        'id_game' => $id_game,
+                        'pronostic_club_1' => $pronostic1,
+                        'pronostic_club_2' => $pronostic2
+                    ]);
+                }
+            }
+        }
+
+        $title = 'Información';
+        $message = 'Registro almacenado satisfactoriamente';
+        $footer = "XportGold";
+        return view('warning', compact('title', 'message', 'footer'));
     }
 
 

@@ -20,6 +20,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Quiniela</th>
                         <th scope="col">Campeonato</th>
+                        <th scope="col">Validado</th>
                         <th scope="col"></th>
                         </tr>
                     </thead>
@@ -30,6 +31,7 @@
                             <th scope="row">{{ $key+1 }}</th>
                             <td>{{ $pronostic->quiniela }}</td>
                             <td>{{ $pronostic->championshipName }}</td>
+                            <td><input type="checkbox" disabled @if($pronostic->verification == "1"){ checked } @endif></td>
                             <td>
                                 <a href="{{ url('quiniela.pronosticEdit/') }}/{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Editar pronóstico"><i class="fa fa-edit fa-sm"></i></a>
                                 <a href="{{ url('payQuiniela/') }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a>

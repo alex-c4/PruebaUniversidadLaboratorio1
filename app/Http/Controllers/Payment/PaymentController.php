@@ -104,6 +104,18 @@ class PaymentController extends Controller
     
     public function store(Request $request){
 
+        // validacion de referencia de pago, redirecciona si ya existe esa referencia de pago
+        $existe = Bet::where('ref_pago', $request->input('ref_pago'))->count();
+        if($existe > 0){
+            $data = [
+                'title' => 'Informacion',
+                'message' => 'Ya existe registrado en nuestro sistema la referencia de pago con ID (<b>' . $request->input('ref_pago') . '</b>).',
+                'footer' => 'Gracias! - XportGold'         
+            ];
+
+            return view('warning',$data);
+        }
+
      //dd($request->all());
     $this->validator(request()->all())->validate();
         

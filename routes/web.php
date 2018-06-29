@@ -139,6 +139,12 @@ Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardi
 Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
 Route::post('quiniela/save', 'Quiniela\QuinielaController@savePronostic')->name('savePronostic');
 Route::get('quiniela/searchGames/{quiniela_id}', 'Quiniela\QuinielaController@searchGames')->name('searchGames');
+Route::get('quiniela/searchGames/{quiniela_id}/{phase}', 'Quiniela\QuinielaController@searchGamesyPhase')->name('searchGamesPhase');
+Route::get('quiniela/addPronosticsNewPhase', 'Quiniela\QuinielaController@addPronosticsNewPhase')->name('addPronosticsNewPhase');
+Route::view('quiniela/listPronosticsNewPhase', 'listPronosticsNewPhase');
+Route::get('quiniela/showNewPronosticByPhase/{id_quiniela}/{bet_id}/{phase}', 'Quiniela\QuinielaController@showNewPronosticByPhase')->name('showNewPronosticByPhase');
+Route::view('quiniela/addGameByPhase', 'addGameByPhase')->name('addGameByPhase');
+Route::post('quiniela/savePronosticByPhase', 'Quiniela\QuinielaController@savePronosticByPhase')->name('savePronosticByPhase');
 // Route::view('addGames', 'addGames');
 Route::view('quiniela.saveSuccessfull', 'saveSuccessfull');
 Route::get('quiniela.searchPronostics', 'Quiniela\QuinielaController@searchPronostics')->name('searchPronostics');
@@ -147,7 +153,7 @@ Route::get('quiniela.pronosticEdit/{betId}', 'Quiniela\QuinielaController@pronos
 Route::post('quiniela.updatePronostic', 'Quiniela\QuinielaController@updatePronostic')->name('updatePronostic');
 Route::get('payQuiniela', 'Quiniela\QuinielaController@payQuiniela')->name('payQuiniela');
 Route::get('quiniela.pronosticGet/{betId}', 'Quiniela\QuinielaController@pronosticGet')->name('pronosticGet');
-
+Route::get('quiniela/create', 'Quiniela\QuinielaController@createPrivateQuiniela')->name('createPrivateQuiniela');
 
 Route::get('quinielas/{user_id}', 'Quiniela\QuinielaController@listarQuinielas')->name('quinielas.list');
 Route::post('puntuaciones', 'Quiniela\QuinielaController@quinielaPuntaciones')->name('quiniela.puntuaciones');
@@ -155,6 +161,12 @@ Route::get('puntuacionesQui/{quiniela_id}', 'Quiniela\QuinielaController@quiniel
 Route::get('listarBetsPay', 'Quiniela\QuinielaController@listarBetsPay')->name('listarBetsPay');
 Route::get('validarPagoBets/{betId}/{validacion}', 'Quiniela\QuinielaController@validarPagoBets')->name('validarPagoBets');
 Route::get('pronosticos.mostrar/{pronostic_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
+Route::view('quiniela/createQuiniela', 'createQuiniela');
+Route::post('saveNewQuinielaPrivate', 'Quiniela\QuinielaController@saveNewQuinielaPrivate')->name('saveNewQuinielaPrivate');
+Route::get('codeQuiniela', 'Quiniela\QuinielaController@codeQuiniela')->name('codeQuiniela');
+Route::view('quiniela/codeQuiniela', 'codeQuiniela');
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -187,3 +199,7 @@ Route::get('/formpayment', function () {
     return view('/payment.formpayment');
 });*/
 //Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
+
+
+//Vista estandar para mensajes de cualquier tipo
+Route::view('warning', 'warning');

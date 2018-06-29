@@ -37,7 +37,9 @@
                         <td>{{ $quinielaPublica->nombreQuiniela }}</td>
                         <td>{{ $quinielaPublica->nombreCampeonato }}</td>
                         <td>{{ $quinielaPublica->tipoQuiniela }}</td>
-                        <td><a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPublica->idQuiniela }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-plus-circle fa-sm"></i></a></td>
+                        <td>
+                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPublica->idQuiniela }}/8vos" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"> 8vos</i></a>
+                        </td>
                     </tr>
 
                     @endforeach
@@ -46,7 +48,8 @@
 
             @if(count($misQuinielasPrivadas) > 0)
 
-            <h2>Privadas</h2>
+            <h4>Privadas <a href="{{ route('codeQuiniela') }}" class="btn btn-info btn-sm active" role="button" aria-pressed="true" title="Agregar nueva quiniela"><i class="fa fa-plus-circle"></i></a></h4>
+            
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -65,7 +68,9 @@
                         <td>{{ $quinielaPrivada->nombreQuiniela }}</td>
                         <td>{{ $quinielaPrivada->nombreCampeonato }}</td>
                         <td>{{ $quinielaPrivada->tipoQuiniela }}</td>
-                        <td><a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPrivada->idQuiniela }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-plus-circle fa-sm"></i></a></td>
+                        <td>
+                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPrivada->idQuiniela }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"></i></a>
+                        </td>
                     </tr>
 
                     @endforeach
