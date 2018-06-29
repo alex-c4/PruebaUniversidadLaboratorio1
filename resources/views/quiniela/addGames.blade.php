@@ -34,7 +34,7 @@
                                             {{ $game->date }}
                                         </div>
                                         <div class="col-12 text-center font-weight-light">
-                                        <span class="text-success"> {{ $game->estadium }} </span> / <span class="font-weight-bold">Grupo {{ $game->grupo }}</span>
+                                        <span class="text-success"> {{ $game->estadium }} </span> @if($game->grupo != "") / <span class="font-weight-bold">Grupo {{ $game->grupo }} @endif</span>
                                         </div>
                                         <div class="col-4 text-right">
                                         {{ $game->nombre_club_1}}<img src="{{ asset('img/banderas/') }}/{{ $game->img_club_1 }}" alt="">
@@ -53,13 +53,17 @@
                             </div>
                             
                         </div>
-                    
+                        <br>
+                        @if($phase != "")
+                            <p><b>Nota</b> se tomaran los goles para el pronostico solo hasta el tiempo de juego mas tiempo reglamentario sin tomar en cuenta los penaltis si aplica.</p>
+                        @endif
             </div>
         
 
         </div
 
         <br>
+        
         
         <div class="text-center">
             <button type="button" id="btnAddPronostic" name="btnAddPronostic" class="btn btn-success">Enviar</button>

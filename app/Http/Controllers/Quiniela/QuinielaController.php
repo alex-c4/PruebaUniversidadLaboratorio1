@@ -117,7 +117,7 @@ class QuinielaController extends Controller
             'id_championship' => $championship_id
         );
         
-        return view('quiniela.addGames', compact('games', 'info'));
+        return view('quiniela.addGames', compact('games', 'info', 'phase'));
     }
 
     // Pronosticos
@@ -327,8 +327,7 @@ class QuinielaController extends Controller
                 $title = 'Información';
                 $message = 'Ud ya posee registro realizado para esta fase';
                 $footer = "XportGold";
-                $showButton = 'true';
-                return view('warning', compact('title', 'message', 'footer', 'showButton'));
+                return view('warning', compact('title', 'message', 'footer'));
                 // return "Ya posee juego registrado para esta fase";
             }
         }
@@ -375,8 +374,7 @@ class QuinielaController extends Controller
         $title = 'Información';
         $message = 'Registro almacenado satisfactoriamente';
         $footer = "XportGold";
-        $showButton = 'false';
-        return view('warning', compact('title', 'message', 'footer', 'showButton'));
+        return view('warning', compact('title', 'message', 'footer'));
     }
 
 
