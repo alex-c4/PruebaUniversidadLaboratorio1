@@ -85,6 +85,7 @@
           @if(Auth::check())   
             @if(Auth::user()->rollId == 1)         
               <li><a href="{{ url('/result/2') }}">Result</a></li>
+              <li><a href="{{ url('/listarBetsPay') }}">Valadar Pagos</a></li>
             @endif
             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
             <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>

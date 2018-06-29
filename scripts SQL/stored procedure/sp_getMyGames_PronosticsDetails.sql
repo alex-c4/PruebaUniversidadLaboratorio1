@@ -1,5 +1,5 @@
 DELIMITER $$
-CREATE PROCEDURE `sp_getMyGames_PronosticsDetails`(IN `betID` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getMyGames_PronosticsDetails`(IN `betID` INT)
     NO SQL
 BEGIN
     SELECT 

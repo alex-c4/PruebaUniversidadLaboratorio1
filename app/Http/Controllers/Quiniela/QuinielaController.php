@@ -84,6 +84,7 @@ class QuinielaController extends Controller
         $games = DB::select('CALL sp_getGamesByQuiniela(?)', array($quiniela_id));
 
         $quiniela = Quiniela::where('id_quiniela', $quiniela_id)->get();
+        //dd($quiniela);
 
         $championship_id = $quiniela[0]['id_championship'];
 
@@ -223,6 +224,39 @@ class QuinielaController extends Controller
         return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones'));
 
     }
+
+    public function listarBetsPay(){      
+        
+        $bets=DB::table('bets')
+        ->join('users','users.id','=','bets.id_user','inner',false)
+        ->select ('bets.id','bets.id_quiniela','bets.id_user','bets.ref_pago',
+                 'bets.payment_date','bets.amount','bets.verification','bets.created_at','bets.updated_at','users.name','users.lastName')
+        ->where('bets.ref_Pago','!=','')
+        ->orderby('bets.verification')
+        ->orderby('bets.id_quiniela')
+        ->get();        
+       
+        //dd($privadas, $publicas);
+        return view('/quiniela.listarBets',compact('bets'));
+    }
+
+    public function validarPagoBets($betId,$validacion){
+        //return $betId.'--'. $validacion;
+        
+        try{ 
+            $updates = Bet::where("id",'=', $betId)->update(['verification' =>$validacion]);
+            //dd($updates);
+            return redirect()->route('listarBetsPay');
+        }catch(Exception $e){
+            $data = ['title' => 'Algo anda mal!!',
+                     'message' => 'No se ha podido actualzar estatus del pago, verifique los datos e intente nevamente',
+                     'footer' => 'Gracias!'
+                    ];
+            return view('alert', $data);
+        }  
+
+    }
+
 
     public function payQuiniela(){
         return view('/quiniela.payQuiniela');

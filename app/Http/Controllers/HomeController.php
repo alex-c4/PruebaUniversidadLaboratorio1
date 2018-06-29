@@ -28,7 +28,12 @@ class HomeController extends Controller
            $misnoticias[$i]=$arreglo;       
          }
          */   
+
         $quiniela_id=1;
+
+        //$quiniela_id=1;
+         
+
 
 
         //Para consultar los pronosticos GOLD
