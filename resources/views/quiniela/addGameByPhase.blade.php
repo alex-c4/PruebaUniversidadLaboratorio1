@@ -52,10 +52,11 @@
         </div>
 
         <br>
-        
+        @if(count($games) > 0)
         <div class="text-center">
             <button type="button" id="btnAddPronosticByPhase" name="btnAddPronosticByPhase" class="btn btn-success">Enviar</button>
         </div>
+        @endif
 
     </div>
 

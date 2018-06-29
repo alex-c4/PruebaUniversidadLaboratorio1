@@ -220,7 +220,7 @@
                         <br>
                           <img src="img/goldpot.png" class="img-circle">
                           
-                          <h4 class="text-center">{{$quiniela->nombre." "." **GOLD**"}} </h4>
+                          <h4 class="text-center">CDSM{{$quiniela->nombre." "." **GOLD**"}} </h4>
                           
                           <ul>
                             @foreach($puntuaciones as $puntuacion)                                       

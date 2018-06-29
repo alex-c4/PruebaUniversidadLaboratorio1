@@ -28,13 +28,12 @@ class HomeController extends Controller
            $misnoticias[$i]=$arreglo;       
          }
          */   
-        $quiniela_id=1;
+        $quiniela_id=9;
 
 
         //Para consultar los pronosticos GOLD
         $quiniela=DB::table('quinielas')->where('id_quiniela',$quiniela_id)->first();          
         $puntuaciones = DB::select('CALl sp_quinielas_scores(?)', array($quiniela_id));       
-        
 
         //Para consultar los pronosticos FREE                
         $puntuaciones_free = DB::select('CALl sp_quinielas_scores_free(?)', array($quiniela_id));
