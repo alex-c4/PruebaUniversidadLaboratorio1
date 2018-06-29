@@ -63,7 +63,7 @@
         					</div>
                   <div class="cont3 col-lg-6">
                     
-                      <p><ok>Quiniela:</ok> Publica Rusia 2018</p>                
+                      <p><ok>Quiniela:</ok> Fase Final Rusia 2018</p>                
                     
                   </div>
         				

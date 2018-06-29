@@ -174,11 +174,11 @@
         									</li>
 
                          <li>
-                              <a class="tt" href="{{ asset('/files/Instructivo Quinielas XportGold.pdf') }} " target="_blank">Instructivo de Juego <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                              <a class="tt" href="{{ asset('/files/Instructivo Quiniela Fase Final Rusia 2018_XportGold.pdf') }} " target="_blank">Instructivo de Juego <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
                             
                           </li>
                           <li>
-                              <a class="tt" href="{{ asset('/files/Reglamento Quiniela Rusia 2018 de XportGold.pdf') }} " target="_blank">Reglamento de Juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
+                              <a class="tt" href="{{ asset('/files/Reglamento Quiniela Fase Final Rusia 2018 XportGold.pdf') }} " target="_blank">Reglamento de Juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
                           </li>
                           <li>
                           
