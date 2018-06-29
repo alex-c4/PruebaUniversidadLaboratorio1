@@ -160,7 +160,7 @@ Route::post('puntuaciones', 'Quiniela\QuinielaController@quinielaPuntaciones')->
 Route::get('puntuacionesQui/{quiniela_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
 Route::get('pronosticos.mostrar/{pronostic_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
 Route::view('quiniela/createQuiniela', 'createQuiniela');
-Route::post('saveNewQuinielaPrivate', 'Quiniela\QuinielaCOntroller@saveNewQuinielaPrivate')->name('saveNewQuinielaPrivate');
+Route::post('saveNewQuinielaPrivate', 'Quiniela\QuinielaController@saveNewQuinielaPrivate')->name('saveNewQuinielaPrivate');
 Route::get('codeQuiniela', 'Quiniela\QuinielaController@codeQuiniela')->name('codeQuiniela');
 Route::view('quiniela/codeQuiniela', 'codeQuiniela');
 
