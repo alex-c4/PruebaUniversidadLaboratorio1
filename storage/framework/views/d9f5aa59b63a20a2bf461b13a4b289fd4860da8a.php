@@ -145,7 +145,7 @@
 <!--==========================
       Facts Section
     ============================-->
-    
+    <!--
     <section id="facts"  class="wow fadeIn">
       <div class="container">
 
@@ -196,14 +196,14 @@
         <br>
       </div>
     </section>
-   
+    -->
     <!-- #facts -->
 
     <!--==========================
       Result Us Section
     ============================-->
 
-    
+    <!--
     <section id="result">
       <div class="container">
 
@@ -221,7 +221,7 @@
                         <br>
                           <img src="img/goldpot.png" class="img-circle">
                           
-                          <h4 class="text-center">CDSM<?php echo e($quiniela->nombre." "." **GOLD**"); ?> </h4>
+                          <h4 class="text-center"><?php echo e($quiniela->nombre." "." **GOLD**"); ?> </h4>
                           
                           <ul>
                             <?php $__currentLoopData = $puntuaciones; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $puntuacion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                                       
@@ -274,13 +274,13 @@
                 
 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                
+                -->
                 <!-- Boton whatsapp
                 <p>
                   <a href="whatsapp://send?text=Resultados Mundial Rusia 2018 - <?php echo e(url('/#result')); ?>" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
                 </p>    
                 -->
-                 
+                <!--
                 </div>
 
 
@@ -313,11 +313,7 @@
 
       </div>
     </section>
-<<<<<<< HEAD
-    
-=======
     -->
->>>>>>> c8ac53a8bf8ed84cd8d6c37e939f16772a169c6d
     <!-- #about -->
 
     <!--==========================
@@ -327,7 +323,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Como Jugar Quiniela "Fase Final Rusia 2018..."</h3>
+          <h3>Como Jugar Quiniela Rusia 2018...</h3>
         </header>
 
         <div class="row about-cols">

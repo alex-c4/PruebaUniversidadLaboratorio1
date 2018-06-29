@@ -57,13 +57,13 @@
 	     </div>
 
     <!-- Ubicacions del gold pot -->
-		  
+		  <!--
             &emsp;&emsp;&emsp;
             <img src="<?php echo e(url('img/goldpot_menu.png')); ?>" class="img-circle">
 
             
             <bold>1.350</bold> | <ok> GOLD</ok>
-        
+        -->
                         
   
       <nav id="nav-menu-container">
