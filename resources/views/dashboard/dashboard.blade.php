@@ -218,7 +218,7 @@
                             <br>
                        
 
-                            <p><bold>1.350</bold> | <ok> GOLD</ok></p>
+                            <p><bold>????</bold> | <ok> GOLD</ok></p>
                             <br>
                             </div>
                             <div class="thumbnail">

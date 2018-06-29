@@ -145,7 +145,7 @@
 <!--==========================
       Facts Section
     ============================-->
-    
+    <!--
     <section id="facts"  class="wow fadeIn">
       <div class="container">
 
@@ -195,14 +195,12 @@
         <br>
       </div>
     </section>
-   
+    -->
     <!-- #facts -->
 
     <!--==========================
       Result Us Section
     ============================-->
-
-    <!--
     <section id="result">
       <div class="container">
 
@@ -220,7 +218,7 @@
                         <br>
                           <img src="img/goldpot.png" class="img-circle">
                           
-                          <h4 class="text-center">CDSM{{$quiniela->nombre." "." **GOLD**"}} </h4>
+                          <h4 class="text-center">{{$quiniela->nombre." "." **GOLD**"}} </h4>
                           
                           <ul>
                             @foreach($puntuaciones as $puntuacion)                                       
@@ -272,13 +270,11 @@
                 
 
                 @endforeach
-                -->
                 <!-- Boton whatsapp
                 <p>
                   <a href="whatsapp://send?text=Resultados Mundial Rusia 2018 - {{ url('/#result') }}" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
                 </p>    
                 -->
-                 <!--
                 </div>
 
 
@@ -311,7 +307,6 @@
 
       </div>
     </section>
-    -->
     <!-- #about -->
 
     <!--==========================
@@ -321,7 +316,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Como Jugar Quiniela "Fase Final Rusia 2018..."</h3>
+          <h3>Como Jugar Quiniela Rusia 2018...</h3>
         </header>
 
         <div class="row about-cols">

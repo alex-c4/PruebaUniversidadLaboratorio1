@@ -203,7 +203,7 @@
       Result Us Section
     ============================-->
 
-    <!--
+    
     <section id="result">
       <div class="container">
 
@@ -274,13 +274,13 @@
                 
 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                -->
+                
                 <!-- Boton whatsapp
                 <p>
                   <a href="whatsapp://send?text=Resultados Mundial Rusia 2018 - <?php echo e(url('/#result')); ?>" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
                 </p>    
                 -->
-                 <!--
+                 
                 </div>
 
 
@@ -313,8 +313,9 @@
 
       </div>
     </section>
+    
     <!-- #about -->
--->
+
     <!--==========================
       About Us Section modificado
     ============================-->
