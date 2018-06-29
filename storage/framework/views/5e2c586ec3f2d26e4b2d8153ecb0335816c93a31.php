@@ -187,6 +187,17 @@
                             <a class="tt" href="<?php echo e(route('searchPronostics')); ?>">Mis Pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
                           </li>
                           <li>
+                            <a class="tt" href="<?php echo e(route('addPronosticsNewPhase')); ?>">Agregar resultado nueva fase<span class="tooltip"><span class="triangle-obtuse">Agrega pronostico para la nueva fase</span></span></a>
+                          </li>
+                          <!-- <li>
+                            <a class="tt" href="<?php echo e(url('/puntuacionesQui/1')); ?>"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
+                          </li>-->
+                          <?php if(Auth::user()->rollId == 1): ?>      
+                          <li>
+                            <a class="tt" href="<?php echo e(route('createPrivateQuiniela')); ?>">Crear quiniela<span class="tooltip"><span class="triangle-obtuse">Registrar nueva quiniela</span></span></a>
+                          </li>
+                          <?php endif; ?>
+                          <li>
                             <a class="tt" href="<?php echo e(url('/puntuacionesQui/1')); ?>"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
                           </li>	                               									
         								</ul>
