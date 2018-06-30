@@ -30,7 +30,7 @@
                          PRONOSTICO                         
                     </div>
                     <div class="col-12 text-center font-weight-light">
-                        <span class="text-success">  {{ $pronostic->date }} / {{$pronostic->estadium}}  </span> / <span class="font-weight-bold">Grupo {{ $pronostic->grupo }} &nbsp; </span> <span id="actualizado_{{ $pronostic->pronostic_id }}" class="text-info" style="size:8px"></span>
+                        <span class="text-success">  {{ $pronostic->date }} / {{$pronostic->estadium}}  </span> @if($pronostic->grupo != "") @endif</span> <span id="actualizado_{{ $pronostic->pronostic_id }}" class="text-info" style="size:8px"></span>
                     </div>
                     <div class="col-3 text-right">
                         {{ $pronostic->nombre_club_1}}<img src="{{ asset('img/banderas/') }}/{{ $pronostic->img_club_1 }}" alt="">

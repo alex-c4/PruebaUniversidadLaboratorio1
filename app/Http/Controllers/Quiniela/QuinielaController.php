@@ -146,8 +146,10 @@ class QuinielaController extends Controller
     public function pronosticGet($betId){
 
         $pronosticsDetails = DB::select('CALl sp_getMyGames_PronosticsDetails(?)', array($betId));
+
         //$puntuacion=DB::table('v_quinielas_scores')->where('bet_id',$betId)->first(); 
         $puntuacion= DB::select('CALL sp_bet_score(?,?)', array(1,$betId));
+        
         //dd($puntuacion);
         //return $puntuacion['0']->bet_id;
         return view('quiniela.pronosticGet', compact('pronosticsDetails','puntuacion'));
