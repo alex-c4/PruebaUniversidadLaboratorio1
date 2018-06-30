@@ -198,7 +198,7 @@
                           </li>
                           <?php endif; ?>
                           <li>
-                            <a class="tt" href="<?php echo e(url('/puntuacionesQui/9')); ?>"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
+                            <a class="tt" href="<?php echo e(url('/puntuacionesQui/1')); ?>"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
                           </li>	                               									
         								</ul>
         							</div><!--/ column-->
@@ -216,7 +216,7 @@
                             <br>
                        
 
-                            <p><bold>????</bold> | <ok> GOLD</ok></p>
+                            <p><bold>1.350</bold> | <ok> GOLD</ok></p>
                             <br>
                             </div>
                             <div class="thumbnail">
