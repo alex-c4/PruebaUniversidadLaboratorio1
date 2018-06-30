@@ -57,13 +57,13 @@
 	     </div>
 
     <!-- Ubicacions del gold pot -->
-		  
+		  <!--
             &emsp;&emsp;&emsp;
             <img src="<?php echo e(url('img/goldpot_menu.png')); ?>" class="img-circle">
 
             
             <bold>1.350</bold> | <ok> GOLD</ok>
-        
+        -->
                         
   
       <nav id="nav-menu-container">
@@ -85,6 +85,7 @@
           <?php if(Auth::check()): ?>   
             <?php if(Auth::user()->rollId == 1): ?>         
               <li><a href="<?php echo e(url('/result/2')); ?>">Result</a></li>
+              <li><a href="<?php echo e(url('/listarBetsPay')); ?>">Valadar Pagos</a></li>
             <?php endif; ?>
             <li><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a></li>
             <li><a href="<?php echo e(url('/logout')); ?>">Cerrar sesion</a></li>

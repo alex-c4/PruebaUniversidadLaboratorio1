@@ -53,16 +53,16 @@
                              RESULTADO
                         </div>
                         
-                        <div class="col-4 text-right">
+                        <div class="col-3 text-right">
                             {{ $pronostic->nombre_club_1}}<img src="{{ asset('img/banderas/') }}/{{ $pronostic->img_club_1 }}" alt="">
                         </div>
-                        <div class="col-2 ">
+                        <div class="col-3 ">
                             <input type="text" id="input_{{ $pronostic->pronostic_id }}_3" name="input_{{ $pronostic->pronostic_id }}_3" class="form-control col-sm text-right" max="99" min="0" value="{{ $pronostic->resultado_club_1 }}" disabled="true" >
                         </div>
-                        <div class="col-2">
+                        <div class="col-3">
                             <input type="text" id="input_{{ $pronostic->pronostic_id }}_4" name="input_{{ $pronostic->pronostic_id }}_4" class="form-control col-sm" max="99" min="0" value="{{ $pronostic->resultado_club_2 }}" disabled="true" >
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <img src="{{ asset('img/banderas/') }}/{{ $pronostic->img_club_2 }}" alt="">{{ $pronostic->nombre_club_2 }} 
                         </div>   
                          <div class="col-12 text-center font-italic text-success">

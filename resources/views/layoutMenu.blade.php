@@ -57,13 +57,13 @@
 	     </div>
 
     <!-- Ubicacions del gold pot -->
-		  
+		  <!--
             &emsp;&emsp;&emsp;
             <img src="{{ url('img/goldpot_menu.png')}}" class="img-circle">
 
             
             <bold>1.350</bold> | <ok> GOLD</ok>
-        
+        -->
                         
   
       <nav id="nav-menu-container">
@@ -85,6 +85,7 @@
           @if(Auth::check())   
             @if(Auth::user()->rollId == 1)         
               <li><a href="{{ url('/result/2') }}">Result</a></li>
+              <li><a href="{{ url('/listarBetsPay') }}">Valadar Pagos</a></li>
             @endif
             <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
             <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>
