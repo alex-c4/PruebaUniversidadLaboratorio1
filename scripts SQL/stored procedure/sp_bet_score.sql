@@ -1,5 +1,5 @@
 DELIMITER $$
-CREATE PROCEDURE `sp_bet_score`(IN `quiniela_id` INT, IN `betID` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_bet_score`(IN `quiniela_id` INT, IN `betID` INT)
     NO SQL
 BEGIN
 
@@ -12,15 +12,13 @@ sum(`pro`.`pronostic_score`) AS `puntos`,
 `q`.`id_quiniela` AS `id_quiniela` 
 
 FROM 
-((((`xportgol_bd_pruebas`.`pronostics` `pro`
- join `xportgol_bd_pruebas`.`bets` `be` on((`pro`.`bet_id` = `be`.`id`)))
- join `xportgol_bd_pruebas`.`users` `us` on((`be`.`id_user` = `us`.`id`)))
- join `xportgol_bd_pruebas`.`quinielas` `q` on((`q`.`id_quiniela` = `be`.`id_quiniela`))) 
-join `xportgol_bd_pruebas`.`games` `ga` on((`ga`.`id` = `pro`.`id_game`))) 
+((((`xportgoldbd`.`pronostics` `pro`
+ join `xportgoldbd`.`bets` `be` on((`pro`.`bet_id` = `be`.`id`)))
+ join `xportgoldbd`.`users` `us` on((`be`.`id_user` = `us`.`id`)))
+ join `xportgoldbd`.`quinielas` `q` on((`q`.`id_quiniela` = `be`.`id_quiniela`))) 
+join `xportgoldbd`.`games` `ga` on((`ga`.`id` = `pro`.`id_game`))) 
 
-WHERE 
-(`be`.`verification` = '1')
-AND
+WHERE
 (`q`.`id_quiniela` =quiniela_id)
 AND
 (`pro`.`bet_id` =betID)
@@ -32,4 +30,3 @@ ORDER BY `q`.`id_quiniela`,sum(`pro`.`pronostic_score`) DESC;
 
 END$$
 DELIMITER ;
-
