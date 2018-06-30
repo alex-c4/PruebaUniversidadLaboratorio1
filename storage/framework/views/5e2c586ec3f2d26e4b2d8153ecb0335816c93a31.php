@@ -210,13 +210,13 @@
                       <!-- Saldo del Usuario -->
                   <div class="col-sm-3 col-lg-3">
                     <div class="dash-unit">
-                      <dtitle>GOLDPOT:PREMIO DE QUINIELA</dtitle>
+                      <dtitle>GOLDPOT: FASE FINAL RUSIA 2018 "GOLD"</dtitle>
                       <hr>
                       <div class="cont">
                             <br>
                        
 
-                            <p><bold>1.350</bold> | <ok> GOLD</ok></p>
+                            <p><bold>220</bold> | <ok> GOLD</ok></p>
                             <br>
                             </div>
                             <div class="thumbnail">
