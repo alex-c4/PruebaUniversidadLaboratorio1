@@ -12,11 +12,11 @@ sum(`pro`.`pronostic_score`) AS `puntos`,
 `q`.`id_quiniela` AS `id_quiniela` 
 
 FROM 
-((((`xportgoldbd`.`pronostics` `pro`
- join `xportgoldbd`.`bets` `be` on((`pro`.`bet_id` = `be`.`id`)))
- join `xportgoldbd`.`users` `us` on((`be`.`id_user` = `us`.`id`)))
- join `xportgoldbd`.`quinielas` `q` on((`q`.`id_quiniela` = `be`.`id_quiniela`))) 
-join `xportgoldbd`.`games` `ga` on((`ga`.`id` = `pro`.`id_game`))) 
+((((`xportgoldbd_pruebas`.`pronostics` `pro`
+ join `xportgoldbd_pruebas`.`bets` `be` on((`pro`.`bet_id` = `be`.`id`)))
+ join `xportgoldbd_pruebas`.`users` `us` on((`be`.`id_user` = `us`.`id`)))
+ join `xportgoldbd_pruebas`.`quinielas` `q` on((`q`.`id_quiniela` = `be`.`id_quiniela`))) 
+join `xportgoldbd_pruebas`.`games` `ga` on((`ga`.`id` = `pro`.`id_game`))) 
 
 WHERE
 (`q`.`id_quiniela` =quiniela_id)
