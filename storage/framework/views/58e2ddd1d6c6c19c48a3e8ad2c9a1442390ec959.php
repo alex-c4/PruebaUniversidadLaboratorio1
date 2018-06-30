@@ -37,36 +37,53 @@
 
           <div class="form-row">
             <!-- Resultado Equipo 1 -->
-            <div class="form-group col-md-3">
-              <label for="name">Equipo 1</label>
+            <div class="form-group col-md-6">
+              <label for="name">Resultado 1</label>
               <input type="text" class="form-control <?php echo e($errors->has('resultado_1') ? 'border-danger' : ''); ?>" name="resultado_1" id="resultado_1" placeholder="Resultado equipo 1" value="<?php echo e(old('resultado_1')); ?>">
               <?php echo $errors->first('resultado_1', '<span class="text-danger">:message</span>'); ?>
 
             </div>
 
             <!-- Resultado Equipo 2 -->
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-6">
               <label for="resultado_2">Resultado 2</label>
               <input type="text" class="form-control <?php echo e($errors->has('resultado_2') ? 'border-danger' : ''); ?>" name="resultado_2" id="resultado_2" placeholder="Resultado equipo 2" value="<?php echo e(old('resultado_2')); ?>" >
               <?php echo $errors->first('resultado_2', '<span class="text-danger">:message</span>'); ?>
 
             </div>
 
-             <div class="form-group col-md-3">
+            
+
+             <div class="form-group col-md-12">
               <label for="estatus">Estatus</label>
               <input type="text" class="form-control <?php echo e($errors->has('estatus') ? 'border-danger' : ''); ?>" name="estatus" id="estatus" placeholder="Estatus del partido" value="<?php echo e(old('estatus')); ?>" >
               <?php echo $errors->first('estatus', '<span class="text-danger">:message</span>'); ?>
 
-            </div>  
-            <div>
-            </div>  
+            </div>
             
+           <div class="form-group col-md-12">
+              <label for="penalty">¿Penalti?</label>
+              <input type="checkbox" name="penalty" id="penalty" value="1">
+            </div>  
 
+             <div class="form-group col-md-6">
+              <label for="penalty_resultado_1">Penalty Result 1</label>
+              <input type="text" class="form-control <?php echo e($errors->has('penalty_resultado_1') ? 'border-danger' : ''); ?>" name="penalty_resultado_1" id="penalty_resultado_1" placeholder="Resultado equipo 1" value="<?php echo e(old('penalty_resultado_1')); ?>">
+              <?php echo $errors->first('penalty_resultado_1', '<span class="text-danger">:message</span>'); ?>
 
-        
+            </div>
+
+            <!-- Resultado Equipo 2 -->
+            <div class="form-group col-md-6">
+              <label for="penalty_resultado_2">Penalty Result 2</label>
+              <input type="text" class="form-control <?php echo e($errors->has('penalty_resultado_2') ? 'border-danger' : ''); ?>" name="penalty_resultado_2" id="penalty_resultado_2" placeholder="Resultado equipo 2" value="<?php echo e(old('penalty_resultado_2')); ?>" >
+              <?php echo $errors->first('penalty_resultado_2', '<span class="text-danger">:message</span>'); ?>
+
+            </div> 
+         
 
           <!-- Boton Aceptar -->
-          <div class="text-center">
+          <div class="form-group col-md-6">
             <button type="submit" class="btn btn-success">Registrar</button>
           </div>
 
