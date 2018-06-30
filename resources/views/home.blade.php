@@ -202,7 +202,7 @@
       Result Us Section
     ============================-->
 
-    <!--
+    
     <section id="result">
       <div class="container">
 
@@ -270,7 +270,7 @@
                 
 
                 @endforeach
---> 
+ 
 
                 <!-- Boton whatsapp
                 <p>
@@ -278,7 +278,7 @@
                 </p>    
                 -->
 
-                 <!-- 
+                 
                 </div>
 
 
@@ -311,8 +311,8 @@
 
       </div>
     </section>
- -->
-    <!-- #about -->
+ 
+    <!-- #result -->
 
     <!--==========================
       About Us Section modificado
