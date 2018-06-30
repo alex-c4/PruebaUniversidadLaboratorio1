@@ -11,6 +11,9 @@ BEGIN
         g.resultado_club_1,
         g.nombre_club_2,
         g.resultado_club_2,
+        g.resultado_club_1_penalty,
+        g.resultado_club_2_penalty,
+        g.penalty,
         (SELECT imagen_bandera FROM clubs WHERE id_club = g.id_club_1) AS img_club_1,
         (SELECT imagen_bandera FROM clubs WHERE id_club = g.id_club_2) AS img_club_2,
         g.estatus

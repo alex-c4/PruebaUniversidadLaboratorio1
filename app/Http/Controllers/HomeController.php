@@ -29,7 +29,7 @@ class HomeController extends Controller
          }
          */   
 
-        $quiniela_id=9;
+        $quiniela_id=1;
 
         //$quiniela_id=1;
          
