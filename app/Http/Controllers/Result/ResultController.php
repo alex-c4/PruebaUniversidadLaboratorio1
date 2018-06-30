@@ -103,7 +103,7 @@ class ResultController extends Controller
 
             $fase='ELIMINATORIAS';
         }else{
-            $fase='OCTAVOS';
+            $fase='octavos';
         }       
 
        
@@ -127,13 +127,25 @@ class ResultController extends Controller
      $result_form_2 = $request->input('resultado_2');
      $estatus = $request->input('estatus');
 
-    
+     $penalty = $request->input('penalty');
+     $penalty_resultado_1 = $request->input('penalty_resultado_1');
+     $penalty_resultado_2 = $request->input('penalty_resultado_2');
      
+   
      //registro de los resultados tabla game
+
+
      $res = Game::find($id_game_form);
+           
             $res->resultado_club_1 = $result_form_1;
             $res->resultado_club_2 = $result_form_2;
             $res->estatus = $estatus;
+             if ($penalty==1){
+                $res->penalty = $penalty;
+                $res->resultado_club_1_penalty = $penalty_resultado_1;
+                $res->resultado_club_2_penalty = $penalty_resultado_2;
+            }
+
             $res->save();
     
 
@@ -207,12 +219,12 @@ class ResultController extends Controller
 
      }
 
-     
+
 
   
 
 
-    return view('/result.success');
+        return view('/result.success');
 
 //echo  $result_form_2;
 // Conseguimos el objeto
