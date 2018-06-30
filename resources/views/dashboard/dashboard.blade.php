@@ -200,7 +200,7 @@
                           </li>
                           @endif
                           <li>
-                            <a class="tt" href="{{ url('/puntuacionesQui/1') }}"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
+                            <a class="tt" href="{{ url('/puntuacionesQui/9') }}"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
                           </li>	                               									
         								</ul>
         							</div><!--/ column-->

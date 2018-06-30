@@ -220,8 +220,13 @@ class QuinielaController extends Controller
         //($quiniela);
 
         $puntuaciones = DB::select('CALl sp_quinielas_scores(?)', array($quiniela_id));
+        /* ----------------se agrego la siguiente linea y un valos mas a la funcion compact para pasar dos listados a vista de puntuaciones.
+         para modificarla  solo se deben eliminar de esta funcion, y eliminar el segndo  bloque dedatos de la vista puntuaciones.blade ------------------------------------- */
+         $puntuaciones2 = DB::select('CALl sp_quinielas_scores_free(?)', array($quiniela_id));
+
+
         //dd($puntuaciones);
-        return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones'));
+        return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones','puntuaciones2'));
 
     }
 

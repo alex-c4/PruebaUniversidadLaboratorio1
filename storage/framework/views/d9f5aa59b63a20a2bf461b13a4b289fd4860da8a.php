@@ -203,7 +203,7 @@
       Result Us Section
     ============================-->
 
-    <!--
+    <!--desde aki 1 -->
     <section id="result">
       <div class="container">
 
@@ -221,7 +221,7 @@
                         <br>
                           <img src="img/goldpot.png" class="img-circle">
                           
-                          <h4 class="text-center">CDSM<?php echo e($quiniela->nombre." "." **GOLD**"); ?> </h4>
+                          <h4 class="text-center"><?php echo e($quiniela->nombre." "." **GOLD**"); ?> </h4>
                           
                           <ul>
                             <?php $__currentLoopData = $puntuaciones; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $puntuacion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                                       
@@ -274,13 +274,13 @@
                 
 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                -->
+                <!--  hasta aki 1--> 
                 <!-- Boton whatsapp
                 <p>
                   <a href="whatsapp://send?text=Resultados Mundial Rusia 2018 - <?php echo e(url('/#result')); ?>" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
                 </p>    
                 -->
-                 <!--
+                 <!-- desde aki 2 -->
                 </div>
 
 
@@ -313,7 +313,7 @@
 
       </div>
     </section>
-    -->
+    <!--   ++++++++++++++  hata aki 2  ************************+   -->
     <!-- #about -->
 
     <!--==========================

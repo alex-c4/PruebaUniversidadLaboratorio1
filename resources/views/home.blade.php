@@ -202,7 +202,7 @@
       Result Us Section
     ============================-->
 
-    <!--
+    <!--desde aki 1 -->
     <section id="result">
       <div class="container">
 
@@ -220,7 +220,7 @@
                         <br>
                           <img src="img/goldpot.png" class="img-circle">
                           
-                          <h4 class="text-center">CDSM{{$quiniela->nombre." "." **GOLD**"}} </h4>
+                          <h4 class="text-center">{{$quiniela->nombre." "." **GOLD**"}} </h4>
                           
                           <ul>
                             @foreach($puntuaciones as $puntuacion)                                       
@@ -272,13 +272,13 @@
                 
 
                 @endforeach
-                -->
+                <!--  hasta aki 1--> 
                 <!-- Boton whatsapp
                 <p>
                   <a href="whatsapp://send?text=Resultados Mundial Rusia 2018 - {{ url('/#result') }}" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
                 </p>    
                 -->
-                 <!--
+                 <!-- desde aki 2 -->
                 </div>
 
 
@@ -311,7 +311,7 @@
 
       </div>
     </section>
-    -->
+    <!--   ++++++++++++++  hata aki 2  ************************+   -->
     <!-- #about -->
 
     <!--==========================
