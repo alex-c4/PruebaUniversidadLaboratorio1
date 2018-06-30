@@ -111,6 +111,13 @@ class QuinielaController extends Controller
 
         $quiniela = Quiniela::where('id_quiniela', $quiniela_id)->get();
 
+        if($quiniela[0]['isActive'] == 0){
+            $title = 'Información';
+            $message = 'Agotado el tiempo para realizar registros';
+            $footer = "XportGold";
+            return view('info', compact('title', 'message', 'footer'));
+        }
+
         $championship_id = $quiniela[0]['id_championship'];
 
         $info = array(
