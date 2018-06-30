@@ -218,7 +218,7 @@
                         <br>
                           <img src="img/goldpot.png" class="img-circle">
                           
-                          <h4 class="text-center">CDSM{{$quiniela->nombre." "." **GOLD**"}} </h4>
+                          <h4 class="text-center">{{$quiniela->nombre." "." **GOLD**"}} </h4>
                           
                           <ul>
                             @foreach($puntuaciones as $puntuacion)                                       
@@ -244,7 +244,7 @@
               <h2 class="title">RESULTADOS:</h2>
               
 
-                <div class="row align-items-center">
+                <div class="row align-items-center" style="font-size: 13px;">
                 @foreach($myResults as $result)
                     <div class="col-12 text-center font-italic text-info">
                       <hr style="color: #ffffff;" />
@@ -252,19 +252,17 @@
 
                     </div>
 
-                    <div class="col-5 text-right">
-                        {{ $result->nombre_club_1 }}<img src="{{ asset('img/banderas/') }}/{{ $result->img_club_1 }}" alt="">
+                    <div class="col-4 text-right">
+                        {{ $result->nombre_club_1 }}<img src="{{ asset('img/banderas/') }}/{{ $result->img_club_1 }}" style="width: 25px;" alt="">
                     </div>
-                    <div class="col-1">
-                             
-                      <span data-toggle="counter-up" class="text-center">{{ $result->resultado_club_1 }}</span>
+                    <div class="col-2">
+                      <span class="text-center" >{{ $result->resultado_club_1 }} @if($result->penalty == '1') (<b>{{ $result->resultado_club_1_penalty }}</b>) @endif</span>
                     </div>
-                    <div class="col-1">
-                      <span data-toggle="counter-up" class="text-center">{{ $result->resultado_club_2 }}</span>
-                 
+                    <div class="col-2">
+                      <span class="text-center" >{{ $result->resultado_club_2 }} @if($result->penalty == '1') (<b>{{ $result->resultado_club_2_penalty }}</b>) @endif</span>
                     </div>
-                    <div class="col-5">
-                        <img src="{{ asset('img/banderas/') }}/{{ $result->img_club_2 }}" alt="">{{ $result->nombre_club_2 }}
+                    <div class="col-4">
+                        <img src="{{ asset('img/banderas/') }}/{{ $result->img_club_2 }}" style="width: 25px;"  alt="">{{ $result->nombre_club_2 }}
 
                     </div>
                 

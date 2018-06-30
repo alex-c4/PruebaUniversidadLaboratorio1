@@ -219,7 +219,7 @@
                         <br>
                           <img src="img/goldpot.png" class="img-circle">
                           
-                          <h4 class="text-center">CDSM<?php echo e($quiniela->nombre." "." **GOLD**"); ?> </h4>
+                          <h4 class="text-center"><?php echo e($quiniela->nombre." "." **GOLD**"); ?> </h4>
                           
                           <ul>
                             <?php $__currentLoopData = $puntuaciones; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $puntuacion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                                       
@@ -245,7 +245,7 @@
               <h2 class="title">RESULTADOS:</h2>
               
 
-                <div class="row align-items-center">
+                <div class="row align-items-center" style="font-size: 13px;">
                 <?php $__currentLoopData = $myResults; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $result): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-12 text-center font-italic text-info">
                       <hr style="color: #ffffff;" />
@@ -253,19 +253,17 @@
 
                     </div>
 
-                    <div class="col-5 text-right">
-                        <?php echo e($result->nombre_club_1); ?><img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($result->img_club_1); ?>" alt="">
+                    <div class="col-4 text-right">
+                        <?php echo e($result->nombre_club_1); ?><img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($result->img_club_1); ?>" style="width: 25px;" alt="">
                     </div>
-                    <div class="col-1">
-                             
-                      <span data-toggle="counter-up" class="text-center"><?php echo e($result->resultado_club_1); ?></span>
+                    <div class="col-2">
+                      <span class="text-center" ><?php echo e($result->resultado_club_1); ?> <?php if($result->penalty == '1'): ?> (<b><?php echo e($result->resultado_club_1_penalty); ?></b>) <?php endif; ?></span>
                     </div>
-                    <div class="col-1">
-                      <span data-toggle="counter-up" class="text-center"><?php echo e($result->resultado_club_2); ?></span>
-                 
+                    <div class="col-2">
+                      <span class="text-center" ><?php echo e($result->resultado_club_2); ?> <?php if($result->penalty == '1'): ?> (<b><?php echo e($result->resultado_club_2_penalty); ?></b>) <?php endif; ?></span>
                     </div>
-                    <div class="col-5">
-                        <img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($result->img_club_2); ?>" alt=""><?php echo e($result->nombre_club_2); ?>
+                    <div class="col-4">
+                        <img src="<?php echo e(asset('img/banderas/')); ?>/<?php echo e($result->img_club_2); ?>" style="width: 25px;"  alt=""><?php echo e($result->nombre_club_2); ?>
 
 
                     </div>
