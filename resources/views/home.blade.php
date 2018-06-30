@@ -145,7 +145,7 @@
 <!--==========================
       Facts Section
     ============================-->
-    
+    <!--
     <section id="facts"  class="wow fadeIn">
       <div class="container">
 
@@ -195,14 +195,14 @@
         <br>
       </div>
     </section>
-   
+    -->
     <!-- #facts -->
 
     <!--==========================
       Result Us Section
     ============================-->
 
-    <!--desde aki 1 -->
+    <!--
     <section id="result">
       <div class="container">
 
@@ -246,7 +246,7 @@
               <h2 class="title">RESULTADOS:</h2>
               
 
-                <div class="row align-items-center">
+                <div class="row align-items-center" style="font-size: 13px;">
                 @foreach($myResults as $result)
                     <div class="col-12 text-center font-italic text-info">
                       <hr style="color: #ffffff;" />
@@ -254,31 +254,31 @@
 
                     </div>
 
-                    <div class="col-5 text-right">
-                        {{ $result->nombre_club_1 }}<img src="{{ asset('img/banderas/') }}/{{ $result->img_club_1 }}" alt="">
+                    <div class="col-4 text-right">
+                        {{ $result->nombre_club_1 }}<img src="{{ asset('img/banderas/') }}/{{ $result->img_club_1 }}" style="width: 25px;" alt="">
                     </div>
-                    <div class="col-1">
-                             
-                      <span data-toggle="counter-up" class="text-center">{{ $result->resultado_club_1 }}</span>
+                    <div class="col-2">
+                      <span class="text-center" >{{ $result->resultado_club_1 }} @if($result->penalty == '1') (<b>{{ $result->resultado_club_1_penalty }}</b>) @endif</span>
                     </div>
-                    <div class="col-1">
-                      <span data-toggle="counter-up" class="text-center">{{ $result->resultado_club_2 }}</span>
-                 
+                    <div class="col-2">
+                      <span class="text-center" >{{ $result->resultado_club_2 }} @if($result->penalty == '1') (<b>{{ $result->resultado_club_2_penalty }}</b>) @endif</span>
                     </div>
-                    <div class="col-5">
-                        <img src="{{ asset('img/banderas/') }}/{{ $result->img_club_2 }}" alt="">{{ $result->nombre_club_2 }}
+                    <div class="col-4">
+                        <img src="{{ asset('img/banderas/') }}/{{ $result->img_club_2 }}" style="width: 25px;"  alt="">{{ $result->nombre_club_2 }}
 
                     </div>
                 
 
                 @endforeach
-                <!--  hasta aki 1--> 
+--> 
+
                 <!-- Boton whatsapp
                 <p>
                   <a href="whatsapp://send?text=Resultados Mundial Rusia 2018 - {{ url('/#result') }}" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style=""><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
                 </p>    
                 -->
-                 <!-- desde aki 2 -->
+
+                 <!-- 
                 </div>
 
 
@@ -311,7 +311,7 @@
 
       </div>
     </section>
-    <!--   ++++++++++++++  hata aki 2  ************************+   -->
+ -->
     <!-- #about -->
 
     <!--==========================
@@ -321,7 +321,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Como Jugar Quiniela "Fase Final Rusia 2018..."</h3>
+          <h3>Como Jugar Quiniela Rusia 2018...</h3>
         </header>
 
         <div class="row about-cols">
