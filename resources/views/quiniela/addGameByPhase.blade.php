@@ -31,7 +31,7 @@
                         {{ $game->date }}
                     </div>
                     <div class="col-12 text-center font-weight-light">
-                    <span class="text-success"> {{ $game->estadium }} </span> / <span class="font-weight-bold">Grupo {{ $game->grupo }}</span>
+                    <span class="text-success"> {{ $game->estadium }} </span> @if($game->grupo != "") / <span class="font-weight-bold">Grupo {{ $game->grupo }}</span> @endif
                     </div>
                     <div class="col-4 text-right">
                     {{ $game->nombre_club_1}}<img src="{{ asset('img/banderas/') }}/{{ $game->img_club_1 }}" alt="">

@@ -98,14 +98,14 @@ class QuinielaController extends Controller
     }
 
     public function searchGamesyPhase($quiniela_id, $phase){
-        switch($phase){
-            case '8vos':
-                $phase = 'octavos';
-            break;
-            case '4tos':
-                $phase = 'cuartos';
-            break;
-        }
+        // switch($phase){
+        //     case '8vos':
+        //         $phase = 'octavos';
+        //     break;
+        //     case '4tos':
+        //         $phase = 'cuartos';
+        //     break;
+        // }
         
         $games = DB::select('CALL sp_getGamesByQuinielaPhase(?,?)', array($quiniela_id, $phase));
 
@@ -422,7 +422,8 @@ class QuinielaController extends Controller
         $title = 'Información';
         $message = 'Registro almacenado satisfactoriamente';
         $footer = "XportGold";
-        return view('warning', compact('title', 'message', 'footer'));
+        $url = "/dashboard";
+        return view('info', compact('title', 'message', 'footer', 'url'));
     }
 
 

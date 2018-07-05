@@ -57,11 +57,11 @@
 	     </div>
 
     <!-- Ubicacions del gold pot -->
-		  <!--
+		  
             &emsp;&emsp;&emsp;
-            <img src="<?php echo e(url('img/goldpot_menu.png')); ?>" class="img-circle">
+            <img src="<?php echo e(url('img/goldpot_menu_final2.png')); ?>" class="img-circle">
 
-            
+        <!--    
             <bold>1.350</bold> | <ok> GOLD</ok>
         -->
                         
@@ -87,7 +87,15 @@
               <li><a href="<?php echo e(url('/result/2')); ?>">Result</a></li>
               <li><a href="<?php echo e(url('/listarBetsPay')); ?>">Valadar Pagos</a></li>
             <?php endif; ?>
-            <li><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a></li>
+            
+            <li class="menu-has-children"><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a>
+              <ul>
+                <li><a href="<?php echo e(route('searchPronostics')); ?>">Mis Pronósticos</a></li>
+                <li><a href="<?php echo e(route('addPronosticsNewPhase')); ?>">Agregar resultado nueva fase</a></li>
+                <li><a href="<?php echo e(url('/puntuacionesQui/1')); ?>">Tabla de Posiciones Quiniela</a></li>
+              </ul>
+            </li>
+            
             <li><a href="<?php echo e(url('/logout')); ?>">Cerrar sesion</a></li>
           <?php else: ?>
             <li><a href="<?php echo e(url('/register')); ?>">Registrarse</a></li>

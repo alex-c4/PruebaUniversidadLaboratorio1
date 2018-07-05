@@ -219,7 +219,7 @@
                       <div class="row oscuro">
                         
                         <br>
-                          <img src="img/goldpot.png" class="img-circle">
+                          <img src="img/goldpot_tabla.png" class="img-circle">
                           
                           <h4 class="text-center"><?php echo e($quiniela->nombre." "." **GOLD**"); ?> </h4>
                           
