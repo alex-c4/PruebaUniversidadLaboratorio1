@@ -98,14 +98,14 @@ class QuinielaController extends Controller
     }
 
     public function searchGamesyPhase($quiniela_id, $phase){
-        switch($phase){
-            case '8vos':
-                $phase = 'octavos';
-            break;
-            case '4tos':
-                $phase = 'cuartos';
-            break;
-        }
+        // switch($phase){
+        //     case '8vos':
+        //         $phase = 'octavos';
+        //     break;
+        //     case '4tos':
+        //         $phase = 'cuartos';
+        //     break;
+        // }
         
         $games = DB::select('CALL sp_getGamesByQuinielaPhase(?,?)', array($quiniela_id, $phase));
 
@@ -146,8 +146,10 @@ class QuinielaController extends Controller
     public function pronosticGet($betId){
 
         $pronosticsDetails = DB::select('CALl sp_getMyGames_PronosticsDetails(?)', array($betId));
+
         //$puntuacion=DB::table('v_quinielas_scores')->where('bet_id',$betId)->first(); 
         $puntuacion= DB::select('CALL sp_bet_score(?,?)', array(1,$betId));
+        
         //dd($puntuacion);
         //return $puntuacion['0']->bet_id;
         return view('quiniela.pronosticGet', compact('pronosticsDetails','puntuacion'));
@@ -420,7 +422,8 @@ class QuinielaController extends Controller
         $title = 'Información';
         $message = 'Registro almacenado satisfactoriamente';
         $footer = "XportGold";
-        return view('warning', compact('title', 'message', 'footer'));
+        $url = "/dashboard";
+        return view('info', compact('title', 'message', 'footer', 'url'));
     }
 
 

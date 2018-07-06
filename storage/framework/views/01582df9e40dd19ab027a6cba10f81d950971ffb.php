@@ -203,7 +203,7 @@
       Result Us Section
     ============================-->
 
-    <!--
+    
     <section id="result">
       <div class="container">
 
@@ -219,7 +219,7 @@
                       <div class="row oscuro">
                         
                         <br>
-                          <img src="img/goldpot.png" class="img-circle">
+                          <img src="img/goldpot_tabla.png" class="img-circle">
                           
                           <h4 class="text-center"><?php echo e($quiniela->nombre." "." **GOLD**"); ?> </h4>
                           
@@ -272,7 +272,7 @@
                 
 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
---> 
+ 
 
                 <!-- Boton whatsapp
                 <p>
@@ -280,7 +280,7 @@
                 </p>    
                 -->
 
-                 <!-- 
+                 
                 </div>
 
 
@@ -313,8 +313,8 @@
 
       </div>
     </section>
- -->
-    <!-- #about -->
+ 
+    <!-- #result -->
 
     <!--==========================
       About Us Section modificado

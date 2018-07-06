@@ -87,7 +87,15 @@
               <li><a href="{{ url('/result/2') }}">Result</a></li>
               <li><a href="{{ url('/listarBetsPay') }}">Valadar Pagos</a></li>
             @endif
-            <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+            
+            <li class="menu-has-children"><a href="{{ url('/dashboard') }}">Dashboard</a>
+              <ul>
+                <li><a href="{{ route('searchPronostics') }}">Mis Pronósticos</a></li>
+                <li><a href="{{ route('addPronosticsNewPhase') }}">Agregar resultado nueva fase</a></li>
+                <li><a href="{{ url('/puntuacionesQui/1') }}">Tabla de Posiciones Quiniela</a></li>
+              </ul>
+            </li>
+            
             <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>
           @else
             <li><a href="{{ url('/register') }}">Registrarse</a></li>

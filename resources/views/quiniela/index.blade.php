@@ -38,7 +38,7 @@
                         <td>{{ $quinielaPublica->nombreCampeonato }}</td>
                         <td>{{ $quinielaPublica->tipoQuiniela }}</td>
                         <td>
-                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPublica->idQuiniela }}/8vos" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"> 8vos</i></a>
+                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPublica->idQuiniela }}/{{ $quinielaPublica->phase }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"> </i></a>
                         </td>
                     </tr>
 

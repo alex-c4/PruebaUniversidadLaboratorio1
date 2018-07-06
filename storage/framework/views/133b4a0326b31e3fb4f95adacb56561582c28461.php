@@ -9,7 +9,7 @@
 
 </style>
    <div id="espaciador"></div>
-   <div class="container-fluid">
+   <div class="container">
 
         <div class="section-header">
           <h3>Noticias XportGold</h3>
@@ -41,7 +41,7 @@
                  <br>                  
                 </p> 
 
-                <a href="<?php echo e(url('/#notice')); ?>" class="btn ">Volver</a>
+                <a href="<?php echo e(url('/#news')); ?>" class="btn ">Volver</a>
 
               </div>
 
