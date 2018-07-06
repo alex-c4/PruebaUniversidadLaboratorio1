@@ -103,7 +103,7 @@ class ResultController extends Controller
 
             $fase='ELIMINATORIAS';
         }else{
-            $fase='octavos';
+            $fase='cuartos';
         }       
 
        
