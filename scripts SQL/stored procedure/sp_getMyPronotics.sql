@@ -3,12 +3,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getMyPronotics`(IN `userID` INT)
     NO SQL
 BEGIN
     SELECT 
-        bet.id AS betId,
+        b.id AS betId,
         q.nombre AS quiniela,
-        ch.name AS championshipName
-    FROM bets AS bet
-        INNER JOIN quinielas AS q ON q.id_quiniela = bet.id_quiniela
+        q.id_quiniela,
+        ch.name AS championshipName,
+        b.ref_pago AS refPago,
+        b.verification,
+        q.isActive,
+        ap.phase
+    FROM bets AS b
+        INNER JOIN quinielas AS q ON q.id_quiniela = b.id_quiniela
         INNER JOIN championships AS ch ON ch.id = q.id_championship
-    WHERE bet.id_user = userID;
+        INNER JOIN activephases ap ON ap.id=ch.id
+    WHERE b.id_user = userID;
 END$$
 DELIMITER ;

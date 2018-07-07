@@ -180,16 +180,16 @@
                           <li>
                               <a class="tt" href="{{ asset('/files/Reglamento Quiniela Fase Final Rusia 2018 XportGold.pdf') }} " target="_blank">Reglamento de Juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
                           </li>
+                          @if(false)
                           <li>
-                          
                             <a class="tt" href="{{ route('quiniela') }}">Nuevo Pronóstico</a>
-                          
                           </li>
+                          @endif
                           <li>
                             <a class="tt" href="{{ route('searchPronostics') }}">Mis Pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
                           </li>
                           <li>
-                            <a class="tt" href="{{ route('addPronosticsNewPhase') }}">Agregar resultado nueva fase<span class="tooltip"><span class="triangle-obtuse">Agrega pronostico para la nueva fase</span></span></a>
+                            <a class="tt" href="{{ route('addPronosticsNewPhase') }}">Registro Pronósticos 4° Finales<span class="tooltip"><span class="triangle-obtuse">Agrega pronostico para la nueva fase</span></span></a>
                           </li>
                           <!-- <li>
                             <a class="tt" href="{{ url('/puntuacionesQui/1') }}"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>

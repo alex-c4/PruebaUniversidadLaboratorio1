@@ -34,10 +34,13 @@
                             <td><input type="checkbox" disabled @if($pronostic->verification == "1"){ checked } @endif></td>
                             <td>
                                 <a href="{{ url('quiniela.pronosticEdit/') }}/{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Editar pronóstico"><i class="fa fa-edit fa-sm"></i></a>
-                                <a href="{{ url('payQuiniela/') }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a>
-                                @if($pronostic->refPago == '')
-                                    <a href="{{ url('payment') }}{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-credit-card fa-sm"></i></a>
+                                @if(false)
+                                    <a href="{{ url('payQuiniela/') }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a>
+                                    @if($pronostic->refPago == '')
+                                        <a href="{{ url('payment') }}{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-credit-card fa-sm"></i></a>
+                                    @endif
                                 @endif
+                                
                             </td>
                         </tr>
 
