@@ -32,7 +32,7 @@
                             <td>{{ $pronostic->championshipName }}</td>
                             <td>
                                 @if($pronostic->isActive == 1)
-                                    <a href="{{ url('quiniela/showNewPronosticByPhase/') }}/{{ $pronostic->id_quiniela }}/{{ $pronostic->betId }}/cuartos" class="btn btn-outline-warning btn-sm" role="button" aria-pressed="true" title="Sumar nuevos pronósticos">4tos</a>
+                                    <a href="{{ url('quiniela/showNewPronosticByPhase/') }}/{{ $pronostic->id_quiniela }}/{{ $pronostic->betId }}/{{ $pronostic->phase }}" class="btn btn-outline-warning btn-sm" role="button" aria-pressed="true" title="Sumar nuevos pronósticos">{{ $pronostic->phase }}</a>
                                 @endif
                             </td>
                         </tr>
