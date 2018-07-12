@@ -36,7 +36,7 @@
                         <td><?php echo e($quinielaPublica->nombreCampeonato); ?></td>
                         <td><?php echo e($quinielaPublica->tipoQuiniela); ?></td>
                         <td>
-                            <a href="<?php echo e(url('quiniela/searchGames/')); ?>/<?php echo e($quinielaPublica->idQuiniela); ?>/8vos" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"> 8vos</i></a>
+                            <a href="<?php echo e(url('quiniela/searchGames/')); ?>/<?php echo e($quinielaPublica->idQuiniela); ?>/<?php echo e($quinielaPublica->phase); ?>" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"> </i></a>
                         </td>
                     </tr>
 
