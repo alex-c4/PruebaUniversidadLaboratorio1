@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\request;
+
+
 use App\User;
 use App\Country;
 use Mail;
@@ -11,7 +14,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\request;
 
 class RegisterController extends Controller
 {
