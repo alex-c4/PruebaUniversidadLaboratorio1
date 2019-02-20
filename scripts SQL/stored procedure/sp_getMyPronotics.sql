@@ -14,7 +14,7 @@ BEGIN
     FROM bets AS b
         INNER JOIN quinielas AS q ON q.id_quiniela = b.id_quiniela
         INNER JOIN championships AS ch ON ch.id = q.id_championship
-        INNER JOIN activephases ap ON ap.id=ch.id
+        INNER JOIN activephases ap ON ap.championship_id=ch.id
     WHERE b.id_user = userID;
 END$$
 DELIMITER ;
