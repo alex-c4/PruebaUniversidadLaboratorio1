@@ -156,15 +156,14 @@ class RegisterController extends Controller
             'confirmation_code' => $conf_code
         );
         
-        //Mod por yanis
-        /*
+        
         $req = request();
         Mail::send('emails.welcome', $data, function($message) use($req, $pathToFile) {
             $message->from('admin@xportgold.com', 'XportGold');
             $message->to($req->email)->subject('Confirmación de tu correo');
             //$message->attach($pathToFile);
         });
-        */
+        
 
         // return $data;
         $datos = [
