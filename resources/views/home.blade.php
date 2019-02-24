@@ -15,7 +15,8 @@
   -->
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet"> -->
+  <link href="{{ asset('css/googleFontsOpenSans.css') }}" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -557,8 +558,11 @@
                 </br>{{ substr($noticia['fecha_publicacion'],0,10)}}
                 </br></br>{{ substr($noticia['cuerpo'],0,200).'...'}}
               </p>
-              <a href="{{ url('/news/'.$noticia['id']) }}" class="btn ">Leer mas</a>
-              <br>
+              <a href="{{ route('news.show', $noticia->id) }}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+              @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
+                <a href="{{ route('news.edit', $noticia->id) }}" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
+              @endif
+              
               <a href="whatsapp://send?text={{ $noticia['titulo']}} - {{ url('/news/'.$noticia['id']) }}" img src="img/notice/{{$noticia['name_img']}}" data-action="share/whatsapp/share" target="_blank" class="btn btn-success btn-sm" style="" ><i class="fa fa-whatsapp fa-sm">  Compartir</i></a>
               <!--
               <a href="whatsapp://send?text=https://scriptbc.com" data-action="share/whatsapp/share">

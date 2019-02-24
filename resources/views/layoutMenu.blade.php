@@ -14,7 +14,8 @@
   -->
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet"> -->
+  <link href="{{ asset('css/googleFontsOpenSans.css') }}" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
@@ -93,6 +94,11 @@
                 <li><a href="{{ route('searchPronostics') }}">Mis Pronósticos</a></li>
                 <li><a href="{{ route('addPronosticsNewPhase') }}">Agregar resultado nueva fase</a></li>
                 <li><a href="{{ url('/puntuacionesQui/1') }}">Tabla de Posiciones Quiniela</a></li>
+                @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
+                  <li class="menu-has-children"><a href="{{ route('news.index') }}">Noticias</a>
+                    <ul><a href="{{ route('news.create') }}">Agregar noticia</a></ul>
+                  </li>
+                @endif
               </ul>
             </li>
             

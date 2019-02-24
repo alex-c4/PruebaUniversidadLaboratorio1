@@ -17,6 +17,9 @@
 
 
 Route::get('/', 'HomeController@consultar')->name('home.consultar');
+Route::get('test/{nombre}', ['as' => 'test', function($nombre){
+    return 'testing... $nombre';
+}]);
 Route::view('/welcome', 'welcome');
 
 /*
@@ -32,6 +35,8 @@ Route::view('/welcome', 'welcome');
 //     return view('/auth.verify');
 // });
 Route::get('/register', 'Auth\RegisterController@create')->name('create');
+
+
 Route::view('/auth.success', 'success');
 Route::view('/auth.successEdit', 'successEdit');
 Route::post('/register', 'Auth\RegisterController@store')->name('register');
@@ -65,19 +70,7 @@ Route::get('/intercambio_actualizar/{id_intercambio}/{estatus}/{id_sticker}/{id_
 
 
 // Route::get('/alert/{data}', function($data){ return view('mensaje.alert', $data); })->name('mensaje.alert');
-/*
-|--------------------------------------------------------------------------
-| News Routes
-|--------------------------------------------------------------------------
-|
-| Seccion para las rutas asociadas a la parte de noticias
-|
-*/
-Route::get('/news/{id}', 'NoticeController@consultar')->name('notice.consulta');
 
-Route::get('/news', 'News\NewsController@create')->name('create');
-//Route::post('/result', 'Auth\ResultController@store');
-Route::post('/news', 'News\NewsController@store')->name('news');
 
 /*
 |--------------------------------------------------------------------------
@@ -203,3 +196,24 @@ Route::get('/formpayment', function () {
 
 //Vista estandar para mensajes de cualquier tipo
 Route::view('warning', 'warning');
+
+
+/*
+|--------------------------------------------------------------------------
+| Noticias Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Noticias (reportage)
+|
+*/
+// Route::get('/news/{id}', 'NoticeController@consultar')->name('notice.consulta');
+
+
+Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);
+Route::get('news/create', ['as' => 'news.create', 'uses' => 'NewsController@create']);
+Route::post('news', ['as' => 'news.store', 'uses' => 'NewsController@store']);
+Route::get('news/{id}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
+Route::get('news/{id}/edit', ['as' => 'news.edit', 'uses' => 'NewsController@edit']);
+Route::put('news/{id}', ['as' => 'news.update', 'uses' => 'NewsController@update']);
+Route::patch('news/{id}', ['as' => 'news.restore', 'uses' => 'NewsController@restore']);
+Route::delete('news/{id}', ['as' => 'news.destroy', 'uses' => 'NewsController@destroy']);

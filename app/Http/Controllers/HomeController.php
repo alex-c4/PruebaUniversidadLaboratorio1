@@ -12,7 +12,6 @@ class HomeController extends Controller
 
 
 	public function consultar(){
-
         //$misnoticias[]=array();  
         //$noticias= Notice::all();
         //return bcrypt('123');
@@ -45,7 +44,7 @@ class HomeController extends Controller
 
         $myResults = DB::select('CALL sp_getLastResult');
 
-        $misnoticias= Notice::orderBy('id','desc')->limit(6)->get();  
+        $misnoticias= Notice::where('borrado', '=', '0')->orderBy('id','desc')->limit(6)->get();  
         return view('home', compact('misnoticias', 'myResults','quiniela','puntuaciones','puntuaciones_free'));  
                // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
 

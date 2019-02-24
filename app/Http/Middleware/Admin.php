@@ -29,4 +29,8 @@ class Admin
         
 
     }
+
+    protected $except = [
+        'show'
+    ];
 }
