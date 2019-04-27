@@ -1,6 +1,40 @@
 <!-- 
     Seccion del modal de login
 -->
+
+
+<!-- 
+   Cod para iniciar sesion por facebook (Yanis)
+-->
+
+<?php
+
+    //session_start();
+    require_once '../facebooklogin/config.php';
+
+
+    if (isset($_SESSION['access_token'])){
+        header('location: index.php');
+        exit();
+    }
+
+    $redirectURL = "https://localhost/xportgold/PruebaUniversidadLaboratorio1/facebooklogin/fb-callback.php";
+    
+    $permissions = ['email'];
+
+    $loginURL = $helper->getLoginUrl($redirectURL, $permissions);
+    //echo $loginURL;
+    
+
+
+?>
+
+<!-- 
+   Fin iniciar sesion por facebook (Yanis)
+-->
+
+
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <form id="form_login" name="form_login" method="POST" action="{{ route('login') }}">
     <input type="hidden" id="routeDashboard" value="{{ route('dasboardindex') }}">
@@ -22,10 +56,12 @@
             </div>
         
             <div class="form-group">
-            <label for="inputPassword">Clave</label>
+            <label for="inputPassword">Cl</label>
             <input type="password" class="form-control {{ $errors->has('passwordLogin') ? 'border-danger' : '' }}" id="passwordLogin" name="passwordLogin" placeholder="Password">
             {!! $errors->first('passwordLogin', '<span class="text-danger">:message</span>') !!}
             </div>
+
+          
 
             <div class="form-group">
                 <div id="message-got">
@@ -38,11 +74,20 @@
                 <a href="{{ route('forgotPassw') }}">¿Se te olvidó tu contraseña?</a>
             </div>
 
+            <div>
+               <img src="img/face.png">
+               <input type="button" onclick="window.location = '<?php echo $loginURL ?>';" value="Log In With Facebook" class="btn btn-primary">
+            </div>
+           
+
         </div>
+        
+        
+
         <div class="modal-footer">
         
-        <label>¿No estas registrado aun?</label>
-        <a href="{{ route('register') }}" class="btn btn-outline-info">Registrarse</a>
+            <label>¿No estas registrado aun?</label>
+            <a href="{{ route('register') }}" class="btn btn-outline-info">Registrarse</a>
         
         
         </div>

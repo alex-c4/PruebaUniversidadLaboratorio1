@@ -57,12 +57,12 @@
 	  
 	     </div>
 
-    <!-- Ubicacions del gold pot -->
-		  
+    <!-- Ubicacions del gold pot
+		      
             &emsp;&emsp;&emsp;
             <img src="{{ url('img/goldpot_menu_final2.png')}}" class="img-circle">
 
-        <!--    
+            
             <bold>1.350</bold> | <ok> GOLD</ok>
         -->
                         
@@ -73,14 +73,16 @@
 		  
 		  
 		  <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
+           <!--
            <li><a href="{{ url('/#result') }}">Posiciones Quiniela</a></li>
+          -->
           @if(Auth::check())
-            <li><a href="{{ url('/dashboard') }}">Quiniela Rusia 2018</a></li>
+            <li><a href="{{ url('/dashboard') }}">XPORTGAME BRASIL 2019</a></li>
           @else
-           <li><a href="{{ url('/#about') }}">Quiniela Rusia 2018</a></li>
+           <li><a href="{{ url('/#about') }}">XPORTGAME BRASIL 2019</a></li>
           @endif
-          <li><a href="{{ url('/#news') }}">Noticias</a></li>
-          <li><a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
+          <li><a href="{{ url('/#news') }}">GOLD BLOG</a></li>
+          <li><a href="{{ url('/#portfolio') }}">BRASIL 2019</a></li>
           <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
           <br>
           @if(Auth::check())   
@@ -104,8 +106,17 @@
             
             <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>
           @else
+            <!--
+            <li><a href="" data-toggle="modal" data-target="#registerModal">Registrarse</a></li>
             <li><a href="{{ url('/register') }}">Registrarse</a></li>
-            <li><a href="" data-toggle="modal" data-target="#exampleModal">Iniciar sesion</a></li>
+          -->
+            <a href="" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" id="btnLogin" class="btn btn-light btn-sm">Login</button>
+            </a>
+
+            <!--
+            <li><a href="" data-toggle="modal" data-target="#exampleModal">Log In</a></li>
+            -->
           @endif
           
           
@@ -171,14 +182,16 @@
               <a href="https://www.facebook.com/XportGold-203618576920498/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
               <a href="https://www.instagram.com/xport.gold/"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
               <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                <!--
               <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                -->
             </div>
 
           </div>
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p>Atentos a nuestro lanzamiento de la forma mas divertida y millonaria de vivir el mundial...</p>
+            <p>Atentos a nuestro lanzamiento de la forma mas divertida y millonaria de vivir la Copa America Brasil 2019...</p>
             
           </div>
 

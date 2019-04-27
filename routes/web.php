@@ -39,7 +39,11 @@ Route::get('/register', 'Auth\RegisterController@create')->name('create');
 
 Route::view('/auth.success', 'success');
 Route::view('/auth.successEdit', 'successEdit');
-Route::post('/register', 'Auth\RegisterController@store')->name('register');
+
+//Modificado por yanis para registro basico de usuario
+Route::post('/register', 'Auth\RegisterController@store_basic')->name('register');
+//Route::post('/register', 'Auth\RegisterController@store')->name('register');
+
 // Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -51,6 +55,9 @@ Route::post('/updatePassw', 'Auth\ResetPasswordController@update')->name('update
 Route::get('/forgotPassw', 'Auth\ForgotPasswordController@index')->name('forgotPassw');
 Route::post('/forgotPassw', 'Auth\ForgotPasswordController@forgotPassw')->name('forgotPasswEmail');
 
+//Registro con social login facebook
+Route::get('/registerFB', 'Auth\RegisterController@store_fb')->name('create');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
 
 /*
 |--------------------------------------------------------------------------
