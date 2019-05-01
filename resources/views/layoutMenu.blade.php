@@ -86,7 +86,7 @@
           @if(Auth::check())   
             @if(Auth::user()->rollId == 1)         
               <li><a href="{{ url('/result/2') }}">Result</a></li>
-              <li><a href="{{ url('/listarBetsPay') }}">Valadar Pagos</a></li>
+              <li><a href="{{ url('/listarBetsPay') }}">Validar Pagos</a></li>
             @endif
             
             <li class="menu-has-children"><a href="{{ url('/dashboard') }}">Dashboard</a>
@@ -97,6 +97,9 @@
                 @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
                   <li class="menu-has-children"><a href="{{ route('news.index') }}">Noticias</a>
                     <ul><a href="{{ route('news.create') }}">Agregar noticia</a></ul>
+                  </li>
+                  <li class="menu-has-children"><a href="{{ route('blogs.index') }}">Blogs</a>
+                    <ul><a href="{{ route('blogs.create') }}">Agregar Blog</a></ul>
                   </li>
                 @endif
               </ul>

@@ -17,8 +17,8 @@
 
 
 Route::get('/', 'HomeController@consultar')->name('home.consultar');
-Route::get('test/{nombre}', ['as' => 'test', function($nombre){
-    return 'testing... $nombre';
+Route::get('/test/{nombre}', ['as' => 'test', function($nombre){
+    return 'testing... '.$nombre;
 }]);
 Route::view('/welcome', 'welcome');
 
@@ -50,7 +50,7 @@ Route::post('/updatePassw', 'Auth\ResetPasswordController@update')->name('update
 
 Route::get('/forgotPassw', 'Auth\ForgotPasswordController@index')->name('forgotPassw');
 Route::post('/forgotPassw', 'Auth\ForgotPasswordController@forgotPassw')->name('forgotPasswEmail');
-
+Route::get('encryptkey/{key}', ['as' => 'auth.encryptkey', 'uses' => 'Auth\ForgotPasswordController@encryptkey']);
 
 /*
 |--------------------------------------------------------------------------
@@ -217,3 +217,20 @@ Route::get('news/{id}/edit', ['as' => 'news.edit', 'uses' => 'NewsController@edi
 Route::put('news/{id}', ['as' => 'news.update', 'uses' => 'NewsController@update']);
 Route::patch('news/{id}', ['as' => 'news.restore', 'uses' => 'NewsController@restore']);
 Route::delete('news/{id}', ['as' => 'news.destroy', 'uses' => 'NewsController@destroy']);
+
+/*
+|--------------------------------------------------------------------------
+| Blogs Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Blogs
+|
+*/
+Route::get('blog', ['as' => 'blogs.index', 'uses' => 'BlogController@index']);
+Route::get('blogs/create', ['as' => 'blogs.create', 'uses' => 'BlogController@create']);
+Route::post('blogs/store', ['as' => 'blogs.store', 'uses' => 'BlogController@store']);
+Route::get('blogs/{id}', ['as' => 'blogs.show', 'uses' => 'BlogController@show']);
+Route::get('blogs/{id}/edit', ['as' => 'blogs.edit', 'uses' => 'BlogController@edit']);
+Route::put('blogs/{id}', ['as' => 'blogs.update', 'uses' => 'BlogController@update']);
+Route::patch('blogs/{id}', ['as' => 'blogs.restore', 'uses' => 'BlogController@restore']);
+Route::delete('blogs/{id}', ['as' => 'blogs.destroy', 'uses' => 'BlogController@destroy']);

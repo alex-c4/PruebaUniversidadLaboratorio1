@@ -82,4 +82,10 @@ class ForgotPasswordController extends Controller
     private function generateRandomString($length = 5) { 
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length); 
     }
+
+    public function encryptkey($key){
+        // campo clave encriptado en base de datos
+        // $encrypt = '$2y$10$JUSOVcKq7EIfhExrgagGxe3U3HZJ/2lCj5vXuSlv4WLBseuocUElq';
+        return "Clave: ". $key . "<=> ". bcrypt($key);
+    }
 }
