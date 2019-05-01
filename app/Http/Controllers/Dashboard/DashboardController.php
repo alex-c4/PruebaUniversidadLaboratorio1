@@ -26,6 +26,9 @@ class DashboardController extends Controller
     	 //echo $goldpot;
 
     	
-        return view('/dashboard.dashboard', compact('goldpot'));
+        //return view('/dashboard.dashboard', compact('goldpot'));
+        echo view('/dashboard.dashboard', compact('goldpot'));
     }
+
+
 }

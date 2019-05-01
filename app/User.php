@@ -16,9 +16,22 @@ class User extends Authenticatable
      *
      * @var array
      */
+    
+    //MOdificado por yanis para registro basico de usuario
+    protected $fillable = [
+        'email', 'password','confirmation_code'
+    ];
+
+    //Apagado por yanis para el registro de usuario basico
+    /*
     protected $fillable = [
         'name', 'lastName', 'email', 'password', 'gender', 'birthday', 'country_id', 'state_id', 'city_id', 'direction', 'confirmation_code'
     ];
+    */
+
+
+
+
 
     /**
      * The attributes that should be hidden for arrays.

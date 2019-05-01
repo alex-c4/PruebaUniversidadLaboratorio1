@@ -1,6 +1,11 @@
 <?php
 
+
 namespace App\Http\Controllers\Auth;
+
+if (!isset($_SESSION)) { session_start(); }
+//session_start();
+//require_once 'config.php';
 
 use Illuminate\Http\request;
 
@@ -10,6 +15,7 @@ use App\Country;
 use Mail;
 use App\Mail\welcome;
 use App\Http\Controllers\Controller;
+
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -71,6 +77,31 @@ class RegisterController extends Controller
         ], $messages);
     }
 
+
+
+    //Modificado por yanis para el registro basico
+     /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator_basic(array $data)
+    {
+        $messages = [
+            'numeric' => 'The field is required.',
+            'required' => 'The field is required.'
+        ];
+
+        return Validator::make($data, [
+            
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:4|confirmed',
+            
+        ], $messages);
+    }
+
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -91,7 +122,7 @@ class RegisterController extends Controller
 
     public function create(){
         $countries = Country::all();
-        return view('auth.register', compact('countries'));
+        return view('auth.register_basic', compact('countries'));
     }
 
     protected function register(Request $request){
@@ -175,6 +206,114 @@ class RegisterController extends Controller
         return view('/auth.success', $datos);
         
     }
+
+    //Modificado por yanis para el registro basico de usuario
+    public function store_basic(){
+
+       $this->validator_basic(request()->all())->validate();
+        // User::create(request()->all());
+        $conf_code = str_random(15);
+
+        $pathToFile = storage_path('app') . '\\' . 'instructivo.doc';
+
+        $user = User::create([
+            
+            'email' => request()->email,
+            'password' => bcrypt(request()->password),
+            'confirmation_code' => $conf_code
+        ]);
+        $data = array(
+            'email' => request()->email,
+            'confirmation_code' => $conf_code
+        );
+        
+        
+        $req = request();
+        
+        //Apagado por yanis por error en el local 
+        // Encender para usarlo en produccion
+        /*
+        Mail::send('emails.welcome', $data, function($message) use($req, $pathToFile) {
+            $message->from('admin@xportgold.com', 'XportGold');
+            $message->to($req->email)->subject('Confirmación de tu correo');
+            //$message->attach($pathToFile);
+        });
+        
+        */
+
+
+
+        // return $data;
+        $datos = [
+            
+            'email' => request()->email
+        ];
+        
+        return view('/auth.success_basic', $datos);
+        
+    }
+
+
+     //Modificado por yanis para el registro con sesion login facebook
+    public function store_fb(){
+
+       //$this->validator_basic(request()->all())->validate();
+        // User::create(request()->all());
+        $conf_code = str_random(15);
+
+        $pathToFile = storage_path('app') . '\\' . 'instructivo.doc';
+
+
+        $user = User::where('email', $_SESSION['userData']['email']);
+
+      
+
+        if(!$user->count() > 0){
+            $user = User::create([
+           
+            'email' => $_SESSION['userData']['email'],
+            //'password' => 12345678,
+            //'confirmed' => true,
+            'password' => bcrypt(123456),
+            'confirmation_code' => $conf_code
+
+            ]);
+
+            //$user = User::where('confirmation_code', $code)->first();
+            $user->name = $_SESSION['userData']['first_name'];
+            $user->lastName =  $_SESSION['userData']['last_name'];
+            $user->confirmed = true;
+            $user->confirmation_code = 'abcd1234';
+            $user->save();
+
+        }
+
+        //return $data;
+        
+        $datos = [
+            
+            'email' => $_SESSION['userData']['email']
+            //'email' => request()->email
+        ];
+        
+        
+        $log = new LoginController();
+        $log -> login_fb($datos);
+    
+       //return route('login'); 
+       //return header('Location: http://localhost/xportgold/PruebaUniversidadLaboratorio1/public/login');
+       //return view('/auth.success_fb', $datos);
+
+        //route('login');
+        //header('Location: http://localhost/xportgold/PruebaUniversidadLaboratorio1/public/login');
+        //exit();
+        //view('/auth.success_basic', $datos);
+
+
+        
+        
+    }
+
 
     // protected function register_BK(Request $request){
     //     // $this->validator($request->all())->validate();
