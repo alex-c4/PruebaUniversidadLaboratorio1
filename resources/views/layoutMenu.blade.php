@@ -81,7 +81,7 @@
           @else
            <li><a href="{{ url('/#about') }}">XPORTGAME BRASIL 2019</a></li>
           @endif
-          <li><a href="{{ url('/#news') }}">GOLD BLOG</a></li>
+          <li><a href="{{ url('/#blogs') }}">GOLD BLOG</a></li>
           <li><a href="{{ url('/#portfolio') }}">BRASIL 2019</a></li>
           <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
           <br>
@@ -113,10 +113,11 @@
             <li><a href="" data-toggle="modal" data-target="#registerModal">Registrarse</a></li>
             <li><a href="{{ url('/register') }}">Registrarse</a></li>
           -->
-            <a href="" data-toggle="modal" data-target="#exampleModal">
-            <button type="button" id="btnLogin" class="btn btn-light btn-sm">Login</button>
-            </a>
-
+            <li>
+              <a href="" data-toggle="modal" data-target="#exampleModal">
+              <button type="button" id="btnLogin" class="btn btn-outline-light btn-sm">&nbsp;login&nbsp;</button>
+              </a>
+            </li>
             <!--
             <li><a href="" data-toggle="modal" data-target="#exampleModal">Log In</a></li>
             -->

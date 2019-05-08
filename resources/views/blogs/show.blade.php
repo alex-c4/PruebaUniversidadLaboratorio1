@@ -35,8 +35,8 @@
         </div>
     </form>
 
-    <div class="row" style="text-align: justify;">
-        <div class="text-justify">
+    <div class="row" >
+        <div >
 
             <div class=" col-xs-6 col-lg-12">
                 <div class="caption">
@@ -52,7 +52,7 @@
                         <br>                  
                     </p> 
 
-                    <a href="{{ url('/#news') }}" class="btn"><i class="fa fa-reply"></i> Volver a noticias</a>
+                    <a href="{{ url('/#blogs') }}" class="btn"><i class="fa fa-reply"></i> Volver a blogs</a>
                     <div id="espaciador"></div>
 
                 </div>
