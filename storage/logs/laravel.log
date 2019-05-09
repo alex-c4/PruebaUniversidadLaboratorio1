@@ -5064,3 +5064,16 @@ Qatar, que ha sido invitado a la Copa América junto a Japón, se encuentra encu
 [stacktrace]
 #0 {main}
 "} 
+[2019-05-01 05:21:30] local.ERROR: Maximum execution time of 30 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 30 seconds exceeded at C:\\xampp\\htdocs\\xportgold\\PruebaUniversidadLaboratorio1\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ViewErrorBag.php:11)
+[stacktrace]
+#0 {main}
+"} 
+[2019-05-08 04:34:36] local.ERROR: Illuminate\View\Engines\PhpEngine::main(): Failed opening required 'facebooklogin/config.php' (include_path='C:\xampp\php\PEAR') {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Illuminate\\View\\Engines\\PhpEngine::main(): Failed opening required 'facebooklogin/config.php' (include_path='C:\\xampp\\php\\PEAR') at C:\\xampp\\htdocs\\xportgold\\PruebaUniversidadLaboratorio1\\storage\\framework\\views\\6ee8977da7982f91a450778571595c64200c736e.php:13)
+[stacktrace]
+#0 {main}
+"} 
+[2019-05-08 23:14:49] local.ERROR: Maximum execution time of 30 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 30 seconds exceeded at C:\\xampp\\htdocs\\xportgold\\PruebaUniversidadLaboratorio1\\vendor\
+esbot\\carbon\\src\\Carbon\\Carbon.php:292)
+[stacktrace]
+#0 {main}
+"} 

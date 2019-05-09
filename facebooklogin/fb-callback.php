@@ -40,8 +40,14 @@
 	//header('Location: /registerFB');
 	//route('/registerFB');
 	//url('/registerFB');
+
+	//Para usarlo local
 	header('Location: http://localhost/xportgold/PruebaUniversidadLaboratorio1/public/registerFB');
 	
+
+	//Para usarlo en el servidor de pruebas
+	//header('Location: http://www.xportgold.net/pruebas/20190429/public/registerFB');
+
 	exit();
 	
 
