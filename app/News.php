@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     // The table associated with the model.
-    protected $table = 'Noticias';
+    protected $table = 'noticias';
 
     /**
      * The attributes that are mass assignable.

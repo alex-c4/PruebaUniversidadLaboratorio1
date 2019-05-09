@@ -29,7 +29,7 @@
                 <td>{{str_limit($new->fuente_noticia, $limit = 20) }}</td>
                 <td>{{$new->fecha_publicacion}}</td>
                 <td>
-                    <a href="{{ route('news.edit', $new->id) }}" title="Editar II" data-toggle="tooltip" data-placement="left" class="btn btn-outline-success"><i class="fa fa-edit"></i></a>
+                    <a href="{{ route('news.edit', $new->id) }}" title="Editar" data-toggle="tooltip" data-placement="left" class="btn btn-outline-success"><i class="fa fa-edit"></i></a>
                 </td>
                 <td>
                     <a href="{{ route('news.show', $new->id) }}" title="Ver noticia" class="btn btn-outline-info"><i class="fa fa-eye"></i></a>

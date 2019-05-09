@@ -81,14 +81,14 @@
           @else
            <li><a href="{{ url('/#about') }}">XPORTGAME BRASIL 2019</a></li>
           @endif
-          <li><a href="{{ url('/#news') }}">GOLD BLOG</a></li>
+          <li><a href="{{ url('/#blogs') }}">GOLD BLOG</a></li>
           <li><a href="{{ url('/#portfolio') }}">BRASIL 2019</a></li>
           <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
           <br>
           @if(Auth::check())   
             @if(Auth::user()->rollId == 1)         
               <li><a href="{{ url('/result/2') }}">Result</a></li>
-              <li><a href="{{ url('/listarBetsPay') }}">Valadar Pagos</a></li>
+              <li><a href="{{ url('/listarBetsPay') }}">Validar Pagos</a></li>
             @endif
             
             <li class="menu-has-children"><a href="{{ url('/dashboard') }}">Dashboard</a>
@@ -100,6 +100,9 @@
                   <li class="menu-has-children"><a href="{{ route('news.index') }}">Noticias</a>
                     <ul><a href="{{ route('news.create') }}">Agregar noticia</a></ul>
                   </li>
+                  <li class="menu-has-children"><a href="{{ route('blogs.index') }}">Blogs</a>
+                    <ul><a href="{{ route('blogs.create') }}">Agregar Blog</a></ul>
+                  </li>
                 @endif
               </ul>
             </li>
@@ -110,10 +113,11 @@
             <li><a href="" data-toggle="modal" data-target="#registerModal">Registrarse</a></li>
             <li><a href="{{ url('/register') }}">Registrarse</a></li>
           -->
-            <a href="" data-toggle="modal" data-target="#exampleModal">
-            <button type="button" id="btnLogin" class="btn btn-light btn-sm">Login</button>
-            </a>
-
+            <li>
+              <a href="" data-toggle="modal" data-target="#exampleModal">
+              <button type="button" id="btnLogin" class="btn btn-outline-light btn-sm">&nbsp;login&nbsp;</button>
+              </a>
+            </li>
             <!--
             <li><a href="" data-toggle="modal" data-target="#exampleModal">Log In</a></li>
             -->

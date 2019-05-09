@@ -136,7 +136,7 @@ class MensajeriaController extends Controller
 
             $data = [
                 'title' => 'Informacion',
-                'message' => 'Aun no posees ninguna conversacion, debes de tener intercambios de cormos en curso para poder compartir mensajes con otos usuario.',
+                'message' => 'Aun no posees ninguna conversacion, debes de tener intercambios de cormos en curso para poder compartir mensajes con otros usuario.',
                 'footer' => 'Gracias!'                
             ];
 

@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Notice;
+use App\Blog;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -44,8 +46,19 @@ class HomeController extends Controller
 
         $myResults = DB::select('CALL sp_getLastResult');
 
-        $misnoticias= Notice::where('borrado', '=', '0')->orderBy('id','desc')->limit(6)->get();  
-        return view('home', compact('misnoticias', 'myResults','quiniela','puntuaciones','puntuaciones_free'));  
+        $misnoticias= Notice::where('borrado', '=', '0')->orderBy('id','desc')->limit(6)->get(); 
+        
+       //  $blogs = Blog::where('borrado', '=', '0')
+       //        ->orderBy('updated_at','desc')
+       //        ->limit(6)
+       //        ->get();
+        $blogs = DB::table('blogs')
+              ->where('borrado', '=', '0')
+              ->orderby('updated_at','desc')
+              ->limit(6)
+              ->get();
+
+       return view('home', compact('misnoticias', 'myResults','quiniela','puntuaciones','puntuaciones_free', 'blogs'));  
                // return redirect()->route('notice.mostrar',['miarreglo'=>$titulo]);
 
         //Informacion antes de la modificacion para la tabla de resultados 
