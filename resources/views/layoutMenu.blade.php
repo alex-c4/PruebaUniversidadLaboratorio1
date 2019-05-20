@@ -103,6 +103,9 @@
                   <li class="menu-has-children"><a href="{{ route('blogs.index') }}">Blogs</a>
                     <ul><a href="{{ route('blogs.create') }}">Agregar Blog</a></ul>
                   </li>
+                  <li>
+                    <a href="{{ route('games.create') }}">Crear Juegos</a>
+                  </li>
                 @endif
               </ul>
             </li>

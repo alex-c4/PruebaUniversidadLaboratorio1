@@ -108,7 +108,7 @@ class QuinielaController extends Controller
         // }
         
         $games = DB::select('CALL sp_getGamesByQuinielaPhase(?,?)', array($quiniela_id, $phase));
-
+        
         $quiniela = Quiniela::where('id_quiniela', $quiniela_id)->get();
 
         if($quiniela[0]['isActive'] == 0){

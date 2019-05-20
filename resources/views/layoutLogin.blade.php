@@ -18,11 +18,11 @@
         exit();
     }
     //Para Trabajar local
-    //$redirectURL = "https://localhost/xportgold/PruebaUniversidadLaboratorio1/facebooklogin/fb-callback.php";
+    // $redirectURL = "https://localhost:8080/20190218/public/facebooklogin/fb-callback.php";
     //echo "Prueba";
 
      //Para Trabajar servidor pruebas
-    $redirectURL = "https://www.test.xportgold.net/facebooklogin/fb-callback.php";
+    $redirectURL = "https://test.xportgold.net/facebooklogin/fb-callback.php";
     //$redirectURL = "https://www.xportgold.net/pruebas/20190429/facebooklogin/fb-callback.php";
 
 
@@ -62,7 +62,7 @@
             </div>
         
             <div class="form-group">
-            <label for="inputPassword">Cl</label>
+            <label for="inputPassword">Clave</label>
             <input type="password" class="form-control {{ $errors->has('passwordLogin') ? 'border-danger' : '' }}" id="passwordLogin" name="passwordLogin" placeholder="Password">
             {!! $errors->first('passwordLogin', '<span class="text-danger">:message</span>') !!}
             </div>

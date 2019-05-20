@@ -242,3 +242,15 @@ Route::get('blogs/{id}/edit', ['as' => 'blogs.edit', 'uses' => 'BlogController@e
 Route::put('blogs/{id}', ['as' => 'blogs.update', 'uses' => 'BlogController@update']);
 Route::patch('blogs/{id}', ['as' => 'blogs.restore', 'uses' => 'BlogController@restore']);
 Route::delete('blogs/{id}', ['as' => 'blogs.destroy', 'uses' => 'BlogController@destroy']);
+
+/*
+|--------------------------------------------------------------------------
+| Games Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Blogs
+|
+*/
+Route::get('games', ['as' => 'games.index', 'uses' => 'GameController@index']);
+Route::get('games/create', ['as' => 'games.create', 'uses' => 'GameController@create']);
+Route::post('games/store', ['as' => 'games.store', 'uses' => 'GameController@store']);

@@ -63,7 +63,7 @@ body {
     color: #fff;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 825px) {
     .back-to-top {
       bottom: 15px;
     }
@@ -121,7 +121,7 @@ body {
     margin: 0;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 825px) {
     #header #logo h1 {
       font-size: 28px;
     }
@@ -196,7 +196,7 @@ body {
     font-weight: 700;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 825px) {
     #intro h2 {
       font-size: 28px;
     }
@@ -355,7 +355,7 @@ body {
     }
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 825px) {
     #nav-menu-container {
       display: none;
     }
@@ -433,7 +433,7 @@ body {
     color: #fff;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 825px) {
     #mobile-nav-toggle {
       display: inline;
     }
@@ -1566,13 +1566,13 @@ body {
     margin-bottom: 20px;
   }
   
-  @media (min-width: 768px) {
+  @media (min-width: 825px) {
     #contact .contact-address, #contact .contact-phone, #contact .contact-email {
       padding: 20px 0;
     }
   }
   
-  @media (min-width: 768px) {
+  @media (min-width: 825px) {
     #contact .contact-phone {
       border-left: 1px solid #ddd;
       border-right: 1px solid #ddd;
