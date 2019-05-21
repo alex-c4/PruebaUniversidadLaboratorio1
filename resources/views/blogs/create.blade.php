@@ -15,7 +15,7 @@
         <div class="section-header">
             <br>
             <h3>Registro</h3>
-            <p>Registro de BLogs XportGold</p>
+            <p>Registro de Blogs XportGold</p>
         </div>
 
         <form action="{{ route('blogs.store') }}" method="post" id="form_create_blogs" >
