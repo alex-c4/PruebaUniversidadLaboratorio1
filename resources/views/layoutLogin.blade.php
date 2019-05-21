@@ -22,7 +22,7 @@
     //echo "Prueba";
 
      //Para Trabajar servidor pruebas
-    $redirectURL = "https://www.test.xportgold.net/facebooklogin/fb-callback.php";
+    $redirectURL = "https://test.xportgold.net/facebooklogin/fb-callback.php";
     //$redirectURL = "https://www.xportgold.net/pruebas/20190429/facebooklogin/fb-callback.php";
 
 

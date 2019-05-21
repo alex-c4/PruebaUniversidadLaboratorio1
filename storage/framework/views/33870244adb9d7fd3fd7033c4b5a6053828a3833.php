@@ -81,14 +81,14 @@
           <?php else: ?>
            <li><a href="<?php echo e(url('/#about')); ?>">XPORTGAME BRASIL 2019</a></li>
           <?php endif; ?>
-          <li><a href="<?php echo e(url('/#news')); ?>">GOLD BLOG</a></li>
+          <li><a href="<?php echo e(url('/#blogs')); ?>">GOLD BLOG</a></li>
           <li><a href="<?php echo e(url('/#portfolio')); ?>">BRASIL 2019</a></li>
           <li><a href="<?php echo e(url('/#contact')); ?>">Contactanos</a></li>
           <br>
           <?php if(Auth::check()): ?>   
             <?php if(Auth::user()->rollId == 1): ?>         
               <li><a href="<?php echo e(url('/result/2')); ?>">Result</a></li>
-              <li><a href="<?php echo e(url('/listarBetsPay')); ?>">Valadar Pagos</a></li>
+              <li><a href="<?php echo e(url('/listarBetsPay')); ?>">Validar Pagos</a></li>
             <?php endif; ?>
             
             <li class="menu-has-children"><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a>
@@ -100,6 +100,9 @@
                   <li class="menu-has-children"><a href="<?php echo e(route('news.index')); ?>">Noticias</a>
                     <ul><a href="<?php echo e(route('news.create')); ?>">Agregar noticia</a></ul>
                   </li>
+                  <li class="menu-has-children"><a href="<?php echo e(route('blogs.index')); ?>">Blogs</a>
+                    <ul><a href="<?php echo e(route('blogs.create')); ?>">Agregar Blog</a></ul>
+                  </li>
                 <?php endif; ?>
               </ul>
             </li>
@@ -110,10 +113,11 @@
             <li><a href="" data-toggle="modal" data-target="#registerModal">Registrarse</a></li>
             <li><a href="<?php echo e(url('/register')); ?>">Registrarse</a></li>
           -->
-            <a href="" data-toggle="modal" data-target="#exampleModal">
-            <button type="button" id="btnLogin" class="btn btn-light btn-sm">Login</button>
-            </a>
-
+            <li>
+              <a href="" data-toggle="modal" data-target="#exampleModal">
+              <button type="button" id="btnLogin" class="btn btn-outline-light btn-sm">&nbsp;login&nbsp;</button>
+              </a>
+            </li>
             <!--
             <li><a href="" data-toggle="modal" data-target="#exampleModal">Log In</a></li>
             -->

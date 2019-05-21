@@ -540,8 +540,8 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>GOLD BLOG</h3>
-          <p> Enterate de lo mas destacado de la Copa America Brasil 2018 en nuestro Blog </p>
+          <h3>NOTICIAS</h3>
+          <p> Enterate de lo mas destacado de la Copa America Brasil 2019 en nuestra sección de noticias </p>
         </header>
 
   
@@ -586,19 +586,67 @@
         
          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-        
-
-
-
         </div>
+
+        <br>
+
+        <!--==========================
+          Blog Section
+        ============================-->
+        <section id="blogs">
+          <div class="container">
+
+            <header class="section-header wow fadeInUp">
+              <h3>GOLD BLOG</h3>
+              <p>Disfruta del contenido mas destacado de la Copa America Brasil 2019 en nuestra sección de blogs.</p>
+            </header>
+
+            <div class="row news-cols">
+
+              <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+
+                <div class="col-md-4 wow fadeInUp">
+                  <div class="news-col">
+                    <h2 class="title"><a href="<?php echo e(url('/blogs/'.$blog->id)); ?>"><?php echo e($blog->title); ?></a></h2>
+
+                    <p style="text-align: justify;">
+                      </br><?php echo e(substr($blog->created_at,0,10)); ?>
+
+                    </p>
+                  <a href="<?php echo e(route('blogs.show', $blog->id)); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                  <?php if(auth()->user() != null && auth()->user()->hasRoles('Administrator')): ?>
+                    <a href="<?php echo e(route('blogs.edit', $blog->id)); ?>" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
+                  <?php endif; ?>
+                  
+                  <!--
+                  <a href="whatsapp://send?text=https://scriptbc.com" data-action="share/whatsapp/share">
+                    <img src="RUTA-IMAGEN" width="XX" height="YY">
+                  </a>
+                  -->
+                  <!--              
+                  <a href="whatsapp://send?text=Como crear un boton de compartir en whatsapp - https://jonathanmelgoza.com/blog/boton-de-compartir-en-whatsapp" data-action="share/whatsapp/share" target="_blank"><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png" style="display: inline;" data-lazy-loaded="true"><noscript><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png"/></noscript></a>
+                  -->
+                  
+                </div>
+              </div>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              
+            </div>
+
+          </div>
+        </section>
+        <!-- #Blog -->
 
       </div>
     </section>
     <!-- #notice -->
 
-  
+
+    
+
     <!--==========================
-      Portfolio Section
+      PortfBLogolio Section
     ============================-->
     <section id="portfolio"  class="section-bg" >
       <div class="container">
