@@ -18,11 +18,11 @@
         exit();
     }
     //Para Trabajar local
-    //$redirectURL = "https://localhost/xportgold/PruebaUniversidadLaboratorio1/facebooklogin/fb-callback.php";
+    $redirectURL = "https://localhost/xportgold/PruebaUniversidadLaboratorio1/facebooklogin/fb-callback.php";
     //echo "Prueba";
 
      //Para Trabajar servidor pruebas
-    $redirectURL = "https://www.test.xportgold.net/facebooklogin/fb-callback.php";
+    //$redirectURL = "https://www.test.xportgold.net/facebooklogin/fb-callback.php";
     //$redirectURL = "https://www.xportgold.net/pruebas/20190429/facebooklogin/fb-callback.php";
 
 
