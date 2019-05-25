@@ -17,12 +17,18 @@
         header('location: index.php');
         exit();
     }
-    //Para Trabajar local
-    // $redirectURL = "https://localhost:8080/20190218/public/facebooklogin/fb-callback.php";
+    //Para Trabajar local ALEX
+    //$redirectURL = "https://localhost:8080/20190218/public/facebooklogin/fb-callback.php";
+
+     //Para Trabajar local yANIS
+   $redirectURL = "https://localhost/xportgold/PruebaUniversidadLaboratorio1/facebooklogin/fb-callback.php";
+
+    
+
     //echo "Prueba";
 
      //Para Trabajar servidor pruebas
-    $redirectURL = "https://test.xportgold.net/facebooklogin/fb-callback.php";
+    //$redirectURL = "https://test.xportgold.net/facebooklogin/fb-callback.php";
     //$redirectURL = "https://www.xportgold.net/pruebas/20190429/facebooklogin/fb-callback.php";
 
 

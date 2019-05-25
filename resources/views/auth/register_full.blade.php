@@ -25,30 +25,95 @@
           
 
           <div class="form-row">
-           
-
-            <!-- Email -->
-            <div class="form-group col-md-8" >
-              <label for="email">Correo electrónico <span style="color: red">*</span></label>
-              <input type="email" class="form-control {{ $errors->has('email') ? 'border-danger' : '' }}" name="email" id="email" placeholder="Correo electrónico" value="{{ old('email') }}">
-              {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
+            <!-- Nombre -->
+            <div class="form-group col-md-6">
+              <label for="name">Nombre <span style="color: red">*</span></label>
+              <input type="text" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" name="name" id="name" placeholder="Nombre" value="{{ old('name') }}">
+              {!! $errors->first('name', '<span class="text-danger">:message</span>') !!}
             </div>
 
-            <!-- Clave 1 -->
-            <div class="form-group col-md-8">
-              <label for="password">Contraseña <span style="color: red">*</span></label>
-              <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" name="password" id="password" placeholder="Contraseña">
-              {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}
-            </div>
-
-            <!-- Clave confirm -->
-            <div class="form-group col-md-8">
-              <label for="password">Confirmar Contraseña</label>
-              <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" name="password_confirmation" id="password-confirm" placeholder="Contraseña">
-              {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}
+            <!-- Apellido -->
+            <div class="form-group col-md-6">
+              <label for="lastName">Apellido <span style="color: red">*</span></label>
+              <input type="text" class="form-control {{ $errors->has('lastName') ? 'border-danger' : '' }}" name="lastName" id="lastName" placeholder="Apellido" value="{{ old('lastName') }}" >
+              {!! $errors->first('lastName', '<span class="text-danger">:message</span>') !!}
             </div>
 
            
+            <!-- Genero -->
+            <div class="form-group col-md-3" >
+              <label for="genderOptions">Género</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" checked type="radio" name="genderOptions" id="inlineRadio1" value="M">
+                  <label class="form-check-label" for="inlineRadio1">Masculino</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="genderOptions" id="inlineRadio2" value="F">
+                  <label class="form-check-label" for="inlineRadio2">Femenino</label>
+                </div>
+              </div>
+              {!! $errors->first('genderOptions', '<span class="text-danger">:message</span>') !!}
+            </div>
+
+           
+
+            <!-- Fecha de Nacimiento -->
+            <div class="form-group col-md-6">
+              <label for="birthday">Fecha de Nacimiento <span style="color: red">*</span></label>
+              <div class="input-group date dp-date">
+                  <input type="text" class="form-control {{ $errors->has('birthday') ? 'border-danger' : '' }}" name="birthday" id="birthday" value="{{ old('birthday') }}" placeholder="Fecha de Nacimiento" >
+                  {!! $errors->first('birthday', '<span class="text-danger">:message</span>') !!}
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+              </div>
+            </div>
+
+            <!-- Telefono 1             -->
+            <div class="form-group col-md-3">
+              <label for="phone1">Teléfono 1</label>
+              <input type="text" class="form-control" id="phone1" name="phone1" placeholder="Teléfono" value="{{ old('phone1') }}">
+            </div>
+
+            <!-- Telefono 2 -->
+            <div class="form-group col-md-3">
+              <label for="phone2">Teléfono 2</label>
+              <input type="text" class="form-control" id="phone2" name="phone2" placeholder="Teléfono"  value="{{ old('phone2') }}">
+            </div>
+
+            <!-- Pais -->
+            <div class="form-group col-md-3">
+              <label for="country_id">País <span style="color: red">*</span></label>
+              <select class="custom-select {{ $errors->has('country_id') ? 'border-danger' : '' }}" id="country_id" name="country_id" placeholder="...">
+                <option selected>...</option>
+                @foreach($countries as $country)
+                  <option value="{{ $country['id'] }}">{{ $country->name }}</option>
+                @endforeach                
+              </select>
+
+              {!! $errors->first('country_id', '<span class="text-danger">:message</span>') !!}
+            </div>
+
+            <!-- Estado -->
+            <div class="form-group col-md-3">
+              <label for="state_id">Estado <span style="color: red">*</span></label>
+              <select class="custom-select {{ $errors->has('state_id') ? 'border-danger' : '' }}" id="state_id" name="state_id" placeholder="...">
+              </select>
+              {!! $errors->first('state_id', '<span class="text-danger">:message</span>') !!}
+            </div>
+
+            <!-- Ciudad -->
+            <div class="form-group col-md-6">
+              <label for="city_id">Ciudad </label>
+              <select type="text" class="custom-select {{ $errors->has('city_id') ? 'border-danger' : '' }}" id="city_id" name="city_id" placeholder="...">
+              </select>
+            </div>
+          </div>
+
+          <!-- Direccion -->
+          <div class="form-group" >
+            <label for="direction">Dirección</label>
+            <input type="text" class="form-control" id="direction" name="direction" placeholder="Dirección" value="{{ old('direction') }}">
+          </div>
 
           <!-- Terminos y condiciones -->
           <div class="text-center">

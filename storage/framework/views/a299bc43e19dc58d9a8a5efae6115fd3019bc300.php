@@ -27,7 +27,7 @@
            
 
             <!-- Email -->
-            <div class="form-group col-md-6" >
+            <div class="form-group col-md-8" >
               <label for="email">Correo electrónico <span style="color: red">*</span></label>
               <input type="email" class="form-control <?php echo e($errors->has('email') ? 'border-danger' : ''); ?>" name="email" id="email" placeholder="Correo electrónico" value="<?php echo e(old('email')); ?>">
               <?php echo $errors->first('email', '<span class="text-danger">:message</span>'); ?>
@@ -35,7 +35,7 @@
             </div>
 
             <!-- Clave 1 -->
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-8">
               <label for="password">Contraseña <span style="color: red">*</span></label>
               <input type="password" class="form-control <?php echo e($errors->has('password') ? 'border-danger' : ''); ?>" name="password" id="password" placeholder="Contraseña">
               <?php echo $errors->first('password', '<span class="text-danger">:message</span>'); ?>
@@ -43,7 +43,7 @@
             </div>
 
             <!-- Clave confirm -->
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-8">
               <label for="password">Confirmar Contraseña</label>
               <input type="password" class="form-control <?php echo e($errors->has('password') ? 'border-danger' : ''); ?>" name="password_confirmation" id="password-confirm" placeholder="Contraseña">
               <?php echo $errors->first('password', '<span class="text-danger">:message</span>'); ?>
