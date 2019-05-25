@@ -2,6 +2,16 @@
 
 @section('content')
 
+<script>
+     $(document).ready(function () {
+        document.getElementById("notice").style.visibility = "visible";
+    });
+</script>
+
+
+
+
+
 <style type="text/css">
     #header{
         background: rgba(0, 0, 0, 0.9);
@@ -13,7 +23,7 @@
 
 <div id="espaciador"></div>
 
-<div class="container">
+<div class="container {{env('EFECT_WOW') }}" style="visibility: hidden" id="notice">
 <form id="formDestroy" action="{{ route('news.destroy', $news->id) }}" method="post">
     {{ method_field('DELETE') }}
     {{ csrf_field() }}

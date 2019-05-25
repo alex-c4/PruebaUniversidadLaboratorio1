@@ -2,9 +2,15 @@
 
 @section('content')
 
+<script>
+     $(document).ready(function () {
+        document.getElementById("contact").style.visibility = "visible";
+    });
+</script>
+
 <hr/>
 
-<section id="contact" class="section-bg wow jackInTheBox" >
+<section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
 <form method="POST" action="{{ route('savePronostic') }}" method>
 
     <div class="section-header">

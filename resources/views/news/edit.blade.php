@@ -2,8 +2,14 @@
 
 @section('content')
 
+<script>
+     $(document).ready(function () {
+        document.getElementById("contact").style.visibility = "visible";
+    });
+</script>
+
 <hr/>
-<section id="contact" class="section-bg wow" >
+<section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
 
     <div class="container" >
         <div class="section-header">

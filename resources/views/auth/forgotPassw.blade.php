@@ -3,7 +3,13 @@
 @section('content')
 
 <hr/>
-<section id="contact" class="section-bg wow fadeInUp" >
+<script>
+     $(document).ready(function () {
+        document.getElementById("contact").style.visibility = "visible";
+    });
+</script>
+
+<section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
 
     <div class="container" >
         <div style='padding: 50px;'>

@@ -1,6 +1,13 @@
 @extends('layoutMenu')
 
 @section('content')
+<script>
+     $(document).ready(function () {
+        document.getElementById("contact").style.visibility = "visible";
+    });
+</script>
+
+
 <style type="text/css">
 #header{
   background: rgba(0, 0, 0, 0.9);
@@ -12,7 +19,7 @@
 
 </style>
 <hr/>    
-  <section id="contact" style="background: #f7f7f7">  
+  <section id="contact" style="background: #f7f7f7; visibility: hidden" class="{{env('EFECT_WOW') }}">  
    
     <div class="section-header">
       <h3>Tabla de Posiciones Quiniela </h3>
