@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.1and1.com'),
+    'host' => env('MAIL_HOST', 'smtp.ionos.com'),
 
     /*
     |--------------------------------------------------------------------------

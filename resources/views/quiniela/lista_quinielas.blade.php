@@ -2,12 +2,21 @@
 
 @section('content')
 
+<script>
+     $(document).ready(function () {
+        document.getElementById("contact").style.visibility = "visible";
+    });
+</script>
+
+
+
+
 
 <hr/>
 
 <input type="hidden" id="routeCurrent" value="{{ url('/') }}">
 
-<section id="contact" class="section-bg wow fadeInUp" >
+<section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
     <div class="section-header">
         <h3>Consulta de Puntuaciones</h3>
         <p>Sleccione la quiniela a consultar </p>

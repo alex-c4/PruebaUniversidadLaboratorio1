@@ -2,9 +2,16 @@
 
 @section('content')
 
+<script>
+     $(document).ready(function () {
+        document.getElementById("setting").style.visibility = "visible";
+    });
+</script>
+<br>
+<br>
 <hr/>
 
-<section id="contact" class="section-bg wow" >
+<section id="setting" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
       <div class="container" >
 
         <div class="section-header">

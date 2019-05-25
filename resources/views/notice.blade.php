@@ -1,6 +1,18 @@
 @extends('layoutMenu')
 
 @section('content')
+
+<script>
+     $(document).ready(function () {
+        document.getElementById("notice").style.visibility = "visible";
+    });
+</script>
+
+
+
+
+
+
 <style type="text/css">
 #header{
   background: rgba(0, 0, 0, 0.9);
@@ -11,7 +23,7 @@
 
 </style>
    <div id="espaciador"></div>
-   <div class="container">
+   <div style="visibility: hidden" class="container {{env('EFECT_WOW') }}" id="notice">
 
         <div class="section-header">
           <h3>Noticias XportGold</h3>

@@ -2,6 +2,11 @@
 
 @section('content')
 
+<script>
+     $(document).ready(function () {
+        document.getElementById("coct").style.visibility = "visible";
+    });
+</script>
 
 <style type="text/css">
 #header{
@@ -14,7 +19,7 @@
 </style>
 <hr/>
 <div id="espaciador" ></div>
-<section id="coct" class="section-bg wow fadeInUp" >
+<section id="coct" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
     <div class="container" >
       <div class="section-header">
          <h3>Nuevo Mensaje</h3>

@@ -2,9 +2,16 @@
 
 @section('content')
 
+<script>
+     $(document).ready(function () {
+        document.getElementById("contact").style.visibility = "visible";
+    });
+</script>
+
+
 <hr/>
 
-<section id="contact" class="section-bg wow" >
+<section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
       <div class="container" >
 
         <div class="section-header">
@@ -55,6 +62,7 @@
          
             <label>Al hacer clic en "Registrar" acepto los <a href="" data-toggle="modal" data-target="#legalModal" class="btn-get-started scrollto">términos de GoldXport y la política de privacidad.</a></label>          
           </div>
+        </div>
 
           <!-- Boton Aceptar -->
           <div class="text-center">

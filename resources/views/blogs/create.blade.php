@@ -2,6 +2,12 @@
 
 @section('content')
 
+<script>
+     $(document).ready(function () {
+        document.getElementById("contact").style.visibility = "visible";
+    });
+</script>
+
 <link rel="stylesheet" href="{{ asset('js/sceditor/minified/themes/square.min.css') }}" id="theme-style" />
 		  
 <script src="{{asset('js/sceditor/minified/sceditor.min.js?v=4')}} "></script>
@@ -10,7 +16,7 @@
         
 <hr/>
 
-<section id="contact" class="section-bg wow" >
+<section id="contact" class="section-bg {{env('EFECT_WOW') }}" style="visibility: hidden" >
     <div class="container" >
         <div class="section-header">
             <br>

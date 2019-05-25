@@ -2,12 +2,17 @@
 
 @section('content')
 
-
+<script>
+     $(document).ready(function () {
+        document.getElementById("contact").style.visibility = "visible";
+    });
+</script>
+<br>
 <hr/>
 
 <input type="hidden" id="routeCurrent" value="{{ url('/') }}">
 
-<section id="contact" class="section-bg wow bounceInLeft" >
+<section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
 <div class="section-header container">
         <h3>Quiniela</h3>
         <p>Listado de quinielas públicas y privadas creadas por la comunidad de XportGold</p>
@@ -69,7 +74,7 @@
                         <td>{{ $quinielaPrivada->nombreCampeonato }}</td>
                         <td>{{ $quinielaPrivada->tipoQuiniela }}</td>
                         <td>
-                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPrivada->idQuiniela }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"></i></a>
+                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPrivada->idQuiniela }}/{{ $quinielaPrivada->phase }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"></i></a>
                         </td>
                     </tr>
 

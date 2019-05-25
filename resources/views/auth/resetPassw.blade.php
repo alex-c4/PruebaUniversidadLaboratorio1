@@ -2,8 +2,14 @@
 
 @section('content')
 
+<script>
+     $(document).ready(function () {
+        document.getElementById("resetPass").style.visibility = "visible";
+    });
+</script>
+<br>
 <hr/>
-<section id="contact" class="section-bg wow fadeInUp" >
+<section id="resetPass" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
 
     <div class="container" >
         <div style='padding: 50px;'>

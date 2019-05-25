@@ -2,12 +2,19 @@
 
 @section('content')
 
-
+<script>
+     $(document).ready(function () {
+        document.getElementById("stickers").style.visibility = "visible";
+    });
+</script>
+<br>
+<br>
+<br>
 <hr/>
 
 <input type="hidden" id="routeCurrent" value="{{ url('/') }}">
 
-<section id="contact" class="section-bg wow fadeInUp" >
+<section id="stickers" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
     <div class="section-header">
         <h3>Control Cromo</h3>
         <p>Panel de control del conjunto de cromos coleccionados y posibles cromos intercabiables</p>
