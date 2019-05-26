@@ -42,6 +42,7 @@ Route::view('/auth.successEdit', 'successEdit');
 
 //Modificado por yanis para registro basico de usuario
 Route::post('/register', 'Auth\RegisterController@store_basic')->name('register');
+//Route::post('/register_full', 'Auth\RegisterController@store_full')->name('register_full');
 //Route::post('/register', 'Auth\RegisterController@store')->name('register');
 
 // Route::post('login', 'Auth\LoginController@login')->name('login');

@@ -102,6 +102,23 @@ class RegisterController extends Controller
     }
 
 
+    protected function validator_full(array $data)
+    {
+        $messages = [
+            'numeric' => 'The field is required.',
+            'required' => 'The field is required.'
+        ];
+
+        return Validator::make($data, [
+            'name' => 'required|string|max:20',
+            'lastName' => 'required|string|max:20',
+            'birthday' => 'required|date',
+            'country_id' => 'required|numeric',
+            'state_id' => 'required|numeric'
+        ], $messages);
+    }
+
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -253,6 +270,61 @@ class RegisterController extends Controller
         
     }
 
+    //Modificado por yanis para el registro full de usuario
+    public function store_full(){
+        echo "En el metodo store_full";
+       //$this->validator_full(request()->all())->validate();
+        // User::create(request()->all());
+        $conf_code = str_random(15);
+
+        $pathToFile = storage_path('app') . '\\' . 'instructivo.doc';
+
+        
+        $user = User::where('email', auth()->user()->email)->get();
+        //$user->update(request()->all());
+        /*$user = User::create([
+            'name' => request()->name,
+            'lastName' => request()->lastName,
+                        
+            'gender' => request()->genderOptions,
+            'phone' => request()->phone,
+            'phone2' => request()->phone2,
+            'birthday' => request()->birthday,
+            'country_id' => request()->country_id,
+            'state_id' => request()->state_id,
+            'city_id' => request()->city_id,
+            'direction' => request()->direction,
+            'confirmation_code' => $conf_code
+        ]);
+        
+        */
+        //$req = request();
+        
+        //Apagado por yanis por error en el local 
+        // Encender para usarlo en produccion
+        /*
+        Mail::send('emails.welcome', $data, function($message) use($req, $pathToFile) {
+            $message->from('admin@xportgold.com', 'XportGold');
+            $message->to($req->email)->subject('Confirmación de tu correo');
+            //$message->attach($pathToFile);
+        });
+        
+        */
+
+
+
+        // return $data;
+        /*
+        $datos = [
+            
+            'email' => request()->email
+        ];
+        */
+        //return view('/auth.success_basic', $datos);
+        $albumList = Album::get();
+
+        //return view('/sticker.index', compact('albumList', 'listCantSticker'));
+    }
 
      //Modificado por yanis para el registro con sesion login facebook
     public function store_fb(){
