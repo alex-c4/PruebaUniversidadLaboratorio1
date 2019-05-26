@@ -72,18 +72,20 @@
             <input type="password" class="form-control {{ $errors->has('passwordLogin') ? 'border-danger' : '' }}" id="passwordLogin" name="passwordLogin" placeholder="Password">
             {!! $errors->first('passwordLogin', '<span class="text-danger">:message</span>') !!}
             </div>
-
           
 
             <div class="form-group">
-                <div id="message-got">
-                
-                </div>
                 <button type="submit" id="btnLogin" class="btn btn-success btn-block btn-sm">Entrar</button>
             </div> 
 
             <div class="form-group" style="text-align: right;">
                 <a href="{{ route('forgotPassw') }}">¿Se te olvidó tu contraseña?</a>
+            </div>
+            <div >
+                
+            </div>
+            <div id="messagegot">
+                
             </div>
 
             <div>

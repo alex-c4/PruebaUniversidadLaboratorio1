@@ -9799,6 +9799,7 @@ esbot\\carbon\\src\\Carbon\\Carbon.php:292)
 #61 {main}
 >>>>>>> 4eedb1b169ad1c9f72fc303fefc17c9da1df26e6
 "} 
+<<<<<<< HEAD
 [2019-05-25 23:38:42] local.ERROR: Maximum execution time of 30 seconds exceeded {"userId":144,"email":"itzayana@gmail.com","exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 30 seconds exceeded at C:\\xampp\\htdocs\\xportgold\\PruebaUniversidadLaboratorio1\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php:183)
 [stacktrace]
 #0 {main}
@@ -10490,4 +10491,13 @@ esbot\\carbon\\src\\Carbon\\Carbon.php:292)
 #63 C:\\xampp\\htdocs\\xportgold\\PruebaUniversidadLaboratorio1\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
 #64 C:\\xampp\\htdocs\\xportgold\\PruebaUniversidadLaboratorio1\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #65 {main}
+=======
+[2019-05-25 23:10:07] local.ERROR: Method Illuminate\View\View::__toString() must not throw an exception, caught ErrorException: Call to undefined function asst() (View: C:\xampp\htdocs\20190218\resources\views\dashboard\dashboard.blade.php) {"userId":64,"email":"alexdaniel2601@gmail.com","exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Method Illuminate\\View\\View::__toString() must not throw an exception, caught ErrorException: Call to undefined function asst() (View: C:\\xampp\\htdocs\\20190218\esources\\views\\dashboard\\dashboard.blade.php) at C:\\xampp\\htdocs\\20190218\\app\\Http\\Controllers\\Dashboard\\DashboardController.php:0)
+[stacktrace]
+#0 {main}
+"} 
+[2019-05-25 23:11:48] local.ERROR: Method Illuminate\View\View::__toString() must not throw an exception, caught ErrorException: Parse error: syntax error, unexpected 'userEdit' (T_STRING), expecting ',' or ')' (View: C:\xampp\htdocs\20190218\resources\views\dashboard\dashboard.blade.php) {"userId":64,"email":"alexdaniel2601@gmail.com","exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Method Illuminate\\View\\View::__toString() must not throw an exception, caught ErrorException: Parse error: syntax error, unexpected 'userEdit' (T_STRING), expecting ',' or ')' (View: C:\\xampp\\htdocs\\20190218\esources\\views\\dashboard\\dashboard.blade.php) at C:\\xampp\\htdocs\\20190218\\app\\Http\\Controllers\\Dashboard\\DashboardController.php:0)
+[stacktrace]
+#0 {main}
+>>>>>>> 27d635e3341e981a148a58905ed8c98ebc30da3e
 "} 
