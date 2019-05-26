@@ -14,12 +14,14 @@ $('#form_login').submit(function() {
         data: $(this).serialize()
     })
     .done(function(data, textStatus, jqXHR){
+        debugger
             if(data.access == true){
                 console.log(_routeDashboard)
                 $(location).attr('href', _routeDashboard);
             }else{
                 console.log(data.message);
-                $('#message-got').html('<div class="alert alert-warning" role="alert">' + data.message + '</div>');                
+                $('#messagegot').html('<div class="alert alert-warning" role="alert">' + data.message + '</div>');                
+                // $('#messagegot').html(data.message);                
             }
             console.log(data);
         })
