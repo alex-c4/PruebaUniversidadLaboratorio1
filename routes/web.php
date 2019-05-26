@@ -166,7 +166,7 @@ Route::view('quiniela/createQuiniela', 'createQuiniela');
 Route::post('saveNewQuinielaPrivate', 'Quiniela\QuinielaController@saveNewQuinielaPrivate')->name('saveNewQuinielaPrivate');
 Route::get('codeQuiniela', 'Quiniela\QuinielaController@codeQuiniela')->name('codeQuiniela');
 Route::view('quiniela/codeQuiniela', 'codeQuiniela');
-
+Route::post('quiniela/addCodeQuiniela', ['as' => 'quiniela.addCode', 'uses' => 'Quiniela\QuinielaController@addCodeQuiniela']);
 
 
 /*

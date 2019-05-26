@@ -320,6 +320,16 @@ class QuinielaController extends Controller
         ], $messages);
     }
 
+    protected function validateCodeQuiniela(array $data){
+        $messages = [
+            'required' => 'El código es rquerido.'
+        ];
+
+        return Validator::make($data, [
+            'codigo' => 'required|string|max:100',
+        ], $messages);
+    }
+
     public function saveNewQuinielaPrivate(){
         $userId = auth()->user()->id;
         $userRollId = auth()->user()->rollId;
@@ -333,6 +343,15 @@ class QuinielaController extends Controller
             'id_user_creador' => $userId,
             'code' => str_random(15)
         ]);
+
+        /**
+         * Asocia de una vez la quinela con el jugador
+         */
+        $joinQuiniela = DB::table('joinquiniela')
+            ->insert([
+                'id_quiniela' => $quiniela->id,
+                'id_user' => $userId
+            ]);
 
         $misQuinielas = $this->getMisQuinielas($userId);
 
@@ -426,5 +445,40 @@ class QuinielaController extends Controller
         return view('info', compact('title', 'message', 'footer', 'url'));
     }
 
+    public function addCodeQuiniela(){
+        $userId = auth()->user()->id;
+        /**
+         * validacion de envio correcto del codigo
+         */
+        $this->validateCodeQuiniela(request()->all())->validate();
 
+        /**
+         * Búsqueda del codigo en la tabla quinielas
+         */
+        $quiniela = DB::table('quinielas')
+            ->where('code', request()->codigo)
+            ->first();
+
+        if($quiniela === null){
+            $data = [
+                'title' => 'Información',
+                'message' => 'Lo sentimos, el código suministrado no se encontro en nuestra base de datos, por favor verifique e intente nuevamente.',
+                'footer' => 'Gracias!',
+                'returnPage' => 'codeQuiniela'
+            ];
+            return $this->muestraAlert($data);
+
+        }else{
+            $joinQuiniela = DB::table('joinquiniela')
+            ->insert([
+                'id_quiniela' => $quiniela->id_quiniela,
+                'id_user' => $userId
+            ]);
+            return redirect()->route('quiniela');
+        }
+    }
+
+    public function muestraAlert($data){
+        return view('alert', $data); 
+    }
 }

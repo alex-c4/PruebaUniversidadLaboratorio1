@@ -31,6 +31,9 @@
   <link href="{{ asset('css/jquery-confirm.css')}}" rel="stylesheet">
   <link href="{{ asset('css/jquery-confirm.less')}}" >
 
+  
+  <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
+
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css')}}" rel="stylesheet">
  
@@ -229,7 +232,6 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('lib/jquery/jquery-migrate.min.js')}}"></script>
   <script src="{{asset('lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('lib/easing/easing.min.js')}}"></script>
