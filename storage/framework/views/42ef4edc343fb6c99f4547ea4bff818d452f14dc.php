@@ -1,8 +1,13 @@
 <?php $__env->startSection('content'); ?>
 
+<script>
+     $(document).ready(function () {
+        document.getElementById("contact").style.visibility = "visible";
+    });
+</script>
 
 <hr/>
-<section id="contact" class="section-bg wow fadeInUp" >
+<section id="contact" style="visibility: hidden" class="section-bg <?php echo e(env('EFECT_WOW')); ?>" >
 <div style='padding: 50px;'>
    
    

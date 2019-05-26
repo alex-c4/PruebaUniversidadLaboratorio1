@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Sticker;
 
+
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth\SettingsController;
 
 use DB;
 use App\Sticker;
@@ -11,6 +14,12 @@ use App\User;
 use App\Album;
 use Mail;
 use App\Mail\contactUser;
+
+//mod por yanis
+use App\Country;
+
+use App\State;
+use App\City;
 
 class StickerController extends Controller
 {
@@ -25,9 +34,28 @@ class StickerController extends Controller
     }
 
     public function index(){
-        $albumList = Album::get();
 
-        return view('/sticker.index', compact('albumList', 'listCantSticker'));
+        //Mod yanis mejias 24-05-2019
+        $user = User::where('email', auth()->user()->email)->get();
+
+       
+        if($user->count() > 0 && $user[0]->city_id == ""){
+              
+
+            $user = auth()->user();
+            $countries = Country::all();
+            $states = State::where('country_id', $user->country_id)->get();
+            $cities= City::where('state_id', $user->state_id)->get();
+
+            return view('auth.settings', compact('countries', 'states', 'cities', 'user'));
+
+                      
+        }else{
+            $albumList = Album::get();
+
+            return view('/sticker.index', compact('albumList', 'listCantSticker'));
+
+        }
     }
 
     public function getStickerList($album_id, $user_id, $whoList){

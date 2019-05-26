@@ -34,6 +34,9 @@ class SettingsController extends Controller
 
 
     public function edit(){
+
+        echo "En el edit de setting";
+
         $user = auth()->user();
 
         $countries = Country::all();
@@ -44,7 +47,7 @@ class SettingsController extends Controller
         
         // $user = User::where('id', $user_id)->get();
 
-        return view('auth.settings', compact('countries', 'states', 'cities', 'user'));
+        return view('../../auth.settings', compact('countries', 'states', 'cities', 'user'));
         // $user = User::where('id', request()->email)->get();
 
     }
