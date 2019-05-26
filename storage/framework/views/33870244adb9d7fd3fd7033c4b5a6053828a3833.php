@@ -103,6 +103,9 @@
                   <li class="menu-has-children"><a href="<?php echo e(route('blogs.index')); ?>">Blogs</a>
                     <ul><a href="<?php echo e(route('blogs.create')); ?>">Agregar Blog</a></ul>
                   </li>
+                  <li>
+                    <a href="<?php echo e(route('games.create')); ?>">Crear Juegos</a>
+                  </li>
                 <?php endif; ?>
               </ul>
             </li>

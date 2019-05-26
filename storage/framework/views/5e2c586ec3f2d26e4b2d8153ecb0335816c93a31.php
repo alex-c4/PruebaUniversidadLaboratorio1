@@ -61,46 +61,20 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $("#btn-blog-next").click(function () {
-            $('#blogCarousel').carousel('next')
-        });
-        $("#btn-blog-prev").click(function () {
-            $('#blogCarousel').carousel('prev')
-        });
-
-        $("#btn-client-next").click(function () {
-            $('#clientCarousel').carousel('next')
-        });
-        $("#btn-client-prev").click(function () {
-            $('#clientCarousel').carousel('prev')
-        });
+        document.getElementById("divDashboard").style.visibility = "visible";
 
     });
 
-    $(window).load(function () {
-
-        $('.flexslider').flexslider({
-            animation: "slide",
-            slideshow: true,
-            start: function (slider) {
-                $('body').removeClass('loading');
-            }
-        });
-    });
 
 </script>
   </head>
   <body>
 
-	<br>
-  <br>
-  <br>
-  <br>
 
-    <div class="container">
+    <div class="container" >
 
 	  <!-- FIRST ROW OF BLOCKS -->
-      <div class="row">
+      <div class="row" style="display: none">
 
       <!-- USER PROFILE BLOCK -->
         <div class="col-sm-3 col-lg-3">
@@ -140,7 +114,7 @@
         								<ul>
 
         									<li class="header_row">
-        										<h1>Cromos</h1>
+        										<h1>C</h1>
         									</li>
         									<li><a class="tt" href="<?php echo e(url('sticker')); ?>">  -- Panel de Cromos --<span class="tooltip"><span class="triangle-obtuse">Puedes consultar tus cromos adquiridas, repetidas y de interes desde tu panel</span></span></a></li>
 	                        <li><a class="tt" href="<?php echo e(url('conv')); ?>"> Mensajerias de Intercambio <span class="tooltip"><span class="triangle-obtuse">Consulta tus intercambios de cromos y sus respectivas conversaciones </span></span></a></li>
@@ -187,7 +161,7 @@
                             <a class="tt" href="<?php echo e(route('searchPronostics')); ?>">Mis Pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
                           </li>
                           <li>
-                            <a class="tt" href="<?php echo e(route('addPronosticsNewPhase')); ?>">Registro Pronósticos 4° Finales<span class="tooltip"><span class="triangle-obtuse">Agrega pronostico para la nueva fase</span></span></a>
+                            <a class="tt" href="<?php echo e(route('addPronosticsNewPhase')); ?>">Registro Pronósticos<span class="tooltip"><span class="triangle-obtuse">Agrega pronostico para la nueva fase</span></span></a>
                           </li>
                           <!-- <li>
                             <a class="tt" href="<?php echo e(url('/puntuacionesQui/1')); ?>"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
@@ -195,6 +169,9 @@
                           <?php if(Auth::user()->rollId == 1): ?>      
                           <li>
                             <a class="tt" href="<?php echo e(route('createPrivateQuiniela')); ?>">Crear quiniela<span class="tooltip"><span class="triangle-obtuse">Registrar nueva quiniela</span></span></a>
+                          </li>    
+                          <li>
+                            <a class="tt" href="<?php echo e(route('games.create')); ?>">Crear Juegos<span class="tooltip"><span class="triangle-obtuse">Registrar nuevo juego</span></span></a>
                           </li>
                           <?php endif; ?>
                           <li>
@@ -227,6 +204,161 @@
                     </div>
                   </div>            	
     </div> <!-- /container -->
+<br>
+<br>
+    <div id="divDashboard" style="visibility: hidden" class="container wow fadeInUp" data-wow-delay="0.1s">
+    <h1><?php echo e(ucfirst(auth()->user()->name)); ?> <?php echo e(ucfirst(auth()->user()->lastName)); ?></h1>
+    <div class="row text-center">
+      <div class="col-lg-3 col-sm-6">
+        <a href="<?php echo e(route('userEdit')); ?>">
+          <img src="<?php echo e(asset('img/icons_new_panel/user_information.png')); ?>" alt="panel de cromos" srcset="">
+          <p>
+            Información
+          </p>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-sm-6">
+        <a href="<?php echo e(route('resetPassw')); ?>">
+          <img src="<?php echo e(asset('img/icons_new_panel/user_[assword.png')); ?>" alt="panel de cromos" srcset="">
+          <p>
+            Cambiar Clave
+          </p>
+        </a>
+      </div>
+    </div>  
+
+
+
+    <div class="row text-center">
+          <!-- <div class="alert alert-dark  col-sm-12" role="alert">
+            Cromos
+          </div> -->
+          
+        <div class="col-lg-12 titleDashboard">
+          <h4>Cromos</h4>
+          <hr>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="<?php echo e(url('sticker')); ?>">
+            <img src="<?php echo e(asset('img/icons_new_panel/cromo_panel.png')); ?>" alt="panel de cromos" srcset="">
+            <p>
+              Panel de cromos
+            </p>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="<?php echo e(url('conv')); ?>">
+            <img src="<?php echo e(asset('img/icons_new_panel/cromos_messages.png')); ?>" alt="panel de cromos" srcset="">
+            <p>
+              Mensajeria de Intercambio
+            </p>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          
+          <a href="<?php echo e(asset('files/Instructivo Intercambio Cromos XportGold.pdf')); ?>" target="_blank">
+            <img src="<?php echo e(asset('img/icons_new_panel/quiniela_descargar_instructivo.png')); ?>" alt="panel de cromos" srcset="">
+            <p>
+              Descargar Instructivo Cromos
+            </p>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row text-center">
+          <!-- <div class="alert alert-dark   col-sm-12" role="alert">
+          Quinielas
+          </div> -->
+        <div class="col-lg-12 titleDashboard">
+          <h4>Quinielas</h4>
+          <hr>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="<?php echo e(asset('/files/Instructivo Quiniela Fase Final Rusia 2018_XportGold.pdf')); ?>" target="_blank">
+            <img src="<?php echo e(asset('img/icons_new_panel/download_manual.png')); ?>" alt="Instructivo de Juego" srcset="">
+            <p>
+              Instructivo de Juego
+            </p>
+          </a>
+        </div>
+        
+        <div class="col-lg-3 col-sm-6">
+          <a href="<?php echo e(asset('/files/Reglamento Quiniela Fase Final Rusia 2018 XportGold.pdf')); ?>" target="_blank">
+            <img src="<?php echo e(asset('img/icons_new_panel/quiniela_rules.png')); ?>" alt="Reglamento de Juego" srcset="">
+            <p>
+              Reglamento de Juego
+            </p>
+          </a>
+        </div>
+          
+        <div class="col-lg-3 col-sm-6">
+          <a href="<?php echo e(route('quiniela')); ?>">
+            <img src="<?php echo e(asset('img/icons_new_panel/quiniela_add_pronostics.png')); ?>" alt="Nuevo Pronósticos" srcset="">
+            <p>
+              Nuevo Pronósticos
+            </p>
+          </a>
+        </div>
+          
+        <div class="col-lg-3 col-sm-6">
+          <a href="<?php echo e(route('searchPronostics')); ?>">
+            <img src="<?php echo e(asset('img/icons_new_panel/quiniea_my_pronostics.png')); ?>" alt="Mis Pornósticos" srcset="">
+            <p>
+              Mis Pronósticos
+            </p>
+          </a>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+          <a href="<?php echo e(route('addPronosticsNewPhase')); ?>">
+            <img src="<?php echo e(asset('img/icons_new_panel/quiniela_add.png')); ?>" alt="Registro de Pronósticos" srcset="">
+            <p>
+              Registro de Pronósticos
+            </p>
+          </a>
+        </div>
+        <?php if(Auth::user()->rollId == 1): ?> 
+          <div class="col-lg-3 col-sm-6">
+            <a href="<?php echo e(route('createPrivateQuiniela')); ?>">
+              <img src="<?php echo e(asset('img/icons_new_panel/quiniela_pronostics.png')); ?>" alt="Crear Quiniela" srcset="">
+              <p>
+                Crear Quiniela
+              </p>
+            </a>
+          </div>
+          
+          <div class="col-lg-3 col-sm-6">
+            <a href="<?php echo e(route('games.create')); ?>">
+              <img src="<?php echo e(asset('img/icons_new_panel/quiniela_add_games.png')); ?>" alt="Crear Juego" srcset="">
+              <p>
+                Crear Juego
+              </p>
+            </a>
+          </div>
+        <?php endif; ?>
+        <div class="col-lg-3 col-sm-6">
+          <a href="<?php echo e(url('/puntuacionesQui/1')); ?>">
+            <img src="<?php echo e(asset('img/icons_new_panel/quiniela_position_table.png')); ?>" alt="Crear Juego" srcset="">
+            <p>
+              Tabla de Posiciones Quiniela
+            </p>
+          </a>
+        </div>
+
+      </div>
+
+
+
+<hr>
+<br>
+
+
+
   </body>
 </html>
 
