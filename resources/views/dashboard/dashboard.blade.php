@@ -3,7 +3,6 @@
 @section('content')
 
 
-<!doctype html>
 
 
 <html><head>
@@ -13,7 +12,6 @@
     <meta name="description" content="">
     <meta name="author" content="Carlos Alvarez - Alvarez.is">
 
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
 
     <link href="css/main.css" rel="stylesheet">
     <link href="css/font-style.css" rel="stylesheet">
@@ -21,28 +19,30 @@
     <!-- DATA TABLE CSS -->
     <link href="css/table.css" rel="stylesheet">
 
-    <script type="text/javascript" src="dash/js/jquery.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{asset('lib/jquery/jquery.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{asset('lib/bootstrap/js/bootstrap.min.js')}}"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}" /> -->
 
-	<script type="text/javascript" src="dash/js/lineandbars.js"></script>
+	<!-- <script type="text/javascript" src="{{asset('lib/dash/lineandbars.js')}} "></script>
 
-	<script type="text/javascript" src="dash/js/dash-charts.js"></script>
-	<script type="text/javascript" src="dash/js/gauge.js"></script>
+	<script type="text/javascript" src="{{asset('lib/dash/dash-charts.js')}}"></script>
+	<script type="text/javascript" src="{{asset('lib/dash/gauge.js')}}"></script> -->
 
 	<!-- NOTY JAVASCRIPT -->
-	<script type="text/javascript" src="dash/js/noty/jquery.noty.js"></script>
-	<script type="text/javascript" src="dash/js/noty/layouts/top.js"></script>
-	<script type="text/javascript" src="dash/js/noty/layouts/topLeft.js"></script>
-	<script type="text/javascript" src="dash/js/noty/layouts/topRight.js"></script>
-	<script type="text/javascript" src="dash/js/noty/layouts/topCenter.js"></script>
+	<!-- <script type="text/javascript" src="{{asset('lib/dash/noty/jquery.noty.js')}}"></script>
+	<script type="text/javascript" src="{{asset('lib/dash/noty/layouts/top.js')}}"></script>
+	<script type="text/javascript" src="{{asset('lib/dash/noty/layouts/topLeft.js')}}"></script>
+	<script type="text/javascript" src="{{asset('lib/dash/noty/layouts/topRight.js')}}"></script>
+	<script type="text/javascript" src="{{asset('lib/dash/noty/layouts/topCenter.js')}}"></script> -->
 
 	<!-- You can add more layouts if you want -->
-	<script type="text/javascript" src="dash/js/noty/themes/default.js"></script>
+	<!-- <script type="text/javascript" src="{{asset('lib/dash/noty/themes/default.js')}}"></script> -->
     <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
 	<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
-	<script src="dash/js/jquery.flexslider.js" type="text/javascript"></script>
+	<!-- <script src="{{asset('lib/dash/jquery.flexslider.js')}}" type="text/javascript"></script> -->
 
-    <script type="text/javascript" src="dash/js/admin.js"></script>
+    <!-- <script type="text/javascript" src="{{asset('lib/dash/admin.js')}}"></script> -->
 
     <style type="text/css">
       body {
@@ -60,21 +60,24 @@
 	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
-<script type="text/javascript">
+  <script type="text/javascript">
     $(document).ready(function () {
 
         document.getElementById("divDashboard").style.visibility = "visible";
+        document.getElementById("divLoading").style.display = "none";
+        
 
     });
+    console.log("cargo!!");
 
+  </script>
 
-</script>
   </head>
   <body>
 
-
+  
     <div class="container" >
-
+    
 	  <!-- FIRST ROW OF BLOCKS -->
       <div class="row" style="display: none">
 
@@ -87,7 +90,10 @@
 					<img src="img/LoginIcon.png" alt="Marcel Newman" class="img-circle">
 				</div><!-- /thumbnail -->
         <br>
-				<h1>{{ auth()->user()->name }}</h1>
+
+        <div class="alert alert-primary" role="alert">
+          {{ auth()->user()->name }}
+        </div>
 				
 				<br>
 					<div class="info-user">
@@ -116,7 +122,9 @@
         								<ul>
 
         									<li class="header_row">
-        										<h1>Cromos</h1>
+                            <div class="alert alert-primary" role="alert">
+                              Cromos
+                            </div>
         									</li>
         									<li><a class="tt" href="{{ url('sticker') }}">  -- Panel de Cromos --<span class="tooltip"><span class="triangle-obtuse">Puedes consultar tus cromos adquiridas, repetidas y de interes desde tu panel</span></span></a></li>
 	                        <li><a class="tt" href="{{ url('conv') }}"> Mensajerias de Intercambio <span class="tooltip"><span class="triangle-obtuse">Consulta tus intercambios de cromos y sus respectivas conversaciones </span></span></a></li>
@@ -208,7 +216,16 @@
     </div> <!-- /container -->
 <br>
 <br>
+
+    <div id="divLoading" class="col-sm-12" style="display:display; margin-top: 50px">
+      <div class="text-center">
+          <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+          <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
     <div id="divDashboard" style="visibility: hidden" class="container wow fadeInUp" data-wow-delay="0.1s">
+    
     <h1>{{ ucfirst(auth()->user()->name) }} {{ ucfirst(auth()->user()->lastName) }}</h1>
     <div class="row text-center">
       <div class="col-lg-3 col-sm-6">

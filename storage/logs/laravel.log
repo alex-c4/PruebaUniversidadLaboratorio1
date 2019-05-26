@@ -8504,3 +8504,11 @@ esbot\\carbon\\src\\Carbon\\Carbon.php:292)
 #60 C:\\xampp\\htdocs\\20190218\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #61 {main}
 "} 
+[2019-05-25 23:10:07] local.ERROR: Method Illuminate\View\View::__toString() must not throw an exception, caught ErrorException: Call to undefined function asst() (View: C:\xampp\htdocs\20190218\resources\views\dashboard\dashboard.blade.php) {"userId":64,"email":"alexdaniel2601@gmail.com","exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Method Illuminate\\View\\View::__toString() must not throw an exception, caught ErrorException: Call to undefined function asst() (View: C:\\xampp\\htdocs\\20190218\esources\\views\\dashboard\\dashboard.blade.php) at C:\\xampp\\htdocs\\20190218\\app\\Http\\Controllers\\Dashboard\\DashboardController.php:0)
+[stacktrace]
+#0 {main}
+"} 
+[2019-05-25 23:11:48] local.ERROR: Method Illuminate\View\View::__toString() must not throw an exception, caught ErrorException: Parse error: syntax error, unexpected 'userEdit' (T_STRING), expecting ',' or ')' (View: C:\xampp\htdocs\20190218\resources\views\dashboard\dashboard.blade.php) {"userId":64,"email":"alexdaniel2601@gmail.com","exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Method Illuminate\\View\\View::__toString() must not throw an exception, caught ErrorException: Parse error: syntax error, unexpected 'userEdit' (T_STRING), expecting ',' or ')' (View: C:\\xampp\\htdocs\\20190218\esources\\views\\dashboard\\dashboard.blade.php) at C:\\xampp\\htdocs\\20190218\\app\\Http\\Controllers\\Dashboard\\DashboardController.php:0)
+[stacktrace]
+#0 {main}
+"} 
