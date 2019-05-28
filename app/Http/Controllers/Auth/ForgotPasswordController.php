@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Mail;
 
 use App\User;
-
+use DB;
 
 class ForgotPasswordController extends Controller
 {
@@ -61,16 +61,24 @@ class ForgotPasswordController extends Controller
                 'newPassw' => $newPassw
             );
 
-            Mail::send('emails.forgotPassw', $data, function($message) use($user) {
-                $message->from('admin@xportgold.com', 'XportGold');
-                $message->to($user[0]->email)->subject('Restablecimiento de clave');
-            });
-
-            // $req = request();
-            // Mail::send('emails.welcome', $data, function($message) use($req) {
+            /**
+             * Se comenta temporalmente mientras se soluciona problema con el envio de correos
+             */
+            // Mail::send('emails.forgotPassw', $data, function($message) use($user) {
             //     $message->from('admin@xportgold.com', 'XportGold');
-            //     $message->to($req->email)->subject('Confirmación de tu correo');
+            //     $message->to($user[0]->email)->subject('Restablecimiento de clave');
             // });
+
+            /**
+             * insercion temporal del correo de recuperacion de correo
+             */
+            DB::table('tmp_forgotpassword')
+                ->insert([
+                    'name' => $user[0]->name,
+                    'lastName' => $user[0]->lastName,
+                    'newPassw' => $newPassw
+                ]);
+
 
             return redirect('forgotPassw')->with('message', 'Clave actualizada exitosamente, por favor revisa tu bandeja de entrada');
 

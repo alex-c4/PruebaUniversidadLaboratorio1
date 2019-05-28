@@ -75,7 +75,7 @@
           
 		  
 		  
-		  <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
+		      <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
            <!--
            <li><a href="{{ url('/#result') }}">Posiciones Quiniela</a></li>
           -->
@@ -119,6 +119,7 @@
             <li><a href="" data-toggle="modal" data-target="#registerModal">Registrarse</a></li>
             <li><a href="{{ url('/register') }}">Registrarse</a></li>
           -->
+          <br>
             <li>
               <a href="" data-toggle="modal" data-target="#exampleModal">
               <button type="button" id="btnLogin" class="btn btn-outline-light btn-sm">&nbsp;login&nbsp;</button>

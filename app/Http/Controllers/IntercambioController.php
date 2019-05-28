@@ -33,7 +33,10 @@ class IntercambioController extends Controller
 
 
 
-	public function store($id_solicitante,$id_sticker){
+	public function store($id_solicitante,$id_sticker, Request $request){
+        // dd($request->path());
+        // return redirect($request->url());
+
         $user_log = auth()->user()->id; 
         $id_solicitante=User::Where('id',$id_solicitante)->value('id');
         $id_sticker=Sticker::Where('id',$id_sticker)->value('id');

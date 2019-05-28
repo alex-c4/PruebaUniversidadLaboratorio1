@@ -211,6 +211,7 @@ class StickerController extends Controller
     }
 
     public function sentEmailToUser(){
+        
         try{
 
             $current_user_id = auth()->user()->id;
@@ -233,10 +234,28 @@ class StickerController extends Controller
                 'stickerNumber' => $sticker[0]->number
             );
 
-            Mail::send('emails.contactUser', $data, function($message) use($user) {
-                $message->from('admin@xportgold.com', 'XportGold');
-                $message->to($user[0]->email)->subject('Intercambio de Cromo');
-            });
+            /**
+             * se comenta temporalmente mientras se soluciona el problema con el correo en el servidor
+             */
+            // Mail::send('emails.contactUser', $data, function($message) use($user) {
+            //     $message->from('admin@xportgold.com', 'XportGold');
+            //     $message->to($user[0]->email)->subject('Intercambio de Cromo');
+            // });
+
+            /**
+             * Registro temporal en la tabla tmp_sentEmailToUser
+             */
+
+            DB::table('tmp_sentemailtouser')
+                ->insert([
+                    'nameCurrUser' => auth()->user()->name,
+                    'lastNameCurrUser' => auth()->user()->lastName,
+                    'user_id'=> auth()->user()->id,
+                    'nameUser'=> $user[0]->name,
+                    'lastNameUser'=> $user[0]->lastName,
+                    'stickerId' => $sticker_id,
+                    'stickerNumber' => $sticker[0]->number
+                ]);
             
 
             return "Email Enviado!!!";
