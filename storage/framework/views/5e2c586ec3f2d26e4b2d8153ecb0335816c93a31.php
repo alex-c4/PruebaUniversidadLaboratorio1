@@ -227,6 +227,8 @@
     
     <h1><?php echo e(ucfirst(auth()->user()->name)); ?> <?php echo e(ucfirst(auth()->user()->lastName)); ?></h1>
     <div class="row text-center">
+
+    
       <div class="col-lg-3 col-sm-6">
         <a href="<?php echo e(route('userEdit')); ?>">
           <img src="<?php echo e(asset('img/icons_new_panel/user_information.png')); ?>" alt="panel de cromos" srcset="">
@@ -254,7 +256,8 @@
           </div> -->
           
         <div class="col-lg-12 titleDashboard">
-          <h4>Cromos</h4>
+        <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Cromos</button>
+          <!-- <h4>Cromos</h4> -->
           <hr>
         </div>
         <div class="col-lg-3 col-sm-6">
@@ -293,7 +296,8 @@
           Quinielas
           </div> -->
         <div class="col-lg-12 titleDashboard">
-          <h4>Quinielas</h4>
+          <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Quinielas</button>
+          <!-- <h4>Quinielas</h4> -->
           <hr>
         </div>
         <div class="col-lg-3 col-sm-6">
@@ -340,15 +344,17 @@
             </p>
           </a>
         </div>
+
+        <div class="col-lg-3 col-sm-6">
+          <a href="<?php echo e(route('createPrivateQuiniela')); ?>">
+            <img src="<?php echo e(asset('img/icons_new_panel/quiniela_pronostics.png')); ?>" alt="Crear Quiniela" srcset="">
+            <p>
+              Crear Quiniela
+            </p>
+          </a>
+        </div>
+        
         <?php if(Auth::user()->rollId == 1): ?> 
-          <div class="col-lg-3 col-sm-6">
-            <a href="<?php echo e(route('createPrivateQuiniela')); ?>">
-              <img src="<?php echo e(asset('img/icons_new_panel/quiniela_pronostics.png')); ?>" alt="Crear Quiniela" srcset="">
-              <p>
-                Crear Quiniela
-              </p>
-            </a>
-          </div>
           
           <div class="col-lg-3 col-sm-6">
             <a href="<?php echo e(route('games.create')); ?>">

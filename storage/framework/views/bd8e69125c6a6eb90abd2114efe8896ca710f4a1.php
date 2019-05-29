@@ -28,7 +28,7 @@
           <div class="form-row">
             <!-- Nombre -->
             <div class="form-group col-md-4">
-              <label for="name">Name</label>
+              <label for="name">Nombre / Name</label>
               <input type="text"  class="form-control <?php echo e($errors->has('name') ? 'border-danger' : ''); ?>" name="name" id="name" placeholder="Name" value="<?php echo $user->name; ?>">
               <?php echo $errors->first('name', '<span class="text-danger">:message</span>'); ?>
 
@@ -36,7 +36,7 @@
 
             <!-- Apellido -->
             <div class="form-group col-md-4">
-              <label for="lastName">Last name</label>
+              <label for="lastName">Apellido / Last name</label>
               <input type="text" class="form-control <?php echo e($errors->has('lastName') ? 'border-danger' : ''); ?>" name="lastName" id="lastName" placeholder="Last name" value="<?php echo $user->lastName; ?>" >
               <?php echo $errors->first('lastName', '<span class="text-danger">:message</span>'); ?>
 
@@ -61,7 +61,7 @@
 
             <!-- Fecha de Nacimiento -->
             <div class="form-group col-md-4">
-              <label for="birthday">Birthdate</label>
+              <label for="birthday">Fecha de Nacimiento / Birthdate</label>
               <div class="input-group date dp-date">
                   <input type="text" class="form-control <?php echo e($errors->has('birthday') ? 'border-danger' : ''); ?>" name="birthday" id="birthday" value="<?php echo $user->birthday; ?>" >
                   <?php echo $errors->first('birthday', '<span class="text-danger">:message</span>'); ?>
@@ -72,19 +72,19 @@
 
             <!-- Telefono 1             -->
             <div class="form-group col-md-4">
-              <label for="phone1">Phone 1</label>
+              <label for="phone1">Teléfono 1 / Phone 1</label>
               <input type="text" class="form-control" id="phone1" name="phone1" placeholder="Phone" value="<?php echo $user->phone; ?>">
             </div>
 
             <!-- Telefono 2 -->
             <div class="form-group col-md-4">
-              <label for="phone2">Phone 2</label>
+              <label for="phone2">Otro Teléfono / Phone 2</label>
               <input type="text" class="form-control" id="phone2" name="phone2" placeholder="Phone"  value="<?php echo $user->phone2; ?>">
             </div>
 
             <!-- Pais -->
             <div class="form-group col-md-4">
-              <label for="country_id">Country</label>
+              <label for="country_id">Pais / Country</label>
               <select class="custom-select <?php echo e($errors->has('country_id') ? 'border-danger' : ''); ?>" id="country_id" name="country_id" placeholder="...">
                 <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <?php if($user->country_id == $country->id): ?>
@@ -101,7 +101,7 @@
 
             <!-- Estado -->
             <div class="form-group col-md-4">
-              <label for="state_id">State</label>
+              <label for="state_id">Estado / State</label>
               <select class="custom-select <?php echo e($errors->has('state_id') ? 'border-danger' : ''); ?>" id="state_id" name="state_id" >
               <?php $__currentLoopData = $states; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $state): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <?php if($user->state_id == $state->id): ?>
@@ -117,7 +117,7 @@
 
             <!-- Ciudad -->
             <div class="form-group col-md-4">
-              <label for="city_id">City</label>
+              <label for="city_id">Ciudad / City</label>
               <select type="text" class="custom-select <?php echo e($errors->has('city_id') ? 'border-danger' : ''); ?>" id="city_id" name="city_id">
               <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <?php if($user->city_id == $city->id): ?>
@@ -131,7 +131,7 @@
 
             <!-- Direccion -->
             <div class="form-group col-md-12" >
-                <label for="direction">Address</label>
+                <label for="direction">Dirección / Address</label>
                 <input type="text" class="form-control" id="direction" name="direction" placeholder="Address" value="<?php echo $user->direction; ?>">
             </div>
             
