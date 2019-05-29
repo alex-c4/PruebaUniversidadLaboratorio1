@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-05-2019 a las 04:21:02
+-- Tiempo de generación: 29-05-2019 a las 05:18:23
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.1
 
@@ -37,7 +37,8 @@ CREATE TABLE `tmp_sentemailtouser` (
   `lastNameUser` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `stickerId` int(11) NOT NULL,
   `stickerNumber` int(11) NOT NULL,
-  `enviado` tinyint(1) NOT NULL DEFAULT '0'
+  `enviado` tinyint(1) NOT NULL DEFAULT '0',
+  `sendTo` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -58,7 +59,7 @@ ALTER TABLE `tmp_sentemailtouser`
 -- AUTO_INCREMENT de la tabla `tmp_sentemailtouser`
 --
 ALTER TABLE `tmp_sentemailtouser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
