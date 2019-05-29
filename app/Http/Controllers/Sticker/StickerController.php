@@ -225,11 +225,11 @@ class StickerController extends Controller
 
             // envio de email
             $data = array(
-                'nameCurrUser' => auth()->user()->name,
-                'lastNameCurrUser' => auth()->user()->lastName,
+                'nameCurrUser' => ucfirst(auth()->user()->name),
+                'lastNameCurrUser' => ucfirst(auth()->user()->lastName),
                 'user_id'=> auth()->user()->id,
-                'nameUser'=> $user[0]->name,
-                'lastNameUser'=> $user[0]->lastName,
+                'nameUser'=> ucfirst($user[0]->name),
+                'lastNameUser'=> ucfirst($user[0]->lastName),
                 'stickerId' => $sticker_id,
                 'stickerNumber' => $sticker[0]->number
             );
@@ -248,13 +248,14 @@ class StickerController extends Controller
 
             DB::table('tmp_sentemailtouser')
                 ->insert([
-                    'nameCurrUser' => auth()->user()->name,
-                    'lastNameCurrUser' => auth()->user()->lastName,
+                    'nameCurrUser' => ucfirst(auth()->user()->name),
+                    'lastNameCurrUser' => ucfirst(auth()->user()->lastName),
                     'user_id'=> auth()->user()->id,
-                    'nameUser'=> $user[0]->name,
-                    'lastNameUser'=> $user[0]->lastName,
+                    'nameUser'=> ucfirst($user[0]->name),
+                    'lastNameUser'=> ucfirst($user[0]->lastName),
                     'stickerId' => $sticker_id,
-                    'stickerNumber' => $sticker[0]->number
+                    'stickerNumber' => $sticker[0]->number,
+                    'sendTo' => $user[0]->email
                 ]);
             
 

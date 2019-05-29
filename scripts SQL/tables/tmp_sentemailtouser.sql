@@ -41,14 +41,6 @@ CREATE TABLE `tmp_sentemailtouser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `tmp_sentemailtouser`
---
-
-INSERT INTO `tmp_sentemailtouser` (`id`, `nameCurrUser`, `lastNameCurrUser`, `user_id`, `nameUser`, `lastNameUser`, `stickerId`, `stickerNumber`, `enviado`) VALUES
-(1, 'alex', 'peñaloza', 337, 'Alex', 'peñaloza', 51, 12, 0),
-(2, 'Daniel', 'Luna', 337, 'Alex', 'peñaloza', 51, 12, 0);
-
---
 -- Índices para tablas volcadas
 --
 

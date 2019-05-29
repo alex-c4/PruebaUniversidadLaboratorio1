@@ -21,6 +21,7 @@ Route::get('/test/{nombre}', ['as' => 'test', function($nombre){
     return 'testing... '.$nombre;
 }]);
 Route::view('/welcome', 'welcome');
+Route::view('/loginExt', 'loginExt');
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,8 @@ Route::get('encryptkey/{key}', ['as' => 'auth.encryptkey', 'uses' => 'Auth\Forgo
 //Registro con social login facebook
 Route::get('/registerFB', 'Auth\RegisterController@store_fb')->name('create');
 Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::post('loginExternal', ['as' => 'auth.loginExternal' , 'uses' => 'Auth\LoginController@loginExternal']);
+
 
 /*
 |--------------------------------------------------------------------------

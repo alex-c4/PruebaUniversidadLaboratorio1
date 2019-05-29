@@ -13,7 +13,7 @@ class IntercambioController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['store'] ]);
     }
 
 
@@ -33,62 +33,82 @@ class IntercambioController extends Controller
 
 
 
-	public function store($id_solicitante,$id_sticker, Request $request){
+	public function store($id_solicitante, $id_sticker, Request $request){
         // dd($request->path());
         // return redirect($request->url());
 
-        $user_log = auth()->user()->id; 
-        $id_solicitante=User::Where('id',$id_solicitante)->value('id');
-        $id_sticker=Sticker::Where('id',$id_sticker)->value('id');
-
-        //return'id_solicitante'.$id_solicitante.' id_sticker: '.$id_sticker;
-
-        //se valida que el solicitante y elstiker aintercambiar exitan
-        if ($id_solicitante == null or $id_sticker == null){            
-            $data = [
-                'title' => 'Información',
-                'message' => 'Lo sentimos, no se puede mostrar la información, los datos suministrados son incorrectos, por favor verifique e intente nuevamente.',
-                'footer' => 'Gracias!'
-            ];
-           // return redirect()->route('mensaje.alert',['data'=>$data]);
-            return $this->muestraAlert($data);
-        } else{
-
-            $id_propietario=Sticker::where('id',$id_sticker)->value('user_id');
-            if ($id_propietario == $id_solicitante){   //se verifica que el socilicitante y propietario no sean el mismo usuario         
+        /**
+         * Se verifica si el usuario esta logueado en el sistema
+         */
+        if(auth()->user() != null){
+            $user_log = auth()->user()->id; 
+            $id_solicitante=User::Where('id',$id_solicitante)->value('id');
+            $id_sticker=Sticker::Where('id',$id_sticker)->value('id');
+    
+            //return'id_solicitante'.$id_solicitante.' id_sticker: '.$id_sticker;
+    
+            //se valida que el solicitante y elstiker aintercambiar exitan
+            if ($id_solicitante == null or $id_sticker == null){            
                 $data = [
                     'title' => 'Información',
-                    'message' => ' Lo sentimos, no se puede realizar un intercambio por un cromo propio por favor verifique e intente nuevamente.',
+                    'message' => 'Lo sentimos, no se puede mostrar la información, los datos suministrados son incorrectos, por favor verifique e intente nuevamente.',
                     'footer' => 'Gracias!'
                 ];
+               // return redirect()->route('mensaje.alert',['data'=>$data]);
                 return $this->muestraAlert($data);
-            }else{
-                $intercambio=Intercambio::where('id_barajita',$id_sticker)->where('id_usuario_solicitante',$id_solicitante)->where('estatus','EN PROCESO')->first();
-                if ($intercambio==null){//se valida que no exista un ntercambio con estatus en procesopara este sticker e id_usuario 
-                    if($id_propietario == $user_log){//se valida que quien esta aceptando elintercambio sea el propietario del cromo o sticker para q se pueda registrar                     
-                       $respuesta = Intercambio::create([
-                        'id_barajita' => $id_sticker,
-                        'id_usuario_solicitante' => $id_solicitante,
-                        'estatus' => 'EN PROCESO'
-                    ])->id;
-
-                    return redirect()->route('mensajeria.create',['id_intercambio'=>$respuesta]);            
-                    }else{
-                        $data = [
+            } else{
+    
+                $id_propietario=Sticker::where('id',$id_sticker)->value('user_id');
+                if ($id_propietario == $id_solicitante){   //se verifica que el socilicitante y propietario no sean el mismo usuario         
+                    $data = [
                         'title' => 'Información',
-                        'message' => 'los datos de usuario suministrados son incorrectos, solo el usuario propietario del Cromo puede aceptar un itercambio',
+                        'message' => ' Lo sentimos, no se puede realizar un intercambio por un cromo propio por favor verifique e intente nuevamente.',
                         'footer' => 'Gracias!'
                     ];
-                        return $this->muestraAlert($data);
-                    }
-
+                    return $this->muestraAlert($data);
                 }else{
-                    // si ya existe un intercambio para este usuario y sticker;
-                    return redirect()->route('conversacion.mostrar',['id_intercambio'=>$intercambio->id_intercambio]);
+                    $intercambio=Intercambio::where('id_barajita',$id_sticker)->where('id_usuario_solicitante',$id_solicitante)->where('estatus','EN PROCESO')->first();
+                    if ($intercambio==null){//se valida que no exista un ntercambio con estatus en procesopara este sticker e id_usuario 
+                        if($id_propietario == $user_log){//se valida que quien esta aceptando elintercambio sea el propietario del cromo o sticker para q se pueda registrar                     
+                           $respuesta = Intercambio::create([
+                            'id_barajita' => $id_sticker,
+                            'id_usuario_solicitante' => $id_solicitante,
+                            'estatus' => 'EN PROCESO'
+                        ])->id;
+    
+                        return redirect()->route('mensajeria.create',['id_intercambio'=>$respuesta]);            
+                        }else{
+                            $data = [
+                                'title' => 'Información',
+                                'message' => 'los datos de usuario suministrados son incorrectos, solo el usuario propietario del Cromo puede aceptar un itercambio',
+                                'footer' => 'Gracias!'
+                            ];
+                            return $this->muestraAlert($data);
+                        }
+    
+                    }else{
+                        // si ya existe un intercambio para este usuario y sticker;
+                        return redirect()->route('conversacion.mostrar',['id_intercambio'=>$intercambio->id_intercambio]);
+                    }
+    
                 }
+            }   
 
-            }
-        }   
+        }else{
+            $correoPropietario = Sticker::join('users', 'users.id', '=', 'stickers.user_id', 'inner', false )
+            ->select('users.email')
+            ->where('stickers.id', $id_sticker)
+            ->first();
+
+            $datos = [
+                'email' => $correoPropietario->email,
+                'url' => $request->path(),
+                'titulo' => 'LOGIN',
+                'subtitulo' => 'Ingrese su clave para comenzar el proceso de canje de cromos.'
+            ];
+
+            return view('loginExt', $datos);
+        }
                  
     }
 

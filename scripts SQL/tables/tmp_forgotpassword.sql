@@ -37,13 +37,6 @@ CREATE TABLE `tmp_forgotpassword` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `tmp_forgotpassword`
---
-
-INSERT INTO `tmp_forgotpassword` (`id`, `name`, `lastName`, `newPassw`, `enviado`) VALUES
-(1, 'Daniel', 'Luna', 'yLwW6', 0);
-
---
 -- Índices para tablas volcadas
 --
 
