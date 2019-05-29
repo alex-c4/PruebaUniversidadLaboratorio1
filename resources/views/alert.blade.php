@@ -27,6 +27,13 @@
         </div>
     </div> 
 
+    @if(isset($returnPage))
+        <div class="text-center">
+            <a href="{{ route($returnPage) }}" class="btn btn-outline-info btn-sm" role="button" aria-pressed="true" title="Regresar"><i class="fa fa-undo"></i> Regresar</a>
+        </div>
+    @endif
+
+   
 
 </div>
 </section>

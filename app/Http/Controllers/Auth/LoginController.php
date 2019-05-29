@@ -7,7 +7,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 
 use Auth;
 use App\User;
-
+use Redirect;
 
 class LoginController extends Controller
 {
@@ -155,6 +155,56 @@ class LoginController extends Controller
            
             //echo $user[0]->confirmed;
         }
+
+    }
+
+    public function loginExternal(){
+        $returnMessage = false;
+
+        $credenciales = $this->validate(request(), [
+            'emailLogin' => 'email|required|string',
+            'passwordLogin' => 'required|string'
+        ]);
+
+        $user = User::where('email', request()->emailLogin)->get();
+
+        if(!$user->count() > 0){
+            $access = array(
+                "access" => false,
+                "message" => "Acceso denegado, datos incorrectos!"
+            );
+            $returnMessage = true;
+            
+        }elseif($user[0]->confirmed == 0){
+            $access = array(
+                "access" => false,
+                "message" => "Debe primero validar su correo electrónico, por favor dirijase a la bandeja de entrada de su email!"
+            );
+            $returnMessage = true;
+
+        }else{
+            // if(Auth::attempt($credenciales)){
+            
+            if(Auth::attempt(['email' => $credenciales['emailLogin'], 'password' => $credenciales['passwordLogin']])){
+                $access = array(
+                    "access" => true,
+                    "message" => null
+                );
+
+            }else{
+                $access = array(
+                    "access" => false,
+                    "message" => "Acceso denegado, datos incorrectos!"
+                );
+                $returnMessage = true;
+            }
+        }
+
+        if($returnMessage = true) return Redirect::back()->withErrors($access['message']);
+
+        return route(request()->url);
+
+
 
     }
 }

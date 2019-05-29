@@ -22,6 +22,27 @@
             <form method="POST" id="form" action="{{ route('updatePassw') }}">
 
                 {{ csrf_field() }}
+                <div class="row">
+                    @if(Session::has('message'))
+                        <div class="form-group col-md-3">&nbsp;</div>
+                        <div class="form-group col-md-6">
+                            <div class="alert alert-success" role="alert">
+                                {{ Session::get('message') }}
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">&nbsp;</div>
+                    @endif
+
+                    @if(Session::has('error'))
+                        <div class="form-group col-md-3">&nbsp;</div>
+                            <div class="form-group col-md-6">
+                                <div class="alert alert-danger" role="alert">
+                                    {{ Session::get('error') }}
+                                </div>
+                            </div>
+                        <div class="form-group col-md-3">&nbsp;</div>
+                    @endif
+                </div>
 
 
                 <div class="row">
@@ -51,26 +72,6 @@
                         {!! $errors->first('password_confirmation', '<span class="text-danger">:message</span>') !!}
                     </div>
                     <div class="form-group col-md-3">&nbsp;</div>
-
-                    @if(Session::has('message'))
-                    <div class="form-group col-md-3">&nbsp;</div>
-                    <div class="form-group col-md-6">
-                        <div class="alert alert-success" role="alert">
-                            {{ Session::get('message') }}
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">&nbsp;</div>
-                    @endif
-
-                    @if(Session::has('error'))
-                        <div class="form-group col-md-3">&nbsp;</div>
-                        <div class="form-group col-md-6">
-                            <div class="alert alert-danger" role="alert">
-                                {{ Session::get('error') }}
-                            </div>
-                        </div>
-                        <div class="form-group col-md-3">&nbsp;</div>
-                    @endif
 
                 </div>
 

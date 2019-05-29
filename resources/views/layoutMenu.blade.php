@@ -31,6 +31,9 @@
   <link href="{{ asset('css/jquery-confirm.css')}}" rel="stylesheet">
   <link href="{{ asset('css/jquery-confirm.less')}}" >
 
+  
+  <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
+
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css')}}" rel="stylesheet">
  
@@ -72,7 +75,7 @@
           
 		  
 		  
-		  <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
+		      <li class="menu-active"><a href="{{ url('/') }}">Home</a></li>
            <!--
            <li><a href="{{ url('/#result') }}">Posiciones Quiniela</a></li>
           -->
@@ -116,6 +119,7 @@
             <li><a href="" data-toggle="modal" data-target="#registerModal">Registrarse</a></li>
             <li><a href="{{ url('/register') }}">Registrarse</a></li>
           -->
+          <br>
             <li>
               <a href="" data-toggle="modal" data-target="#exampleModal">
               <button type="button" id="btnLogin" class="btn btn-outline-light btn-sm">&nbsp;login&nbsp;</button>
@@ -229,7 +233,6 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('lib/jquery/jquery-migrate.min.js')}}"></script>
   <script src="{{asset('lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('lib/easing/easing.min.js')}}"></script>

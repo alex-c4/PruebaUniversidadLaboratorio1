@@ -21,6 +21,7 @@ Route::get('/test/{nombre}', ['as' => 'test', function($nombre){
     return 'testing... '.$nombre;
 }]);
 Route::view('/welcome', 'welcome');
+Route::view('/loginExt', 'loginExt');
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,8 @@ Route::get('encryptkey/{key}', ['as' => 'auth.encryptkey', 'uses' => 'Auth\Forgo
 //Registro con social login facebook
 Route::get('/registerFB', 'Auth\RegisterController@store_fb')->name('create');
 Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::post('loginExternal', ['as' => 'auth.loginExternal' , 'uses' => 'Auth\LoginController@loginExternal']);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -167,7 +170,7 @@ Route::view('quiniela/createQuiniela', 'createQuiniela');
 Route::post('saveNewQuinielaPrivate', 'Quiniela\QuinielaController@saveNewQuinielaPrivate')->name('saveNewQuinielaPrivate');
 Route::get('codeQuiniela', 'Quiniela\QuinielaController@codeQuiniela')->name('codeQuiniela');
 Route::view('quiniela/codeQuiniela', 'codeQuiniela');
-
+Route::post('quiniela/addCodeQuiniela', ['as' => 'quiniela.addCode', 'uses' => 'Quiniela\QuinielaController@addCodeQuiniela']);
 
 
 /*

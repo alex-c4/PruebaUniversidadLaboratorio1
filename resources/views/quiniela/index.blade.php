@@ -36,7 +36,7 @@
                 </thead>
                 <tbody>
                     @foreach($misQuinelasPublicas as $quinielaPublica)
-                
+                    
                     <tr>
                         <th scope="row">{{ $quinielaPublica->idQuiniela }}</th>
                         <td>{{ $quinielaPublica->nombreQuiniela }}</td>
@@ -50,10 +50,12 @@
                     @endforeach
                 </tbody>
             </table>
-
+            
+            <a href="{{ route('codeQuiniela') }}" class="btn btn-outline-info btn-sm" role="button" aria-pressed="true" title="Agregar nueva quiniela"><i class="fa fa-sign-in"></i> Unirse a quiniela</a>
+            
             @if(count($misQuinielasPrivadas) > 0)
 
-            <h4>Privadas <a href="{{ route('codeQuiniela') }}" class="btn btn-info btn-sm active" role="button" aria-pressed="true" title="Agregar nueva quiniela"><i class="fa fa-plus-circle"></i></a></h4>
+            <h4>Privadas</h4>
             
             <table class="table table-hover">
                 <thead>

@@ -22,7 +22,7 @@
    
     <div class="section-header">
       <h3>Mensajes </h3>
-      <p> conversacion con <b>{{ $datos->name."".$datos->lastName}}. </b> Intercambio de la barajita Numero: <b>{{ $datos->sticker_num}} </b></p>
+      <p> conversacion con <b>{{ $datos->name." ".$datos->lastName}}. </b> Intercambio de la barajita Numero: <b>{{ $datos->sticker_num}} </b></p>
     </div>
     <div id="oscuro" >
         
