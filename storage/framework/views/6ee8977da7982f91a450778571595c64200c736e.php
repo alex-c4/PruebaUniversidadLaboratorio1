@@ -74,25 +74,29 @@
             <?php echo $errors->first('passwordLogin', '<span class="text-danger">:message</span>'); ?>
 
             </div>
-
           
 
             <div class="form-group">
-                <div id="message-got">
-                
-                </div>
                 <button type="submit" id="btnLogin" class="btn btn-success btn-block btn-sm">Entrar</button>
             </div> 
 
             <div class="form-group" style="text-align: right;">
                 <a href="<?php echo e(route('forgotPassw')); ?>">¿Se te olvidó tu contraseña?</a>
             </div>
+            <div >
+                
+            </div>
+            <div id="messagegot">
+                
+            </div>
 
+<!--Boton de Facebook login... Apagado hasta que funcione
+<!--
             <div>
                <img src="img/face.png">
                <input type="button" onclick="window.location = '<?php echo $loginURL ?>';" value="Log In With Facebook" class="btn btn-primary">
             </div>
-           
+ -->          
 
         </div>
         
