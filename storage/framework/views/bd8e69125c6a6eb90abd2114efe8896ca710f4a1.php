@@ -15,7 +15,7 @@
         <div class="section-header">
           <br>
           <h3>Configuración</h3>
-          <p>Actualiza tus datos y se parte de XportGold...</p>
+          <p>Para utilizar Todas las funcines de nuestro Sitio debes tener registrados y actualizos todos tus datos...</p>
         </div>
 
         <form method="POST" action="<?php echo e(route('userUpdate')); ?>">

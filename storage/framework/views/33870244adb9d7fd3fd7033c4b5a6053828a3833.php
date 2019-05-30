@@ -96,9 +96,11 @@
             
             <li class="menu-has-children"><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a>
               <ul>
+              <!-- Apagado para subir a produccion solo cromos
                 <li><a href="<?php echo e(route('searchPronostics')); ?>">Mis Pronósticos</a></li>
                 <li><a href="<?php echo e(route('addPronosticsNewPhase')); ?>">Agregar resultado nueva fase</a></li>
                 <li><a href="<?php echo e(url('/puntuacionesQui/1')); ?>">Tabla de Posiciones Quiniela</a></li>
+              -->
                 <?php if(auth()->user() != null && auth()->user()->hasRoles('Administrator')): ?>
                   <li class="menu-has-children"><a href="<?php echo e(route('news.index')); ?>">Noticias</a>
                     <ul><a href="<?php echo e(route('news.create')); ?>">Agregar noticia</a></ul>
