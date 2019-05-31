@@ -201,6 +201,7 @@ var btnSendEmail = function(sticker_id, user_id){
                             title: 'Información',
                             content: data
                         });
+                        $('#stickerModal2').modal('hide');
                     })
                     .fail(function(jqXHR, textStatus, errorThrown ){
                         console.log(jqXHR.responseJSON.errors);
@@ -208,13 +209,15 @@ var btnSendEmail = function(sticker_id, user_id){
                             title: 'Información',
                             content: 'Error enviando el correo electrónico, por favor intente nuevamente',
                         });
+                        $('#stickerModal2').modal('hide');
                     })
                 }
             },
             cancel: {
                 text: 'No',
                 action: function(){
-                    $.alert('Cancelado!')
+                    $.alert('Cancelado!');
+                    $('#stickerModal2').modal('hide');
                 }
             }
         }

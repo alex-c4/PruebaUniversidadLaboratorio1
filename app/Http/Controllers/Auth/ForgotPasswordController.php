@@ -76,7 +76,8 @@ class ForgotPasswordController extends Controller
                 ->insert([
                     'name' => $user[0]->name,
                     'lastName' => $user[0]->lastName,
-                    'newPassw' => $newPassw
+                    'newPassw' => $newPassw,
+                    'sendTo' => $user[0]->email
                 ]);
 
 
