@@ -31,6 +31,9 @@
   <link href="<?php echo e(asset('css/jquery-confirm.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('css/jquery-confirm.less')); ?>" >
 
+  
+  <script src="<?php echo e(asset('lib/jquery/jquery.min.js')); ?>"></script>
+
   <!-- Main Stylesheet File -->
   <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
  
@@ -72,7 +75,7 @@
           
 		  
 		  
-		  <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
+		      <li class="menu-active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
            <!--
            <li><a href="<?php echo e(url('/#result')); ?>">Posiciones Quiniela</a></li>
           -->
@@ -93,9 +96,11 @@
             
             <li class="menu-has-children"><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a>
               <ul>
+              <!-- Apagado para subir a produccion solo cromos
                 <li><a href="<?php echo e(route('searchPronostics')); ?>">Mis Pronósticos</a></li>
                 <li><a href="<?php echo e(route('addPronosticsNewPhase')); ?>">Agregar resultado nueva fase</a></li>
                 <li><a href="<?php echo e(url('/puntuacionesQui/1')); ?>">Tabla de Posiciones Quiniela</a></li>
+              -->
                 <?php if(auth()->user() != null && auth()->user()->hasRoles('Administrator')): ?>
                   <li class="menu-has-children"><a href="<?php echo e(route('news.index')); ?>">Noticias</a>
                     <ul><a href="<?php echo e(route('news.create')); ?>">Agregar noticia</a></ul>
@@ -116,6 +121,7 @@
             <li><a href="" data-toggle="modal" data-target="#registerModal">Registrarse</a></li>
             <li><a href="<?php echo e(url('/register')); ?>">Registrarse</a></li>
           -->
+          <br>
             <li>
               <a href="" data-toggle="modal" data-target="#exampleModal">
               <button type="button" id="btnLogin" class="btn btn-outline-light btn-sm">&nbsp;login&nbsp;</button>
@@ -229,7 +235,6 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="<?php echo e(asset('lib/jquery/jquery.min.js')); ?>"></script>
   <script src="<?php echo e(asset('lib/jquery/jquery-migrate.min.js')); ?>"></script>
   <script src="<?php echo e(asset('lib/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
   <script src="<?php echo e(asset('lib/easing/easing.min.js')); ?>"></script>

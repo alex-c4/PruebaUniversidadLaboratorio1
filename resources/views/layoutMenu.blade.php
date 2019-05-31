@@ -96,9 +96,11 @@
             
             <li class="menu-has-children"><a href="{{ url('/dashboard') }}">Dashboard</a>
               <ul>
+              <!-- Apagado para subir a produccion solo cromos
                 <li><a href="{{ route('searchPronostics') }}">Mis Pronósticos</a></li>
                 <li><a href="{{ route('addPronosticsNewPhase') }}">Agregar resultado nueva fase</a></li>
                 <li><a href="{{ url('/puntuacionesQui/1') }}">Tabla de Posiciones Quiniela</a></li>
+              -->
                 @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
                   <li class="menu-has-children"><a href="{{ route('news.index') }}">Noticias</a>
                     <ul><a href="{{ route('news.create') }}">Agregar noticia</a></ul>
