@@ -36,7 +36,7 @@
                     <div><i class="ion-ios-arrow-right"></i><b>Yo: </b>{{$mensaje->texto." "}}</div> 
                   @endif    
                   @if($mensaje->id_remitente != $user_log)
-                   <div class="gris-interlinea ";">
+                   <div class="gris-interlinea ">
                     <b>{{ $datos->name."".$datos->lastName}}:</b>
                       {{$mensaje->texto." " }}
                       <span class="derecha"><i class="ion-ios-arrow-left"></i></span>

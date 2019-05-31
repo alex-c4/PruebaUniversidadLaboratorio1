@@ -113,6 +113,7 @@ class IntercambioController extends Controller
     }
 
     public function act_intercambio($id_intercambio,$estatus,$id_sticker,$id_propietario){
+        
         $decrementar=1;
         if ($estatus =='CONCRETADO'){
            // return "id_intercambio:". $id_intercambio."estatus: ". $estatus;
@@ -133,7 +134,7 @@ class IntercambioController extends Controller
             
     }
 
-    public function decrementar_sticker($id_sticker, $id_solicitante){
+    public function decrementar_sticker($id_sticker, $id_propietario){
         //return " impresion desde function decrementar_sticker! id_intercambio:". $id_sticker."propietario: ". $id_propietario;
         try{
             $quantity=Sticker::where("id",'=', $id_sticker)->where("user_id",'=', $id_propietario)->value('quantity');

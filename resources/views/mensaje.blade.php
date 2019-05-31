@@ -33,7 +33,7 @@
         <input type="hidden" id="id_intercambio" name="id_intercambio" value="{{$intercambio}}">
         <input type="hidden" id="routeCurrent" value="{{ url('/') }}">
           <div class="form-group"> 
-            <label for="mensaje">Escribe un mensaje para <b>{{$datos->name."".$datos->lastName}}</b> para intercambiar el cromo numero: <b>{{$datos->sticker_num}}</b>:</label>
+            <label for="mensaje">Escribe un mensaje para <b>{{ ucfirst($datos->name)." ". ucfirst($datos->lastName) }}</b> para intercambiar el cromo numero: <b>{{$datos->sticker_num}}</b>:</label>
             <textarea class="form-control" name="mensaje" id="mensaje" rows="5" data-rule="required" data-msg=" por favor, debes escribir algo" placeholder="Mensaje"></textarea>
             <div class="validation"></div>
             {!! $errors->first('mensaje', '<span class="text-danger">:message</span>') !!}

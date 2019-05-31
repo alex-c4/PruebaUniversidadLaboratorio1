@@ -1816,6 +1816,7 @@ body {
   .gris-interlinea {
     background: #2E2E2E;
     color: #A0A090;
+    text-align: right;
    } 
 
   .oscuro {
