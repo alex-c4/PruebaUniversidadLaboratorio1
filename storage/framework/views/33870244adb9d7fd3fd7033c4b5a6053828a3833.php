@@ -121,7 +121,7 @@
             <li><a href="" data-toggle="modal" data-target="#registerModal">Registrarse</a></li>
             <li><a href="<?php echo e(url('/register')); ?>">Registrarse</a></li>
           -->
-          <br>
+          
             <li>
               <a href="" data-toggle="modal" data-target="#exampleModal">
               <button type="button" id="btnLogin" class="btn btn-outline-light btn-sm">&nbsp;login&nbsp;</button>
