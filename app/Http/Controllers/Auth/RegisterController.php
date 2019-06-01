@@ -20,6 +20,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -226,7 +227,6 @@ class RegisterController extends Controller
 
     //Modificado por yanis para el registro basico de usuario
     public function store_basic(){
-
        $this->validator_basic(request()->all())->validate();
         // User::create(request()->all());
         $conf_code = str_random(15);
@@ -257,6 +257,16 @@ class RegisterController extends Controller
         });
         
         */
+
+        /**
+         * inserion temporal mientras se resuelve el problema del correo en ionos
+         */
+        DB::table('tmp_useregister')
+            ->insert([
+            'email' => request()->email,
+            'password' => bcrypt(request()->password),
+            'confirmation_code' => $conf_code
+        ]);
 
 
 
