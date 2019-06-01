@@ -19,7 +19,7 @@
         <div class="section-header">
             <br>
             <h3>Registro Quiniela Privada</h3>
-            <p>Panel para la creación y registro de las predicciones de los juegos del mundial Rusia 2018</p>
+            <p>Panel para la creación y registro de las predicciones de los juegos del campeonato</p>
         </div>
 
         <form method="POST" action="{{ route('saveNewQuinielaPrivate') }}" id="formCreateQuiniela">

@@ -18,6 +18,7 @@
 
 </style>
 <hr/>    
+
   <section id="contact" style="background:#f7f7f7; visibility: hidden" class="{{env('EFECT_WOW') }}">  
    
     <div class="section-header">

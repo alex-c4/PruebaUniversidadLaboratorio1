@@ -50,10 +50,14 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         
-        $this->validator(request()->all())->validate();
+        //dd($this->validator(request()->all())->validate());
        
-        
-        Contact::create($request->all());
+        Contact::create([
+            'nameContact' => $request->input('nameContact'),
+            'emailContact' => $request->input('emailContact'),
+            'subject' => $request->input('subject'),
+            'message' => $request->input('message')
+            ]);
 
 
         //dd($request->all());

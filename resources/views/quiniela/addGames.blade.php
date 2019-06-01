@@ -16,7 +16,7 @@
     <div class="section-header">
 
         <h3>Registro Quiniela</h3>
-        <p>Panel para la creación y registro de las predicciones de los juegos del mundial Rusia 2018</p>
+        <p>Panel para la creación y registro de las predicciones de los juegos del campeonato</p>
 
         <div class="container">
 

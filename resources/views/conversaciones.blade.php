@@ -12,16 +12,16 @@
 #header{
   background: rgba(0, 0, 0, 0.9);
 }
-#espaciador{
-  margin-top: 10%;
+.espaciador{
+  margin-top: 100px;
 }
   
 
 </style>
-<hr/>    
+
   <section id="conv" style="background: #f7f7f7; visibility: hidden" class="{{env('EFECT_WOW') }}">  
    
-    <div class="section-header">
+    <div class="section-header espaciador">
       <h3>Conversaciones </h3>
       <p> A continuacion se listan las conversaciones asociadas a los intercambios mas recientes </p>
     </div>

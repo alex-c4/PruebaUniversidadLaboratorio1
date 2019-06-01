@@ -96,6 +96,8 @@
             
             <li class="menu-has-children"><a href="{{ url('/dashboard') }}">Dashboard</a>
               <ul>
+              <li><a href="{{ url('sticker') }}">Panel de cromos</a></li>
+              <li><a href="{{ url('conv')  }}">Mensajeria de Intercambio</a></li>
               <!-- Apagado para subir a produccion solo cromos
                 <li><a href="{{ route('searchPronostics') }}">Mis Pronósticos</a></li>
                 <li><a href="{{ route('addPronosticsNewPhase') }}">Agregar resultado nueva fase</a></li>

@@ -1282,8 +1282,8 @@
 
              <!-- Mensaje -->  
             <div class="form-group">
-              <textarea class="form-control {{ $errors->has('mensaje') ? 'border-danger' : '' }}" name="mensaje" id="mensaje" rows="5" placeholder="Mensaje" value="{{ old('mensaje') }}"></textarea>
-                 {!! $errors->first('mensaje', '<span class="text-danger">:message</span>') !!}
+              <textarea class="form-control {{ $errors->has('message') ? 'border-danger' : '' }}" name="message" id="message" rows="5" placeholder="Mensaje">{{ old('message') }}</textarea>
+                 {!! $errors->first('message', '<span class="text-danger">:message</span>') !!}
 
               
               
