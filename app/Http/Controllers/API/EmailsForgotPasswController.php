@@ -75,16 +75,23 @@ class EmailsForgotPasswController extends Controller
             'newPassw' => $newPassw
         );
 
-        Mail::send('emails.forgotPassw', $data, function($message) use($user) {
-            $message->from('admin@xportgold.com', 'XportGold');
-            $message->to($user[0]->email)->subject('Restablecimiento de clave');
-        });
+        // Mail::send('emails.forgotPassw', $data, function($message) use($user) {
+        //     $message->from('admin@xportgold.com', 'XportGold');
+        //     $message->to($user[0]->email)->subject('Restablecimiento de clave');
+        // });
 
         $userToSend = DB::table('tmp_forgotpassword')
             ->where('sendTo', '=', $userEmail)
             ->update(['enviado' => '1']);
 
-        return $this->getList();
+        $contentEmail = array(
+            'userEmail' => $userEmail,
+            'newPassw' => $newPassw,
+            'name' => $user[0]->name,
+            'lastName' => $user[0]->lastName
+        );
+
+        return $contentEmail;
     }
 
     /**
