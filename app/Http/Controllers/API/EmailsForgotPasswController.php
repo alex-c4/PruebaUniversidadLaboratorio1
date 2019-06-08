@@ -56,42 +56,49 @@ class EmailsForgotPasswController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function update(Request $request, $id)
+    // public function update(Request $request, $id), 
     public function update(ForgotPasswordController $fpc)
     {
-        $userEmail = request()->userEmail;
+        
+        
+        try {
+            $userEmail = request()->userEmail;
+            
+            //Obtiene el usuario
+            $user = User::where('email', $userEmail)->get();
 
-        //Obtiene el usuario
-        $user = User::where('email', $userEmail)->get();
+            $newPassw = $fpc->generateRandomString();
 
-        $newPassw = $fpc->generateRandomString();
+            $user[0]->password = bcrypt($newPassw);
+            $user[0]->save();
 
-        $user[0]->password = bcrypt($newPassw);
-        $user[0]->save();
 
-        $data = array(
-            'name' => $user[0]->name,
-            'lastName' => $user[0]->lastName,
-            'newPassw' => $newPassw
-        );
+            // Mail::send('emails.forgotPassw', $data, function($message) use($user) {
+            //     $message->from('admin@xportgold.com', 'XportGold');
+            //     $message->to($user[0]->email)->subject('Restablecimiento de clave');
+            // });
+            $userToSend = DB::table('tmp_forgotpassword')
+                ->where('sendTo', '=', $userEmail)
+                ->update(['enviado' => '1']);
 
-        // Mail::send('emails.forgotPassw', $data, function($message) use($user) {
-        //     $message->from('admin@xportgold.com', 'XportGold');
-        //     $message->to($user[0]->email)->subject('Restablecimiento de clave');
-        // });
-
-        $userToSend = DB::table('tmp_forgotpassword')
-            ->where('sendTo', '=', $userEmail)
-            ->update(['enviado' => '1']);
-
-        $contentEmail = array(
-            'userEmail' => $userEmail,
-            'newPassw' => $newPassw,
-            'name' => $user[0]->name,
-            'lastName' => $user[0]->lastName
-        );
-
+            $contentEmail = array([
+                'userEmail' => $userEmail,
+                'newPassw' => $newPassw,
+                'name' => $user[0]->name,
+                'lastName' => $user[0]->lastName
+            ]);
         return $contentEmail;
+            //code...
+        } catch (\Throwable $th) {
+            $contentEmail = array([
+                'userEmail' => null,
+                'newPassw' => null,
+                'name' => null,
+                'lastName' => null
+            ]);
+            return $contentEmail;
+        }
+
     }
 
     /**

@@ -14,9 +14,9 @@ use Illuminate\Http\Request;
 */
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::get('/state/{id}', 'StateController@byCountry');
 
@@ -30,8 +30,8 @@ Route::get('emailForgotPassw', [
         'as' => 'emailForgotPassw', 
         'uses' => 'API\EmailsForgotPasswController@index'
     ]);
-Route::post('emailForgotPassw', [
-        'as' => 'emailForgotPassw', 
+Route::post('emailForgotPasswUpdate', [
+        'as' => 'emailForgotPasswUpdate', 
         'uses' => 'API\EmailsForgotPasswController@update'
     ]);
 Route::post('destroyEmailForgotPassw/{id}', [
