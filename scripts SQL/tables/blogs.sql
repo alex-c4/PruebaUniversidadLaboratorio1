@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-03-2019 a las 21:31:34
+-- Tiempo de generación: 18-06-2019 a las 03:17:13
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.1
 
@@ -32,10 +32,12 @@ CREATE TABLE `blogs` (
   `id` int(11) NOT NULL,
   `title` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `content` text COLLATE utf8_spanish_ci NOT NULL,
+  `summary` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `user_id` int(11) NOT NULL,
-  `borrado` tinyint(1) NOT NULL,
+  `borrado` tinyint(1) NOT NULL DEFAULT '0',
   `updated_at` date NOT NULL,
-  `created_at` date NOT NULL
+  `created_at` date NOT NULL,
+  `thumbnails` varchar(150) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -56,7 +58,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT de la tabla `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
