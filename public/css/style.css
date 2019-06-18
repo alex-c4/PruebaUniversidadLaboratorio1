@@ -1999,4 +1999,24 @@ body {
     font-style: bold;
   }
 
+.img_blog{
+  width: 300px;
+  border-radius: 20px 0px 20px 0px;
+  -moz-border-radius: 20px 0px 20px 0px;
+  -webkit-border-radius: 20px 0px 20px 0px;
+}
+
+@media (max-width: 992px) {
+   .img_blog {
+    width: 100%;
+  }
+}
+
+.img_avatar{
+  width: 70px;
+  border-radius: 15px;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.24);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.24);
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.24);
+}
 

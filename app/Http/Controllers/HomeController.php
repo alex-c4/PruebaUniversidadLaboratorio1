@@ -53,9 +53,11 @@ class HomeController extends Controller
        //        ->limit(6)
        //        ->get();
         $blogs = DB::table('blogs')
-              ->where('borrado', '=', '0')
-              ->orderby('updated_at','desc')
+              ->join('users', 'blogs.user_id', '=', 'users.id')
+              ->where('blogs.borrado', '=', '0')
+              ->orderby('blogs.updated_at','desc')
               ->limit(6)
+              ->select('users.*', 'blogs.*')
               ->get();
 
        return view('home', compact('misnoticias', 'myResults','quiniela','puntuaciones','puntuaciones_free', 'blogs'));  

@@ -596,39 +596,43 @@
               <p>Disfruta del contenido mas destacado de la Copa America Brasil 2019 en nuestra sección de blogs.</p>
             </header>
 
-            <div class="row news-cols">
+            
 
-              @foreach($blogs as $blog)
+            @foreach($blogs as $blog)
+              <div class="row news-cols">
 
-
-                <div class="col-md-4 wow fadeInUp">
-                  <div class="news-col">
-                    <h2 class="title"><a href="{{ url('/blogs/'.$blog->id) }}">{{ $blog->title }}</a></h2>
-
-                    <p style="text-align: justify;">
-                      </br>{{ substr($blog->created_at,0,10)}}
-                    </p>
-                  <a href="{{ route('blogs.show', $blog->id) }}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                  @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
-                    <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
-                  @endif
+                <div class="col-lg-4 col-md-6">
+                  <img src="{{ url('img/blog/thumbnails/') }}/{{$blog->thumbnails}}" alt="" srcset="" class="img_blog">
+                </div>
+                <div class="col-lg-8 col-md-6" style="margin-top: 5px">
+                  <h4>
+                    <a href="{{ url('/blogs/'.$blog->id) }}">{{ $blog->title }}</a> 
+                    @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
+                      <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
+                    @endif
+                  </h4>
+                  <p>
+                    {{ $blog->summary }}<a href="{{ url('/blogs/'.$blog->id) }}">... leer más</a>
+                  </p>
                   
-                  <!--
-                  <a href="whatsapp://send?text=https://scriptbc.com" data-action="share/whatsapp/share">
-                    <img src="RUTA-IMAGEN" width="XX" height="YY">
-                  </a>
-                  -->
-                  <!--              
-                  <a href="whatsapp://send?text=Como crear un boton de compartir en whatsapp - https://jonathanmelgoza.com/blog/boton-de-compartir-en-whatsapp" data-action="share/whatsapp/share" target="_blank"><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png" style="display: inline;" data-lazy-loaded="true"><noscript><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png"/></noscript></a>
-                  -->
-                  
+                  <div  class="row">
+
+                    <div class="col-lg-2 col-sm-3 col-3">
+                      <img src="{{ url('img/avatars/1.png') }}" alt="avatar" class="img_avatar">
+                    </div>
+
+                    <div class="col-lg-10 col-sm-9 col-9">
+                      <h5>{{ mb_convert_case($blog->name, MB_CASE_TITLE, "UTF-8") }} {{ mb_convert_case($blog->lastName, MB_CASE_TITLE, "UTF-8") }}</h5>
+                      <h6>{{ substr($blog->created_at,0,10)}}</h6>
+                    </div> 
+
+                  </div>
+
                 </div>
               </div>
-              @endforeach
-              
-            </div>
+              <hr>
+            @endforeach
 
-          </div>
         </section>
         <!-- #Blog -->
 
