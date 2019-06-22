@@ -18,11 +18,11 @@
   <link href="{{ asset('css/googleFontsOpenSans.css') }}" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+  <link href="{{ asset('lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     
   <!-- Libraries CSS Files -->   
   <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+  <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
   <!--<link href="{{ asset('css/fontawesome.css')}}" rel="stylesheet"> Sustitido por la de arriba--> 
   <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
   <link href="{{ asset('lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">

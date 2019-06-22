@@ -51,7 +51,7 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url('img/intro-carousel/1_ca.png');">
+          <div class="carousel-item active" style="background-image: url('img/intro-carousel/1_ca.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>COPA AMERICA BRASIL 2019</h2>
