@@ -304,7 +304,7 @@
 
         <div class="col-lg-12 titleDashboard">
           <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Quinielas</button>
-          <h4>Quinielas</h4>
+          <!-- <h4>Quinielas</h4> -->
 
 
           <hr>

@@ -583,8 +583,6 @@
 
         </div>
 
-        <br>
-
         <!--==========================
           Blog Section
         ============================-->
@@ -602,7 +600,7 @@
               <div class="row news-cols">
 
                 <div class="col-lg-4 col-md-6">
-                  <img src="{{ url('img/blog/thumbnails/') }}/{{$blog->thumbnails}}" alt="" srcset="" class="img_blog">
+                  <img src="{{ url('img/blog/thumbnails/') }}/{{$blog->thumbnails}}" alt="" srcset="" class="img_blog img-thumbnail">
                 </div>
                 <div class="col-lg-8 col-md-6" style="margin-top: 5px">
                   <h4>
@@ -618,7 +616,7 @@
                   <div  class="row">
 
                     <div class="col-lg-2 col-sm-3 col-3">
-                      <img src="{{ url('img/avatars/1.png') }}" alt="avatar" class="img_avatar">
+                      <img src="{{ url('img/avatars') }}/{{ $blog->avatarName }}" alt="avatar" class="img_avatar">
                     </div>
 
                     <div class="col-lg-10 col-sm-9 col-9">

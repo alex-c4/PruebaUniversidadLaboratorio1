@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use DB;
@@ -12,9 +13,13 @@ use Carbon\Carbon;
 
 class BlogController extends Controller
 {
+
+    public $DIRECTORY_IMG = "blog/thumbnails/";
+
     public function __construct(){
         $this->middleware('admin', ['except' => ['show'] ]);
     }
+
 
     /**
      * Display a listing of the resource.
@@ -50,6 +55,9 @@ class BlogController extends Controller
 
         $this->validateBlogs(request()->all())->validate();
 
+        $file = $request->file('name_img');
+        $fileName = Carbon::now()->format('Y-m-d_Hi') ."_". $file->getClientOriginalName();
+
         //return $request->all();
         $user_id = auth()->user()->id; 
 
@@ -58,9 +66,13 @@ class BlogController extends Controller
             'user_id' => $user_id,
             'title' => $request->input('title'),
             'updated_at' => $request->input('updated_at'),
-            'content' => $request->input('content')
+            'content' => $request->input('content'),
+            'summary' => $request->input('summary'),
+            'thumbnails' =>  $fileName,
             ]);
         
+        Storage::putFileAs($this->DIRECTORY_IMG, $file, $fileName);
+
         return redirect()->route('blogs.index');
     }
 
@@ -72,7 +84,9 @@ class BlogController extends Controller
         return Validator::make($data, [
             'title' => 'required|string',
             'updated_at' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'summary' => 'required',
+            'name_img' => 'required'
         ], $messages);
     }
 
@@ -117,11 +131,23 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $blogs = Blog::where("id", $id)->first();
-        $blogs->title = request()->title;
-        $blogs->updated_at = request()->updated_at;
-        $blogs->content = request()->content;
-        
+        $blogs->title = $request->input('title');
+        $blogs->updated_at = $request->input('updated_at');
+        $blogs->content = $request->input('content');
+        $blogs->summary = $request->input('summary'); 
+
+        if(request()->name_img != null){
+            if($blogs->thumbnails != ""){
+                Storage::delete($this->DIRECTORY_IMG . $blogs->thumbnails);
+            }
+            $file = $request->file('name_img');
+            $fileName = Carbon::now()->format('Y-m-d_Hi') ."_". $file->getClientOriginalName();
+            $blogs->thumbnails = $fileName;
+
+            Storage::putFileAs($this->DIRECTORY_IMG, $file, $fileName);
+        }
         $blogs->update();
+
 
         return redirect()->route('blogs.index');
     }
