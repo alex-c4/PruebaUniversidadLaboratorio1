@@ -263,10 +263,10 @@
   <script src="{{asset('js/scriptLogin.js')}}"></script>
 
   <!-- Script para datepicker -->
-  <script src="js/datepicker.js"></script>
+  <!-- <script src="js/datepicker.js"></script> -->
 
   <!-- Script para barajitas -->
-  <script src="js/sticker.js"></script>
+  <script src="{{ asset('js/sticker.js') }} "></script>
   <script src="{{asset('js/datepicker.js')}}"></script>
 
   <!-- script para registro de usuario -->

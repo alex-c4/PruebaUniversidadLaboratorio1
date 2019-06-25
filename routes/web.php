@@ -247,6 +247,8 @@ Route::put('blogs/{id}', ['as' => 'blogs.update', 'uses' => 'BlogController@upda
 Route::patch('blogs/{id}', ['as' => 'blogs.restore', 'uses' => 'BlogController@restore']);
 Route::delete('blogs/{id}', ['as' => 'blogs.destroy', 'uses' => 'BlogController@destroy']);
 
+Route::post('blogsComment/store', ['as' => 'blogsComment.store', 'uses' => 'BlogController@storeComent']);
+
 /*
 |--------------------------------------------------------------------------
 | Games Routes

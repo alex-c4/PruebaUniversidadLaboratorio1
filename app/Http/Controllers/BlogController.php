@@ -17,7 +17,7 @@ class BlogController extends Controller
     public $DIRECTORY_IMG = "blog/thumbnails/";
 
     public function __construct(){
-        $this->middleware('admin', ['except' => ['show'] ]);
+        $this->middleware('admin', ['except' => ['show', 'storeComent'] ]);
     }
 
 
@@ -31,6 +31,7 @@ class BlogController extends Controller
         $blogs = DB::table('blogs')
             ->orderby('updated_at','desc')
             ->get();
+            
         return view('blogs.index', compact('blogs'));
     }
 
@@ -89,6 +90,15 @@ class BlogController extends Controller
             'name_img' => 'required'
         ], $messages);
     }
+    public function validateBlogsComment(array $data){
+        $messages = [
+            'required' => 'El campo es requerido.'
+        ];
+
+        return Validator::make($data, [
+            'comment' => 'required|string'
+        ], $messages);
+    }
 
     /**
      * Display the specified resource.
@@ -101,11 +111,16 @@ class BlogController extends Controller
         // $blog = Blog::where('id', $id)->first();
         $blog = DB::table('blogs')
             ->join('users', 'users.id', '=', 'blogs.user_id', 'inner', false)
-            ->select('blogs.id', 'blogs.title', 'blogs.content', 'blogs.created_at', 'users.name', 'users.lastName')
+            ->select('blogs.id', 'blogs.title', 'blogs.content', 'blogs.created_at', 'users.name', 'users.lastName', 'users.avatarName')
             ->where('blogs.id', "=", $id)
             ->first();
+        
+        $comments = DB::table('blog_comments')
+            ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
+            ->where('blog_id', '=', $id)
+            ->get();
 
-            return view('blogs.show', compact('blog'));
+            return view('blogs.show', compact('blog', 'comments'));
     }
 
     /**
@@ -185,5 +200,37 @@ class BlogController extends Controller
 
         return redirect()->route('blogs.index');
 
+    }
+
+    /**
+     * Metodos para los Comentarios
+     */
+    public function storeComent(Request $request){
+        $user_id = auth()->user()->id; 
+
+        $id = $request->input('hBlogId');
+
+        $this->validateBlogsComment(request()->all())->validate();
+
+        $blogComent = DB::table('blog_comments')
+            ->insert([
+                "blog_id" => $id,
+                "parent_id" => $request->input('hParentsId'),
+                "user_id" => $user_id,
+                "comment" => $request->input('comment'),
+            ]);
+        
+            $blog = DB::table('blogs')
+            ->join('users', 'users.id', '=', 'blogs.user_id', 'inner', false)
+            ->select('blogs.id', 'blogs.title', 'blogs.content', 'blogs.created_at', 'users.name', 'users.lastName')
+            ->where('blogs.id', "=", $id)
+            ->first();
+
+            $comments = DB::table('blog_comments')
+                ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
+                ->where('blog_id', '=', $id)
+                ->get();
+
+            return view('blogs.show', compact('blog', 'comments'));
     }
 }

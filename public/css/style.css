@@ -2025,3 +2025,21 @@ body {
   padding: 60px 0;
 }
 
+/* Comentarios blog */
+.divComments {
+  background-color: #f5f5f5; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.divComments h5{
+  font-weight: 500;
+}
+.divComments h6{
+  font-weight: 400;
+}
+.divComments p{
+  font-size: smaller;
+}
+
