@@ -73,7 +73,7 @@
                     <h4>
                         Comentarios 
                         <span class="badge badge-pill badge-info">{{ $comments->count() }}</span> 
-                        <button onclick="writeComment()" data-toggle="modal" data-target="#commentsModal" data-toggle="tooltip" title="Agregar comentario" type="button" class="btn btn-outline-success btn-sm"><i class="fa fa-comment" aria-hidden="true"></i></button>
+                        <button onclick="writeComment(0)" data-toggle="modal" data-target="#commentsModal" data-toggle="tooltip" title="Agregar comentario" type="button" class="btn btn-outline-success btn-sm"><i class="fa fa-comment" aria-hidden="true"> comentar</i></button>
                     </h4>
                     
                     <div class="container">
@@ -90,12 +90,36 @@
                                         <h6>{{ substr($comment->created_at,0,10)}}</h6>
                                     </div>
                                 </div>
-                                <p>
-                                    {!! $comment->comment !!}
-                                </p>
-                                <div class="text-left">
-                                    <button type="button" class="btn btn-outline-success btn-sm" text-align>responder</button>
+                                <hr>
+                                <div style="margin-left: 10%;">
+                                    <div class="user">
+                                        <b>{{ mb_convert_case($comment->name, MB_CASE_TITLE, "UTF-8") }} {{ mb_convert_case($comment->lastName, MB_CASE_TITLE, "UTF-8") }}</b> dice:
+                                    </div>
+                                    <div class="bodyComment">
+                                        {!! $comment->comment !!}
+                                    </div>
                                 </div>
+                                <div class="text-left">
+                                    <button type="button" data-toggle="modal" data-target="#commentsModal" onclick="writeComment({{ $comment->blogCommentId }})" class="btn btn-outline-success btn-sm" text-align><i class="fa fa-reply" aria-hidden="true"> responder</i></button>
+                                </div>
+
+                            @foreach($responses as $response)
+                            
+                                @if($response->parent_id == $comment->blogCommentId)
+                                    <div style="margin-left: 15%;">
+                                        <!-- <hr> -->
+                                        <div class="user">
+                                            <b>{{ mb_convert_case($response->name, MB_CASE_TITLE, "UTF-8") }} {{ mb_convert_case($response->lastName, MB_CASE_TITLE, "UTF-8") }}</b> responde:
+                                        </div>
+                                        <div class="bodyComment">
+                                            {!! $response->comment !!}
+                                        </div>
+                                    </div>
+                                @endif
+                            
+
+                            @endforeach
+                                
                             </div>
                             @endforeach
                         <!-- end comments -->

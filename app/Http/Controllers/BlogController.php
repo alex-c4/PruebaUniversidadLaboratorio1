@@ -31,8 +31,8 @@ class BlogController extends Controller
         $blogs = DB::table('blogs')
             ->orderby('updated_at','desc')
             ->get();
-            
-        return view('blogs.index', compact('blogs'));
+
+            return view('blogs.index', compact('blogs'));
     }
 
     /**
@@ -118,9 +118,19 @@ class BlogController extends Controller
         $comments = DB::table('blog_comments')
             ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
             ->where('blog_id', '=', $id)
+            ->where('blog_comments.parent_id', '=', '0')
+            ->select('blog_comments.id as blogCommentId','blog_comments.created_at','blog_comments.comment','users.avatarName','users.name','users.lastName' )
             ->get();
 
-            return view('blogs.show', compact('blog', 'comments'));
+        $responses =  DB::table('blog_comments')
+            ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
+            ->where('blog_id', '=', $id)
+            ->where('blog_comments.parent_id', '>', '0')
+            ->select('blog_comments.id as blogCommentId', 'blog_comments.parent_id as parent_id','blog_comments.created_at','blog_comments.comment','users.avatarName','users.name','users.lastName' )
+            ->get();
+
+
+            return view('blogs.show', compact('blog', 'comments', 'responses'));
     }
 
     /**
@@ -220,17 +230,28 @@ class BlogController extends Controller
                 "comment" => $request->input('comment'),
             ]);
         
-            $blog = DB::table('blogs')
+        $blog = DB::table('blogs')
             ->join('users', 'users.id', '=', 'blogs.user_id', 'inner', false)
-            ->select('blogs.id', 'blogs.title', 'blogs.content', 'blogs.created_at', 'users.name', 'users.lastName')
+            ->select('blogs.id', 'blogs.title', 'blogs.content', 'blogs.created_at', 'users.name', 'users.lastName', 'users.avatarName')
             ->where('blogs.id', "=", $id)
             ->first();
+        
+        $comments = DB::table('blog_comments')
+            ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
+            ->where('blog_id', '=', $id)
+            ->select('blog_comments.id as blogCommentId','blog_comments.created_at','blog_comments.comment','users.avatarName','users.name','users.lastName' )
+            ->get();
 
-            $comments = DB::table('blog_comments')
-                ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
-                ->where('blog_id', '=', $id)
-                ->get();
+        
 
-            return view('blogs.show', compact('blog', 'comments'));
+        $responses =  DB::table('blog_comments')
+            ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
+            ->where('blog_id', '=', $id)
+            ->where('blog_comments.parent_id', '>', '0')
+            ->select('blog_comments.id as blogCommentId', 'blog_comments.parent_id as parent_id','blog_comments.created_at','blog_comments.comment','users.avatarName','users.name','users.lastName' )
+            ->get();
+
+            // return view('blogs.show', compact('blog', 'comments', 'responses'));
+            return redirect()->route('blogs.show', ['id' => $id]);
     }
 }

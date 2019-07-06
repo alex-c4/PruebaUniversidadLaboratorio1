@@ -600,7 +600,9 @@
               <div class="row news-cols">
 
                 <div class="col-lg-4 col-md-6">
-                  <img src="{{ url('img/blog/thumbnails/') }}/{{$blog->thumbnails}}" alt="" srcset="" class="img_blog img-thumbnail">
+                  <a href="{{ url('/blogs/'.$blog->id) }}">
+                    <img src="{{ url('img/blog/thumbnails/') }}/{{$blog->thumbnails}}" alt="" srcset="" class="img_blog img-thumbnail">
+                  </a>
                 </div>
                 <div class="col-lg-8 col-md-6" style="margin-top: 5px">
                   <h4>

@@ -126,7 +126,7 @@
           
             <li>
               <a href="" data-toggle="modal" data-target="#exampleModal">
-              <button type="button" id="btnLogin" class="btn btn-outline-light btn-sm">&nbsp;login&nbsp;</button>
+              <button type="button" id="btnLogin" class="btn btn-outline-light"><i class="fa fa-user" aria-hidden="true">&nbsp;login&nbsp;</i></button>
               </a>
             </li>
             <!--
