@@ -261,4 +261,3 @@ Route::get('games', ['as' => 'games.index', 'uses' => 'GameController@index']);
 Route::get('games/create', ['as' => 'games.create', 'uses' => 'GameController@create']);
 Route::post('games/store', ['as' => 'games.store', 'uses' => 'GameController@store']);
 
-

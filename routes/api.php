@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +42,16 @@ Route::post('destroyEmailForgotPassw/{id}', [
 //     'emailForgotPassw' => 'API\EmailsForgotPasswController'
 // ]);
 
+
+// API Rest Route
+Route::post('login', 'API\AuthController@login');
+Route::group(['middleware' => ['jwt.auth']], function(){
+//     Route::post('logout', 'API\AuthController@logout');
+    Route::get('test', function(){
+        return response()->json(['foo'=>'bar']);
+    });
+//     Route::get('quinielas/{user_id}', 'API\QuinielaController@listarQuinielas')->name('quinielas.list');
+});
+
+Route::post('logout', 'API\AuthController@logout');
+Route::get('quinielas/{user_id}', 'API\QuinielaController@listarQuinielas')->name('quinielas.list');
