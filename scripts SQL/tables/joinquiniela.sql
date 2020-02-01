@@ -25,20 +25,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `joinquiniela`
+-- Estructura de tabla para la tabla `quiniela_privada`
 --
 
-CREATE TABLE `joinquiniela` (
+CREATE TABLE `quiniela_privada` (
   `id` int(11) NOT NULL,
   `id_quiniela` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `joinquiniela`
+-- Volcado de datos para la tabla `quiniela_privada`
 --
 
-INSERT INTO `joinquiniela` (`id`, `id_quiniela`, `id_user`) VALUES
+INSERT INTO `quiniela_privada` (`id`, `id_quiniela`, `id_user`) VALUES
 (1, 2, 64),
 (4, 2, 6),
 (5, 3, 6);
@@ -48,9 +48,9 @@ INSERT INTO `joinquiniela` (`id`, `id_quiniela`, `id_user`) VALUES
 --
 
 --
--- Indices de la tabla `joinquiniela`
+-- Indices de la tabla `quiniela_privada`
 --
-ALTER TABLE `joinquiniela`
+ALTER TABLE `quiniela_privada`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -58,9 +58,9 @@ ALTER TABLE `joinquiniela`
 --
 
 --
--- AUTO_INCREMENT de la tabla `joinquiniela`
+-- AUTO_INCREMENT de la tabla `quiniela_privada`
 --
-ALTER TABLE `joinquiniela`
+ALTER TABLE `quiniela_privada`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 

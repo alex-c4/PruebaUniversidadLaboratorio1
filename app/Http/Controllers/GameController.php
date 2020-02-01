@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Game;
+use App\Phase;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,10 @@ class GameController extends Controller{
     public function index()
     {
         $games = DB::table('games')
-            ->orderby('id','desc')
+            ->join('phases', 'phases.id', '=', 'games.fase', 'inner', false)
+            ->join('championships', 'championships.id', '=', 'games.id_champ', 'inner', false)
+            ->select('games.id', 'games.nombre_club_1', 'games.nombre_club_2', 'phases.name as fase', 'games.grupo', 'games.date', 'games.time', 'championships.name as championship_name')
+            ->orderby('games.id','asc')
             ->get();
         
         return view('games.index', compact('games'));
@@ -38,14 +42,17 @@ class GameController extends Controller{
     public function create()
     {
         $championships = DB::table('championships')
-            ->where("isActive", 1)
+            ->where("isActive", 2)
             ->get();
 
         $clubs = DB::table('clubs')
             ->orderby('nombre','asc')
             ->get();
 
-        return view('games.create', compact('championships', 'clubs'));
+        $phases = DB::table('phases')
+            ->get();
+
+        return view('games.create', compact('championships', 'clubs', 'phases'));
     }
 
     /**

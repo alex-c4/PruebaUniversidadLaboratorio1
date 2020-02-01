@@ -18,7 +18,7 @@
     
         <div class="section-header">
             <br>
-            <h3>Registro Quiniela Privada</h3>
+            <h3>Registro Quinielas</h3>
             <p>Panel para la creación y registro de las predicciones de los juegos del campeonato</p>
         </div>
 
@@ -42,12 +42,12 @@
                 <!-- Nombre -->
                 <div class="form-group col-md-5">
                 <label for="name">Nombre <span style="color: red">*</span></label>
-                <input type="text" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" name="name" id="name" placeholder="Nombre" value="{{ old('name') }}">
+                <input type="text" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" name="name" id="name" placeholder="Nombre" value="{{ old('name') }}" required>
                 {!! $errors->first('name', '<span class="text-danger">:message</span>') !!}
                 </div>
 
                 <!-- Tipo de quiniela -->
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-2">
                 <label for="type_id">Tipo <span style="color: red">*</span></label>
                 <select class="custom-select {{ $errors->has('type_id') ? 'border-danger' : '' }}" id="type_id" name="type_id" placeholder="...">
                     <option selected>...</option>
@@ -64,7 +64,14 @@
                 {!! $errors->first('type_id', '<span class="text-danger">:message</span>') !!}
                 </div>
 
-                <!-- Nombre -->
+                <!-- Monto -->
+                <div class="form-group col-md-1">
+                <label for="amount">Monto ($)<span style="color: red">*</span></label>
+                <input type="text" class="form-control {{ $errors->has('amount') ? 'border-danger' : '' }}" name="amount" id="amount" placeholder="Monto" value="@if(old('amount')){{old('amount')}} @else{{0}}@endif" required>
+                {!! $errors->first('amount', '<span class="text-danger">:message</span>') !!}
+                </div>
+
+                <!-- Boton -->
                 <div class="form-group col-md-1">
                     <label for="type_id">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <button  type="submit" class="btn btn-outline-success" data-dismiss="modal"><i class="fa fa-plus"></i></button>
@@ -97,6 +104,7 @@
                 @endforeach
             </tbody>
         </table>   
+        
     </div>
 </section>
 

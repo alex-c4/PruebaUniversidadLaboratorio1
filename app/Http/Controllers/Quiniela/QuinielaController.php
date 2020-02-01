@@ -12,7 +12,7 @@ use App\Pronostic;
 use App\Quiniela;
 use App\Championship;
 use App\Quinielatipo;
-
+use Carbon\Carbon;
 use DB;
 
 class QuinielaController extends Controller
@@ -20,14 +20,14 @@ class QuinielaController extends Controller
     //
 
     public function __construct(){
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index(){
         $user_id = auth()->user()->id; 
 
         $misQuinelasPublicas = DB::select('CALL sp_getMyQuinielasPublic()');
-
+        
         $misQuinielasPrivadas = DB::select('CALL sp_getMyQuinielasPrivate(?)', array($user_id) );
         
         // $pronostic_id = date("YmdHis") . rand(1000, 9999);
@@ -80,6 +80,42 @@ class QuinielaController extends Controller
     }
 
     public function searchGames($quiniela_id){
+        /************************************************************************ */
+        // 1ra validacion regla de negocio: un usuario no podra realizar mas de un 
+        // registro de pronostico en quinielas publicas gratis
+        /************************************************************************ */
+
+            $id_user = auth()->user()->id;
+            $result = DB::select('CALL sp_ValidarQuinielasPublicasGratis(?,?)', array($quiniela_id, $id_user));
+            $total = $result[0]->total;
+            if($total > 0){
+                $data = ['title' => '¡Información!',
+                     'message' => 'Ud. ya ha registrado un pronóstico previamente para esta quiniela pública gratis, para esta modalidad solo podrá registrar un pronóstico por quiniela, para ver sus pronósticos por favor haga <a href="'. route("searchPronostics") .'" class="alert-link">click aqui</a>.',
+                     'footer' => 'Gracias! por preferirnos y mucho éxito en sus aciertos.'
+                    ];
+                    return $this->muestraAlert($data);
+            }
+        /************************************************************************ */
+        // fin de 1ra validacion regla de negocio
+        /************************************************************************ */
+
+        /************************************************************************ */
+        // 2ra validacion regla de negocio: el usuario podra registrar N XG publicas 
+        // pagas, pero para poder registrar nuevos pronosticos debe haber cancelado 
+        // el XG que previamente registro.
+        /************************************************************************ */
+        $result = DB::select('CALL spValidarQuinielasPublicasPaga(?,?)', array($quiniela_id, $id_user));
+        $total = $result[0]->total;
+        if($total > 0){
+            $data = ['title' => '¡Información!',
+                 'message' => 'Ud. ya ha registrado un pronóstico previamente para esta quiniela pública paga, para esta modalidad deberá cancelar la quiniela previamente registrada, para ver sus quinielas cargadas por favor haga <a href="'. route("payment.store") .'" class="alert-link">click aqui</a>.',
+                 'footer' => 'Gracias! por preferirnos y mucho éxito en sus aciertos.'
+                ];
+                return $this->muestraAlert($data);
+        }
+        /************************************************************************ */
+        // fin de 2da validacion regla de negocio
+        /************************************************************************ */
 
         $games = DB::select('CALL sp_getGamesByQuiniela(?)', array($quiniela_id));
 
@@ -88,12 +124,26 @@ class QuinielaController extends Controller
 
         $championship_id = $quiniela[0]['id_championship'];
 
+        $start_championship = Championship::where('id', $championship_id)
+        ->select('start_datetime as start')
+        ->get();
+
+        $now = Carbon::now();
+        $now->setTimezone('UTC');
+        //$currentDate = Carbon::create($now->year, $now->month, $now->day, $now->hour, $now->minute, $now->second, 'UTC');
+        //var_dump($currentDate);
+
+        $startCampionship = new Carbon($start_championship[0]['start']); 
+        //var_dump($now < $startCampionship);
+
+        $showGames = $now < $startCampionship; //$startCampionship->gt($now);
+
         $info = array(
             'id_quiniela' => $quiniela_id,
             'id_championship' => $championship_id
         );
         
-        return view('quiniela.addGames', compact('games', 'info'));
+        return view('quiniela.addGames', compact('games', 'info', 'showGames', 'total'));
         
     }
 
@@ -193,11 +243,11 @@ class QuinielaController extends Controller
         $publicas=DB::table('quinielas')->where('id_type','1')->get();      
         
         //quinielas privadas al las q el user esta asociado
-        $privadas=DB::table('joinquiniela')
-        ->join('quinielas','quinielas.id_quiniela','=','joinquiniela.id_quiniela','inner',false)
+        $privadas=DB::table('quiniela_privada')
+        ->join('quinielas','quinielas.id_quiniela','=','quiniela_privada.id_quiniela','inner',false)
         ->select ('quinielas.id_quiniela','quinielas.nombre')
         ->where('quinielas.id_type','=','2')
-        ->where('joinquiniela.id_user','=',$user_id)
+        ->where('quiniela_privada.id_user','=',$user_id)
         ->get();        
        
         //dd($privadas, $publicas);
@@ -239,48 +289,18 @@ class QuinielaController extends Controller
 
     }
 
-    public function listarBetsPay(){      
-        
-        $bets=DB::table('bets')
-        ->join('users','users.id','=','bets.id_user','inner',false)
-        ->select ('bets.id','bets.id_quiniela','bets.id_user','bets.ref_pago',
-                 'bets.payment_date','bets.amount','bets.verification','bets.created_at','bets.updated_at','users.name','users.lastName')
-        ->where('bets.ref_Pago','!=','')
-        ->orderby('bets.verification')
-        ->orderby('bets.id_quiniela')
-        ->get();        
-       
-        //dd($privadas, $publicas);
-        return view('/quiniela.listarBets',compact('bets'));
-    }
+    
 
-    public function validarPagoBets($betId,$validacion){
-        //return $betId.'--'. $validacion;
-        
-        try{ 
-            $updates = Bet::where("id",'=', $betId)->update(['verification' =>$validacion]);
-            //dd($updates);
-            return redirect()->route('listarBetsPay');
-        }catch(Exception $e){
-            $data = ['title' => 'Algo anda mal!!',
-                     'message' => 'No se ha podido actualzar estatus del pago, verifique los datos e intente nevamente',
-                     'footer' => 'Gracias!'
-                    ];
-            return view('alert', $data);
-        }  
-
-    }
-
-
-    public function payQuiniela(){
-        return view('/quiniela.payQuiniela');
-    }
 
     private function getMisQuinielas($userId){
         return DB::select('CALL sp_getQuinielasCreatedByMe(?)', array($userId));
     }
     private function getChampionships(){
-        return Championship::where('isActive', true)->get();
+        $now = Carbon::now();
+        $now->setTimezone('UTC');
+        
+        return Championship::where('isActive', true)->
+        where('start_datetime', '>',  $now)->get();
     }
     private function getTypes($userRollId){
         if($userRollId == 1){
@@ -316,7 +336,8 @@ class QuinielaController extends Controller
         return Validator::make($data, [
             'champ_id' => 'required|numeric',
             'name' => 'required|string|max:255',
-            'type_id' => 'required|numeric'
+            'type_id' => 'required|numeric',
+            'amount' => 'required|numeric'
         ], $messages);
     }
 
@@ -341,13 +362,14 @@ class QuinielaController extends Controller
             'nombre' => request()->name,
             'id_type' => request()->type_id,
             'id_user_creador' => $userId,
+            'amount' => request()->amount,
             'code' => str_random(15)
         ]);
 
         /**
          * Asocia de una vez la quinela con el jugador
          */
-        $joinQuiniela = DB::table('joinquiniela')
+        $quiniela_privada = DB::table('quiniela_privada')
             ->insert([
                 'id_quiniela' => $quiniela->id,
                 'id_user' => $userId
@@ -378,7 +400,7 @@ class QuinielaController extends Controller
         $id_user = auth()->user()->id;
 
 
-        $games = DB::select('CALL sp_getGamesByQuinielaPhase(?,?)', array($id_quiniela, $phase));
+        $games = DB::select('CALL sp_getGamesByQuinielaPhase(?)', array($phase));
 
         // se valida primero si el usuario ya ha registrado previamente
         // un pronostico para las siguientes condiciones:
@@ -469,7 +491,7 @@ class QuinielaController extends Controller
             return $this->muestraAlert($data);
 
         }else{
-            $joinQuiniela = DB::table('joinquiniela')
+            $quiniela_privada = DB::table('quiniela_privada')
             ->insert([
                 'id_quiniela' => $quiniela->id_quiniela,
                 'id_user' => $userId
@@ -481,4 +503,6 @@ class QuinielaController extends Controller
     public function muestraAlert($data){
         return view('alert', $data); 
     }
+
+    
 }

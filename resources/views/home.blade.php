@@ -205,6 +205,7 @@
     ============================-->
 
     <!--
+    @if($quiniela)
     <section id="result">
       <div class="container">
 
@@ -313,7 +314,7 @@
 
       </div>
     </section>
-  
+    @endif
     -->
 
     <!-- #result -->

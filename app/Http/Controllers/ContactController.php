@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     
 
  /**

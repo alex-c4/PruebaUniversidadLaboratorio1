@@ -18,11 +18,11 @@ class QuinielaController extends Controller
             $publicas=DB::table('quinielas')->where('id_type','1')->get();      
             
             //quinielas privadas al las q el user esta asociado
-            $privadas=DB::table('joinquiniela')
-            ->join('quinielas','quinielas.id_quiniela','=','joinquiniela.id_quiniela','inner',false)
+            $privadas=DB::table('quiniela_privada')
+            ->join('quinielas','quinielas.id_quiniela','=','quiniela_privada.id_quiniela','inner',false)
             ->select ('quinielas.id_quiniela','quinielas.nombre')
             ->where('quinielas.id_type','=','2')
-            ->where('joinquiniela.id_user','=',$user_id)
+            ->where('quiniela_privada.id_user','=',$user_id)
             ->get();        
         
             //dd($privadas, $publicas);

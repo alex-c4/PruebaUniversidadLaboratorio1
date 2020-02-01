@@ -93,7 +93,6 @@
               <li><a href="{{ url('/result/2') }}">Result</a></li>
               <li><a href="{{ url('/listarBetsPay') }}">Validar Pagos</a></li>
             @endif
-            
             <li class="menu-has-children"><a href="{{ url('/dashboard') }}">Dashboard</a>
               <ul>
               <li><a href="{{ url('sticker') }}">Panel de cromos</a></li>
@@ -116,7 +115,6 @@
                 @endif
               </ul>
             </li>
-            
             <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>
           @else
             <!--
@@ -124,16 +122,15 @@
             <li><a href="{{ url('/register') }}">Registrarse</a></li>
           -->
           
-            <li>
+            <!-- <li>
               <a href="" data-toggle="modal" data-target="#exampleModal">
               <button type="button" id="btnLogin" class="btn btn-outline-light"><i class="fa fa-user" aria-hidden="true">&nbsp;login&nbsp;</i></button>
               </a>
-            </li>
-            <!--
-            <li><a href="" data-toggle="modal" data-target="#exampleModal">Log In</a></li>
-            -->
+            </li> -->
+            <li><a href="" data-toggle="modal" data-target="#exampleModal">login</a></li>
+            <li><a href="{{ url('/register') }}">Registrarse</a></li>
+           
           @endif
-          
           
         </ul>
       </nav><!-- #nav-menu-container -->

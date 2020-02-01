@@ -43,8 +43,8 @@
                      @foreach($bets as $bet)    
                     <tr>
                         <th scope="row">{{$bet->id }}</th>
-                        <td>{{ $bet->id_user }}</td>
-                        <td>{{ $bet->id_quiniela }}</td>
+                        <td>{{ $bet->name }} {{ $bet->lastName }} </td>
+                        <td>{{ $bet->nombre }}</td>
                         <td>{{ $bet->ref_pago }}</td>
                         <td>{{ $bet->amount }}</td>
                         <td>{{ $bet->payment_date }}</td>                        

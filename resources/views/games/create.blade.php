@@ -60,8 +60,10 @@
                 <div class="form-group col-md-3">
                     <label for="fase">Fase</label>
                     <select id="fase" name="fase" class="form-control">
-                        <option selected>eliminatoria</option>
-                        <option>...</option>
+                        <option selected>...</option>
+                        @foreach($phases as $pahse)
+                            <option value="{{$pahse->id}}">{{ $pahse->name }}</option>
+                        @endforeach
                     </select>
                 </div>
 

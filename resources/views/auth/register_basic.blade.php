@@ -35,21 +35,21 @@
            
 
             <!-- Email -->
-            <div class="form-group col-md-8" >
+            <div class="form-group col-md-12" >
               <label for="email">Correo electrónico <span style="color: red">*</span></label>
               <input type="email" class="form-control {{ $errors->has('email') ? 'border-danger' : '' }}" name="email" id="email" placeholder="Correo electrónico" value="{{ old('email') }}">
               {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
             </div>
 
             <!-- Clave 1 -->
-            <div class="form-group col-md-8">
+            <div class="form-group col-md-6">
               <label for="password">Contraseña <span style="color: red">*</span></label>
               <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" name="password" id="password" placeholder="Contraseña">
               {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}
             </div>
 
             <!-- Clave confirm -->
-            <div class="form-group col-md-8">
+            <div class="form-group col-md-6">
               <label for="password">Confirmar Contraseña</label>
               <input type="password" class="form-control {{ $errors->has('password') ? 'border-danger' : '' }}" name="password_confirmation" id="password-confirm" placeholder="Contraseña">
               {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}

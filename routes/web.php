@@ -156,15 +156,12 @@ Route::get('quiniela.searchPronostics', 'Quiniela\QuinielaController@searchProno
 Route::view('quiniela/pronostics', 'pronostics');
 Route::get('quiniela.pronosticEdit/{betId}', 'Quiniela\QuinielaController@pronosticEdit')->name('pronosticEdit');
 Route::post('quiniela.updatePronostic', 'Quiniela\QuinielaController@updatePronostic')->name('updatePronostic');
-Route::get('payQuiniela', 'Quiniela\QuinielaController@payQuiniela')->name('payQuiniela');
 Route::get('quiniela.pronosticGet/{betId}', 'Quiniela\QuinielaController@pronosticGet')->name('pronosticGet');
 Route::get('quiniela/create', 'Quiniela\QuinielaController@createPrivateQuiniela')->name('createPrivateQuiniela');
 
 Route::get('quinielas/{user_id}', 'Quiniela\QuinielaController@listarQuinielas')->name('quinielas.list');
 Route::post('puntuaciones', 'Quiniela\QuinielaController@quinielaPuntaciones')->name('quiniela.puntuaciones');
 Route::get('puntuacionesQui/{quiniela_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
-Route::get('listarBetsPay', 'Quiniela\QuinielaController@listarBetsPay')->name('listarBetsPay');
-Route::get('validarPagoBets/{betId}/{validacion}', 'Quiniela\QuinielaController@validarPagoBets')->name('validarPagoBets');
 Route::get('pronosticos.mostrar/{pronostic_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
 Route::view('quiniela/createQuiniela', 'createQuiniela');
 Route::post('saveNewQuinielaPrivate', 'Quiniela\QuinielaController@saveNewQuinielaPrivate')->name('saveNewQuinielaPrivate');
@@ -195,20 +192,25 @@ Route::post('/result', 'Result\ResultController@store')->name('result');
 |
 */
 //Route::view('/payment.formpayment', 'formpayment');
-Route::get('/payment{id_bet}', 'Payment\PaymentController@create')->name('payment');
 //Route::get('/payment', 'Payment\PaymentController@create')->name('payment');
-
-Route::POST('/payment', 'Payment\PaymentController@store')->name('payment');
 /*
 Route::get('/formpayment', function () {
     return view('/payment.formpayment');
 });*/
 //Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
-
-
 //Vista estandar para mensajes de cualquier tipo
 Route::view('warning', 'warning');
 
+//Route::get('/payment{id_bet}', 'Payment\PaymentController@create')->name('payment');
+Route::get('payment/{id_bet}', ['as' => 'payment.create', 'uses' => 'Payment\PaymentController@create']);
+
+Route::get('payment', ['as' => 'payment.store', 'uses' => 'Payment\PaymentController@store']);
+
+Route::get('validarPagoBets/{betId}/{validacion}', 'Payment\PaymentController@validarPagoBets')->name('validarPagoBets');
+
+Route::get('payQuiniela', 'Payment\PaymentController@payQuiniela')->name('payQuiniela');
+
+Route::get('listarBetsPay', 'Payment\PaymentController@listarBetsPay')->name('listarBetsPay');
 
 /*
 |--------------------------------------------------------------------------
@@ -261,3 +263,28 @@ Route::get('games', ['as' => 'games.index', 'uses' => 'GameController@index']);
 Route::get('games/create', ['as' => 'games.create', 'uses' => 'GameController@create']);
 Route::post('games/store', ['as' => 'games.store', 'uses' => 'GameController@store']);
 
+/*
+|--------------------------------------------------------------------------
+| Championship Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Campeonatos
+|
+*/
+Route::get('championship', ['as' => 'championship.index', 'uses' => 'ChampionshipController@index']);
+Route::get('championship/create', ['as' => 'championship.create', 'uses' => 'ChampionshipController@create']);
+Route::post('championship/store', ['as' => 'championship.store', 'uses' => 'ChampionshipController@store']);
+Route::patch('championship/{id}', ['as' => 'championship.restore', 'uses' => 'ChampionshipController@restore']);
+Route::delete('championship/{id}', ['as' => 'championship.destroy', 'uses' => 'ChampionshipController@destroy']);
+Route::get('championship/{id}/edit', ['as' => 'championship.edit', 'uses' => 'ChampionshipController@edit']);
+Route::put('championship/{id}', ['as' => 'championship.update', 'uses' => 'ChampionshipController@update']);
+
+/*
+|--------------------------------------------------------------------------
+| Clubes Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Clubes
+|
+*/
+Route::get('club', ['as' => 'clubs.index', 'uses' => 'ClubController@index']);

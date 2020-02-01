@@ -10,7 +10,7 @@ use App\Pronostic;
 use Mail;
 use App\Mail\welcome;
 use App\Http\Controllers\Controller;
-
+use DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
@@ -90,11 +90,11 @@ class PaymentController extends Controller
 
 
     public function create($id_bet){
-        // $id_bet = $id;
+        //$id_bet = $id;
        // return view('result.result', compact('games'));
 
        //echo $id;
-        
+        dd($id_bet);
           
 
         return view('payment.payment', compact('id_bet'));
@@ -103,7 +103,6 @@ class PaymentController extends Controller
 
     
     public function store(Request $request){
-
         // validacion de referencia de pago, redirecciona si ya existe esa referencia de pago
         $existe = Bet::where('ref_pago', $request->input('ref_pago'))->count();
         if($existe > 0){
@@ -116,7 +115,7 @@ class PaymentController extends Controller
             return view('warning',$data);
         }
 
-     //dd($request->all());
+    //dd($request->all());
     $this->validator(request()->all())->validate();
         
      $id_bet = $request->input('id_bet');    
@@ -166,4 +165,42 @@ class PaymentController extends Controller
     //     // return $this->create(request());
     //     // return $user;
     // }
+
+    public function validarPagoBets($betId,$validacion){
+        //return $betId.'--'. $validacion;
+        
+        try{ 
+            $updates = Bet::where("id",'=', $betId)->update(['verification' =>$validacion]);
+            //dd($updates);
+            return redirect()->route('listarBetsPay');
+        }catch(Exception $e){
+            $data = ['title' => 'Algo anda mal!!',
+                     'message' => 'No se ha podido actualzar estatus del pago, verifique los datos e intente nevamente',
+                     'footer' => 'Gracias!'
+                    ];
+            
+            return $this->muestraAlert($data);
+        }  
+
+    }
+
+    public function payQuiniela(){
+        return view('/quiniela.payQuiniela');
+    }
+
+    public function listarBetsPay(){      
+        
+        $bets=DB::table('bets')
+        ->join('users','users.id','=','bets.id_user','inner',false)
+        ->join('quinielas', 'quinielas.id_quiniela', '=', 'bets.id_quiniela')
+        ->select ('bets.id','bets.id_quiniela','bets.id_user','bets.ref_pago',
+                 'bets.payment_date','bets.amount','bets.verification','bets.created_at','bets.updated_at','users.name','users.lastName', 'quinielas.nombre')
+        ->where('bets.ref_Pago','=','')
+        ->orderby('bets.verification')
+        ->orderby('bets.id_quiniela')
+        ->get();        
+       
+        //dd($privadas, $publicas);
+        return view('/quiniela.listarBets',compact('bets'));
+    }
 }

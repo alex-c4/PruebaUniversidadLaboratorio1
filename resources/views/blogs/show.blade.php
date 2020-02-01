@@ -90,35 +90,50 @@
                                         <h6>{{ substr($comment->created_at,0,10)}}</h6>
                                     </div>
                                 </div>
-                                <hr>
+                                <!-- <hr> -->
                                 <div style="margin-left: 10%;">
                                     <div class="user">
-                                        <b>{{ mb_convert_case($comment->name, MB_CASE_TITLE, "UTF-8") }} {{ mb_convert_case($comment->lastName, MB_CASE_TITLE, "UTF-8") }}</b> dice:
+                                        <b>{{ mb_convert_case($comment->name, MB_CASE_TITLE, "UTF-8") }} {{ mb_convert_case($comment->lastName, MB_CASE_TITLE, "UTF-8") }}</b> dice: 
                                     </div>
                                     <div class="bodyComment">
                                         {!! $comment->comment !!}
                                     </div>
-                                </div>
-                                <div class="text-left">
-                                    <button type="button" data-toggle="modal" data-target="#commentsModal" onclick="writeComment({{ $comment->blogCommentId }})" class="btn btn-outline-success btn-sm" text-align><i class="fa fa-reply" aria-hidden="true"> responder</i></button>
-                                </div>
-
-                            @foreach($responses as $response)
-                            
-                                @if($response->parent_id == $comment->blogCommentId)
-                                    <div style="margin-left: 15%;">
-                                        <!-- <hr> -->
-                                        <div class="user">
-                                            <b>{{ mb_convert_case($response->name, MB_CASE_TITLE, "UTF-8") }} {{ mb_convert_case($response->lastName, MB_CASE_TITLE, "UTF-8") }}</b> responde:
-                                        </div>
-                                        <div class="bodyComment">
-                                            {!! $response->comment !!}
-                                        </div>
+                                    <div class="text-left">
+                                        <button type="button" data-toggle="modal" title="Responder" data-placement="top" data-target="#commentsModal" onclick="writeComment({{ $comment->blogCommentId }})" class="btn btn-outline-success btn-sm" text-align><i class="fa fa-reply" aria-hidden="true"> Responder</i></button> <!--  -->
                                     </div>
-                                @endif
-                            
-
-                            @endforeach
+                                </div>
+                                
+                                @foreach($responses as $response)
+                                    @if($response->parent_id == $comment->blogCommentId)
+                                        <div style="margin-left: 15%;">
+                                            <hr>
+                                            <div class="user">
+                                                <img src="{{ url('img/avatars') }}/{{ $response->avatarName }}" class="img_avatar" style="width: 35px !important">&nbsp;
+                                                <b>{{ mb_convert_case($response->name, MB_CASE_TITLE, "UTF-8") }} {{ mb_convert_case($response->lastName, MB_CASE_TITLE, "UTF-8") }}</b> responde:
+                                            </div>
+                                            <div class="bodyComment">
+                                                {!! $response->comment !!}
+                                            </div>
+                                            <div class="text-left">
+                                                <button type="button" data-toggle="modal" title="Responder" data-placement="top" data-target="#commentsModal" onclick="writeComment({{ $response->blogCommentId }})" class="btn btn-outline-success btn-sm" text-align><i class="fa fa-reply" aria-hidden="true"> Responder</i></button> <!--  -->
+                                            </div>
+                                        </div>
+                                        @foreach($responses as $response2)
+                                            @if($response2->parent_id == $response->blogCommentId)
+                                                <div style="margin-left: 19%;">
+                                                    <hr>
+                                                    <div class="user">
+                                                        <img src="{{ url('img/avatars') }}/{{ $response2->avatarName }}" class="img_avatar" style="width: 35px !important">&nbsp;
+                                                        <b>{{ mb_convert_case($response2->name, MB_CASE_TITLE, "UTF-8") }} {{ mb_convert_case($response2->lastName, MB_CASE_TITLE, "UTF-8") }}</b> responde:
+                                                    </div>
+                                                    <div class="bodyComment">
+                                                        {!! $response2->comment !!}
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                @endforeach
                                 
                             </div>
                             @endforeach

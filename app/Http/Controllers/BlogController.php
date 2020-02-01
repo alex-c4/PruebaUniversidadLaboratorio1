@@ -128,9 +128,10 @@ class BlogController extends Controller
             ->where('blog_comments.parent_id', '>', '0')
             ->select('blog_comments.id as blogCommentId', 'blog_comments.parent_id as parent_id','blog_comments.created_at','blog_comments.comment','users.avatarName','users.name','users.lastName' )
             ->get();
-
-
-            return view('blogs.show', compact('blog', 'comments', 'responses'));
+        
+            // var_dump($responses);
+        
+        return view('blogs.show', compact('blog', 'comments', 'responses'));
     }
 
     /**

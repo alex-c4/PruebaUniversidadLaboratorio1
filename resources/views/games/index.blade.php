@@ -15,9 +15,10 @@
     <div class="container" >
         <div class="section-header">
             <br>
-            <h3>Listado</h3>
+            <h3>Listado de Juegos</h3>
             <p>
                 <a href="{{ route('games.create') }}" title="Crear juegos" class="btn btn-outline-primary"><i class="fa fa-plus"></i></a>
+                <a href="{{ route('championship.index') }}" title="Activar Campeonato/Copa/Jornada" class="btn btn-outline-primary"><i class="fa fa-mail-forward"></i></a>
             </p>
         </div>
 
@@ -25,6 +26,7 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Campeonato/Copa/Jornada</th>
                 <th scope="col">Encuentro</th>
                 <th scope="col">Fase</th>
                 <th scope="col">Grupo</th>
@@ -36,6 +38,7 @@
         @foreach($games as $game)
             <tr>
                 <th scope="row">{{$game->id}}</th>
+                <td >{{$game->championship_name}}</td>
                 <td >{{ $game->nombre_club_1 }} vs {{ $game->nombre_club_2 }}</td>
                 <td>{{$game->fase}}</td>
                 <td>{{$game->grupo}}</td>

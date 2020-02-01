@@ -12,7 +12,7 @@ BEGIN
         ap.phase
     FROM
         quinielas AS q
-        INNER JOIN joinquiniela AS jq ON jq.id_quiniela=q.id_quiniela
+        INNER JOIN quiniela_privada AS jq ON jq.id_quiniela=q.id_quiniela
         INNER JOIN championships AS ch ON ch.id=q.id_championship
         INNER JOIN quinielatipo qt ON qt.id=q.id_type
         INNER JOIN activephases AS ap on ap.championship_id=q.id_championship
