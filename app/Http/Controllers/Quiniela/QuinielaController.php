@@ -15,6 +15,8 @@ use App\Quinielatipo;
 use Carbon\Carbon;
 use DB;
 
+use Mail;
+
 class QuinielaController extends Controller
 {
     //
@@ -270,25 +272,6 @@ class QuinielaController extends Controller
     }
 
 
-    public function quinielaPuntacionesPor_id($quiniela_id){    
-        $quiniela=DB::table('quinielas')->where('id_quiniela',$quiniela_id)->first();   
-
-       /* $puntuaciones=DB::table('v_quinielas_scores')->where('id_quiniela',$quiniela_id)
-        ->orderby('puntos','desc')
-        ->orderby('name','asc')->get(); */
-        //($quiniela);
-
-        $puntuaciones = DB::select('CALl sp_quinielas_scores(?)', array($quiniela_id));
-        /* ----------------se agrego la siguiente linea y un valos mas a la funcion compact para pasar dos listados a vista de puntuaciones.
-         para modificarla  solo se deben eliminar de esta funcion, y eliminar el segndo  bloque dedatos de la vista puntuaciones.blade ------------------------------------- */
-         $puntuaciones2 = DB::select('CALl sp_quinielas_scores_free(?)', array($quiniela_id));
-
-
-        //dd($puntuaciones);
-        return view('/quiniela.puntuaciones',compact('quiniela','puntuaciones','puntuaciones2'));
-
-    }
-
     
 
 
@@ -354,7 +337,16 @@ class QuinielaController extends Controller
     public function saveNewQuinielaPrivate(){
         $userId = auth()->user()->id;
         $userRollId = auth()->user()->rollId;
+        $code = str_random(15);
+        $tipo = DB::table('quinielatipo')
+            ->where('id', '=', request()->type_id)
+            ->first();
+        $championshipName = DB::table('championships')
+            ->where('id', '=', request()->champ_id)
+            ->first();
         
+        $user = auth()->user();
+
         $this->validateQuiniela(request()->all())->validate();
 
         $quiniela = Quiniela::create([
@@ -363,7 +355,7 @@ class QuinielaController extends Controller
             'id_type' => request()->type_id,
             'id_user_creador' => $userId,
             'amount' => request()->amount,
-            'code' => str_random(15)
+            'code' => $code
         ]);
 
         /**
@@ -380,6 +372,27 @@ class QuinielaController extends Controller
         $championships = $this->getChampionships();
 
         $types = $this->getTypes($userRollId);
+
+        /**
+         * Envia correo al usuario si es Quiniela Privada
+         */
+        if(request()->type_id == '2'){
+            $data = array(
+                'name' => auth()->user()->name,
+                'lastName' => auth()->user()->lastName,
+                'nameQuiniela' => request()->name,
+                'amount' => request()->amount,
+                'code' => $code,
+                'tipo' => $tipo->name,
+                'championship' => $championshipName->name
+            );
+            
+            Mail::send('emails.createQuinielaPrivada', $data, function($message) use($user) {
+                $message->from('xportgoldmail@xportgold.com', 'XportGold');
+                $message->to($user->email)->subject('Nuevo XportGame');
+            });
+
+        }
 
         return view('/quiniela.createQuiniela', compact('championships', 'types', 'misQuinielas'));
     }

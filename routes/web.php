@@ -161,7 +161,6 @@ Route::get('quiniela/create', 'Quiniela\QuinielaController@createPrivateQuiniela
 
 Route::get('quinielas/{user_id}', 'Quiniela\QuinielaController@listarQuinielas')->name('quinielas.list');
 Route::post('puntuaciones', 'Quiniela\QuinielaController@quinielaPuntaciones')->name('quiniela.puntuaciones');
-Route::get('puntuacionesQui/{quiniela_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
 Route::get('pronosticos.mostrar/{pronostic_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
 Route::view('quiniela/createQuiniela', 'createQuiniela');
 Route::post('saveNewQuinielaPrivate', 'Quiniela\QuinielaController@saveNewQuinielaPrivate')->name('saveNewQuinielaPrivate');
@@ -178,10 +177,17 @@ Route::post('quiniela/addCodeQuiniela', ['as' => 'quiniela.addCode', 'uses' => '
 | Seccion para las rutas asociadas a la parte de Resultados
 |
 */
-Route::get('/result/{pronostic_id}', 'Result\ResultController@create')->name('create');
+// Route::get('/result/{id_champ}', 'Result\ResultController@create')->name('create');
+Route::post('result/index', ['as' => 'result.index', 'uses' => 'Result\ResultController@index']);
+Route::get('result/listChampionships/', ['as' => 'result.listChampionships', 'uses' => 'Result\ResultController@listChampionships']);
+
 //Route::post('/result', 'Auth\ResultController@store');
 Route::post('/result', 'Result\ResultController@store')->name('result');
 //Route::post('/register', 'Auth\RegisterController@store')->name('register');
+
+Route::get('result/positionsTable', ['as' => 'result.positionsTable', 'uses' => 'Result\ResultController@positionsTable']);
+
+
 
 /*
 |--------------------------------------------------------------------------

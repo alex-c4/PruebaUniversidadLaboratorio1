@@ -15,7 +15,7 @@
 
     <div class="section-header">
 
-        <h3>Registro Quiniela</h3>
+        <h3>Registro XportGames</h3>
         
         <p>Panel para la creación y registro de las predicciones de los juegos del campeonato</p>
 

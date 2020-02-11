@@ -160,7 +160,7 @@
 
 
         <div class="col-lg-12 titleDashboard">
-          <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Quinielas</button>
+          <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>XportGames</button>
           <!-- <h4>Quinielas</h4> -->
 
           <br>
@@ -202,19 +202,10 @@
         </div>
 
         <div class="col-lg-3 col-sm-6">
-          <a href="{{ route('addPronosticsNewPhase') }}">
+          <a href="{{ route('codeQuiniela') }}">
             <img src="{{ asset('img/icons_new_panel/quiniela_add.png') }}" height="50" alt="Registro de Pronósticos" srcset="">
             <p>
-              Registro de Pronósticos nueva fase
-            </p>
-          </a>
-        </div>
-
-        <div class="col-lg-3 col-sm-6">
-          <a href="{{ route('clubs.index') }}">
-            <img src="{{ asset('img/icons_new_panel/quiniela_club.png') }}" height="50" alt="Ver Clubes" srcset="">
-            <p>
-              Registrar Clubes 
+              Unirse a XportGame
             </p>
           </a>
         </div>
@@ -223,12 +214,21 @@
           <a href="{{ route('createPrivateQuiniela') }}">
             <img src="{{ asset('img/icons_new_panel/quiniela_pronostics.png') }}" height="50" alt="Crear Quiniela" srcset="">
             <p>
-              Registrar Quiniela 
+              Registrar XportGames 
             </p>
           </a>
         </div>
         
-        @if(auth()->user()->hasRoles('Administrator')) 
+          @if(auth()->user()->hasRoles('Administrator')) 
+
+          <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('clubs.index') }}">
+              <img src="{{ asset('img/icons_new_panel/quiniela_club.png') }}" height="50" alt="Ver Clubes" srcset="">
+              <p>
+                Registrar Clubes
+              </p>
+            </a>
+          </div>
           
           <div class="col-lg-3 col-sm-6">
             <a href="{{ route('games.create') }}">
@@ -256,13 +256,22 @@
               </p>
             </a>
           </div>
+          
+          <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('result.listChampionships') }}">
+              <img src="{{ asset('img/icons_new_panel/soccer-livescore2.png') }}" height="50" alt="Crear Juego" srcset="">
+              <p>
+                Registrar resultados
+              </p>
+            </a>
+          </div>
 
         @endif
         <div class="col-lg-3 col-sm-6">
-          <a href="{{ url('/puntuacionesQui/1') }}">
+          <a href="{{ route('result.positionsTable') }}">
             <img src="{{ asset('img/icons_new_panel/quiniela_position_table.png') }}" height="50" alt="Crear Juego" srcset="">
             <p>
-              Tabla de Posiciones Quiniela
+              Tabla de Posiciones XportGames
             </p>
           </a>
         </div>

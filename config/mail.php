@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'xportgoldmail@xportgold.net'),
+        'address' => env('MAIL_FROM_ADDRESS', 'xportgoldmail@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Administración Xportgold'),
     ],
 

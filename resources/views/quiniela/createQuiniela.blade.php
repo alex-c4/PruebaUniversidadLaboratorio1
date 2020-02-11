@@ -18,7 +18,7 @@
     
         <div class="section-header">
             <br>
-            <h3>Registro Quinielas</h3>
+            <h3>Registro XportGames</h3>
             <p>Panel para la creación y registro de las predicciones de los juegos del campeonato</p>
         </div>
 
@@ -41,7 +41,7 @@
 
                 <!-- Nombre -->
                 <div class="form-group col-md-5">
-                <label for="name">Nombre <span style="color: red">*</span></label>
+                <label for="name">Nombre de tu XportGame <span style="color: red">*</span></label>
                 <input type="text" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" name="name" id="name" placeholder="Nombre" value="{{ old('name') }}" required>
                 {!! $errors->first('name', '<span class="text-danger">:message</span>') !!}
                 </div>
@@ -79,12 +79,12 @@
 
             </div>
         </form>
-        <h5>Mis quinielas</h5>
+        <h5>Mis XportGames</h5>
         <table class="table table-hover">
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Quiniela</th>
+                <th scope="col">XportGames</th>
                 <th scope="col">Campeonato</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Código</th>

@@ -24,7 +24,7 @@
                     <thead class="thead-dark">
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Quiniela</th>
+                        <th scope="col">XportGames</th>
                         <th scope="col">Campeonato</th>
                         <th scope="col"></th>
                         </tr>

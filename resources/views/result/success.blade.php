@@ -18,9 +18,13 @@
     </div>
     <div>
         <div class="alert alert-success" role="alert">
-            
-            <p>Resultado de juego realizado con exito...</p>
+            <div class="form-group col-md-12 text-center">
+                <p>Resultado de juego realizado con exito...</p>
+            </div>
             <hr>
+            <div class="form-group col-md-12 text-center">
+                <a class="btn btn-primary" href="{{ route('result.listChampionships') }}">Cargar más resultados</a>
+            </div>
             
         </div>
     </div>  

@@ -135,8 +135,8 @@
 
            <div class="col-lg-4 box box-bg">
             <i class="ion-compose"></i>
-            <h4 class="title"><a href="">QUINIELA</a></h4>
-            <p class="description">Te ofrecemos la forma mas divertida y millonaria de vivir el mundial Rusia 2018, jugando nuestra Quiniela XportGold...  </p>
+            <h4 class="title"><a href="">XportGames</a></h4>
+            <p class="description">Te ofrecemos la forma mas divertida y millonaria de vivir el mundial Rusia 2018, jugando nuestra XportGames ...  </p>
           </div>
 
         </div>

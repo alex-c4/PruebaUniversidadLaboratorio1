@@ -31,7 +31,7 @@
                     <tr>
                     <th scope="col">id</th>
                     <th scope="col">Usuario</th>
-                    <th scope="col">Quiniela</th>
+                    <th scope="col">XportGame</th>
                     <th scope="col">Ref Pago</th>
                     <th scope="col">Monto</th>
                     <th scope="col">Fecha Pago</th>
