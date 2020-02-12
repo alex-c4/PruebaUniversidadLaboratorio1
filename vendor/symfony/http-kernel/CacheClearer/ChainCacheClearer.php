@@ -16,13 +16,13 @@ namespace Symfony\Component\HttpKernel\CacheClearer;
  *
  * @author Dustin Dobervich <ddobervich@gmail.com>
  *
- * @final since version 3.4
+ * @final
  */
 class ChainCacheClearer implements CacheClearerInterface
 {
     private $clearers;
 
-    public function __construct(iterable $clearers = array())
+    public function __construct(iterable $clearers = [])
     {
         $this->clearers = $clearers;
     }
