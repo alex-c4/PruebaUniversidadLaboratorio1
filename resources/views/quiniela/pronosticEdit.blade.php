@@ -28,6 +28,7 @@
 
             <p><a href="{{ url('quiniela.searchPronostics') }}" class="btn btn-dark"><i class="fa fa-arrow-left"></i>&nbsp;Regresar</a></p>
             
+            @if($showGames == 1)
                 <div class="row align-items-center">
                     @foreach($pronosticsDetails as $pronostic)
                         
@@ -56,6 +57,14 @@
                         </div>
                     @endforeach
                 </div>
+            @else
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Información</h4>
+                    <p>El juego ya a comenzado.</p>
+                    <hr>
+                    <p class="mb-0">¡Lo invitamos a estar atentos a los próximos juegos que estaremos registrando, gracias!</p>
+                </div>
+            @endif
         </div>
     </div>
 

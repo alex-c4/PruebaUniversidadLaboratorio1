@@ -8,11 +8,9 @@
     });
 </script>
 
-<hr/>
+<div class="separadorHeader"></div>
 
-
-<br>
-<section id="championship" style="visibility: hidden; margin-top: 20px;" class="section-bg {{env('EFECT_WOW') }}" >
+<section id="championship" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
     <div class="container" >
         <div class="section-header">
             <br>
@@ -51,7 +49,7 @@
                 <td >{{ $championship->start_datetime }}</td>
                 <td >{{ $championship->updated_at }}</td>
                 <td>
-                    <a href="{{ route('championship.edit', $championship->id) }}" title="Editar" data-toggle="tooltip" data-placement="left" class="btn btn-light"><i class="fa fa-edit"></i></a>
+                    <a href="{{ route('championship.edit', $championship->id) }}" title="Editar" data-toggle="tooltip" data-placement="left" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                 </td>
                 <td colspan="2">
                     @if($championship->isActive == 0)
@@ -64,7 +62,7 @@
                         <form id="formRestore_{{ $championship->id }}" action="{{ route('championship.restore', $championship->id) }}" method="post" style="margin-bottom: 0px;">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
-                            <a href="#" onclick="confirmar(true, {{ $championship->id }})" title="Activar" class="btn btn-light"><i class="fa fa-undo"></i></a>
+                            <a href="#" onclick="confirmar(true, {{ $championship->id }})" title="Activar" class="btn btn-success"><i class="fa fa-check"></i></a>
                         </form>
                     @else
                         <form id="formDestroy_{{ $championship->id }}" action="{{ route('championship.destroy', $championship->id) }}" method="post"style="margin-bottom: 0px;">

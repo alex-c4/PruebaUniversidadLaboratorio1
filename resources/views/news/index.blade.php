@@ -16,6 +16,15 @@
             <br>
             <h3>Listado</h3>
             <p>Noticias y reportajes XportGold</p>
+            <p>
+                <a href="{{ url('/#news') }}" title="Ir a noticias"><i class="fa fa-reply"></i></a>
+                @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
+                    <span style="margin: 3px"></span>
+                    <a href="{{ route('news.index') }}" title="Lista de noticias" class="btn btn-outline-primary"><i class="fa fa-list-alt"></i></a>
+                    <span style="margin: 3px"></span>
+                    <a href="{{ route('news.create') }}" title="Registrar noticias" class="btn btn-outline-primary"><i class="fa fa-plus"></i></a>
+                @endif
+            </p>
         </div>
 
         <table class="table table-hover">

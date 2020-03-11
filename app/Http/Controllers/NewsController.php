@@ -26,7 +26,7 @@ class NewsController extends Controller
         $news = DB::table('noticias')
             ->orderby('fecha_publicacion','desc')
             ->get();
-
+            
         return view('news.index', compact('news'));
     }
 

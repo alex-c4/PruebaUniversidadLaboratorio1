@@ -144,7 +144,7 @@ Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardi
 Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
 Route::post('quiniela/save', 'Quiniela\QuinielaController@savePronostic')->name('savePronostic');
 Route::get('quiniela/searchGames/{quiniela_id}', 'Quiniela\QuinielaController@searchGames')->name('searchGames');
-Route::get('quiniela/searchGames/{quiniela_id}/{phase}', 'Quiniela\QuinielaController@searchGamesyPhase')->name('searchGamesPhase');
+// Route::get('quiniela/searchGames/{quiniela_id}/{phase}', 'Quiniela\QuinielaController@searchGamesyPhase')->name('searchGamesPhase');
 Route::get('quiniela/addPronosticsNewPhase', 'Quiniela\QuinielaController@addPronosticsNewPhase')->name('addPronosticsNewPhase');
 Route::view('quiniela/listPronosticsNewPhase', 'listPronosticsNewPhase');
 Route::get('quiniela/showNewPronosticByPhase/{id_quiniela}/{bet_id}/{phase}', 'Quiniela\QuinielaController@showNewPronosticByPhase')->name('showNewPronosticByPhase');
@@ -210,13 +210,15 @@ Route::view('warning', 'warning');
 //Route::get('/payment{id_bet}', 'Payment\PaymentController@create')->name('payment');
 Route::get('payment/{id_bet}', ['as' => 'payment.create', 'uses' => 'Payment\PaymentController@create']);
 
-Route::get('payment', ['as' => 'payment.store', 'uses' => 'Payment\PaymentController@store']);
-
 Route::get('validarPagoBets/{betId}/{validacion}', 'Payment\PaymentController@validarPagoBets')->name('validarPagoBets');
 
-Route::get('payQuiniela', 'Payment\PaymentController@payQuiniela')->name('payQuiniela');
+Route::get('payQuiniela/{idBet}', 'Payment\PaymentController@payQuiniela')->name('payQuiniela');
 
 Route::get('listarBetsPay', 'Payment\PaymentController@listarBetsPay')->name('listarBetsPay');
+
+// news route
+Route::get('payment', ['as' => 'payment.store', 'uses' => 'Payment\PaymentController@store']);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -294,3 +296,4 @@ Route::put('championship/{id}', ['as' => 'championship.update', 'uses' => 'Champ
 |
 */
 Route::get('club', ['as' => 'clubs.index', 'uses' => 'ClubController@index']);
+

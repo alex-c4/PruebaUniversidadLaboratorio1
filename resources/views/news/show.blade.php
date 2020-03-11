@@ -41,8 +41,9 @@
                         <a href="#" onclick="document.getElementById('formDestroy').submit()" title="Ocultar noticia" class="btn btn-outline-danger"><i class="fa fa-eye-slash"></i></a>
                         <span style="margin: 3px"></span>
                         <a href="{{ route('news.index') }}" title="Lista de noticias" class="btn btn-outline-primary"><i class="fa fa-list-alt"></i></a>
-
-                    @endif
+                        <span style="margin: 3px"></span>
+                        <a href="{{ route('news.create') }}" title="Registrar noticias" class="btn btn-outline-info"><i class="fa fa-plus"></i></a>
+                @endif
                 </p>
         </div>
         </form>
@@ -50,7 +51,7 @@
         <div class="row" style="text-align: justify;">
             <div class="text-justify">
                 <div class=" col-xs-6 col-lg-12">  
-                    <div class="thumbnail">
+                    <div class="thumbnail text-center">
                     <img src="{{asset('img/notice/'.$news->name_img)}}" title="{{ $news->titulo }}" class="img-thumbnail">
                     <p> {{ $news->fuente_imagen}}</p> 
                     </div>

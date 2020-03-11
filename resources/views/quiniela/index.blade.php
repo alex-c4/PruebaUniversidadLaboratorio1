@@ -85,7 +85,7 @@
                         <td>{{ $quinielaPrivada->amount }}</td>
                         <td>{{ $quinielaPrivada->golpot }}</td>
                         <td>
-                            <a href="{{ url('quiniela/searchGames') }}/{{ $quinielaPrivada->idQuiniela }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"></i></a>
+                            <a href="{{ url('quiniela/searchGames') }}/{{ $quinielaPrivada->idQuiniela }}" class="btn btn-outline-success btn-sm " role="button" aria-pressed="true"  title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"></i></a>
                         </td>
                     </tr>
 

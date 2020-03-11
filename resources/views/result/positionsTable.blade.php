@@ -34,7 +34,7 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Participante</th>
+                    <th scope="col">Participantes</th>
                     <th scope="col">Puntuacion</th>
                     <th scope="col">Acciones</th>
                   </tr>
@@ -45,7 +45,7 @@
                     @if($participante->id_quiniela==$quiniela->id_quiniela)
                       <tr>
                         <th scope="row">{{++$count}}</th>
-                        <td> {{ $participante->lastName}} {{ $participante->name }}</td>
+                        <td>{{ ucfirst($participante->name) }} {{ ucfirst($participante->lastName) }}</td>
                         <td>{{ $participante->puntos }}</td>
                         <td><button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button></td>
                       </tr>

@@ -15,7 +15,7 @@
 
     <div class="section-header">
 
-        <h3>Pago de XportGames</h3>
+        <h3>Pago de XportGames </h3>
         <p>
             
         Detalle de la transacción como aporte al “GOLPOT”<br><br>
@@ -31,15 +31,35 @@
             <div class="row align-items-center">
 
                 <div class="col-12 text-center font-italic text-info">
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="YEBXMKVBQYVTG">
-                        <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                        <img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-                    </form>
+
+                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="LZ9W4RJ4A3BFS">
+                <table>
+                <tr><td><input type="hidden" name="on0" value="Pago Xport Games">Pago Xport Games</td></tr><tr><td><select name="os0">
+                  <option value="XG10">XG10 $10,00 USD</option>
+                  <option value="XG20">XG20 $20,00 USD</option>
+                  <option value="XG30">XG30 $30,00 USD</option>
+                  <option value="XG50">XG50 $50,00 USD</option>
+                  <option value="XG100">XG100 $100,00 USD</option>
+                  <option value="XG150">XG150 $150,00 USD</option>
+                  <option value="XG200">XG200 $200,00 USD</option>
+                  <option value="XG300">XG300 $300,00 USD</option>
+                </select> </td></tr>
+                </table>
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="image" src="https://www.sandbox.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
+                <img alt="" border="0" src="https://www.sandbox.paypal.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+                </form>
 
 
-                     <label>Al hacer clic en "Pagar Ahora" acepto los <a href="" data-toggle="modal" data-target="#legalModal" class="btn-get-started scrollto">términos de GoldXport y la política de privacidad.</a></label>     
+
+                    <br>
+
+                <label>Al hacer clic en "Pagar Ahora" acepto los <a href="" data-toggle="modal" data-target="#legalModal" class="btn-get-started scrollto">términos de GoldXport y la política de privacidad.</a></label>   
+
+                </div>
+  
                 </div>
 
 

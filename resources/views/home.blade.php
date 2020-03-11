@@ -51,11 +51,11 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url('img/intro-carousel/1_ca.jpg');">
+          <div class="carousel-item active" style="background-image: url('img/intro-carousel/3_ec2020.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>COPA AMERICA BRASIL 2019</h2>
-                <p>Todo lo que Necesitas Saber de la Copa America Brasil 2019....</p>
+                <h2>EUROCOPA 2020</h2>
+                <p>Todo lo que Necesitas Saber de la UEROCOPA 2020....</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 <a href="#notice" class="btn-get-started scrollto">Ver</a>
                 <!-- <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Get Started</button> -->
@@ -64,7 +64,7 @@
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/3_xp.jpg');">
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/1ca2020.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>INTERCAMBIA TUS CROMOS</h2>
@@ -75,7 +75,7 @@
             </div>
           </div>  
           
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xp.jpg');">
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_ec2020.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>JUEGA XPORTGAME</h2>

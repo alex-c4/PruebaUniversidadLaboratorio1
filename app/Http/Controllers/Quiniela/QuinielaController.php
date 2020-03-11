@@ -130,15 +130,15 @@ class QuinielaController extends Controller
         ->select('start_datetime as start')
         ->get();
 
-        $now = Carbon::now();
-        $now->setTimezone('UTC');
+        
         //$currentDate = Carbon::create($now->year, $now->month, $now->day, $now->hour, $now->minute, $now->second, 'UTC');
         //var_dump($currentDate);
 
-        $startCampionship = new Carbon($start_championship[0]['start']); 
+        
         //var_dump($now < $startCampionship);
 
-        $showGames = $now < $startCampionship; //$startCampionship->gt($now);
+        $startCampionship = $start_championship[0]['start']; 
+        $showGames = $this->showGames($startCampionship); //$startCampionship->gt($now);
 
         $info = array(
             'id_quiniela' => $quiniela_id,
@@ -149,6 +149,13 @@ class QuinielaController extends Controller
         
     }
 
+    public function showGames($startCampionship){
+        $now = Carbon::now();
+        $now->setTimezone('UTC');
+        $startTmp = new Carbon($startCampionship); 
+
+        return $now < $startTmp;
+    }
     public function searchGamesyPhase($quiniela_id, $phase){
         // switch($phase){
         //     case '8vos':
@@ -183,16 +190,26 @@ class QuinielaController extends Controller
     // Pronosticos
     public function searchPronostics(){
         $id_user = auth()->user()->id;
+        $showGames = false;
 
         $pronostics = DB::select('CALL sp_getMyPronotics(?)', array($id_user));
-        return view('quiniela.pronostics', compact('pronostics'));
+
+        if(sizeof($pronostics) > 0){
+            $startCampionship = $pronostics[0]->start;
+            $showGames = $this->showGames($startCampionship); 
+        }
+
+        return view('quiniela.pronostics', compact('pronostics', 'showGames'));
     }
 
     public function pronosticEdit($betId){
 
         $pronosticsDetails = DB::select('CALL sp_getMyPronosticsDetails(?)', array($betId));
 
-        return view('quiniela.pronosticEdit', compact('pronosticsDetails'));
+        $startCampionship = $pronosticsDetails[0]->start;
+        $showGames = $this->showGames($startCampionship); //$startCampionship->gt($now);
+
+        return view('quiniela.pronosticEdit', compact('pronosticsDetails', 'showGames'));
     }
 
     public function pronosticGet($betId){

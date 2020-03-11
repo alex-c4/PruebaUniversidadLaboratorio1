@@ -37,11 +37,7 @@
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css')}}" rel="stylesheet">
  
-  <style type="text/css">
-    #header{
-      background: rgba(0, 0, 0, 0.9);
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -85,6 +81,7 @@
            <li><a href="{{ url('/#about') }}">XPORTGAME BRASIL 2019</a></li>
           @endif
           <li><a href="{{ url('/#blogs') }}">GOLD BLOG</a></li>
+          <li><a href="{{ url('/#news') }}">Noticias</a></li>
           <li><a href="{{ url('/#portfolio') }}">BRASIL 2019</a></li>
           <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
           <br>
@@ -94,14 +91,13 @@
               <li><a href="{{ url('/listarBetsPay') }}">Validar Pagos</a></li>
             @endif
             <li class="menu-has-children"><a href="{{ url('/dashboard') }}">Dashboard</a>
+              <!-- Apagado para subir a produccion solo cromos
               <ul>
               <li><a href="{{ url('sticker') }}">Panel de cromos</a></li>
               <li><a href="{{ url('conv')  }}">Mensajeria de Intercambio</a></li>
-              <!-- Apagado para subir a produccion solo cromos
                 <li><a href="{{ route('searchPronostics') }}">Mis Pronósticos</a></li>
                 <li><a href="{{ route('addPronosticsNewPhase') }}">Agregar resultado nueva fase</a></li>
                 <li><a href="{{ url('/puntuacionesQui/1') }}">Tabla de Posiciones Quiniela</a></li>
-              -->
                 @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
                   <li class="menu-has-children"><a href="{{ route('news.index') }}">Noticias</a>
                     <ul><a href="{{ route('news.create') }}">Agregar noticia</a></ul>
@@ -114,6 +110,7 @@
                   </li>
                 @endif
               </ul>
+              -->
             </li>
             <li><a href="{{ url('/logout') }}">Cerrar sesion</a></li>
           @else
