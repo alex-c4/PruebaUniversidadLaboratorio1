@@ -17,7 +17,7 @@ class BlogController extends Controller
     public $DIRECTORY_IMG = "blog/thumbnails/";
 
     public function __construct(){
-        $this->middleware('admin', ['except' => ['show', 'storeComent'] ]);
+        $this->middleware('blog', ['except' => ['show', 'storeComent'] ]);
     }
 
 

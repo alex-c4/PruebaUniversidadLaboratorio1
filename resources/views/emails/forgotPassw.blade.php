@@ -149,7 +149,7 @@
                             <td style="width:250px;"> <a href="https://xportgold.com" target="_blank">
           
       <img
-         height="auto" src="http://test.xportgold.com/img/emailTemplate/logoNew230x80.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="250"
+         height="auto" src="https://test.xportgold.com/img/emailTemplate/logoNew230x80.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="250"
       />
     
         </a> </td>
@@ -174,7 +174,7 @@
                       <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
                         <tbody>
                           <tr>
-                            <td style="width:100px;"> <img height="auto" src="http://test.xportgold.com/img/emailTemplate/candado6.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="100" /> </td>
+                            <td style="width:100px;"> <img height="auto" src="https://test.xportgold.com/img/emailTemplate/candado6.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="100" /> </td>
                           </tr>
                         </tbody>
                       </table>

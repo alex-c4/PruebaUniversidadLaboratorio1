@@ -280,7 +280,7 @@
 
       <br>
 
-    @if(auth()->user()->hasRoles('Administrator'))
+    @if(auth()->user()->hasRoles('Administrator') || auth()->user()->hasRoles('Blog'))
       <div class="row text-center">
         <div class="col-lg-12 titleDashboard">
           <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Blog / Noticias</button>
@@ -295,17 +295,18 @@
               </p>
             </a>
           </div>
-
-          <div class="col-lg-3 col-sm-6">
-            <a href="{{ route('news.index') }}">
-              <img src="{{ asset('img/icons_new_panel/news-reader.png') }}" height="50" alt="Crear Juego" srcset="">
-              <p>
-                Noticias
-              </p>
-            </a>
-          </div>
-
-        </div>
+      @if(auth()->user()->hasRoles('Administrator'))
+            <div class="col-lg-3 col-sm-6">
+              <a href="{{ route('news.index') }}">
+                <img src="{{ asset('img/icons_new_panel/news-reader.png') }}" height="50" alt="Crear Juego" srcset="">
+                <p>
+                  Noticias
+                </p>
+              </a>
+            </div>
+      @endif
+    
+      </div>
     @endif
 
       </div>
