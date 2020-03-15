@@ -16,6 +16,11 @@
             <br>
             <h3>Listado</h3>
             <p>Blogs XportGold</p>
+            <p>
+                <a href="{{ url('/#blogs') }}" title="Ir a blogs"><i class="fa fa-reply"></i></a>
+                <span style="margin: 3px"></span>
+                <a href="{{ route('blogs.create') }}" title="Registrar blogs" class="btn btn-outline-primary"><i class="fa fa-plus"></i></a>
+            </p>
         </div>
 
         <table class="table table-hover">

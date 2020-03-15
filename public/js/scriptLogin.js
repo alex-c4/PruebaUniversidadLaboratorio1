@@ -26,6 +26,7 @@ $('#form_login').submit(function() {
             console.log(data);
         })
     .fail(function(jqXHR, textStatus, errorThrown ){
+        debugger
             console.log(jqXHR.responseJSON.errors);
 
             if(jqXHR.responseJSON.errors.hasOwnProperty( 'email' )){
@@ -33,6 +34,11 @@ $('#form_login').submit(function() {
             }
             if(jqXHR.responseJSON.errors.hasOwnProperty( 'password' )){
                 console.log("Pass: " + jqXHR.responseJSON.errors.password[0])
+            }
+            if(jqXHR.responseJSON.errors.hasOwnProperty( 'passwordLogin' )){
+                console.log("Pass: " + jqXHR.responseJSON.errors.passwordLogin)
+                $('#messagegot').html('<div class="alert alert-warning" role="alert">' + jqXHR.responseJSON.errors.passwordLogin + '</div>');                
+
             }
         })
 

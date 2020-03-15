@@ -63,19 +63,8 @@
               </div>
             </div>
           </div>
-
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/1ca2020.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>INTERCAMBIA TUS CROMOS</h2>
-                <p>Llena tu álbum del mundial de forma Rápida, organizada y Divertida...</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
-              </div>
-            </div>
-          </div>  
           
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_ec2020.jpg');">
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/3_xg.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>JUEGA XPORTGAME</h2>
@@ -85,8 +74,17 @@
               </div>
             </div>
           </div>
-             
         
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xg.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>NOTICIAS</h2>
+                <p>En nuestra sección de noticias mantente al dia....</p>
+                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
+                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+              </div>
+            </div>
+          </div>
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>

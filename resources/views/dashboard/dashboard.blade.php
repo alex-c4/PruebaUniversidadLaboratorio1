@@ -109,8 +109,8 @@
       </div>
     </div>  
 
-
-
+    <!-- bloqueado temporalmente -->
+    @if(1 == 0)
     <div class="row text-center">
           <!-- <div class="alert alert-dark  col-sm-12" role="alert">
             Cromos
@@ -151,7 +151,7 @@
       </div>
 
       <br>
-
+      @endif
 <!-- Apagado para subir a produccion solo cromos-->
       <div class="row text-center">
           <!-- <div class="alert alert-dark   col-sm-12" role="alert">

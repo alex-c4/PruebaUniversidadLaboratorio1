@@ -33,6 +33,19 @@
 
           <div class="form-row">
            
+            <!-- Nombre -->
+            <div class="form-group col-md-6" >
+              <label for="name">Nombre <span style="color: red">*</span></label>
+              <input type="text" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" name="name" id="name" placeholder="Nombre" value="{{ old('name') }}">
+              {!! $errors->first('name', '<span class="text-danger">:message</span>') !!}
+            </div>
+           
+            <!-- Apellido -->
+            <div class="form-group col-md-6" >
+              <label for="lastname">Apellido <span style="color: red">*</span></label>
+              <input type="text" class="form-control {{ $errors->has('lastname') ? 'border-danger' : '' }}" name="lastname" id="lastname" placeholder="Apellido" value="{{ old('lastname') }}">
+              {!! $errors->first('lastname', '<span class="text-danger">:message</span>') !!}
+            </div>
 
             <!-- Email -->
             <div class="form-group col-md-12" >

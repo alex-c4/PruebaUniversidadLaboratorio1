@@ -21,7 +21,7 @@ class User extends Authenticatable implements JWTSubject
     
     //MOdificado por yanis para registro basico de usuario
     protected $fillable = [
-        'email', 'password','confirmation_code'
+        'name', 'lastName', 'email', 'password','confirmation_code'
     ];
 
     //Apagado por yanis para el registro de usuario basico

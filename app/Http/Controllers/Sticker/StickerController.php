@@ -29,7 +29,10 @@ class StickerController extends Controller
         // }else{
         //     $this->middleware('auth');
         // }
-        $this->middleware('auth');
+
+        // restriccion temporal solo ha administrador
+        $this->middleware('admin');
+        // $this->middleware('auth');
         
     }
 

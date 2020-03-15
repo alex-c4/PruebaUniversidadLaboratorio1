@@ -25,6 +25,12 @@
             <br>
             <h3>Registro</h3>
             <p>Registro de Blogs XportGold</p>
+            <p>
+                <a href="{{ url('/#blogs') }}" title="Ir a blogs"><i class="fa fa-reply"></i></a>
+                <span style="margin: 3px"></span>
+                <a href="{{ route('blogs.index') }}" title="Lista de blogs" class="btn btn-outline-primary"><i class="fa fa-list-alt"></i></a>
+
+            </p>
         </div>
 
         <form action="{{ route('blogs.store') }}" method="post" id="form_create_blogs" enctype="multipart/form-data" >

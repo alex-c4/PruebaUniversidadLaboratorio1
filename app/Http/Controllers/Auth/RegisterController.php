@@ -95,8 +95,9 @@ class RegisterController extends Controller
         ];
 
         return Validator::make($data, [
-            
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string',
+            'lastname' => 'required|string',
+            'email' => 'required|string|email|max:40|unique:users',
             'password' => 'required|string|min:4|confirmed',
             
         ], $messages);
@@ -132,7 +133,7 @@ class RegisterController extends Controller
 
         return Users::create([
             'name' => $data['name'],
-            'lastname' => $data['lastname'],
+            'lastName' => $data['lastname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
@@ -153,17 +154,17 @@ class RegisterController extends Controller
         // event(new Registered($user = $this->create(request()->all())));
         // RegistersUsers::create();
 
-        // $user = new User();
-        // $user->name = request()->input('name');
-        // $user->lastname = request()->input('lastname');
-        // $user->password = request()->input('password');
-        // $user->email = request()->input('email');
-        // $user->rollId = 0;
-        // $user->save();
+        $user = new User();
+        $user->name = request()->input('name');
+        $user->lastname = request()->input('lastname');
+        $user->password = request()->input('password');
+        $user->email = request()->input('email');
+        $user->rollId = 0;
+        $user->save();
 
 
 
-        User::create(request()->all());
+        // User::create(request()->all());
 
         // envio de email
         // $data = array(
@@ -231,42 +232,48 @@ class RegisterController extends Controller
         // User::create(request()->all());
         $conf_code = str_random(15);
 
-        $pathToFile = storage_path('app') . '\\' . 'instructivo.doc';
-
+        //C:\xampp\htdocs\20190218\storage\app\
+        $pathToFile = storage_path('app') . '\\' . 'Instructivo Quinielas XportGold.pdf';
+        
         $user = User::create([
-            
+            'name' => request()->name,
+            'lastName' => request()->lastname,
             'email' => request()->email,
             'password' => bcrypt(request()->password),
             'confirmation_code' => $conf_code
         ]);
-        $data = array(
-            'email' => request()->email,
-            'confirmation_code' => $conf_code
-        );
-        
         
         $req = request();
+
+        $data = array(
+            'email' => request()->email,
+            'confirmation_code' => $conf_code,
+            'name' => request()->name,
+            'lastname' => request()->lastname,
+        );
         
-        //Apagado por yanis por error en el local 
         // Encender para usarlo en produccion
-        /*
+        
+        //envio de correo al usuario
+
+
         Mail::send('emails.welcome', $data, function($message) use($req, $pathToFile) {
-            $message->from('admin@xportgold.com', 'XportGold');
+            $message->from('xportgoldmail@xportgold.com', 'XportGold');
             $message->to($req->email)->subject('Confirmación de tu correo');
-            //$message->attach($pathToFile);
+            $message->attach($pathToFile);
         });
         
-        */
+        
 
         /**
          * inserion temporal mientras se resuelve el problema del correo en ionos
          */
-        DB::table('tmp_useregister')
-            ->insert([
-            'email' => request()->email,
-            'password' => bcrypt(request()->password),
-            'confirmation_code' => $conf_code
-        ]);
+        // DB::table('tmp_useregister')
+        //     ->insert([
+        //     'email' => request()->email,
+        //     'password' => bcrypt(request()->password),
+        //     'confirmation_code' => $conf_code
+        // ]);
 
 
 
@@ -344,6 +351,7 @@ class RegisterController extends Controller
         $conf_code = str_random(15);
 
         $pathToFile = storage_path('app') . '\\' . 'instructivo.doc';
+
 
 
         $user = User::where('email', $_SESSION['userData']['email']);

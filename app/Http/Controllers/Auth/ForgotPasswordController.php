@@ -65,7 +65,7 @@ class ForgotPasswordController extends Controller
              * Se comenta temporalmente mientras se soluciona problema con el envio de correos
              */
             Mail::send('emails.forgotPassw', $data, function($message) use($user) {
-                $message->from('admin@xportgold.com', 'XportGold');
+                $message->from('xportgold@xportgold.com', 'XportGold');
                 $message->to($user[0]->email)->subject('Restablecimiento de clave');
             });
 

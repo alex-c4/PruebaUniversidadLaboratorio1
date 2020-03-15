@@ -51,7 +51,7 @@
       <div id="logo" class="pull-left">
         <!-- <h1><a href="#intro" class="scrollto">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="#intro"><img src="{{ url('img/logo.png')}}" alt="" title="" /></a>
+        <a href="#intro"><img src="{{ url('img/logoNew230x80.png')}}" width="150px" alt="" title="" /></a>
      
 	  
 	     </div>
@@ -159,7 +159,7 @@
         <div class="row">
 
           <div id="logo" class="col-lg-3 col-md-6 footer-info">
-            <a href="#intro"><img src="{{ asset('img/logo.png')}}" alt="" title="XportGold" style="padding-bottom: 19px;" /></a>
+            <a href="#intro"><img src="{{ asset('img/logoNew230x80.png')}}" alt="" title="XportGold" style="padding-bottom: 19px;" /></a>
             <p></p>            
           </div>
           <!--

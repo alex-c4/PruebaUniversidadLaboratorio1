@@ -47,7 +47,10 @@ Route::post('/register', 'Auth\RegisterController@store_basic')->name('register'
 //Route::post('/register', 'Auth\RegisterController@store')->name('register');
 
 // Route::post('login', 'Auth\LoginController@login')->name('login');
-Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/loginForm', 'Auth\LoginController@loginForm')->name('loginForm');
+Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::get('login', ['as' => 'login.index', 'uses' => 'Auth\LoginController@index']);
+
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/settings', 'Auth\SettingsController@edit')->name('userEdit');
 Route::post('/update', 'Auth\SettingsController@update')->name('userUpdate');
@@ -58,11 +61,15 @@ Route::get('/forgotPassw', 'Auth\ForgotPasswordController@index')->name('forgotP
 Route::post('/forgotPassw', 'Auth\ForgotPasswordController@forgotPassw')->name('forgotPasswEmail');
 Route::get('encryptkey/{key}', ['as' => 'auth.encryptkey', 'uses' => 'Auth\ForgotPasswordController@encryptkey']);
 
+
+// Route::post('loginForm', ['as' => 'login.form', 'uses' => 'Auth\LoginController@login']);
+
+// Route::post('/loginForm', ['as' => 'login.loginForm', 'uses' => 'Auth\LoginController@loginForm'])->name('loginForm');
+
 //Registro con social login facebook
 Route::get('/registerFB', 'Auth\RegisterController@store_fb')->name('create');
-Route::get('/login', 'Auth\LoginController@login')->name('login');
+// Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('loginExternal', ['as' => 'auth.loginExternal' , 'uses' => 'Auth\LoginController@loginExternal']);
-
 
 /*
 |--------------------------------------------------------------------------
