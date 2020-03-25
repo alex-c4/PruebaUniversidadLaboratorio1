@@ -1292,8 +1292,8 @@
 
              <!-- Mensaje -->  
             <div class="form-group">
-              <textarea class="form-control <?php echo e($errors->has('mensaje') ? 'border-danger' : ''); ?>" name="mensaje" id="mensaje" rows="5" placeholder="Mensaje" value="<?php echo e(old('mensaje')); ?>"></textarea>
-                 <?php echo $errors->first('mensaje', '<span class="text-danger">:message</span>'); ?>
+              <textarea class="form-control <?php echo e($errors->has('message') ? 'border-danger' : ''); ?>" name="message" id="message" rows="5" placeholder="Mensaje"><?php echo e(old('message')); ?></textarea>
+                 <?php echo $errors->first('message', '<span class="text-danger">:message</span>'); ?>
 
 
               

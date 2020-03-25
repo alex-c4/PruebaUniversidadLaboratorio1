@@ -96,6 +96,8 @@
             
             <li class="menu-has-children"><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a>
               <ul>
+              <li><a href="<?php echo e(url('sticker')); ?>">Panel de cromos</a></li>
+              <li><a href="<?php echo e(url('conv')); ?>">Mensajeria de Intercambio</a></li>
               <!-- Apagado para subir a produccion solo cromos
                 <li><a href="<?php echo e(route('searchPronostics')); ?>">Mis Pronósticos</a></li>
                 <li><a href="<?php echo e(route('addPronosticsNewPhase')); ?>">Agregar resultado nueva fase</a></li>

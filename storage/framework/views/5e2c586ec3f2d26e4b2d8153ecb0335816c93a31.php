@@ -292,19 +292,20 @@
       <br>
 
 <!-- Apagado para subir a produccion solo cromos-->
-<!--
+  <?php if( auth()->user()->hasRoles('Administrator') ): ?>
+
 
       <div class="row text-center">
           <!-- <div class="alert alert-dark   col-sm-12" role="alert">
           Quinielas
-          </div> -->
+          </div>  -->
 
-<!--
+
         <div class="col-lg-12 titleDashboard">
           <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Quinielas</button>
-          <!-- <h4>Quinielas</h4> -->
+          <h4>Quinielas</h4>
 
-<!--
+
           <hr>
         </div>
         <div class="col-lg-3 col-sm-6">
@@ -382,7 +383,7 @@
         </div>
 
       </div>
--->
+    <?php endif; ?>
 
 
 <hr>
