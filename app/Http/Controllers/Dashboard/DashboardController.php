@@ -13,21 +13,22 @@ class DashboardController extends Controller
     }
 
     public function index(){
-    	$bets = Bet::where('verification', 1)->get();
+    	// $bets = Bet::where('verification', 1)->get();
     	
-    	$goldpot=0;
+    	// $goldpot=0;
     	 
-    	foreach ($bets as $apuesta)
-   		{
-   			$goldpot=$goldpot+$apuesta['amount'];
-   		}
+    	// foreach ($bets as $apuesta)
+   		// {
+   		// 	$goldpot=$goldpot+$apuesta['amount'];
+   		// }
 
     	 
-    	 //echo $goldpot;
+    	//  //echo $goldpot;
 
     	
-        //return view('/dashboard.dashboard', compact('goldpot'));
-        echo view('/dashboard.dashboard', compact('goldpot'));
+        // //return view('/dashboard.dashboard', compact('goldpot'));
+        return view('/dashboard.dashboard');
+
     }
 
 

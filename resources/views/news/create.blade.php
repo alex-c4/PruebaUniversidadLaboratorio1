@@ -17,6 +17,13 @@
             <br>
             <h3>Registro</h3>
             <p>Registro de noticias y reportajes XportGold</p>
+            <p>
+                <a href="{{ url('/#news') }}" title="Ir a noticias"><i class="fa fa-reply"></i></a>
+                @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
+                    <span style="margin: 3px"></span>
+                    <a href="{{ route('news.index') }}" title="Lista de noticias" class="btn btn-outline-primary"><i class="fa fa-list-alt"></i></a>
+                @endif
+            </p>
         </div>
 
         <form action="{{ route('news.store') }}" method="post" id="form_create_news" enctype="multipart/form-data">
@@ -68,7 +75,7 @@
 
         <!-- Imagen -->
         <div class="form-group" >
-            <label for="name_img">Imagen</label>
+            <label for="name_img">Imagen (700 x 306)</label>
             <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" id="name_img" name="name_img" placeholder="Imagen" value="{{ old('name_img') }}">
             {!! $errors->first('name_img', '<span class="text-danger">:content</span>') !!}
         </div>

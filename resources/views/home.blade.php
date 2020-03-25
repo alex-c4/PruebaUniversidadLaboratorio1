@@ -51,11 +51,11 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url('img/intro-carousel/1_ca.png');">
+          <div class="carousel-item active" style="background-image: url('img/intro-carousel/3_ec2020.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>COPA AMERICA BRASIL 2019</h2>
-                <p>Todo lo que Necesitas Saber de la Copa America Brasil 2019....</p>
+                <h2>EUROCOPA 2020</h2>
+                <p>Todo lo que Necesitas Saber de la UEROCOPA 2020....</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 <a href="#notice" class="btn-get-started scrollto">Ver</a>
                 <!-- <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Get Started</button> -->
@@ -63,19 +63,8 @@
               </div>
             </div>
           </div>
-
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/3_xp.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>INTERCAMBIA TUS CROMOS</h2>
-                <p>Llena tu álbum del mundial de forma Rápida, organizada y Divertida...</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
-              </div>
-            </div>
-          </div>  
           
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xp.jpg');">
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/3_xg.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>JUEGA XPORTGAME</h2>
@@ -85,8 +74,17 @@
               </div>
             </div>
           </div>
-             
         
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xg.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>NOTICIAS</h2>
+                <p>En nuestra sección de noticias mantente al dia....</p>
+                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
+                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+              </div>
+            </div>
+          </div>
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
@@ -135,8 +133,8 @@
 
            <div class="col-lg-4 box box-bg">
             <i class="ion-compose"></i>
-            <h4 class="title"><a href="">QUINIELA</a></h4>
-            <p class="description">Te ofrecemos la forma mas divertida y millonaria de vivir el mundial Rusia 2018, jugando nuestra Quiniela XportGold...  </p>
+            <h4 class="title"><a href="">XportGames</a></h4>
+            <p class="description">Te ofrecemos la forma mas divertida y millonaria de vivir el mundial Rusia 2018, jugando nuestra XportGames ...  </p>
           </div>
 
         </div>
@@ -205,6 +203,7 @@
     ============================-->
 
     <!--
+    @if($quiniela)
     <section id="result">
       <div class="container">
 
@@ -313,7 +312,7 @@
 
       </div>
     </section>
-  
+    @endif
     -->
 
     <!-- #result -->
@@ -583,8 +582,6 @@
 
         </div>
 
-        <br>
-
         <!--==========================
           Blog Section
         ============================-->
@@ -596,39 +593,45 @@
               <p>Disfruta del contenido mas destacado de la Copa America Brasil 2019 en nuestra sección de blogs.</p>
             </header>
 
-            <div class="row news-cols">
+            
 
-              @foreach($blogs as $blog)
+            @foreach($blogs as $blog)
+              <div class="row news-cols">
 
-
-                <div class="col-md-4 wow fadeInUp">
-                  <div class="news-col">
-                    <h2 class="title"><a href="{{ url('/blogs/'.$blog->id) }}">{{ $blog->title }}</a></h2>
-
-                    <p style="text-align: justify;">
-                      </br>{{ substr($blog->created_at,0,10)}}
-                    </p>
-                  <a href="{{ route('blogs.show', $blog->id) }}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                  @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
-                    <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
-                  @endif
-                  
-                  <!--
-                  <a href="whatsapp://send?text=https://scriptbc.com" data-action="share/whatsapp/share">
-                    <img src="RUTA-IMAGEN" width="XX" height="YY">
+                <div class="col-lg-4 col-md-6">
+                  <a href="{{ url('/blogs/'.$blog->id) }}">
+                    <img src="{{ url('img/blog/thumbnails/') }}/{{$blog->thumbnails}}" alt="" srcset="" class="img_blog img-thumbnail">
                   </a>
-                  -->
-                  <!--              
-                  <a href="whatsapp://send?text=Como crear un boton de compartir en whatsapp - https://jonathanmelgoza.com/blog/boton-de-compartir-en-whatsapp" data-action="share/whatsapp/share" target="_blank"><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png" style="display: inline;" data-lazy-loaded="true"><noscript><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png"/></noscript></a>
-                  -->
+                </div>
+                <div class="col-lg-8 col-md-6" style="margin-top: 5px">
+                  <h4>
+                    <a href="{{ url('/blogs/'.$blog->id) }}">{{ $blog->title }}</a> 
+                    @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
+                      <a href="{{ route('blogs.edit', $blog->id) }}" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
+                    @endif
+                  </h4>
+                  <p>
+                    {{ $blog->summary }}<a href="{{ url('/blogs/'.$blog->id) }}">... leer más</a>
+                  </p>
                   
+                  <div  class="row">
+
+                    <div class="col-lg-2 col-sm-3 col-3">
+                      <img src="{{ url('img/avatars') }}/{{ $blog->avatarName }}" alt="avatar" class="img_avatar">
+                    </div>
+
+                    <div class="col-lg-10 col-sm-9 col-9">
+                      <h5>{{ mb_convert_case($blog->name, MB_CASE_TITLE, "UTF-8") }} {{ mb_convert_case($blog->lastName, MB_CASE_TITLE, "UTF-8") }}</h5>
+                      <h6>{{ substr($blog->created_at,0,10)}}</h6>
+                    </div> 
+
+                  </div>
+
                 </div>
               </div>
-              @endforeach
-              
-            </div>
+              <hr>
+            @endforeach
 
-          </div>
         </section>
         <!-- #Blog -->
 
@@ -1303,4 +1306,12 @@
 </body>
 </html>
 
+<script>
+  function loadScript(a){
+    var b=document.getElementsByTagName("head")[0],c=document.createElement("script");
+    c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)
+  }
+    
+  loadScript(function(){beTracker.t({hash:"4e2bb36d82d5784f9ace8c31b537f38c"})});
+</script>
 

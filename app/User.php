@@ -7,7 +7,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use Illuminate\Support\Facades\DB;
 
-class User extends Authenticatable
+use Tymon\JWTAuth\Contracts\JWTSubject;
+
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -19,7 +21,7 @@ class User extends Authenticatable
     
     //MOdificado por yanis para registro basico de usuario
     protected $fillable = [
-        'email', 'password','confirmation_code'
+        'name', 'lastName', 'email', 'password','confirmation_code'
     ];
 
     //Apagado por yanis para el registro de usuario basico
@@ -51,5 +53,24 @@ class User extends Authenticatable
     private function getRoleID($rollName){
         $rol = DB::table('roles')->where('name', $rollName)->first();
         return $rol->id;
+    }
+
+    /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }

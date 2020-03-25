@@ -36,7 +36,7 @@
                 </div>
                 <input type="hidden" name="nombre_club_2">
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-5">
                     <label for="club1">Pais / Club</label>
                     <select id="club1" name="club1" class="form-control" onchange="onchange_club1(this)">
                             <option>...</option>
@@ -47,7 +47,7 @@
                 </div>
                 <input type="hidden" name="hClub1" id="hClub1">
 
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-5">
                     <label for="club2">Pais / Club </label>
                     <select id="club2" name="club2" class="form-control" onchange="onchange_club2(this)">
                         @foreach($clubs as $club)
@@ -57,15 +57,17 @@
                 </div>
                 <input type="hidden" name="hClub2" id="hClub2">
 
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-2">
                     <label for="fase">Fase</label>
                     <select id="fase" name="fase" class="form-control">
-                        <option selected>eliminatoria</option>
-                        <option>...</option>
+                        <option selected>...</option>
+                        @foreach($phases as $pahse)
+                            <option value="{{$pahse->id}}">{{ $pahse->name }}</option>
+                        @endforeach
                     </select>
                 </div>
 
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-1">
                     <label for="group">Grupo</label>
                     <select id="group" name="group" class="form-control">
                         <option selected>A</option>
@@ -98,7 +100,7 @@
                 </div>
 
 
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-5">
                     <label for="stadium">Estadio</label>
                     <input type="text" id="stadium" name="stadium" class="form-control" placeholder="Estadio">
                 </div>

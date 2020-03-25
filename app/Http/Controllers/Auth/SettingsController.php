@@ -35,7 +35,16 @@ class SettingsController extends Controller
 
     public function edit(){
 
-        echo "En el edit de setting";
+        // lectura de la imagenes avatar
+        $dir = opendir('img/avatars/');
+        $files = [];
+        $i = 0;
+        while ($archivo = readdir($dir)){
+            if(!is_dir($archivo)){
+                $files[$i] = ($archivo);
+                $i++;
+            }
+        } 
 
         $user = auth()->user();
 
@@ -47,7 +56,7 @@ class SettingsController extends Controller
         
         // $user = User::where('id', $user_id)->get();
 
-        return view('../../auth.settings', compact('countries', 'states', 'cities', 'user'));
+        return view('../../auth.settings', compact('countries', 'states', 'cities', 'user', 'files'));
         // $user = User::where('id', request()->email)->get();
 
     }
@@ -72,6 +81,7 @@ class SettingsController extends Controller
         $user->state_id = request()->state_id;
         $user->city_id = request()->city_id;
         $user->direction = request()->direction;
+        $user->avatarName = request()->hAvatarName;
         
         $user->save();
         

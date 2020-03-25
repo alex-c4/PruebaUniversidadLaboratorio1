@@ -14,8 +14,8 @@
 
 <section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
 <div class="section-header container">
-        <h3>Quiniela</h3>
-        <p>Listado de quinielas públicas y privadas creadas por la comunidad de XportGold</p>
+        <h3>XportGames</h3>
+        <p>Listado de XportGames públicas y privadas creadas por la comunidad de XportGold</p>
         
         <form action="{{ url('quiniela/save') }}" method="post">
 
@@ -28,9 +28,11 @@
                 <thead>
                     <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Quiniela</th>
+                    <th scope="col">XportGame</th>
                     <th scope="col">Campeonato</th>
                     <th scope="col">Tipo</th>
+                    <th scope="col">Cuota por participante ($)</th>
+                    <th scope="col">GoldPot</th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
@@ -42,17 +44,20 @@
                         <td>{{ $quinielaPublica->nombreQuiniela }}</td>
                         <td>{{ $quinielaPublica->nombreCampeonato }}</td>
                         <td>{{ $quinielaPublica->tipoQuiniela }}</td>
+                        <td class="text-center" >{{ $quinielaPublica->amount }} $</td>
+                        <td class="text-center" >{{ $quinielaPublica->golpot }} $</td>
                         <td>
-                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPublica->idQuiniela }}/{{ $quinielaPublica->phase }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"> </i></a>
+                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPublica->idQuiniela }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"> </i></a>
                         </td>
                     </tr>
 
                     @endforeach
                 </tbody>
             </table>
-            
-            <a href="{{ route('codeQuiniela') }}" class="btn btn-outline-info btn-sm" role="button" aria-pressed="true" title="Agregar nueva quiniela"><i class="fa fa-sign-in"></i> Unirse a quiniela</a>
-            
+            <div style="margin-bottom: 50px">
+                <a href="{{ route('codeQuiniela') }}" class="btn btn-outline-info btn-sm" role="button" aria-pressed="true" title="Agregar nueva XportGame"><i class="fa fa-sign-in"></i> Unirse a XportGame</a>
+            </div>
+
             @if(count($misQuinielasPrivadas) > 0)
 
             <h4>Privadas</h4>
@@ -61,9 +66,11 @@
                 <thead>
                     <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Quiniela</th>
+                    <th scope="col">XportGame</th>
                     <th scope="col">Campeonato</th>
                     <th scope="col">Tipo</th>
+                    <th scope="col">Monto ($)</th>
+                    <th scope="col">GoldPot ($)</th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
@@ -75,8 +82,10 @@
                         <td>{{ $quinielaPrivada->nombreQuiniela }}</td>
                         <td>{{ $quinielaPrivada->nombreCampeonato }}</td>
                         <td>{{ $quinielaPrivada->tipoQuiniela }}</td>
+                        <td>{{ $quinielaPrivada->amount }}</td>
+                        <td>{{ $quinielaPrivada->golpot }}</td>
                         <td>
-                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPrivada->idQuiniela }}/{{ $quinielaPrivada->phase }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"></i></a>
+                            <a href="{{ url('quiniela/searchGames') }}/{{ $quinielaPrivada->idQuiniela }}" class="btn btn-outline-success btn-sm " role="button" aria-pressed="true"  title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"></i></a>
                         </td>
                     </tr>
 

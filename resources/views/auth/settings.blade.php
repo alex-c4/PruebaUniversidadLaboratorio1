@@ -25,8 +25,22 @@
           {{ csrf_field() }}
 
           <input type="hidden" id="routeCurrent" value="{{ url('/') }}">
-        
+          <input type="hidden" name="hAvatarName" id="hAvatarName" value="{{ $user->avatarName }}" >
+
+
           <div class="form-row">
+            <!-- Avatar -->
+            <div class="form-group col-md-4">
+            </div>
+            <div class="form-group col-md-4 center">
+              <a href="" data-toggle="modal" data-target="#exampleModalLong">
+                <img id="imgAvatar" src="{{ url('img/avatars') }}/{{ $user->avatarName }}" alt="" class="img-thumbnail mx-auto d-block">
+              </a>
+            </div>
+            <div class="form-group col-md-4">
+            </div>
+
+
             <!-- Nombre -->
             <div class="form-group col-md-4">
               <label for="name">Nombre / Name</label>
@@ -140,8 +154,47 @@
 
         </form>
 
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="text-center form-group">
+                  @foreach($files as $avatar)
+                  <button type="button" class="btn btn-outline-light" ">
+                    <div class="form-group col-3">
+                      <img src="{{ url('img/avatars') }}/{{ $avatar }}" alt="" class="img_avatar mx-auto d-block" onclick="change_avatar(this)" data-dismiss="modal">
+                    </div>
+                    </button>
+                  @endforeach
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
+<script>
+  var change_avatar = function(me){
+    var src = me.src;
+    $("#imgAvatar").attr("src",src);
 
+    var arrSrc = src.split("/");
+    var name = arrSrc[arrSrc.length - 1];
+    $("#hAvatarName").val(name);
+  }
+</script>
 
 @endsection

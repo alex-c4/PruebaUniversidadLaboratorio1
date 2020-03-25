@@ -64,21 +64,21 @@ class ForgotPasswordController extends Controller
             /**
              * Se comenta temporalmente mientras se soluciona problema con el envio de correos
              */
-            // Mail::send('emails.forgotPassw', $data, function($message) use($user) {
-            //     $message->from('admin@xportgold.com', 'XportGold');
-            //     $message->to($user[0]->email)->subject('Restablecimiento de clave');
-            // });
+            Mail::send('emails.forgotPassw', $data, function($message) use($user) {
+                $message->from('xportgold@xportgold.com', 'XportGold');
+                $message->to($user[0]->email)->subject('Restablecimiento de clave');
+            });
 
             /**
              * insercion temporal del correo de recuperacion de correo
              */
-            DB::table('tmp_forgotpassword')
-                ->insert([
-                    'name' => $user[0]->name,
-                    'lastName' => $user[0]->lastName,
-                    'newPassw' => $newPassw,
-                    'sendTo' => $user[0]->email
-                ]);
+            // DB::table('tmp_forgotpassword')
+            //     ->insert([
+            //         'name' => $user[0]->name,
+            //         'lastName' => $user[0]->lastName,
+            //         'newPassw' => $newPassw,
+            //         'sendTo' => $user[0]->email
+            //     ]);
 
 
             return redirect('forgotPassw')->with('message', 'Clave actualizada exitosamente, por favor revisa tu bandeja de entrada');

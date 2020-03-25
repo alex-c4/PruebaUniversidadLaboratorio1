@@ -23,9 +23,14 @@
             <br>
             <h3>Edición</h3>
             <p>Edición de Blog XportGold</p>
+            <p>
+                <a href="{{ url('/#blogs') }}" title="Ir a blogs"><i class="fa fa-reply"></i></a>
+                <span style="margin: 3px"></span>
+                <a href="{{ route('blogs.index') }}" title="Lista de blogs" class="btn btn-outline-primary"><i class="fa fa-list-alt"></i></a>
+            </p>
         </div>
 
-        <form action="{{ route('blogs.update', $blog->id) }}" method="post" id="form_edit_blogs" >
+        <form action="{{ route('blogs.update', $blog->id) }}" method="post" id="form_edit_blogs" enctype="multipart/form-data">
         {{ method_field('PUT') }}
         {{ csrf_field() }}
 
@@ -48,6 +53,24 @@
                   <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
               </div>
             </div>
+        </div>
+
+        <!-- thumbnails -->
+        <div class="form-group col-md-12">
+            <label for="name_img">Thumbnails</label>
+            <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" id="name_img" name="name_img" placeholder="Imagen" >
+            {!! $errors->first('name_img', '<span class="text-danger">:content</span>') !!}
+        </div>
+
+        <!-- Summary -->
+        <div class="form-group col-md-12">
+            <label for="summary">Descripción del blog</label>
+            <button type="button" class="btn btn-sm btn-outline-warning" data-toggle="tooltip" data-placement="right" title="Máximo 100 caracteres">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </button>
+            
+            <textarea id="summary" name="summary" rows="2" class="form-control {{ $errors->has('summary') ? 'border-danger' : '' }}">{{ $blog->summary }}</textarea>
+            {!! $errors->first('summary', '<span class="text-danger">:content</span>') !!}
         </div>
 
         <!-- Contenido --> 

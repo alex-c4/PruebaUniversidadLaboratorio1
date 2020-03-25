@@ -12,8 +12,10 @@
     </div>
     <div>
         <div class="alert alert-success" role="alert">
-            
-            <p>Su pago fue realizado con exito...</p>
+            <p>Acaba de completar el pago</p>
+            <p>El Id. de transacción del pago es: <b>{{ $data["idTransaccion"] }}</b></p>
+            <p>Enviaremos una confirmación por correo electrónico al comprador: <b>{{ $data["email"] }}</b></p>
+
             <hr>
             <p><a href="{{ route('searchPronostics') }}" class="btn btn-outline-info">Volver a mis pronósticos</a></p>
             

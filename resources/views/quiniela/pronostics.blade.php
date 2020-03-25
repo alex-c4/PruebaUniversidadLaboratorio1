@@ -24,26 +24,32 @@
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Quiniela</th>
+                        <th scope="col">XportGames</th>
                         <th scope="col">Campeonato</th>
+                        <th scope="col">Monto por jugador ($)</th>
+                        <th scope="col">GoldPot</th>
                         <th scope="col">Validado</th>
                         <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($pronostics as $key => $pronostic)
-                    
                         <tr>
                             <th scope="row">{{ $key+1 }}</th>
                             <td>{{ $pronostic->quiniela }}</td>
                             <td>{{ $pronostic->championshipName }}</td>
-                            <td><input type="checkbox" disabled @if($pronostic->verification == "1"){ checked } @endif></td>
+                            <td>{{ $pronostic->amount }} $</td>
+                            <td>{{ $pronostic->golpot }} $</td>
+                            <td ><input type="checkbox" disabled @if($pronostic->verification == "1"){ checked } @endif></td>
                             <td>
-                                <a href="{{ url('quiniela.pronosticEdit/') }}/{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Editar pronóstico"><i class="fa fa-edit fa-sm"></i></a>
-                                @if(false)
-                                    <a href="{{ url('payQuiniela/') }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a>
-                                    @if($pronostic->refPago == '')
-                                        <a href="{{ url('payment') }}{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-credit-card fa-sm"></i></a>
+                                <a href="{{ url('quiniela.pronosticEdit/') }}/{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm @if($pronostic->isStartChampionship == 1){ disabled } @endif" role="button" aria-pressed="true" title="Editar pronóstico" ><i class="fa fa-edit fa-sm"></i></a>
+                                @if($pronostic->quinielaTipo == 3)
+                                    @if($pronostic->verification == 0)
+                                        <a href="{{ url('payQuiniela/') }}/{{$pronostic->betId}}" class="btn btn-outline-primary btn-sm @if($pronostic->isStartChampionship == 1){ disabled } @endif"" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a>
+                                    @elseif($pronostic->verification == 2)
+                                        <a href="#" class="btn btn-outline-warning btn-sm" role="button" aria-pressed="true" title="En revision"><i class="fa fa-exclamation-triangle fa-sm"></i></a>
+                                    @elseif($pronostic->verification == 3)
+                                        <a href="#" class="btn btn-outline-danger btn-sm" role="button" aria-pressed="true" title="Pago rechazado"><i class="fa fa-times-circle fa-sm"></i></a>
                                     @endif
                                 @endif
                                 

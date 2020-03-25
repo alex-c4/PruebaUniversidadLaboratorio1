@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use DB;
@@ -12,9 +13,13 @@ use Carbon\Carbon;
 
 class BlogController extends Controller
 {
+
+    public $DIRECTORY_IMG = "blog/thumbnails/";
+
     public function __construct(){
-        $this->middleware('admin', ['except' => ['show'] ]);
+        $this->middleware('blog', ['except' => ['show', 'storeComent'] ]);
     }
+
 
     /**
      * Display a listing of the resource.
@@ -26,7 +31,8 @@ class BlogController extends Controller
         $blogs = DB::table('blogs')
             ->orderby('updated_at','desc')
             ->get();
-        return view('blogs.index', compact('blogs'));
+
+            return view('blogs.index', compact('blogs'));
     }
 
     /**
@@ -50,6 +56,9 @@ class BlogController extends Controller
 
         $this->validateBlogs(request()->all())->validate();
 
+        $file = $request->file('name_img');
+        $fileName = Carbon::now()->format('Y-m-d_Hi') ."_". $file->getClientOriginalName();
+
         //return $request->all();
         $user_id = auth()->user()->id; 
 
@@ -58,9 +67,13 @@ class BlogController extends Controller
             'user_id' => $user_id,
             'title' => $request->input('title'),
             'updated_at' => $request->input('updated_at'),
-            'content' => $request->input('content')
+            'content' => $request->input('content'),
+            'summary' => $request->input('summary'),
+            'thumbnails' =>  $fileName,
             ]);
         
+        Storage::putFileAs($this->DIRECTORY_IMG, $file, $fileName);
+
         return redirect()->route('blogs.index');
     }
 
@@ -72,7 +85,18 @@ class BlogController extends Controller
         return Validator::make($data, [
             'title' => 'required|string',
             'updated_at' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'summary' => 'required',
+            'name_img' => 'required'
+        ], $messages);
+    }
+    public function validateBlogsComment(array $data){
+        $messages = [
+            'required' => 'El campo es requerido.'
+        ];
+
+        return Validator::make($data, [
+            'comment' => 'required|string'
         ], $messages);
     }
 
@@ -87,11 +111,27 @@ class BlogController extends Controller
         // $blog = Blog::where('id', $id)->first();
         $blog = DB::table('blogs')
             ->join('users', 'users.id', '=', 'blogs.user_id', 'inner', false)
-            ->select('blogs.id', 'blogs.title', 'blogs.content', 'blogs.created_at', 'users.name', 'users.lastName')
+            ->select('blogs.id', 'blogs.title', 'blogs.content', 'blogs.created_at', 'users.name', 'users.lastName', 'users.avatarName')
             ->where('blogs.id', "=", $id)
             ->first();
+        
+        $comments = DB::table('blog_comments')
+            ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
+            ->where('blog_id', '=', $id)
+            ->where('blog_comments.parent_id', '=', '0')
+            ->select('blog_comments.id as blogCommentId','blog_comments.created_at','blog_comments.comment','users.avatarName','users.name','users.lastName' )
+            ->get();
 
-            return view('blogs.show', compact('blog'));
+        $responses =  DB::table('blog_comments')
+            ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
+            ->where('blog_id', '=', $id)
+            ->where('blog_comments.parent_id', '>', '0')
+            ->select('blog_comments.id as blogCommentId', 'blog_comments.parent_id as parent_id','blog_comments.created_at','blog_comments.comment','users.avatarName','users.name','users.lastName' )
+            ->get();
+        
+            // var_dump($responses);
+        
+        return view('blogs.show', compact('blog', 'comments', 'responses'));
     }
 
     /**
@@ -117,11 +157,23 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $blogs = Blog::where("id", $id)->first();
-        $blogs->title = request()->title;
-        $blogs->updated_at = request()->updated_at;
-        $blogs->content = request()->content;
-        
+        $blogs->title = $request->input('title');
+        $blogs->updated_at = $request->input('updated_at');
+        $blogs->content = $request->input('content');
+        $blogs->summary = $request->input('summary'); 
+
+        if(request()->name_img != null){
+            if($blogs->thumbnails != ""){
+                Storage::delete($this->DIRECTORY_IMG . $blogs->thumbnails);
+            }
+            $file = $request->file('name_img');
+            $fileName = Carbon::now()->format('Y-m-d_Hi') ."_". $file->getClientOriginalName();
+            $blogs->thumbnails = $fileName;
+
+            Storage::putFileAs($this->DIRECTORY_IMG, $file, $fileName);
+        }
         $blogs->update();
+
 
         return redirect()->route('blogs.index');
     }
@@ -159,5 +211,48 @@ class BlogController extends Controller
 
         return redirect()->route('blogs.index');
 
+    }
+
+    /**
+     * Metodos para los Comentarios
+     */
+    public function storeComent(Request $request){
+        $user_id = auth()->user()->id; 
+
+        $id = $request->input('hBlogId');
+
+        $this->validateBlogsComment(request()->all())->validate();
+
+        $blogComent = DB::table('blog_comments')
+            ->insert([
+                "blog_id" => $id,
+                "parent_id" => $request->input('hParentsId'),
+                "user_id" => $user_id,
+                "comment" => $request->input('comment'),
+            ]);
+        
+        $blog = DB::table('blogs')
+            ->join('users', 'users.id', '=', 'blogs.user_id', 'inner', false)
+            ->select('blogs.id', 'blogs.title', 'blogs.content', 'blogs.created_at', 'users.name', 'users.lastName', 'users.avatarName')
+            ->where('blogs.id', "=", $id)
+            ->first();
+        
+        $comments = DB::table('blog_comments')
+            ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
+            ->where('blog_id', '=', $id)
+            ->select('blog_comments.id as blogCommentId','blog_comments.created_at','blog_comments.comment','users.avatarName','users.name','users.lastName' )
+            ->get();
+
+        
+
+        $responses =  DB::table('blog_comments')
+            ->join('users', 'users.id', '=', 'blog_comments.user_id', 'inner', false)
+            ->where('blog_id', '=', $id)
+            ->where('blog_comments.parent_id', '>', '0')
+            ->select('blog_comments.id as blogCommentId', 'blog_comments.parent_id as parent_id','blog_comments.created_at','blog_comments.comment','users.avatarName','users.name','users.lastName' )
+            ->get();
+
+            // return view('blogs.show', compact('blog', 'comments', 'responses'));
+            return redirect()->route('blogs.show', ['id' => $id]);
     }
 }

@@ -15,7 +15,7 @@
 <section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
     <div class="section-header">
 
-        <h3>Registro Quiniela</h3>
+        <h3>Registro XportGame</h3>
         <p>Panel para la creación y registro de las predicciones de los juegos del campeonato</p>
 
         <div class="container">

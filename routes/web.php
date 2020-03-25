@@ -47,7 +47,10 @@ Route::post('/register', 'Auth\RegisterController@store_basic')->name('register'
 //Route::post('/register', 'Auth\RegisterController@store')->name('register');
 
 // Route::post('login', 'Auth\LoginController@login')->name('login');
-Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/loginForm', 'Auth\LoginController@loginForm')->name('loginForm');
+Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::get('login', ['as' => 'login.index', 'uses' => 'Auth\LoginController@index']);
+
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/settings', 'Auth\SettingsController@edit')->name('userEdit');
 Route::post('/update', 'Auth\SettingsController@update')->name('userUpdate');
@@ -58,11 +61,15 @@ Route::get('/forgotPassw', 'Auth\ForgotPasswordController@index')->name('forgotP
 Route::post('/forgotPassw', 'Auth\ForgotPasswordController@forgotPassw')->name('forgotPasswEmail');
 Route::get('encryptkey/{key}', ['as' => 'auth.encryptkey', 'uses' => 'Auth\ForgotPasswordController@encryptkey']);
 
+
+// Route::post('loginForm', ['as' => 'login.form', 'uses' => 'Auth\LoginController@login']);
+
+// Route::post('/loginForm', ['as' => 'login.loginForm', 'uses' => 'Auth\LoginController@loginForm'])->name('loginForm');
+
 //Registro con social login facebook
 Route::get('/registerFB', 'Auth\RegisterController@store_fb')->name('create');
-Route::get('/login', 'Auth\LoginController@login')->name('login');
+// Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('loginExternal', ['as' => 'auth.loginExternal' , 'uses' => 'Auth\LoginController@loginExternal']);
-
 
 /*
 |--------------------------------------------------------------------------
@@ -144,7 +151,7 @@ Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardi
 Route::get('quiniela', 'Quiniela\QuinielaController@index')->name('quiniela');
 Route::post('quiniela/save', 'Quiniela\QuinielaController@savePronostic')->name('savePronostic');
 Route::get('quiniela/searchGames/{quiniela_id}', 'Quiniela\QuinielaController@searchGames')->name('searchGames');
-Route::get('quiniela/searchGames/{quiniela_id}/{phase}', 'Quiniela\QuinielaController@searchGamesyPhase')->name('searchGamesPhase');
+// Route::get('quiniela/searchGames/{quiniela_id}/{phase}', 'Quiniela\QuinielaController@searchGamesyPhase')->name('searchGamesPhase');
 Route::get('quiniela/addPronosticsNewPhase', 'Quiniela\QuinielaController@addPronosticsNewPhase')->name('addPronosticsNewPhase');
 Route::view('quiniela/listPronosticsNewPhase', 'listPronosticsNewPhase');
 Route::get('quiniela/showNewPronosticByPhase/{id_quiniela}/{bet_id}/{phase}', 'Quiniela\QuinielaController@showNewPronosticByPhase')->name('showNewPronosticByPhase');
@@ -156,15 +163,11 @@ Route::get('quiniela.searchPronostics', 'Quiniela\QuinielaController@searchProno
 Route::view('quiniela/pronostics', 'pronostics');
 Route::get('quiniela.pronosticEdit/{betId}', 'Quiniela\QuinielaController@pronosticEdit')->name('pronosticEdit');
 Route::post('quiniela.updatePronostic', 'Quiniela\QuinielaController@updatePronostic')->name('updatePronostic');
-Route::get('payQuiniela', 'Quiniela\QuinielaController@payQuiniela')->name('payQuiniela');
 Route::get('quiniela.pronosticGet/{betId}', 'Quiniela\QuinielaController@pronosticGet')->name('pronosticGet');
 Route::get('quiniela/create', 'Quiniela\QuinielaController@createPrivateQuiniela')->name('createPrivateQuiniela');
 
 Route::get('quinielas/{user_id}', 'Quiniela\QuinielaController@listarQuinielas')->name('quinielas.list');
 Route::post('puntuaciones', 'Quiniela\QuinielaController@quinielaPuntaciones')->name('quiniela.puntuaciones');
-Route::get('puntuacionesQui/{quiniela_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
-Route::get('listarBetsPay', 'Quiniela\QuinielaController@listarBetsPay')->name('listarBetsPay');
-Route::get('validarPagoBets/{betId}/{validacion}', 'Quiniela\QuinielaController@validarPagoBets')->name('validarPagoBets');
 Route::get('pronosticos.mostrar/{pronostic_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
 Route::view('quiniela/createQuiniela', 'createQuiniela');
 Route::post('saveNewQuinielaPrivate', 'Quiniela\QuinielaController@saveNewQuinielaPrivate')->name('saveNewQuinielaPrivate');
@@ -181,10 +184,17 @@ Route::post('quiniela/addCodeQuiniela', ['as' => 'quiniela.addCode', 'uses' => '
 | Seccion para las rutas asociadas a la parte de Resultados
 |
 */
-Route::get('/result/{pronostic_id}', 'Result\ResultController@create')->name('create');
+// Route::get('/result/{id_champ}', 'Result\ResultController@create')->name('create');
+Route::post('result/index', ['as' => 'result.index', 'uses' => 'Result\ResultController@index']);
+Route::get('result/listChampionships/', ['as' => 'result.listChampionships', 'uses' => 'Result\ResultController@listChampionships']);
+
 //Route::post('/result', 'Auth\ResultController@store');
 Route::post('/result', 'Result\ResultController@store')->name('result');
 //Route::post('/register', 'Auth\RegisterController@store')->name('register');
+
+Route::get('result/positionsTable', ['as' => 'result.positionsTable', 'uses' => 'Result\ResultController@positionsTable']);
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -195,19 +205,26 @@ Route::post('/result', 'Result\ResultController@store')->name('result');
 |
 */
 //Route::view('/payment.formpayment', 'formpayment');
-Route::get('/payment{id_bet}', 'Payment\PaymentController@create')->name('payment');
 //Route::get('/payment', 'Payment\PaymentController@create')->name('payment');
-
-Route::POST('/payment', 'Payment\PaymentController@store')->name('payment');
 /*
 Route::get('/formpayment', function () {
     return view('/payment.formpayment');
 });*/
 //Route::get('/notice/{id}', 'NoticeController@consultar')->name('notice.consulta');
-
-
 //Vista estandar para mensajes de cualquier tipo
 Route::view('warning', 'warning');
+
+//Route::get('/payment{id_bet}', 'Payment\PaymentController@create')->name('payment');
+Route::get('payment/{id_bet}', ['as' => 'payment.create', 'uses' => 'Payment\PaymentController@create']);
+
+Route::get('validarPagoBets/{betId}/{validacion}', 'Payment\PaymentController@validarPagoBets')->name('validarPagoBets');
+
+Route::get('payQuiniela/{idBet}', 'Payment\PaymentController@payQuiniela')->name('payQuiniela');
+
+Route::get('listarBetsPay', 'Payment\PaymentController@listarBetsPay')->name('listarBetsPay');
+
+// news route
+Route::get('payment', ['as' => 'payment.store', 'uses' => 'Payment\PaymentController@store']);
 
 
 /*
@@ -247,6 +264,8 @@ Route::put('blogs/{id}', ['as' => 'blogs.update', 'uses' => 'BlogController@upda
 Route::patch('blogs/{id}', ['as' => 'blogs.restore', 'uses' => 'BlogController@restore']);
 Route::delete('blogs/{id}', ['as' => 'blogs.destroy', 'uses' => 'BlogController@destroy']);
 
+Route::post('blogsComment/store', ['as' => 'blogsComment.store', 'uses' => 'BlogController@storeComent']);
+
 /*
 |--------------------------------------------------------------------------
 | Games Routes
@@ -259,4 +278,29 @@ Route::get('games', ['as' => 'games.index', 'uses' => 'GameController@index']);
 Route::get('games/create', ['as' => 'games.create', 'uses' => 'GameController@create']);
 Route::post('games/store', ['as' => 'games.store', 'uses' => 'GameController@store']);
 
+/*
+|--------------------------------------------------------------------------
+| Championship Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Campeonatos
+|
+*/
+Route::get('championship', ['as' => 'championship.index', 'uses' => 'ChampionshipController@index']);
+Route::get('championship/create', ['as' => 'championship.create', 'uses' => 'ChampionshipController@create']);
+Route::post('championship/store', ['as' => 'championship.store', 'uses' => 'ChampionshipController@store']);
+Route::patch('championship/{id}', ['as' => 'championship.restore', 'uses' => 'ChampionshipController@restore']);
+Route::delete('championship/{id}', ['as' => 'championship.destroy', 'uses' => 'ChampionshipController@destroy']);
+Route::get('championship/{id}/edit', ['as' => 'championship.edit', 'uses' => 'ChampionshipController@edit']);
+Route::put('championship/{id}', ['as' => 'championship.update', 'uses' => 'ChampionshipController@update']);
+
+/*
+|--------------------------------------------------------------------------
+| Clubes Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Clubes
+|
+*/
+Route::get('club', ['as' => 'clubs.index', 'uses' => 'ClubController@index']);
 

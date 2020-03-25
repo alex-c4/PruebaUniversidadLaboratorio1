@@ -19,7 +19,7 @@
 <section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
     <div class="section-header">
         <h3>Consulta de Puntuaciones</h3>
-        <p>Sleccione la quiniela a consultar </p>
+        <p>Sleccione la XportGame a consultar </p>
 
     </div>    
     <form method="POST" id="form_list_quinielas" action="{{ route('quiniela.puntuaciones') }}">

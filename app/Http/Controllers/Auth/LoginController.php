@@ -4,15 +4,31 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Dashboard\DashboardController;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Auth;
 use App\User;
 use Redirect;
 
+
 class LoginController extends Controller
 {
-    public function login(){
+    use AuthenticatesUsers;
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/dashboard';
 
+    public function index(){
+        
+        return view("auth.login");
+    }
+
+    // funcion usada por el inicio de session de la ventana popUp
+    public function loginForm(){
+        
         $credenciales = $this->validate(request(), [
             'emailLogin' => 'email|required|string',
             'passwordLogin' => 'required|string'

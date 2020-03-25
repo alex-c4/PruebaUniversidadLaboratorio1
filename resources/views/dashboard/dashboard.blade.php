@@ -68,152 +68,12 @@
         
 
     });
-    console.log("cargo!!");
 
   </script>
 
   </head>
   <body>
-
-  
-    <div class="container" >
     
-	  <!-- FIRST ROW OF BLOCKS -->
-      <div class="row" style="display: none">
-
-      <!-- USER PROFILE BLOCK -->
-        <div class="col-sm-3 col-lg-3">
-      		<div class="dash-unit">
-	      		<dtitle>Usuario</dtitle>
-	      		<hr>
-				<div class="thumbnail">
-					<img src="img/LoginIcon.png" alt="Marcel Newman" class="img-circle">
-				</div><!-- /thumbnail -->
-        <br>
-
-        <div class="alert alert-primary" role="alert">
-          {{ auth()->user()->name }}
-        </div>
-				
-				<br>
-					<div class="info-user">
-						<a href="{{ route('userEdit') }}"><span aria-hidden="true" class="li_user fs1"></span>
-             <!-- 
-						<a href="{{ route('userEdit') }}"><span aria-hidden="true" class="li_settings fs1"></span></a>
-            -->
-
-						<!--<span aria-hidden="true" class="li_mail fs1"></span>-->
-						<a href="{{ route('resetPassw') }}"><span aria-hidden="true" class="li_key fs1"></span></a>
-					</div>
-				</div>
-        </div>
-
-
-
-        <!-- OPCIONES -->
-
-              	
-
-                  <!-- OPCION 1 Cromos -->
-              		<div class="col-sm-3 col-lg-3">
-              		<div id="hosting-table">
-        						<div class="table_style4">
-        							<div class="column">
-        								<ul>
-
-        									<li class="header_row">
-                            <div class="alert alert-primary" role="alert">
-                              Cromos
-                            </div>
-        									</li>
-        									<li><a class="tt" href="{{ url('sticker') }}">  -- Panel de Cromos --<span class="tooltip"><span class="triangle-obtuse">Puedes consultar tus cromos adquiridas, repetidas y de interes desde tu panel</span></span></a></li>
-	                        <li><a class="tt" href="{{ url('conv') }}"> Mensajerias de Intercambio <span class="tooltip"><span class="triangle-obtuse">Consulta tus intercambios de cromos y sus respectivas conversaciones </span></span></a></li>
-
-                          <!--<li><a class="tt" href="files/Instructivo Intercambio Cromos XportGold.pdf" target="_blank">Descargar Instructivo Cromos <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicara como intercambiar fácilmente tus cromos a través de nuestro sitio</span></span></a></li>
-                          
-        									<li class="footer_row"><a href="{{ url('sticker') }}" class="hosting-button">cromos</a></li>-->
-
-                          <li><a class="tt" href="{{ asset('files/Instructivo Intercambio Cromos XportGold.pdf') }}  " target="_blank">Descargar Instructivo Cromos <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicara como intercambiar fácilmente tus cromos a través de nuestro sitio</span></span></a></li>
-                          <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>
-                          <li><a class="tt" href="#" target="_blank"> - <span class="tooltip"></a></li>  
-        									
-        								</ul>
-        							</div><!--/ column-->
-        						</div><!--/ Table Style-->
-        					</div><!--/ Hosting Table-->
-              		</div><!-- /span3 -->
-
-
-                  <!-- OPCION 2 Quinielas -->
-              		<div class="col-sm-3 col-lg-3">
-              		<div id="hosting-table">
-        						<div class="table_style4">
-        							<div class="column">
-        								<ul>
-
-        									<li class="header_row">
-        										<h1>Quinielas</h1>
-        									</li>
-
-                         <li>
-                              <a class="tt" href="{{ asset('/files/Instructivo Quiniela Fase Final Rusia 2018_XportGold.pdf') }} " target="_blank">Instructivo de Juego <span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
-                            
-                          </li>
-                          <li>
-                              <a class="tt" href="{{ asset('/files/Reglamento Quiniela Fase Final Rusia 2018 XportGold.pdf') }} " target="_blank">Reglamento de Juego<span class="tooltip"><span class="triangle-obtuse">Descarga aquí el archivo PDF que te explicará como jugar fácilmente tu quiniela a través de nuestro sitio</span></span></a>
-                          </li>
-                          @if(false)
-                          <li>
-                            <a class="tt" href="{{ route('quiniela') }}">Nuevo Pronóstico</a>
-                          </li>
-                          @endif
-                          <li>
-                            <a class="tt" href="{{ route('searchPronostics') }}">Mis Pronósticos<span class="tooltip"><span class="triangle-obtuse">Consulta, Modifica y registra el pago de tus pronosticos...</span></span></a>
-                          </li>
-                          <li>
-                            <a class="tt" href="{{ route('addPronosticsNewPhase') }}">Registro Pronósticos<span class="tooltip"><span class="triangle-obtuse">Agrega pronostico para la nueva fase</span></span></a>
-                          </li>
-                          <!-- <li>
-                            <a class="tt" href="{{ url('/puntuacionesQui/1') }}"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
-                          </li>-->
-                          @if(Auth::user()->rollId == 1)      
-                          <li>
-                            <a class="tt" href="{{ route('createPrivateQuiniela') }}">Crear quiniela<span class="tooltip"><span class="triangle-obtuse">Registrar nueva quiniela</span></span></a>
-                          </li>    
-                          <li>
-                            <a class="tt" href="{{ route('games.create') }}">Crear Juegos<span class="tooltip"><span class="triangle-obtuse">Registrar nuevo juego</span></span></a>
-                          </li>
-                          @endif
-                          <li>
-                            <a class="tt" href="{{ url('/puntuacionesQui/1') }}"> Tabla de Posiciones Quiniela <span class="tooltip"><span class="triangle-obtuse">listado de pronosticos y puntuaciones Quiniela Rusia 2018</span></span></a>
-                          </li>	                               									
-        								</ul>
-        							</div><!--/ column-->
-        						</div><!--/ Table Style-->
-        					</div><!--/ Hosting Table-->
-              		</div><!-- /span3 -->
-
-
-                      <!-- Saldo del Usuario -->
-                  <div class="col-sm-3 col-lg-3">
-                    <div class="dash-unit">
-                      <dtitle>GOLDPOT: FASE FINAL RUSIA 2018 "GOLD"</dtitle>
-                      <hr>
-                      <div class="cont">
-                            <br>
-                       
-
-                            <p><bold>220</bold> | <ok> GOLD</ok></p>
-                            <br>
-                            </div>
-                            <div class="thumbnail">
-                            <img src="img/goldpot.png" class="img-circle">
-
-
-                          </div><!-- /thumbnail  -->
-                    </div>
-                  </div>            	
-    </div> <!-- /container -->
 <br>
 <br>
 
@@ -226,13 +86,13 @@
 
     <div id="divDashboard" style="visibility: hidden" class="container wow fadeInUp" data-wow-delay="0.1s">
     
-    <h1>{{ ucfirst(auth()->user()->name) }} {{ ucfirst(auth()->user()->lastName) }}</h1>
-    <div class="row text-center">
+      <h1>{{ ucfirst(auth()->user()->name) }} {{ ucfirst(auth()->user()->lastName) }}</h1>
+      <div class="row text-center">
 
     
       <div class="col-lg-3 col-sm-6">
         <a href="{{ route('userEdit') }}">
-          <img src="{{ asset('img/icons_new_panel/user_information.png') }}" alt="panel de cromos" srcset="">
+          <img src="{{ asset('img/icons_new_panel/user_information.png') }}" height="50" alt="panel de cromos" srcset="">
           <p>
             Información
           </p>
@@ -241,7 +101,7 @@
 
       <div class="col-lg-3 col-sm-6">
         <a href="{{ route('resetPassw') }}">
-          <img src="{{ asset('img/icons_new_panel/user_[assword.png') }}" alt="panel de cromos" srcset="">
+          <img src="{{ asset('img/icons_new_panel/user_password.png') }}" height="50" alt="panel de cromos" srcset="">
           <p>
             Cambiar Clave
           </p>
@@ -249,8 +109,8 @@
       </div>
     </div>  
 
-
-
+    <!-- bloqueado temporalmente -->
+    @if(1 == 0)
     <div class="row text-center">
           <!-- <div class="alert alert-dark  col-sm-12" role="alert">
             Cromos
@@ -259,11 +119,12 @@
         <div class="col-lg-12 titleDashboard">
         <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Cromos</button>
           <!-- <h4>Cromos</h4> -->
-          <hr>
+          <br>
+          
         </div>
         <div class="col-lg-3 col-sm-6">
           <a href="{{ url('sticker') }}">
-            <img src="{{ asset('img/icons_new_panel/cromo_panel.png') }}" alt="panel de cromos" srcset="">
+            <img src="{{ asset('img/icons_new_panel/cromo_panel.png') }}" height="50" alt="panel de cromos" srcset="">
             <p>
               Panel de cromos
             </p>
@@ -271,16 +132,15 @@
         </div>
         <div class="col-lg-3 col-sm-6">
           <a href="{{ url('conv') }}">
-            <img src="{{ asset('img/icons_new_panel/cromos_messages.png') }}" alt="panel de cromos" srcset="">
+            <img src="{{ asset('img/icons_new_panel/cromos_messages.png') }}" height="50" alt="panel de cromos" srcset="">
             <p>
               Mensajeria de Intercambio
             </p>
           </a>
         </div>
         <div class="col-lg-3 col-sm-6">
-          
           <a href="{{ asset('files/Instructivo Intercambio Cromos XportGold.pdf') }}" target="_blank">
-            <img src="{{ asset('img/icons_new_panel/quiniela_descargar_instructivo.png') }}" alt="panel de cromos" srcset="">
+            <img src="{{ asset('img/icons_new_panel/quiniela_descargar_instructivo.png') }}" height="50" alt="panel de cromos" srcset="">
             <p>
               Descargar Instructivo Cromos
             </p>
@@ -291,11 +151,8 @@
       </div>
 
       <br>
-
+      @endif
 <!-- Apagado para subir a produccion solo cromos-->
-  @if( auth()->user()->hasRoles('Administrator') )
-
-
       <div class="row text-center">
           <!-- <div class="alert alert-dark   col-sm-12" role="alert">
           Quinielas
@@ -303,15 +160,14 @@
 
 
         <div class="col-lg-12 titleDashboard">
-          <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Quinielas</button>
-          <h4>Quinielas</h4>
+          <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>XportGames</button>
+          <!-- <h4>Quinielas</h4> -->
 
-
-          <hr>
+          <br>
         </div>
         <div class="col-lg-3 col-sm-6">
           <a href="{{ asset('/files/Instructivo Quiniela Fase Final Rusia 2018_XportGold.pdf') }}" target="_blank">
-            <img src="{{ asset('img/icons_new_panel/download_manual.png') }}" alt="Instructivo de Juego" srcset="">
+            <img src="{{ asset('img/icons_new_panel/download_manual.png') }}" height="50" alt="Instructivo de Juego" srcset="">
             <p>
               Instructivo de Juego
             </p>
@@ -320,7 +176,7 @@
         
         <div class="col-lg-3 col-sm-6">
           <a href="{{ asset('/files/Reglamento Quiniela Fase Final Rusia 2018 XportGold.pdf') }}" target="_blank">
-            <img src="{{ asset('img/icons_new_panel/quiniela_rules.png') }}" alt="Reglamento de Juego" srcset="">
+            <img src="{{ asset('img/icons_new_panel/quiniela_rules.png') }}" height="50" alt="Reglamento de Juego" srcset="">
             <p>
               Reglamento de Juego
             </p>
@@ -329,16 +185,16 @@
           
         <div class="col-lg-3 col-sm-6">
           <a href="{{ route('quiniela') }}">
-            <img src="{{ asset('img/icons_new_panel/quiniela_add_pronostics.png') }}" alt="Nuevo Pronósticos" srcset="">
+            <img src="{{ asset('img/icons_new_panel/quiniela_add_pronostics.png') }}" height="50" alt="Nuevo Pronósticos" srcset="">
             <p>
-              Nuevo Pronósticos
+              Registrar Pronósticos
             </p>
           </a>
         </div>
           
         <div class="col-lg-3 col-sm-6">
           <a href="{{ route('searchPronostics') }}">
-            <img src="{{ asset('img/icons_new_panel/quiniea_my_pronostics.png') }}" alt="Mis Pornósticos" srcset="">
+            <img src="{{ asset('img/icons_new_panel/quiniea_my_pronostics.png') }}" height="50" alt="Mis Pornósticos" srcset="">
             <p>
               Mis Pronósticos
             </p>
@@ -346,45 +202,114 @@
         </div>
 
         <div class="col-lg-3 col-sm-6">
-          <a href="{{ route('addPronosticsNewPhase') }}">
-            <img src="{{ asset('img/icons_new_panel/quiniela_add.png') }}" alt="Registro de Pronósticos" srcset="">
+          <a href="{{ route('codeQuiniela') }}">
+            <img src="{{ asset('img/icons_new_panel/quiniela_add.png') }}" height="50" alt="Registro de Pronósticos" srcset="">
             <p>
-              Registro de Pronósticos
+              Unirse a XportGame
             </p>
           </a>
         </div>
 
         <div class="col-lg-3 col-sm-6">
           <a href="{{ route('createPrivateQuiniela') }}">
-            <img src="{{ asset('img/icons_new_panel/quiniela_pronostics.png') }}" alt="Crear Quiniela" srcset="">
+            <img src="{{ asset('img/icons_new_panel/quiniela_pronostics.png') }}" height="50" alt="Crear Quiniela" srcset="">
             <p>
-              Crear Quiniela
+              Registrar XportGames 
             </p>
           </a>
         </div>
         
-        @if(Auth::user()->rollId == 1) 
+          @if(auth()->user()->hasRoles('Administrator')) 
+
+          <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('clubs.index') }}">
+              <img src="{{ asset('img/icons_new_panel/quiniela_club.png') }}" height="50" alt="Ver Clubes" srcset="">
+              <p>
+                Registrar Clubes
+              </p>
+            </a>
+          </div>
           
           <div class="col-lg-3 col-sm-6">
             <a href="{{ route('games.create') }}">
-              <img src="{{ asset('img/icons_new_panel/quiniela_add_games.png') }}" alt="Crear Juego" srcset="">
+              <img src="{{ asset('img/icons_new_panel/quiniela_add_games.png') }}" height="50" alt="Crear Juego" srcset="">
               <p>
                 Crear Juego
               </p>
             </a>
           </div>
+          
+          <div class="col-lg-3 col-sm-6">
+            <a href="{{ url('/listarBetsPay') }}">
+              <img src="{{ asset('img/icons_new_panel/Paypal.png') }}" height="50" alt="Crear Juego" srcset="">
+              <p>
+                Validar pago
+              </p>
+            </a>
+          </div>
+          
+          <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('championship.index') }}">
+              <img src="{{ asset('img/icons_new_panel/championship.png') }}" height="50" alt="Crear Juego" srcset="">
+              <p>
+                Campeonatos/Copa/Jornada
+              </p>
+            </a>
+          </div>
+          
+          <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('result.listChampionships') }}">
+              <img src="{{ asset('img/icons_new_panel/soccer-livescore2.png') }}" height="50" alt="Crear Juego" srcset="">
+              <p>
+                Registrar resultados
+              </p>
+            </a>
+          </div>
+
         @endif
         <div class="col-lg-3 col-sm-6">
-          <a href="{{ url('/puntuacionesQui/1') }}">
-            <img src="{{ asset('img/icons_new_panel/quiniela_position_table.png') }}" alt="Crear Juego" srcset="">
+          <a href="{{ route('result.positionsTable') }}">
+            <img src="{{ asset('img/icons_new_panel/quiniela_position_table.png') }}" height="50" alt="Crear Juego" srcset="">
             <p>
-              Tabla de Posiciones Quiniela
+              Tabla de Posiciones XportGames
             </p>
           </a>
         </div>
 
       </div>
+
+      <br>
+
+    @if(auth()->user()->hasRoles('Administrator') || auth()->user()->hasRoles('Blog'))
+      <div class="row text-center">
+        <div class="col-lg-12 titleDashboard">
+          <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Blog / Noticias</button>
+          <br>
+        </div>
+
+          <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('blogs.index') }}">
+              <img src="{{ asset('img/icons_new_panel/blogger.png') }}" height="50" alt="Crear Juego" srcset="">
+              <p>
+                Blogs
+              </p>
+            </a>
+          </div>
+      @if(auth()->user()->hasRoles('Administrator'))
+            <div class="col-lg-3 col-sm-6">
+              <a href="{{ route('news.index') }}">
+                <img src="{{ asset('img/icons_new_panel/news-reader.png') }}" height="50" alt="Crear Juego" srcset="">
+                <p>
+                  Noticias
+                </p>
+              </a>
+            </div>
+      @endif
+    
+      </div>
     @endif
+
+      </div>
 
 
 <hr>
