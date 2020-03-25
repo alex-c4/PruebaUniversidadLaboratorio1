@@ -49,7 +49,7 @@
             <div class="form-group col-md-6">
               <label for="updated_at">Fecha de publicación <span style="color: red">*</span></label>
               <div class="input-group date dp-date ">
-                  <input type="text" class="form-control {{ $errors->has('updated_at') ? 'border-danger' : '' }} " name="updated_at" id="updated_at" value="{{ old('updated_at') }}" placeholder="Fecha de publicación" >
+                  <input autocomplete="off" type="text" class="form-control {{ $errors->has('updated_at') ? 'border-danger' : '' }} " name="updated_at" id="updated_at" value="{{ old('updated_at') }}" placeholder="Fecha de publicación" >
                   <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
               </div>
             {!! $errors->first('updated_at', '<span class="text-danger">:message</span>') !!}

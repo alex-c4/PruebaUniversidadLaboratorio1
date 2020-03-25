@@ -33,7 +33,7 @@
         <div class="section-header">
             <h3>Blog XportGold</h3>
                 <p>
-                    <a href="{{ url('/#news') }}" title="Ir a noticias"><i class="fa fa-reply"></i></a>
+                    <a href="{{ url('/#blogs') }}" title="Ir a noticias"><i class="fa fa-reply"></i></a>
                     @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
                         <span style="margin: 3px"></span>
                         <a href="{{ route('blogs.edit', $blog->id) }}" title="Editar" class="btn btn-outline-success"><i class="fa fa-edit"></i></a>
