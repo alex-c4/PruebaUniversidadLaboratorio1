@@ -51,11 +51,23 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url('img/intro-carousel/1_ca.png');">
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/xg_2020.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>COPA AMERICA BRASIL 2019</h2>
-                <p>Todo lo que Necesitas Saber de la Copa America Brasil 2019....</p>
+                <h2>JUEGA XPORTGAME</h2>
+                <p>Demuestra lo que sabes de Futbol...</p>
+                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
+                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="carousel-item active" style="background-image: url('img/intro-carousel/p2_2020.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>PRONOSTICOS</h2>
+                <p>Consigue Los mejores datos...</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 <a href="#notice" class="btn-get-started scrollto">Ver</a>
                 <!-- <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Get Started</button> -->
@@ -63,30 +75,19 @@
               </div>
             </div>
           </div>
-
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/3_xp.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>INTERCAMBIA TUS CROMOS</h2>
-                <p>Llena tu álbum del mundial de forma Rápida, organizada y Divertida...</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Empezar</a>
-              </div>
-            </div>
-          </div>  
           
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xp.jpg');">
+          
+        
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/n_2020.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>JUEGA XPORTGAME</h2>
-                <p>Demuestra lo que sabes y saborea el éxito....</p>
+                <h2>XPORT NOTICIAS</h2>
+                <p>Enterate de lo ultimo...</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+               <a href="#notice" class="btn-get-started scrollto">Ver</a>
               </div>
             </div>
           </div>
-             
-        
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
@@ -120,24 +121,28 @@
       <div class="container">
         <div class="row">
 
+
+          
           <div class="col-lg-4 box">
-		 
-            <i class="ion-ios-football"></i>
-            <h4 class="title"><a href="">COPA AMERICA 2019</a></h4>
-            <p class="description">En nuestro sitio encontraras el mejor contenido de la Copa America Brasil 2019... </p>
+            <i class="ion-compose"></i>
+            <h4 class="title"><a href="">XPORT GAME</a></h4>
+            <p class="description">Te ofrecemos la forma mas entretenida de vivir el futbol, demostrando tus conocimientos y ganando dinero...  </p>
           </div>
+
+          <div class="col-lg-4 box box-bg">		 
+            <i class="ion-ios-football"></i>
+            <h4 class="title"><a href="">GOLD BLOG</a></h4>
+            <p class="description">En nuestro sitio encontraras el mejor contenido e informacion del futbol mundial... </p>
+          </div>
+
 
           <div class="col-lg-4 box">
             <i class="ion-ios-bookmarks-outline"></i>
-            <h4 class="title"><a href="">CROMOS</a></h4>
-            <p class="description">Por fin un sitio web donde podras administrar tus cromos y ademas la posibilidad de intercambiar las repetidas con otros usuarios... </p>
+            <h4 class="title"><a href="">XPORT NOTICIAS</a></h4>
+            <p class="description">Por fin un sitio web donde podras encontrar los ultimos acontecimientos y pronosticos de los partidos de futbol... </p>
           </div>
 
-           <div class="col-lg-4 box box-bg">
-            <i class="ion-compose"></i>
-            <h4 class="title"><a href="">QUINIELA</a></h4>
-            <p class="description">Te ofrecemos la forma mas divertida y millonaria de vivir el mundial Rusia 2018, jugando nuestra Quiniela XportGold...  </p>
-          </div>
+           
 
         </div>
       </div>
@@ -206,6 +211,7 @@
     ============================-->
 
     <!--
+    <?php if($quiniela): ?>
     <section id="result">
       <div class="container">
 
@@ -315,7 +321,7 @@
 
       </div>
     </section>
-  
+    <?php endif; ?>
     -->
 
     <!-- #result -->
@@ -327,7 +333,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Como Jugar XportGame Brasil 2019...</h3>
+          <h3>Como Jugar XportGame</h3>
         </header>
 
         <div class="row about-cols">
@@ -335,7 +341,8 @@
           <div class="col-md-4 wow fadeInUp">
             <div class="about-col">
               <div class="img">
-                <img src="img/about_registro.jpg" alt="" class="img-fluid">
+                 <!--<video src="img/xg.mp4" width="300" height="200" controls></video>-->
+                 <img src="img/about_registro.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-edit"></i></div>
               </div>
               <h2 class="title"><a href="<?php echo e(url('/register')); ?>">PASO 1:</a></h2>
@@ -541,7 +548,7 @@
 
         <header class="section-header">
           <h3>NOTICIAS</h3>
-          <p> Enterate de lo mas destacado de la Copa America Brasil 2019 en nuestra sección de noticias </p>
+          <p> Enterate de lo mas destacado del futbol mundial en nuestra sección de noticias </p>
         </header>
 
   
@@ -588,8 +595,6 @@
 
         </div>
 
-        <br>
-
         <!--==========================
           Blog Section
         ============================-->
@@ -601,40 +606,45 @@
               <p>Disfruta del contenido mas destacado de la Copa America Brasil 2019 en nuestra sección de blogs.</p>
             </header>
 
-            <div class="row news-cols">
+            
 
-              <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <div class="row news-cols">
 
-
-                <div class="col-md-4 wow fadeInUp">
-                  <div class="news-col">
-                    <h2 class="title"><a href="<?php echo e(url('/blogs/'.$blog->id)); ?>"><?php echo e($blog->title); ?></a></h2>
-
-                    <p style="text-align: justify;">
-                      </br><?php echo e(substr($blog->created_at,0,10)); ?>
-
-                    </p>
-                  <a href="<?php echo e(route('blogs.show', $blog->id)); ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                  <?php if(auth()->user() != null && auth()->user()->hasRoles('Administrator')): ?>
-                    <a href="<?php echo e(route('blogs.edit', $blog->id)); ?>" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
-                  <?php endif; ?>
-                  
-                  <!--
-                  <a href="whatsapp://send?text=https://scriptbc.com" data-action="share/whatsapp/share">
-                    <img src="RUTA-IMAGEN" width="XX" height="YY">
+                <div class="col-lg-4 col-md-6">
+                  <a href="<?php echo e(url('/blogs/'.$blog->id)); ?>">
+                    <img src="<?php echo e(url('img/blog/thumbnails/')); ?>/<?php echo e($blog->thumbnails); ?>" alt="" srcset="" class="img_blog img-thumbnail">
                   </a>
-                  -->
-                  <!--              
-                  <a href="whatsapp://send?text=Como crear un boton de compartir en whatsapp - https://jonathanmelgoza.com/blog/boton-de-compartir-en-whatsapp" data-action="share/whatsapp/share" target="_blank"><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png" style="display: inline;" data-lazy-loaded="true"><noscript><img src="https://jonathanmelgoza.com/blog/resources/whatssapp-sharing.png"/></noscript></a>
-                  -->
+                </div>
+                <div class="col-lg-8 col-md-6" style="margin-top: 5px">
+                  <h4>
+                    <a href="<?php echo e(url('/blogs/'.$blog->id)); ?>"><?php echo e($blog->title); ?></a> 
+                    <?php if(auth()->user() != null && auth()->user()->hasRoles('Administrator')): ?>
+                      <a href="<?php echo e(route('blogs.edit', $blog->id)); ?>" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
+                    <?php endif; ?>
+                  </h4>
+                  <p>
+                    <?php echo e($blog->summary); ?><a href="<?php echo e(url('/blogs/'.$blog->id)); ?>">... leer más</a>
+                  </p>
                   
+                  <div  class="row">
+
+                    <div class="col-lg-2 col-sm-3 col-3">
+                      <img src="<?php echo e(url('img/avatars')); ?>/<?php echo e($blog->avatarName); ?>" alt="avatar" class="img_avatar">
+                    </div>
+
+                    <div class="col-lg-10 col-sm-9 col-9">
+                      <h5><?php echo e(mb_convert_case($blog->name, MB_CASE_TITLE, "UTF-8")); ?> <?php echo e(mb_convert_case($blog->lastName, MB_CASE_TITLE, "UTF-8")); ?></h5>
+                      <h6><?php echo e(substr($blog->created_at,0,10)); ?></h6>
+                    </div> 
+
+                  </div>
+
                 </div>
               </div>
-              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-              
-            </div>
+              <hr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-          </div>
         </section>
         <!-- #Blog -->
 
@@ -648,6 +658,8 @@
     <!--==========================
       PortfBLogolio Section
     ============================-->
+
+    <!--
     <section id="portfolio"  class="section-bg" >
       <div class="container">
 
@@ -666,7 +678,7 @@
           </div>
         </div>
 
-		<!-- ESTADIO 1 Maracaná-->
+		<!-- ESTADIO 1 Maracaná
         <div class="row portfolio-container">
 		   <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
             <div class="portfolio-wrap">
@@ -714,7 +726,7 @@
           </div>
 
 
-	<!-- ESTADIO 2 Luzhniki_Stadium-->
+	<!-- ESTADIO 2 Luzhniki_Stadium
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -762,7 +774,7 @@
             </div>
           </div>
 
-<!-- ESTADIO 3 Otkrytie Arena-->
+<!-- ESTADIO 3 Otkrytie Arena
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -814,7 +826,7 @@
             </div>
           </div>
 
-<!-- ESTADIO 4 Krestovski-->
+<!-- ESTADIO 4 Krestovski
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -830,7 +842,7 @@
             </div>
           </div>
  
- <!-- ESTADIO 5 Kaliningrado-->
+ <!-- ESTADIO 5 Kaliningrado--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -847,7 +859,7 @@
           </div>
  
  
- <!-- ESTADIO 6 Nizhni Nóvgorod-->
+ <!-- ESTADIO 6 Nizhni Nóvgorod--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -912,7 +924,7 @@
           </div>
  
  
- <!-- ESTADIO 7 Volgogrado Arena-->
+ <!-- ESTADIO 7 Volgogrado Arena--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -929,7 +941,7 @@
           </div>
  
  
- <!-- ESTADIO 8 Olímpico Fisht-->
+ <!-- ESTADIO 8 Olímpico Fisht--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -948,7 +960,7 @@
 		  
 		  
 		  
-		  <!-- ESTADIO 9 Rostov Arena-->
+		  <!-- ESTADIO 9 Rostov Arena--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -966,7 +978,7 @@
 		  
 		  
 		  
-		  <!-- ESTADIO 10 Mordovia Arena-->
+		  <!-- ESTADIO 10 Mordovia Arena--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -983,7 +995,7 @@
           </div>
  
  
- <!-- ESTADIO 11 Samara Arena-->
+ <!-- ESTADIO 11 Samara Arena--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -1002,7 +1014,7 @@
 		  
 		  
 		  
-		  <!-- ESTADIO 12 Kazán Arena-->
+		  <!-- ESTADIO 12 Kazán Arena--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -1022,6 +1034,11 @@
 		  
  
     </section>
+
+
+    -->
+
+
     <!-- #portfolio -->
 
     <!--==========================
@@ -1314,6 +1331,14 @@
 </body>
 </html>
 
+<script>
+  function loadScript(a){
+    var b=document.getElementsByTagName("head")[0],c=document.createElement("script");
+    c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)
+  }
+    
+  loadScript(function(){beTracker.t({hash:"4e2bb36d82d5784f9ace8c31b537f38c"})});
+</script>
 
 
 <?php echo $__env->make('layoutRegister', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

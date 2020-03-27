@@ -18,11 +18,11 @@
   <link href="<?php echo e(asset('css/googleFontsOpenSans.css')); ?>" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="<?php echo e(asset('lib/bootstrap/css/bootstrap.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('lib/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
     
   <!-- Libraries CSS Files -->   
   <link href="<?php echo e(asset('lib/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet">
-  <link href="<?php echo e(asset('lib/font-awesome/css/font-awesome.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('lib/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet">
   <!--<link href="<?php echo e(asset('css/fontawesome.css')); ?>" rel="stylesheet"> Sustitido por la de arriba--> 
   <link href="<?php echo e(asset('lib/animate/animate.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/ionicons/css/ionicons.min.css')); ?>" rel="stylesheet">
@@ -37,11 +37,7 @@
   <!-- Main Stylesheet File -->
   <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
  
-  <style type="text/css">
-    #header{
-      background: rgba(0, 0, 0, 0.9);
-    }
-  </style>
+  
 </head>
 
 <body>
@@ -55,7 +51,7 @@
       <div id="logo" class="pull-left">
         <!-- <h1><a href="#intro" class="scrollto">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="#intro"><img src="<?php echo e(url('img/logo.png')); ?>" alt="" title="" /></a>
+        <a href="#intro"><img src="<?php echo e(url('img/logoNew230x80.png')); ?>" width="150px" alt="" title="" /></a>
      
 	  
 	     </div>
@@ -80,12 +76,13 @@
            <li><a href="<?php echo e(url('/#result')); ?>">Posiciones Quiniela</a></li>
           -->
           <?php if(Auth::check()): ?>
-            <li><a href="<?php echo e(url('/dashboard')); ?>">XPORTGAME BRASIL 2019</a></li>
+            <li><a href="<?php echo e(url('/dashboard')); ?>">XPORTGAME</a></li>
           <?php else: ?>
-           <li><a href="<?php echo e(url('/#about')); ?>">XPORTGAME BRASIL 2019</a></li>
+           <li><a href="<?php echo e(url('/#about')); ?>">XPORTGAME</a></li>
           <?php endif; ?>
           <li><a href="<?php echo e(url('/#blogs')); ?>">GOLD BLOG</a></li>
-          <li><a href="<?php echo e(url('/#portfolio')); ?>">BRASIL 2019</a></li>
+          <li><a href="<?php echo e(url('/#news')); ?>">Noticias</a></li>
+          <!--<li><a href="<?php echo e(url('/#portfolio')); ?>">BRASIL 2019</a></li>-->
           <li><a href="<?php echo e(url('/#contact')); ?>">Contactanos</a></li>
           <br>
           <?php if(Auth::check()): ?>   
@@ -93,16 +90,14 @@
               <li><a href="<?php echo e(url('/result/2')); ?>">Result</a></li>
               <li><a href="<?php echo e(url('/listarBetsPay')); ?>">Validar Pagos</a></li>
             <?php endif; ?>
-            
             <li class="menu-has-children"><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a>
+              <!-- Apagado para subir a produccion solo cromos
               <ul>
               <li><a href="<?php echo e(url('sticker')); ?>">Panel de cromos</a></li>
               <li><a href="<?php echo e(url('conv')); ?>">Mensajeria de Intercambio</a></li>
-              <!-- Apagado para subir a produccion solo cromos
                 <li><a href="<?php echo e(route('searchPronostics')); ?>">Mis Pronósticos</a></li>
                 <li><a href="<?php echo e(route('addPronosticsNewPhase')); ?>">Agregar resultado nueva fase</a></li>
                 <li><a href="<?php echo e(url('/puntuacionesQui/1')); ?>">Tabla de Posiciones Quiniela</a></li>
-              -->
                 <?php if(auth()->user() != null && auth()->user()->hasRoles('Administrator')): ?>
                   <li class="menu-has-children"><a href="<?php echo e(route('news.index')); ?>">Noticias</a>
                     <ul><a href="<?php echo e(route('news.create')); ?>">Agregar noticia</a></ul>
@@ -115,8 +110,8 @@
                   </li>
                 <?php endif; ?>
               </ul>
+              -->
             </li>
-            
             <li><a href="<?php echo e(url('/logout')); ?>">Cerrar sesion</a></li>
           <?php else: ?>
             <!--
@@ -124,16 +119,15 @@
             <li><a href="<?php echo e(url('/register')); ?>">Registrarse</a></li>
           -->
           
-            <li>
+            <!-- <li>
               <a href="" data-toggle="modal" data-target="#exampleModal">
-              <button type="button" id="btnLogin" class="btn btn-outline-light btn-sm">&nbsp;login&nbsp;</button>
+              <button type="button" id="btnLogin" class="btn btn-outline-light"><i class="fa fa-user" aria-hidden="true">&nbsp;login&nbsp;</i></button>
               </a>
-            </li>
-            <!--
-            <li><a href="" data-toggle="modal" data-target="#exampleModal">Log In</a></li>
-            -->
+            </li> -->
+            <li><a href="" data-toggle="modal" data-target="#exampleModal">login</a></li>
+            <li><a href="<?php echo e(url('/register')); ?>">Registrarse</a></li>
+           
           <?php endif; ?>
-          
           
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -165,7 +159,7 @@
         <div class="row">
 
           <div id="logo" class="col-lg-3 col-md-6 footer-info">
-            <a href="#intro"><img src="<?php echo e(asset('img/logo.png')); ?>" alt="" title="XportGold" style="padding-bottom: 19px;" /></a>
+            <a href="#intro"><img src="<?php echo e(asset('img/logoNew230x80.png')); ?>" alt="" title="XportGold" style="padding-bottom: 19px;" /></a>
             <p></p>            
           </div>
           <!--
@@ -263,10 +257,10 @@
   <script src="<?php echo e(asset('js/scriptLogin.js')); ?>"></script>
 
   <!-- Script para datepicker -->
-  <script src="js/datepicker.js"></script>
+  <!-- <script src="js/datepicker.js"></script> -->
 
   <!-- Script para barajitas -->
-  <script src="js/sticker.js"></script>
+  <script src="<?php echo e(asset('js/sticker.js')); ?> "></script>
   <script src="<?php echo e(asset('js/datepicker.js')); ?>"></script>
 
   <!-- script para registro de usuario -->

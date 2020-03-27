@@ -51,11 +51,23 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url('img/intro-carousel/3_ec2020.jpg');">
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/xg_2020.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>EUROCOPA 2020</h2>
-                <p>Todo lo que Necesitas Saber de la UEROCOPA 2020....</p>
+                <h2>JUEGA XPORTGAME</h2>
+                <p>Demuestra lo que sabes de Futbol...</p>
+                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
+                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="carousel-item active" style="background-image: url('img/intro-carousel/p2_2020.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>PRONOSTICOS</h2>
+                <p>Consigue Los mejores datos...</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
                 <a href="#notice" class="btn-get-started scrollto">Ver</a>
                 <!-- <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Get Started</button> -->
@@ -64,24 +76,15 @@
             </div>
           </div>
           
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/3_xg.jpg');">
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>JUEGA XPORTGAME</h2>
-                <p>Demuestra lo que sabes y saborea el éxito....</p>
-                <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
-              </div>
-            </div>
-          </div>
+          
         
-          <div class="carousel-item" style="background-image: url('img/intro-carousel/2_xg.jpg');">
+          <div class="carousel-item" style="background-image: url('img/intro-carousel/n_2020.jpg');">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>NOTICIAS</h2>
-                <p>En nuestra sección de noticias mantente al dia....</p>
+                <h2>XPORT NOTICIAS</h2>
+                <p>Enterate de lo ultimo...</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+               <a href="#notice" class="btn-get-started scrollto">Ver</a>
               </div>
             </div>
           </div>
@@ -118,24 +121,28 @@
       <div class="container">
         <div class="row">
 
+
+          
           <div class="col-lg-4 box">
-		 
-            <i class="ion-ios-football"></i>
-            <h4 class="title"><a href="">COPA AMERICA 2019</a></h4>
-            <p class="description">En nuestro sitio encontraras el mejor contenido de la Copa America Brasil 2019... </p>
+            <i class="ion-compose"></i>
+            <h4 class="title"><a href="">XPORT GAME</a></h4>
+            <p class="description">Te ofrecemos la forma mas entretenida de vivir el futbol, demostrando tus conocimientos y ganando dinero...  </p>
           </div>
+
+          <div class="col-lg-4 box box-bg">		 
+            <i class="ion-ios-football"></i>
+            <h4 class="title"><a href="">GOLD BLOG</a></h4>
+            <p class="description">En nuestro sitio encontraras el mejor contenido e informacion del futbol mundial... </p>
+          </div>
+
 
           <div class="col-lg-4 box">
             <i class="ion-ios-bookmarks-outline"></i>
-            <h4 class="title"><a href="">CROMOS</a></h4>
-            <p class="description">Por fin un sitio web donde podras administrar tus cromos y ademas la posibilidad de intercambiar las repetidas con otros usuarios... </p>
+            <h4 class="title"><a href="">XPORT NOTICIAS</a></h4>
+            <p class="description">Por fin un sitio web donde podras encontrar los ultimos acontecimientos y pronosticos de los partidos de futbol... </p>
           </div>
 
-           <div class="col-lg-4 box box-bg">
-            <i class="ion-compose"></i>
-            <h4 class="title"><a href="">XportGames</a></h4>
-            <p class="description">Te ofrecemos la forma mas divertida y millonaria de vivir el mundial Rusia 2018, jugando nuestra XportGames ...  </p>
-          </div>
+           
 
         </div>
       </div>
@@ -324,7 +331,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Como Jugar XportGame Brasil 2019...</h3>
+          <h3>Como Jugar XportGame</h3>
         </header>
 
         <div class="row about-cols">
@@ -332,7 +339,8 @@
           <div class="col-md-4 wow fadeInUp">
             <div class="about-col">
               <div class="img">
-                <img src="img/about_registro.jpg" alt="" class="img-fluid">
+                 <!--<video src="img/xg.mp4" width="300" height="200" controls></video>-->
+                 <img src="img/about_registro.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-edit"></i></div>
               </div>
               <h2 class="title"><a href="{{ url('/register') }}">PASO 1:</a></h2>
@@ -538,7 +546,7 @@
 
         <header class="section-header">
           <h3>NOTICIAS</h3>
-          <p> Enterate de lo mas destacado de la Copa America Brasil 2019 en nuestra sección de noticias </p>
+          <p> Enterate de lo mas destacado del futbol mundial en nuestra sección de noticias </p>
         </header>
 
   
@@ -645,6 +653,8 @@
     <!--==========================
       PortfBLogolio Section
     ============================-->
+
+    <!--
     <section id="portfolio"  class="section-bg" >
       <div class="container">
 
@@ -663,7 +673,7 @@
           </div>
         </div>
 
-		<!-- ESTADIO 1 Maracaná-->
+		<!-- ESTADIO 1 Maracaná
         <div class="row portfolio-container">
 		   <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
             <div class="portfolio-wrap">
@@ -711,7 +721,7 @@
           </div>
 
 
-	<!-- ESTADIO 2 Luzhniki_Stadium-->
+	<!-- ESTADIO 2 Luzhniki_Stadium
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -759,7 +769,7 @@
             </div>
           </div>
 
-<!-- ESTADIO 3 Otkrytie Arena-->
+<!-- ESTADIO 3 Otkrytie Arena
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -811,7 +821,7 @@
             </div>
           </div>
 
-<!-- ESTADIO 4 Krestovski-->
+<!-- ESTADIO 4 Krestovski
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -827,7 +837,7 @@
             </div>
           </div>
  
- <!-- ESTADIO 5 Kaliningrado-->
+ <!-- ESTADIO 5 Kaliningrado--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -844,7 +854,7 @@
           </div>
  
  
- <!-- ESTADIO 6 Nizhni Nóvgorod-->
+ <!-- ESTADIO 6 Nizhni Nóvgorod--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -909,7 +919,7 @@
           </div>
  
  
- <!-- ESTADIO 7 Volgogrado Arena-->
+ <!-- ESTADIO 7 Volgogrado Arena--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -926,7 +936,7 @@
           </div>
  
  
- <!-- ESTADIO 8 Olímpico Fisht-->
+ <!-- ESTADIO 8 Olímpico Fisht--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -945,7 +955,7 @@
 		  
 		  
 		  
-		  <!-- ESTADIO 9 Rostov Arena-->
+		  <!-- ESTADIO 9 Rostov Arena--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -963,7 +973,7 @@
 		  
 		  
 		  
-		  <!-- ESTADIO 10 Mordovia Arena-->
+		  <!-- ESTADIO 10 Mordovia Arena--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -980,7 +990,7 @@
           </div>
  
  
- <!-- ESTADIO 11 Samara Arena-->
+ <!-- ESTADIO 11 Samara Arena--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -999,7 +1009,7 @@
 		  
 		  
 		  
-		  <!-- ESTADIO 12 Kazán Arena-->
+		  <!-- ESTADIO 12 Kazán Arena--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
               <figure>
@@ -1019,6 +1029,11 @@
 		  
  
     </section>
+
+
+    -->
+
+
     <!-- #portfolio -->
 
     <!--==========================

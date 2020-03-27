@@ -6,6 +6,8 @@
     });
 </script>
 
+
+
 <link rel="stylesheet" href="<?php echo e(asset('js/sceditor/minified/themes/square.min.css')); ?>" id="theme-style" />
 		  
 <script src="<?php echo e(asset('js/sceditor/minified/sceditor.min.js?v=4')); ?> "></script>
@@ -16,18 +18,25 @@
 
 <section id="contact" class="section-bg <?php echo e(env('EFECT_WOW')); ?>" style="visibility: hidden" >
     <div class="container" >
+    
         <div class="section-header">
             <br>
             <h3>Registro</h3>
             <p>Registro de Blogs XportGold</p>
+            <p>
+                <a href="<?php echo e(url('/#blogs')); ?>" title="Ir a blogs"><i class="fa fa-reply"></i></a>
+                <span style="margin: 3px"></span>
+                <a href="<?php echo e(route('blogs.index')); ?>" title="Lista de blogs" class="btn btn-outline-primary"><i class="fa fa-list-alt"></i></a>
+
+            </p>
         </div>
 
-        <form action="<?php echo e(route('blogs.store')); ?>" method="post" id="form_create_blogs" >
+        <form action="<?php echo e(route('blogs.store')); ?>" method="post" id="form_create_blogs" enctype="multipart/form-data" >
         <?php echo e(csrf_field()); ?>
 
 
         <!-- Titulo -->
-        <div class="form-row" >
+        <div class="form-row " >
             <!-- Titulo -->
             <div class="form-group col-md-6">
               <label for="title">Título <span style="color: red">*</span></label>
@@ -40,20 +49,47 @@
             <div class="form-group col-md-6">
               <label for="updated_at">Fecha de publicación <span style="color: red">*</span></label>
               <div class="input-group date dp-date ">
-                  <input type="text" class="form-control <?php echo e($errors->has('updated_at') ? 'border-danger' : ''); ?> " name="updated_at" id="updated_at" value="<?php echo e(old('updated_at')); ?>" placeholder="Fecha de publicación" >
-                  <?php echo $errors->first('updated_at', '<span class="text-danger">:message</span>'); ?>
-
+                  <input autocomplete="off" type="text" class="form-control <?php echo e($errors->has('updated_at') ? 'border-danger' : ''); ?> " name="updated_at" id="updated_at" value="<?php echo e(old('updated_at')); ?>" placeholder="Fecha de publicación" >
                   <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
               </div>
+            <?php echo $errors->first('updated_at', '<span class="text-danger">:message</span>'); ?>
+
             </div>
+
+            <!-- thumbnails -->
+            <div class="form-group col-md-12">
+                <label for="name_img">Thumbnails</label>
+                <button type="button" class="btn btn-sm btn-outline-warning" data-toggle="tooltip" data-placement="right" title="600 x 420">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </button>
+                <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" id="name_img" name="name_img" placeholder="Imagen" value="<?php echo e(old('name_img')); ?>">
+                <?php echo $errors->first('name_img', '<span class="text-danger">:message</span>'); ?>
+
+            </div>
+
+            <!-- Summary -->
+            <div class="form-group col-md-12">
+                <label for="summary">Descripción del blog</label>
+                <button type="button" class="btn btn-sm btn-outline-warning" data-toggle="tooltip" data-placement="right" title="Máximo 100 caracteres">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </button>
+                
+                <textarea id="summary" name="summary" rows="2" class="form-control <?php echo e($errors->has('summary') ? 'border-danger' : ''); ?>"><?php echo e(old('summary')); ?></textarea>
+                <?php echo $errors->first('summary', '<span class="text-danger">:message</span>'); ?>
+
+            </div>
+
+
         </div>
 
         <!-- Contenido --> 
-        <div class="form-group col-md-12">
-            <label for="content">Cuerpo<span style="color: red">*</span></label>
-            <textarea id="content" name="content" rows="5" style="height:300px;" class="form-control <?php echo e($errors->has('content') ? 'border-danger' : ''); ?>"><?php echo e(old('content')); ?></textarea>
-            <?php echo $errors->first('content', '<span class="text-danger">:content</span>'); ?>
+        <div class="form-row">
+            <div class="form-group col-lg-12 col-12">
+                <label for="content">Cuerpo<span style="color: red">*</span></label>
+                <textarea id="content" name="content" rows="5" style="height:300px; width: 100%;" class="form-control <?php echo e($errors->has('content') ? 'border-danger' : ''); ?>"><?php echo e(old('content')); ?></textarea>
+                <?php echo $errors->first('content', '<span class="text-danger">:content</span>'); ?>
 
+            </div>
         </div>
  
 

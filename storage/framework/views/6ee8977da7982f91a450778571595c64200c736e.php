@@ -48,7 +48,7 @@
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<form id="form_login" name="form_login" method="POST" action="<?php echo e(route('login')); ?>">
+<form id="form_login" name="form_login" method="POST" action="<?php echo e(route('loginForm')); ?>">
     <input type="hidden" id="routeDashboard" value="<?php echo e(route('dasboardindex')); ?>">
     <input type="hidden" name="_token" id="token" value="<?php echo e(csrf_token()); ?>">
     
@@ -63,7 +63,7 @@
         <div class="modal-body">
             <div class="form-group">
             <label for="emailLogin">Correo Electrónico</label>
-            <input type="emailLogin" class="form-control <?php echo e($errors->has('emailLogin') ? 'border-danger' : ''); ?>" id="emailLogin" name="emailLogin" placeholder="Email">
+            <input type="email" class="form-control <?php echo e($errors->has('emailLogin') ? 'border-danger' : ''); ?>" id="emailLogin" name="emailLogin" placeholder="Email">
             <?php echo $errors->first('emailLogin', '<span class="text-danger">:message</span>'); ?>
 
             </div>

@@ -76,13 +76,13 @@
            <li><a href="{{ url('/#result') }}">Posiciones Quiniela</a></li>
           -->
           @if(Auth::check())
-            <li><a href="{{ url('/dashboard') }}">XPORTGAME BRASIL 2019</a></li>
+            <li><a href="{{ url('/dashboard') }}">XPORTGAME</a></li>
           @else
-           <li><a href="{{ url('/#about') }}">XPORTGAME BRASIL 2019</a></li>
+           <li><a href="{{ url('/#about') }}">XPORTGAME</a></li>
           @endif
           <li><a href="{{ url('/#blogs') }}">GOLD BLOG</a></li>
           <li><a href="{{ url('/#news') }}">Noticias</a></li>
-          <li><a href="{{ url('/#portfolio') }}">BRASIL 2019</a></li>
+          <!--<li><a href="{{ url('/#portfolio') }}">BRASIL 2019</a></li>-->
           <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
           <br>
           @if(Auth::check())   
