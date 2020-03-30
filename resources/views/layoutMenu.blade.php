@@ -51,7 +51,7 @@
       <div id="logo" class="pull-left">
         <!-- <h1><a href="#intro" class="scrollto">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="#intro"><img src="{{ url('img/logoNew230x80.png')}}" width="150px" alt="" title="" /></a>
+        <a href="#intro"><img src="{{ url('img/logoNew230x80.png')}}" alt="" title="" /></a>
      
 	  
 	     </div>
