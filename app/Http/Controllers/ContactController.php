@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class ContactController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');
+        
     }
     
 
@@ -50,37 +50,54 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
+        try {
+            $email_only = request()->email_only;
+            $emailContact = request()->emailContact;
+
+            $nameContact = request()->nameContact;
+            $subjectContact = request()->subjectContact;
+            $messageContact = request()->messageContact;
+
+            // email
+            if($email_only != null){
+                $email = $email_only;
+            }else{
+                $email = $emailContact;
+            }
+
+            // name
+            $name = ($nameContact != null ) ? $nameContact : "";
+            // subject
+            $subject = ($subjectContact != null ) ? $subjectContact : "";
+            // message
+            $subject = ($messageContact != null ) ? $messageContact : "";
+
         
-        //dd($this->validator(request()->all())->validate());
-       
-        Contact::create([
-            'nameContact' => $request->input('nameContact'),
-            'emailContact' => $request->input('emailContact'),
-            'subject' => $request->input('subject'),
-            'message' => $request->input('message')
+            Contact::create([
+                'emailContact' => $email,
+                'nameContact' => $nameContact,
+                'subject' => $subjectContact,
+                'message' => $messageContact
             ]);
 
+            $result = array(
+                "success" => true,
+                "message" => "Registro satisfactorio! <br/>Muchas gracias por otorgarnos su confianza, el equipo de XportGold le estará brindando información valiosa y de actualidad deportiva."
+            );
+        } catch (\Throwable $th) {
+            $result = array(
+                "success" => false,
+                "message" => "No pudo ser procesada la información <br/>Por favor intente nuevamente, disculpen las molestias ocasionadas",
+                "exeption" => $th
+            );
+        }
 
-        //dd($request->all());
-		//return "store";
-		
-		/*	
-	   $contact = new Contact;
-	   $contact->nameContact = $request->input('nameContact');
-	   $contact->emailContact = $request->input('emailContact');
-	   $contact->subject = $request->input('subject');
-	   $contact->message = $request->input('message');
-	   $contact->save();
-	   */
-	   
-
-       return view('/contact.success');
-	  
-		
+        return $result;
 		
     }
+
 
 
 /**
@@ -91,10 +108,6 @@ class ContactController extends Controller
      */
     protected function validator(array $data)
     {
-       // return view('/contact.success');
-
-
-        
         $messages = [
             'numeric' => 'The field is required.',
             'required' => 'The field is required.'
@@ -108,8 +121,6 @@ class ContactController extends Controller
 
            
         ], $messages);
-        
-        
     }
 
 

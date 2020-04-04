@@ -25,12 +25,22 @@
 
 
 <section id="news" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
+
     <div class="container {{env('EFECT_WOW') }}" style="visibility: hidden" id="notice">
+
+    
         <form id="formDestroy" action="{{ route('news.destroy', $news->id) }}" method="post">
         {{ method_field('DELETE') }}
         {{ csrf_field() }}
-
+        <div class=" col-xs-6 col-lg-12">  
+        
+    </div>
+            <div class="thumbnail text-center">
+                <img src="{{ asset('img/banner blog_noticias.png') }}" style="width: 900px; border-radius: 5px;" >
+            </div>
+            <p></p>
         <div class="section-header">
+
             <h3>Noticias XportGold</h3>
                 <p>
                     <a href="{{ url('/#news') }}" title="Ir a noticias"><i class="fa fa-reply"></i></a>
@@ -43,8 +53,10 @@
                         <a href="{{ route('news.index') }}" title="Lista de noticias" class="btn btn-outline-primary"><i class="fa fa-list-alt"></i></a>
                         <span style="margin: 3px"></span>
                         <a href="{{ route('news.create') }}" title="Registrar noticias" class="btn btn-outline-info"><i class="fa fa-plus"></i></a>
-                @endif
+                    @endif
                 </p>
+
+                
         </div>
         </form>
 

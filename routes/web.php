@@ -71,6 +71,7 @@ Route::get('/registerFB', 'Auth\RegisterController@store_fb')->name('create');
 // Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('loginExternal', ['as' => 'auth.loginExternal' , 'uses' => 'Auth\LoginController@loginExternal']);
 
+
 /*
 |--------------------------------------------------------------------------
 | Mensaje Routes
@@ -134,7 +135,7 @@ Route::get('verifyOk', function($data){
 | Seccion para las rutas asociadas a la parte de Contact
 |
 */
-Route::POST("/registerContact", "ContactController@store");
+Route::post('contact', ['as' => 'contact.store', 'uses' => 'ContactController@store']);
 
 
 /*
