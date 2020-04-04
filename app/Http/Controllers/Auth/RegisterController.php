@@ -417,4 +417,5 @@ class RegisterController extends Controller
     //     // return $this->create(request());
     //     // return $user;
     // }
+
 }

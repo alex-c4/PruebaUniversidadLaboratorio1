@@ -96,3 +96,5 @@ $('#state_id').on('change', function(){
         console.log(jqXHR.responseJSON.errors);
     });
 });
+
+

@@ -28,11 +28,11 @@
   <link href="{{ asset('lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
   <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
   <link href="{{ asset('lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('css/jquery-confirm.css')}}" rel="stylesheet">
-  <link href="{{ asset('css/jquery-confirm.less')}}" >
-
-  
   <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
+
+  <link href="{{ asset('css/jquery-confirm.css')}}" rel="stylesheet">
+  <link href="{{ asset('css/jquery-confirm.less')}}" > 
+  
 
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css')}}" rel="stylesheet">
@@ -51,7 +51,7 @@
       <div id="logo" class="pull-left">
         <!-- <h1><a href="#intro" class="scrollto">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="#intro"><img src="{{ url('img/logoNew230x80.png')}}" width="150px" alt="" title="" /></a>
+        <a href="#intro"><img src="{{ url('img/logoNew230x80.png')}}" alt="" title="" /></a>
      
 	  
 	     </div>
@@ -159,7 +159,7 @@
         <div class="row">
 
           <div id="logo" class="col-lg-3 col-md-6 footer-info">
-            <a href="#intro"><img src="{{ asset('img/logoNew230x80.png')}}" alt="" title="XportGold" style="padding-bottom: 19px;" /></a>
+            <a href="#intro"><img src="{{ asset('img/logo3_03.png')}}" alt="" title="XportGold" style="padding-bottom: 19px;" /></a>
             <p></p>            
           </div>
           <!--
@@ -183,7 +183,7 @@
             <h4>Contact Us</h4>
             <p>
               
-              <strong>Email:</strong> xportgoldmail@gmail.com<br>
+              <strong>Email:</strong> xportgoldmail@xportgold.com<br>
             </p>
 
             <div class="social-links">
@@ -201,7 +201,10 @@
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Atentos a nuestro lanzamiento de la forma mas divertida y millonaria de vivir la Copa America Brasil 2019...</p>
-            
+            <form action="{{ route('contact.store') }}" method="post" id="form_user_email" name="form_user_email">
+              {{ csrf_field() }}
+              <input type="email" id="email_only" name="email_only"><input type="submit" value="Subscribe">
+            </form>
           </div>
 
         </div>

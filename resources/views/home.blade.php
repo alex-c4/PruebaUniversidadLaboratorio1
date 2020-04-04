@@ -1269,11 +1269,11 @@
         <div class="form">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
-          <form action="{{ URL::asset('/registerContact') }}" method="post" role="form">
+          <form action="{{ route('contact.store') }}" method="post" role="form" id="form_user_contact">
 		  
             <div class="form-row">
 
-			{{csrf_field()}}
+			        {{csrf_field()}}
 
               <!-- Nombre Contacto-->
               <div class="form-group col-md-6">
@@ -1294,13 +1294,13 @@
 
             <!-- Asunto -->
             <div class="form-group">
-             <input type="text" class="form-control {{ $errors->has('subject') ? 'border-danger' : '' }}" name="subject" id="subject" placeholder="Asunto" value="{{ old('subject') }}">
+             <input type="text" class="form-control {{ $errors->has('subject') ? 'border-danger' : '' }}" name="subjectContact" id="subjectContact" placeholder="Asunto" value="{{ old('subject') }}">
               {!! $errors->first('subject', '<span class="text-danger">:message</span>') !!}
             </div>
 
              <!-- Mensaje -->  
             <div class="form-group">
-              <textarea class="form-control {{ $errors->has('message') ? 'border-danger' : '' }}" name="message" id="message" rows="5" placeholder="Mensaje">{{ old('message') }}</textarea>
+              <textarea class="form-control {{ $errors->has('message') ? 'border-danger' : '' }}" name="messageContact" id="messageContact" rows="5" placeholder="Mensaje">{{ old('message') }}</textarea>
                  {!! $errors->first('message', '<span class="text-danger">:message</span>') !!}
 
               
