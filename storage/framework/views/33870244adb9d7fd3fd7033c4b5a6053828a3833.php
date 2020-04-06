@@ -195,10 +195,12 @@
             </p>
 
             <div class="social-links">
+              <!--
               <a href="https://twitter.com/xportg"  target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+              -->
               <a href="https://www.facebook.com/XportGold-100830458156185/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
               <a href="https://www.instagram.com/xport.gold/"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="https://wa.me/584129327820" class="google-plus"><i class="fa fa-whatsapp"></i></a>
                 <!--
               <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
                 -->
