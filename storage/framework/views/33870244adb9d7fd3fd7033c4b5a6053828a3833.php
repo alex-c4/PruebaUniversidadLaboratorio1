@@ -35,9 +35,9 @@
   
 
   <!-- Main Stylesheet File -->
-  <!--
+  
   <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
- -->
+ 
   
 </head>
 
