@@ -28,15 +28,16 @@
   <link href="<?php echo e(asset('lib/ionicons/css/ionicons.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/owlcarousel/assets/owl.carousel.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('lib/lightbox/css/lightbox.min.css')); ?>" rel="stylesheet">
-  <link href="<?php echo e(asset('css/jquery-confirm.css')); ?>" rel="stylesheet">
-  <link href="<?php echo e(asset('css/jquery-confirm.less')); ?>" >
-
-  
   <script src="<?php echo e(asset('lib/jquery/jquery.min.js')); ?>"></script>
 
+  <link href="<?php echo e(asset('css/jquery-confirm.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('css/jquery-confirm.less')); ?>" > 
+  
+
   <!-- Main Stylesheet File -->
+  <!--
   <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
- 
+ -->
   
 </head>
 
@@ -51,7 +52,7 @@
       <div id="logo" class="pull-left">
         <!-- <h1><a href="#intro" class="scrollto">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="#intro"><img src="<?php echo e(url('img/logoNew230x80.png')); ?>" width="150px" alt="" title="" /></a>
+        <a href="#intro"><img src="<?php echo e(url('img/logoNew230x80.png')); ?>" alt="" title="" /></a>
      
 	  
 	     </div>
@@ -80,8 +81,9 @@
           <?php else: ?>
            <li><a href="<?php echo e(url('/#about')); ?>">XPORTGAME</a></li>
           <?php endif; ?>
+          <li><a href="<?php echo e(url('/#news')); ?>">XPORT Noticias</a></li>
           <li><a href="<?php echo e(url('/#blogs')); ?>">GOLD BLOG</a></li>
-          <li><a href="<?php echo e(url('/#news')); ?>">Noticias</a></li>
+         
           <!--<li><a href="<?php echo e(url('/#portfolio')); ?>">BRASIL 2019</a></li>-->
           <li><a href="<?php echo e(url('/#contact')); ?>">Contactanos</a></li>
           <br>
@@ -159,7 +161,7 @@
         <div class="row">
 
           <div id="logo" class="col-lg-3 col-md-6 footer-info">
-            <a href="#intro"><img src="<?php echo e(asset('img/logoNew230x80.png')); ?>" alt="" title="XportGold" style="padding-bottom: 19px;" /></a>
+            <a href="#intro"><img src="<?php echo e(asset('img/logo3_03.png')); ?>" alt="" title="XportGold" style="padding-bottom: 19px;" /></a>
             <p></p>            
           </div>
           <!--
@@ -172,10 +174,16 @@
             <h4>Useful Links</h4>
             <ul>
               <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo e(url('/')); ?>">Home</a></li> 
+              <!--
               <li><i class="ion-ios-arrow-right"></i> <a href="#about">Intercambiar Cromos</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo e(url('/#notice')); ?>">Noticias</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo e(url('/#portfolio')); ?>">Russia 2018</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="<?php echo e(url('/#contact')); ?>">Contactanos</a></li>
+              -->
+               <li><i class="ion-ios-arrow-right"></i> <a href="#about">XportGame</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="#news">Xport Noticias</a></li>
+             
+              <li><i class="ion-ios-arrow-right"></i> <a href="#blogs">Gold Blog</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Contactanos</a></li>
             </ul>
           </div>
 
@@ -183,12 +191,12 @@
             <h4>Contact Us</h4>
             <p>
               
-              <strong>Email:</strong> xportgoldmail@gmail.com<br>
+              <strong>Email:</strong> xportgoldmail@xportgold.com<br>
             </p>
 
             <div class="social-links">
               <a href="https://twitter.com/xportg"  target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="https://www.facebook.com/XportGold-203618576920498/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.facebook.com/XportGold-100830458156185/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
               <a href="https://www.instagram.com/xport.gold/"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
               <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
                 <!--
@@ -200,8 +208,12 @@
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p>Atentos a nuestro lanzamiento de la forma mas divertida y millonaria de vivir la Copa America Brasil 2019...</p>
-            
+            <p>Quieres enterarte primero de todas nuestras noticias y contenidos...</p>
+            <form action="<?php echo e(route('contact.store')); ?>" method="post" id="form_user_email" name="form_user_email">
+              <?php echo e(csrf_field()); ?>
+
+              <input type="email" id="email_only" name="email_only"><input type="submit" value="Subscribe">
+            </form>
           </div>
 
         </div>

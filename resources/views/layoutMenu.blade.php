@@ -35,8 +35,9 @@
   
 
   <!-- Main Stylesheet File -->
+  <!--
   <link href="{{ asset('css/style.css')}}" rel="stylesheet">
- 
+ -->
   
 </head>
 
@@ -80,8 +81,9 @@
           @else
            <li><a href="{{ url('/#about') }}">XPORTGAME</a></li>
           @endif
+          <li><a href="{{ url('/#news') }}">XPORT Noticias</a></li>
           <li><a href="{{ url('/#blogs') }}">GOLD BLOG</a></li>
-          <li><a href="{{ url('/#news') }}">Noticias</a></li>
+         
           <!--<li><a href="{{ url('/#portfolio') }}">BRASIL 2019</a></li>-->
           <li><a href="{{ url('/#contact') }}">Contactanos</a></li>
           <br>
@@ -172,10 +174,16 @@
             <h4>Useful Links</h4>
             <ul>
               <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/') }}">Home</a></li> 
+              <!--
               <li><i class="ion-ios-arrow-right"></i> <a href="#about">Intercambiar Cromos</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/#notice') }}">Noticias</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/#portfolio') }}">Russia 2018</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/#contact') }}">Contactanos</a></li>
+              -->
+               <li><i class="ion-ios-arrow-right"></i> <a href="#about">XportGame</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="#news">Xport Noticias</a></li>
+             
+              <li><i class="ion-ios-arrow-right"></i> <a href="#blogs">Gold Blog</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Contactanos</a></li>
             </ul>
           </div>
 
@@ -188,7 +196,7 @@
 
             <div class="social-links">
               <a href="https://twitter.com/xportg"  target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="https://www.facebook.com/XportGold-203618576920498/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.facebook.com/XportGold-100830458156185/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
               <a href="https://www.instagram.com/xport.gold/"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
               <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
                 <!--
@@ -200,7 +208,7 @@
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p>Atentos a nuestro lanzamiento de la forma mas divertida y millonaria de vivir la Copa America Brasil 2019...</p>
+            <p>Quieres enterarte primero de todas nuestras noticias y contenidos...</p>
             <form action="{{ route('contact.store') }}" method="post" id="form_user_email" name="form_user_email">
               {{ csrf_field() }}
               <input type="email" id="email_only" name="email_only"><input type="submit" value="Subscribe">

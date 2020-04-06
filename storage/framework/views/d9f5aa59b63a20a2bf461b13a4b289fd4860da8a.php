@@ -30,8 +30,10 @@
  
 
   <!-- Main Stylesheet File -->
+  
   <link href="css/style.css" rel="stylesheet">
-
+  <link href="css/social.css" rel="stylesheet">
+  <link href="css/estilo.css" rel="stylesheet">
   
 
 </head>
@@ -57,7 +59,12 @@
                 <h2>JUEGA XPORTGAME</h2>
                 <p>Demuestra lo que sabes de Futbol...</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
+                
+                <!-- Se quito el modal mientras esten suspendidos los juegos
                 <a href="" data-toggle="modal" data-target="#exampleModal" class="btn-get-started scrollto">Jugar</a>
+                -->
+
+                <a href="#about" class="btn-get-started scrollto">Jugar</a>
               </div>
             </div>
           </div>
@@ -69,7 +76,7 @@
                 <h2>PRONOSTICOS</h2>
                 <p>Consigue Los mejores datos...</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-                <a href="#notice" class="btn-get-started scrollto">Ver</a>
+                <a href="#blogs" class="btn-get-started scrollto">Ver</a>
                 <!-- <button type="button" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Get Started</button> -->
 
               </div>
@@ -84,7 +91,7 @@
                 <h2>XPORT NOTICIAS</h2>
                 <p>Enterate de lo ultimo...</p>
                 <!-- <a href="#featured-services" class="btn-get-started scrollto">Get Started</a> -->
-               <a href="#notice" class="btn-get-started scrollto">Ver</a>
+               <a href="#news" class="btn-get-started scrollto">Ver</a>
               </div>
             </div>
           </div>
@@ -125,7 +132,7 @@
           
           <div class="col-lg-4 box">
             <i class="ion-compose"></i>
-            <h4 class="title"><a href="">XPORT GAME</a></h4>
+            <h4 class="title"><a href="#about">XPORT GAME</a></h4>
             <p class="description">Te ofrecemos la forma mas entretenida de vivir el futbol, demostrando tus conocimientos y ganando dinero...  </p>
           </div>
 
@@ -138,7 +145,7 @@
 
           <div class="col-lg-4 box">
             <i class="ion-ios-bookmarks-outline"></i>
-            <h4 class="title"><a href="">XPORT NOTICIAS</a></h4>
+            <h4 class="title"><a href="#news">XPORT NOTICIAS</a></h4>
             <p class="description">Por fin un sitio web donde podras encontrar los ultimos acontecimientos y pronosticos de los partidos de futbol... </p>
           </div>
 
@@ -326,6 +333,29 @@
 
     <!-- #result -->
 
+
+
+     <!--==========================
+      Social  Section Incorporado por YAnis
+    ============================-->
+
+
+    <div class="Social">
+    <ul>
+      <li><a href="https://www.facebook.com/XportGold-100830458156185/" target="_blank" class="icon icon-facebook1"></a></li>
+      <li><a href="#" class="icon icon-twitter1"></a></li>
+      
+      <li><a href="https://www.instagram.com/xport.gold/" target="_blank" class="icon icon-instagram1"></a></li>
+      <!--
+      <li><a href="https://wa.me/584129327820" class="icon icon-whatsapp"></a></li>
+      -->
+
+
+      
+    </ul>
+    
+  </div>
+
     <!--==========================
       About Us Section modificado
     ============================-->
@@ -338,10 +368,29 @@
 
         <div class="row about-cols">
 
-          <div class="col-md-4 wow fadeInUp">
+          <!-- Banner mientras los juegos estan suspendidos-->
+          <div class="col-md-12 wow fadeInUp">
             <div class="about-col">
               <div class="img">
                  <!--<video src="img/xg.mp4" width="300" height="200" controls></video>-->
+                 <img src="img/susp_xg.png" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-edit"></i></div>
+              </div>
+              <h2 class="title"><a href="<?php echo e(url('/register')); ?>">REGISTRARSE</a></h2>
+              <p>
+               Registrate como usuario y te avisaremos cuando inicien los Juegos...
+         
+              </p>
+            </div>
+          </div>
+
+
+          <!--
+
+          <div class="col-md-4 wow fadeInUp">
+            <div class="about-col">
+              <div class="img">
+                 
                  <img src="img/about_registro.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-edit"></i></div>
               </div>
@@ -378,6 +427,10 @@
               </p>
             </div>
           </div>
+
+          -->
+
+
 
         </div>
 
@@ -1274,11 +1327,11 @@
         <div class="form">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
-          <form action="<?php echo e(URL::asset('/registerContact')); ?>" method="post" role="form">
+          <form action="<?php echo e(route('contact.store')); ?>" method="post" role="form" id="form_user_contact">
 		  
             <div class="form-row">
 
-			<?php echo e(csrf_field()); ?>
+			        <?php echo e(csrf_field()); ?>
 
 
               <!-- Nombre Contacto-->
@@ -1302,14 +1355,14 @@
 
             <!-- Asunto -->
             <div class="form-group">
-             <input type="text" class="form-control <?php echo e($errors->has('subject') ? 'border-danger' : ''); ?>" name="subject" id="subject" placeholder="Asunto" value="<?php echo e(old('subject')); ?>">
+             <input type="text" class="form-control <?php echo e($errors->has('subject') ? 'border-danger' : ''); ?>" name="subjectContact" id="subjectContact" placeholder="Asunto" value="<?php echo e(old('subject')); ?>">
               <?php echo $errors->first('subject', '<span class="text-danger">:message</span>'); ?>
 
             </div>
 
              <!-- Mensaje -->  
             <div class="form-group">
-              <textarea class="form-control <?php echo e($errors->has('message') ? 'border-danger' : ''); ?>" name="message" id="message" rows="5" placeholder="Mensaje"><?php echo e(old('message')); ?></textarea>
+              <textarea class="form-control <?php echo e($errors->has('message') ? 'border-danger' : ''); ?>" name="messageContact" id="messageContact" rows="5" placeholder="Mensaje"><?php echo e(old('message')); ?></textarea>
                  <?php echo $errors->first('message', '<span class="text-danger">:message</span>'); ?>
 
 

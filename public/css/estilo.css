@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Pedro';
+  src:  url('fonts/Pedro.eot?19vuu6');
+  src:  url('fonts/Pedro.eot?19vuu6#iefix') format('embedded-opentype'),
+    url('fonts/Pedro.ttf?19vuu6') format('truetype'),
+    url('fonts/Pedro.woff?19vuu6') format('woff'),
+    url('fonts/Pedro.svg?19vuu6#Pedro') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Pedro' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+.icon-whatsapp:before {
+  content: "\f2e4";
+}
+
+
+.icon-facebook1:before {
+  content: "\1f326";
+}
+
+
+.icon-instagram1:before {
+  content: "\ea4e";
+}
+
+
+.icon-twitter1:before {
+  content: "\ea5b";
+}
