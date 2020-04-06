@@ -32,8 +32,6 @@
   <!-- Main Stylesheet File -->
   
   <link href="css/style.css" rel="stylesheet">
-  <link href="css/social.css" rel="stylesheet">
-  <link href="css/estilo.css" rel="stylesheet">
   
 
 </head>
@@ -339,7 +337,7 @@
       Social  Section Incorporado por YAnis
     ============================-->
 
-
+    <!--
     <div class="Social">
     <ul>
       <li><a href="https://www.facebook.com/XportGold-100830458156185/" target="_blank" class="icon icon-facebook1"></a></li>
@@ -348,14 +346,14 @@
       <li><a href="https://www.instagram.com/xport.gold/" target="_blank" class="icon icon-instagram1"></a></li>
       <!--
       <li><a href="https://wa.me/584129327820" class="icon icon-whatsapp"></a></li>
-      -->
+      
 
 
       
     </ul>
     
   </div>
-
+  -->
     <!--==========================
       About Us Section modificado
     ============================-->
