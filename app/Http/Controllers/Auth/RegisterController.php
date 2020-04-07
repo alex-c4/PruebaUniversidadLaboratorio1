@@ -233,7 +233,7 @@ class RegisterController extends Controller
         $conf_code = str_random(15);
 
         //C:\xampp\htdocs\20190218\storage\app\
-        $pathToFile = storage_path('app') . '\\' . 'Instructivo Quinielas XportGold.pdf';
+        $pathToFile = storage_path('app') . '//' . 'Instructivo Quinielas XportGold.pdf';
         
         $user = User::create([
             'name' => request()->name,
