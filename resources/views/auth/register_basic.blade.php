@@ -68,7 +68,6 @@
               {!! $errors->first('password', '<span class="text-danger">:message</span>') !!}
             </div>
 
-           
 
           <!-- Terminos y condiciones -->
           <div class="text-center">
@@ -77,10 +76,12 @@
           </div>
         </div>
 
-          <!-- Boton Aceptar -->
-          <div class="text-center">
-            <button type="submit" id="btnAceptar" class="btn btn-success">Registrar</button>
-          </div>
+        
+
+        <!-- Boton Aceptar -->
+        <div class="text-center">
+          <button type="submit" id="btnAceptar" class="btn btn-success">Registrar</button>
+        </div>
 
         </form>
 

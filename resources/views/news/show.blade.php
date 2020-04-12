@@ -30,18 +30,16 @@
 
     
         <form id="formDestroy" action="{{ route('news.destroy', $news->id) }}" method="post">
-        {{ method_field('DELETE') }}
-        {{ csrf_field() }}
-        <div class=" col-xs-6 col-lg-12">  
+            {{ method_field('DELETE') }}
+            {{ csrf_field() }}
         
-    </div>
             <div class="thumbnail text-center">
-                <img src="{{ asset('img/banner blog_noticias.png') }}" style="width: 900px; border-radius: 5px;" >
+                <img src="{{ asset('img/banner blog_noticias.png') }}" class="bannerNews" >
             </div>
             <p></p>
-        <div class="section-header">
+            <div class="section-header">
 
-            <h3>Noticias XportGold</h3>
+                <h3>Noticias XportGold</h3>
                 <p>
                     <a href="{{ url('/#news') }}" title="Ir a noticias"><i class="fa fa-reply"></i></a>
                     @if(auth()->user() != null && auth()->user()->hasRoles('Administrator'))
@@ -54,10 +52,8 @@
                         <span style="margin: 3px"></span>
                         <a href="{{ route('news.create') }}" title="Registrar noticias" class="btn btn-outline-info"><i class="fa fa-plus"></i></a>
                     @endif
-                </p>
-
-                
-        </div>
+                </p>                
+            </div>
         </form>
 
         <div class="row" style="text-align: justify;">

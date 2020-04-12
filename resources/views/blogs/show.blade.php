@@ -29,7 +29,10 @@
     <form id="formDestroy" action="{{ route('blogs.destroy', $blog->id) }}" method="post">
         {{ method_field('DELETE') }}
         {{ csrf_field() }}
-
+        <div class="thumbnail text-center">
+            <img src="{{ asset('img/banner blog_noticias.png') }}" class="bannerNews" >
+        </div>
+        <p></p>
         <div class="section-header">
             <h3>Blog XportGold</h3>
                 <p>
@@ -48,7 +51,6 @@
 
     <div class="row" >
         <div >
-
             <div class=" col-xs-6 col-lg-12">
                 <div class="caption">
                     <h2 class="title">{{ $blog->title}}</h2>

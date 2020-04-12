@@ -143,6 +143,33 @@
                 <label for="direction">Dirección / Address</label>
                 <input type="text" class="form-control" id="direction" name="direction" placeholder="Address" value="{!! $user->direction !!}">
             </div>
+
+            <!-- Newsletter -->
+            <br>
+            <div class="form-group col-md-6">
+              <label class="form-check-label" for="gridCheck">
+                ¿Ud desea recibir los siguientes boletines informativos?
+              </label>
+              <p></p>
+              
+
+              @foreach($newsletters as $newsletter)
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="{{ $newsletter->checkId }}" name="{{ $newsletter->checkId }}" 
+                    @foreach($newsletters_users as $id)
+                      @if($id->newsletter_id == $newsletter->id)
+                        checked
+                      @endif
+                    @endforeach
+                  >
+                  <label class="form-check-label" for="gridCheck">
+                    {{ $newsletter->name }}
+                  </label>
+                </div>
+
+              @endforeach
+
+            </div>
             
           </div>
       

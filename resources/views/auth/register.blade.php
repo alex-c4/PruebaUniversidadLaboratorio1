@@ -139,9 +139,10 @@
             <label>Al hacer clic en "Registrar" acepto los <a href="" data-toggle="modal" data-target="#legalModal" class="btn-get-started scrollto">términos de GoldXport y la política de privacidad.</a></label>          
           </div>
 
+
           <!-- Boton Aceptar -->
           <div class="text-center">
-            <button type="submit" id="btnAceptar" class="btn btn-success">Registrar</button>
+            <button type="submit" id="btnAceptar" class="btn btn-success">Registrar2</button>
           </div>
 
         </form>

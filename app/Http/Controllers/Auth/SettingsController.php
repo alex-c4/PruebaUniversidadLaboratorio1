@@ -5,17 +5,18 @@ namespace App\Http\Controllers\Auth;
 use App\Country;
 use App\State;
 use App\City;
+use App\Newsletter;
 use Auth;
 use App\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-
+use DB;
 
 class SettingsController extends Controller
 {
-    //
+
     protected function validator(array $data)
     {
         $messages = [
@@ -35,6 +36,8 @@ class SettingsController extends Controller
 
     public function edit(){
 
+        $user_id = auth()->user()->id;
+
         // lectura de la imagenes avatar
         $dir = opendir('img/avatars/');
         $files = [];
@@ -53,20 +56,21 @@ class SettingsController extends Controller
         $states = State::where('country_id', $user->country_id)->get();
 
         $cities= City::where('state_id', $user->state_id)->get();
-        
-        // $user = User::where('id', $user_id)->get();
 
-        return view('../../auth.settings', compact('countries', 'states', 'cities', 'user', 'files'));
+        $newsletters = Newsletter::all();
+        
+        $newsletters_users = DB::table("newsletters_users")
+            ->where("user_id", $user_id)->select()->get();
+
+        return view('../../auth.settings', compact('countries', 'states', 'cities', 'user', 'files', 'newsletters', 'newsletters_users'));
         // $user = User::where('id', request()->email)->get();
 
     }
 
     public function update(){
 
-
+        
         $user_id = auth()->user()->id;
-
-
 
         $this->validator(request()->all())->validate();
 
@@ -82,6 +86,32 @@ class SettingsController extends Controller
         $user->city_id = request()->city_id;
         $user->direction = request()->direction;
         $user->avatarName = request()->hAvatarName;
+
+        // register newsletter
+        $newsletters = Newsletter::all();
+        
+        $IDs = array();
+        foreach($newsletters as $newsletter){
+            if(request($newsletter->checkId) != null){
+                array_push($IDs, $newsletter->id);
+            }
+        }
+        
+        $newsletters_users = DB::table("newsletters_users")
+            ->where("user_id", $user_id)->delete();
+
+        if(array_count_values($IDs) > 0){
+            // Newsletter::where("user_id", $user_id)
+            // ->delete();
+
+            foreach($IDs as $id){
+                DB::table('newsletters_users')
+                    ->insert([
+                        'user_id' => $user_id,
+                        'newsletter_id' => $id
+                    ]);
+            }
+        }
         
         $user->save();
         

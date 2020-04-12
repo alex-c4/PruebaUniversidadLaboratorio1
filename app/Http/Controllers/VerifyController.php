@@ -31,7 +31,7 @@ class VerifyController extends Controller
         $user->save();
         $data = [
             'title' => 'Bienvenid@!!!',
-            'message' => 'Su correo electorónico fue validado correctamente',
+            'message' => 'Su correo electorónico fue validado correctamente, para ingresar al portal, por fvor, haga click en el siguiente enlace: <a href="" data-toggle="modal" data-target="#exampleModal">login</a>',
             'footer' => 'Muchas gracias por elegirnos y esperemos disfrute y gane!.'
         ];
 

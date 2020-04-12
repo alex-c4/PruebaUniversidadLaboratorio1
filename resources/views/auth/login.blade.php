@@ -20,7 +20,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="background: #7E7622; color: #ffffff">Iniciar sesión</div>
+                <div class="card-header" style="background: #8a8565; color: #ffffff">Iniciar sesión</div>
 
                 <div class="card-body">
                     <form id="loginForm" name="loginForm" method="POST" action="{{ route('login') }}">

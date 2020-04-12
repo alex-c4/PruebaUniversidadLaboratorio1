@@ -199,8 +199,8 @@
               <a href="https://twitter.com/xportg"  target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
               -->
               <a href="https://www.facebook.com/XportGold-100830458156185/"  target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="https://www.instagram.com/xport.gold/"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="https://wa.me/584129327820" class="google-plus"><i class="fa fa-whatsapp"></i></a>
+              <a href="{{ env('APP_URL_INSTAGRAM') }}"  target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="{{ env('APP_URL_WHATSAPP') }}" class="google-plus"><i class="fa fa-whatsapp"></i></a>
                 <!--
               <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
                 -->
@@ -209,7 +209,7 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
+            <h4>Nuestras novedades</h4>
             <p>Quieres enterarte primero de todas nuestras noticias y contenidos...</p>
             <form action="{{ route('contact.store') }}" method="post" id="form_user_email" name="form_user_email">
               {{ csrf_field() }}

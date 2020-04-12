@@ -34,14 +34,14 @@
             <!-- Titulo -->
             <div class="form-group col-md-6">
               <label for="titulo">Titulo <span style="color: red">*</span></label>
-              <input type="text" class="form-control {{ $errors->has('titulo') ? 'border-danger' : '' }}" name="titulo" id="titulo" placeholder="Titulo" value="{{ old('titulo') }}">
+              <input type="text" class="form-control {{ $errors->has('titulo') ? 'border-danger' : '' }}" name="titulo" id="titulo" placeholder="Titulo" value="{{ old('titulo') }}" maxlength="100">
               {!! $errors->first('titulo', '<span class="text-danger">:message</span>') !!}
             </div>
 
             <!-- Fuente noticia -->
             <div class="form-group col-md-6">
               <label for="fuente_noticia">Fuente de la noticia <span style="color: red">*</span></label>
-              <input type="text" class="form-control {{ $errors->has('fuente_noticia') ? 'border-danger' : '' }}" name="fuente_noticia" id="fuente_noticia" placeholder="Fuente de la noticia" value="{{ old('fuente_noticia') }}" >
+              <input type="text" class="form-control {{ $errors->has('fuente_noticia') ? 'border-danger' : '' }}" name="fuente_noticia" id="fuente_noticia" placeholder="Fuente de la noticia" value="{{ old('fuente_noticia') }}" maxlength="50">
               {!! $errors->first('fuente_noticia', '<span class="text-danger">:message</span>') !!}
             </div>
 
@@ -58,7 +58,7 @@
             <!-- Fuente imagen -->
             <div class="form-group col-md-6">
               <label for="fuente_imagen">Fuente de la imagen <span style="color: red">*</span></label>
-              <input type="text" class="form-control {{ $errors->has('fuente_imagen') ? 'border-danger' : '' }}" name="fuente_imagen" id="fuente_imagen" placeholder="Fuente de la imagen" value="{{ old('fuente_imagen') }}" >
+              <input type="text" class="form-control {{ $errors->has('fuente_imagen') ? 'border-danger' : '' }}" name="fuente_imagen" id="fuente_imagen" placeholder="Fuente de la imagen" value="{{ old('fuente_imagen') }}" maxlength="50" >
               {!! $errors->first('fuente_imagen', '<span class="text-danger">:message</span>') !!}
             </div>
 

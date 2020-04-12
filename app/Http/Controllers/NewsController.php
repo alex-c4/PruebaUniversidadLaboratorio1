@@ -133,14 +133,26 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $file = $request->file('name_img');
+        $fileName = Carbon::now()->format('Y-m-d_Hi') ."_". $file->getClientOriginalName();
+
         $news = News::where("id", $id)->first();
         $news->titulo = request()->titulo;
         $news->cuerpo = request()->cuerpo;
         $news->fuente_noticia = request()->fuente_noticia;
         $news->fecha_publicacion = request()->fecha_publicacion;
-        if(request()->name_img != null){
-            $news->name_img = request()->name_img;
+        
+        if($file != null){
+            // Se mueve la imagen anterior a la carpeta de respaldo "img_bk" 
+            // por si se necesita mas adelante
+            $oldImgName = $news->name_img;
+            $imgId = $news->id;
+            Storage::move('notice/' . $oldImgName, 'notice/img_bk/' . $imgId . "_imgID_" . $oldImgName);
+            Storage::putFileAs('notice/', $file, $fileName);
+
+            $news->name_img = $fileName;
         }
+
         $news->fuente_imagen = request()->fuente_imagen;
         $news->updated_at = Carbon::now();
         $news->update();

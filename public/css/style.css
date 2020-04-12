@@ -109,6 +109,12 @@ body {
     }
   }
   
+  @media (min-width: 768px) {
+    #header #logo {
+      float: center;
+    }
+  }
+  
   #header #logo h1 {
     font-size: 34px;
     margin: 0;
@@ -2064,5 +2070,11 @@ body {
 .bodyComment{
   /* margin: 10px;
   padding: 5px; */
+}
+
+.bannerNews{
+  border-radius: 5px; 
+  max-width: 100%;
+  height: auto;
 }
 

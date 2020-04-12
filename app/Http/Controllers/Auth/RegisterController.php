@@ -141,6 +141,7 @@ class RegisterController extends Controller
 
     public function create(){
         $countries = Country::all();
+
         return view('auth.register_basic', compact('countries'));
     }
 
@@ -184,7 +185,8 @@ class RegisterController extends Controller
         // User::create(request()->all());
         $conf_code = str_random(15);
 
-        $pathToFile = storage_path('app') . '\\' . 'instructivo.doc';
+        //comentado temporalmente mientas se actualiza el instructivo
+        //$pathToFile = storage_path('app') . '\\' . 'instructivo.doc';
 
         $user = User::create([
             'name' => request()->name,
@@ -208,7 +210,9 @@ class RegisterController extends Controller
         
         
         $req = request();
-        Mail::send('emails.welcome', $data, function($message) use($req, $pathToFile) {
+        //comentado temporalmente mientas se actualiza el instructivo
+        // Mail::send('emails.welcome', $data, function($message) use($req, $pathToFile) {
+        Mail::send('emails.welcome', $data, function($message) use($req) {
             $message->from('admin@xportgold.com', 'XportGold');
             $message->to($req->email)->subject('Confirmación de tu correo');
             //$message->attach($pathToFile);
@@ -233,7 +237,8 @@ class RegisterController extends Controller
         $conf_code = str_random(15);
 
         //C:\xampp\htdocs\20190218\storage\app\
-        $pathToFile = storage_path('app') . '//' . 'Instructivo Quinielas XportGold.pdf';
+        //comentado temporalmente mientas se actualiza el instructivo
+        // $pathToFile = storage_path('app') . '//' . 'Instructivo Quinielas XportGold.pdf';
         
         $user = User::create([
             'name' => request()->name,
@@ -256,11 +261,13 @@ class RegisterController extends Controller
         
         //envio de correo al usuario
 
-
-        Mail::send('emails.welcome', $data, function($message) use($req, $pathToFile) {
+        //comentado temporalmente mientas se actualiza el instructivo
+        //Mail::send('emails.welcome', $data, function($message) use($req, $pathToFile) {
+        Mail::send('emails.welcome', $data, function($message) use($req) {
             $message->from('xportgoldmail@xportgold.com', 'XportGold');
             $message->to($req->email)->subject('Confirmación de tu correo');
-            $message->attach($pathToFile);
+            //comentado temporalmente mientas se actualiza el instructivo
+            // $message->attach($pathToFile);
         });
         
         

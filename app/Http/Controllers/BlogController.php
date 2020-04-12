@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use DB;
+use UserUtils;
 
 use Carbon\Carbon;
 
@@ -28,9 +29,20 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = DB::table('blogs')
-            ->orderby('updated_at','desc')
-            ->get();
+        $rollName = UserUtils::getRollName(auth()->user()->rollId);
+        $userId = auth()->user()->id;
+
+        if($rollName == "Administrator"){
+            $blogs = DB::table('blogs')
+                ->orderby('created_at','desc')
+                ->get();
+        }else{
+            $blogs = DB::table('blogs')
+                ->orderby('created_at','desc')
+                ->where('user_id', $userId)
+                ->get();
+        }
+
 
             return view('blogs.index', compact('blogs'));
     }
