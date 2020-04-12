@@ -42,12 +42,13 @@ var sendForm = function(_route, _token, _data, _form_id){
         type: 'POST',
         data: _data
     })
-    .done(function(data, textStatus, jqXHR){
+    .done(function(data, textStatus, jqXHR){debugger
         if(data.success){
             showAlert('Información', data.message, 'dark');
             clearForm(_form_id);
         }else{
             showAlert('Información', data.message, 'orange');
+            console.log(data.exeption);
         }
         
     })

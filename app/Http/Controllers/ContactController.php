@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Validator;
 
+use Mail;
+
 class ContactController extends Controller
 {
     public function __construct(){
@@ -55,6 +57,7 @@ class ContactController extends Controller
         try {
             $email_only = request()->email_only;
             $emailContact = request()->emailContact;
+            $sendEmail = false;
 
             $nameContact = request()->nameContact;
             $subjectContact = request()->subjectContact;
@@ -65,6 +68,7 @@ class ContactController extends Controller
                 $email = $email_only;
             }else{
                 $email = $emailContact;
+                $sendEmail = true;
             }
 
             // name
@@ -82,6 +86,23 @@ class ContactController extends Controller
                 'message' => $messageContact
             ]);
 
+            //enviar correo 
+            if($sendEmail == true){
+                $data = array(
+                    'emailContact' => $email,
+                    'nameContact' => $nameContact,
+                    'subject' => $subjectContact,
+                    'messageCont' => $messageContact
+                );
+                $emailAdmin = env('EMAIL_ADMIN');
+                
+                Mail::send('emails.contact', $data, function($message) use($emailAdmin) {
+                    $message->from($emailAdmin, 'XportGold');
+                    $message->to($emailAdmin)->subject('Informacion de Contacto');
+                });
+
+            }
+
             $result = array(
                 "success" => true,
                 "message" => "Registro satisfactorio! <br/>Muchas gracias por otorgarnos su confianza, el equipo de XportGold le estará brindando información valiosa y de actualidad deportiva."
@@ -90,7 +111,7 @@ class ContactController extends Controller
             $result = array(
                 "success" => false,
                 "message" => "No pudo ser procesada la información <br/>Por favor intente nuevamente, disculpen las molestias ocasionadas",
-                "exeption" => $th
+                "exeption" => $th->getMessage()
             );
         }
 
