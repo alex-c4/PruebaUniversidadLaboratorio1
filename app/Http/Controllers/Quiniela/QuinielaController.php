@@ -14,6 +14,7 @@ use App\Championship;
 use App\Quinielatipo;
 use Carbon\Carbon;
 use DB;
+use UserUtils;
 
 use Mail;
 
@@ -37,48 +38,66 @@ class QuinielaController extends Controller
     }
 
     public function savePronostic(){
-        // crear apuesta
-        $quiniela_id = request()->quiniela_id;
-        $championship_id = request()->championship_id;
-        $id_user = auth()->user()->id;
-        $bet_id = Bet::create([
-            'id_quiniela' => $quiniela_id,
-            'id_user' => $id_user
-        ])->id;
+        $id_quiniela = request()->quiniela_id;
         
-        $game_count = Game::where('id_champ', $championship_id)->count();
+        // validar que no haya comenzado el campeonato
+        $isStarted = UserUtils::isStartedChampionship($id_quiniela);
+        
+        if(!$isStarted){
 
-        $req = request()->all();
+            // crear apuesta
+            $quiniela_id = $id_quiniela;
+            $championship_id = request()->championship_id;
+            $id_user = auth()->user()->id;
+            $bet_id = Bet::create([
+                'id_quiniela' => $quiniela_id,
+                'id_user' => $id_user
+            ])->id;
+            
+            $game_count = Game::where('id_champ', $championship_id)->count();
 
-        // return $req;
-        $flag = false;
-        $pronostic1;
-        $pronostic2;
-        foreach($req as $key => $input){
-            $values = explode('_', $key);
-            if($values[0] == 'input'){
-                $id_game = $values[1];
-                if(!$flag){
-                    $flag = true;
-                    $pronostic1 = ($input == null) ? 0 : $input;
+            $req = request()->all();
 
-                }else{
-                    $flag = false;
-                    $pronostic2 = ($input == null) ? 0 : $input;
-                    
-                    $pronostic = Pronostic::create([
-                        'bet_id' => $bet_id,
-                        'id_quiniela' => $quiniela_id,
-                        'id_user' => $id_user,
-                        'id_game' => $id_game,
-                        'pronostic_club_1' => $pronostic1,
-                        'pronostic_club_2' => $pronostic2
-                    ]);
+            // return $req;
+            $flag = false;
+            $pronostic1;
+            $pronostic2;
+            foreach($req as $key => $input){
+                $values = explode('_', $key);
+                if($values[0] == 'input'){
+                    $id_game = $values[1];
+                    if(!$flag){
+                        $flag = true;
+                        $pronostic1 = ($input == null) ? 0 : $input;
+
+                    }else{
+                        $flag = false;
+                        $pronostic2 = ($input == null) ? 0 : $input;
+                        
+                        $pronostic = Pronostic::create([
+                            'bet_id' => $bet_id,
+                            'id_quiniela' => $quiniela_id,
+                            'id_user' => $id_user,
+                            'id_game' => $id_game,
+                            'pronostic_club_1' => $pronostic1,
+                            'pronostic_club_2' => $pronostic2
+                        ]);
+                    }
                 }
             }
-        }
 
-        return view('quiniela.saveSuccesfull');
+            return view('quiniela.saveSuccesfull');
+        }else{
+            $data = [
+                    'title' => '¡Información!',
+                    'class' => 'alert-warning',
+                    'message' => 'El campeonato en el que intenta registar sus pronostico ya ha comenzado, le invitamos a esperar nuestro próximo anuncion de los siguientes campeonatos.',
+                    'footer' => 'Gracias! por preferirnos y mucho éxito en sus aciertos.',
+                    'returnPage' => 'quiniela'
+
+                    ];
+            return $this->muestraAlert($data);
+        }
     }
 
     public function searchGames($quiniela_id){
@@ -92,7 +111,7 @@ class QuinielaController extends Controller
             $total = $result[0]->total;
             if($total > 0){
                 $data = ['title' => '¡Información!',
-                     'message' => 'Ud. ya ha registrado un pronóstico previamente para esta quiniela pública gratis, para esta modalidad solo podrá registrar un pronóstico por quiniela, para ver sus pronósticos por favor haga <a href="'. route("searchPronostics") .'" class="alert-link">click aqui</a>.',
+                     'message' => 'Ud. ya ha registrado un pronóstico previamente para esta quiniela pública gratis, para esta modalidad solo podrá registrar un pronóstico por XportGame, para ver sus pronósticos por favor haga <a href="'. route("searchPronostics") .'" class="alert-link">click aqui</a>.',
                      'footer' => 'Gracias! por preferirnos y mucho éxito en sus aciertos.'
                     ];
                     return $this->muestraAlert($data);
@@ -120,6 +139,10 @@ class QuinielaController extends Controller
         /************************************************************************ */
 
         $games = DB::select('CALL sp_getGamesByQuiniela(?)', array($quiniela_id));
+
+        foreach ($games as $game) {
+            $game->date = UserUtils::getDateToUser($game->date); 
+        }
 
         $quiniela = Quiniela::where('id_quiniela', $quiniela_id)->get();
         //dd($quiniela);
@@ -193,7 +216,7 @@ class QuinielaController extends Controller
         $showGames = false;
 
         $pronostics = DB::select('CALL sp_getMyPronotics(?)', array($id_user));
-
+        
         if(sizeof($pronostics) > 0){
             $startCampionship = $pronostics[0]->start;
             $showGames = $this->showGames($startCampionship); 
@@ -204,26 +227,50 @@ class QuinielaController extends Controller
 
     public function pronosticEdit($betId){
 
-        $pronosticsDetails = DB::select('CALL sp_getMyPronosticsDetails(?)', array($betId));
+        $idUser = auth()->user()->id;
+        $pronosticsDetails = DB::select('CALL sp_getMyPronosticsDetails(?, ?)', array($betId, $idUser));
 
         $startCampionship = $pronosticsDetails[0]->start;
         $showGames = $this->showGames($startCampionship); //$startCampionship->gt($now);
-
+        
         return view('quiniela.pronosticEdit', compact('pronosticsDetails', 'showGames'));
     }
 
-    public function pronosticGet($betId){
-
-        $pronosticsDetails = DB::select('CALl sp_getMyGames_PronosticsDetails(?)', array($betId));
-
-        //$puntuacion=DB::table('v_quinielas_scores')->where('bet_id',$betId)->first(); 
-        $puntuacion= DB::select('CALL sp_bet_score(?,?)', array(1,$betId));
+    public function pronosticGet($betId, $quiniela_id){
         
-        //dd($puntuacion);
+        $pronosticsDetails = DB::select('CALl sp_getMyGames_PronosticsDetails(?)', array($betId));
+        
+        //$puntuacion=DB::table('v_quinielas_scores')->where('bet_id',$betId)->first(); 
+        $puntuacion = DB::select('CALL sp_bet_score(?,?)', array($quiniela_id,$betId));
+
+        // $puntuacion = array([
+        //     "puntos" => "0",
+        //     "bet_id" => $betId,
+        //     "id_user" => auth()->user()->id,
+        //     "name" => auth()->user()->name,
+        //     "lastName" => auth()->user()->lastName,
+        //     "id_quiniela" => 0
+        // ]);
+        // $arr = array(new tmp_puntuacion());
+        // $puntuacion = collect($arr)->first();;
+        // dd($puntuacion->puntos);
+        if(count($puntuacion) == 0){
+            $data = ['title' => '¡Información!',
+                    'class' => 'alert-warning',
+                    'message' => 'Aun no tiene un pronóstico registrado para el XportGame a consultar, por favor haga <a href="'. route("quiniela") .'" class="alert-link">click aqui</a> para agregar su apuesta.',
+                    'footer' => 'Gracias! por preferirnos y mucho éxito en sus aciertos.'
+                ];
+            return $this->muestraAlert($data);
+        }
+        
+        // dd($puntuacion);
         //return $puntuacion['0']->bet_id;
-        return view('quiniela.pronosticGet', compact('pronosticsDetails','puntuacion'));
+        return view('quiniela.pronosticGet', compact('pronosticsDetails','puntuacion', 'betId', 'quiniela_id'));
 
     }
+
+    
+    
 
 
         
@@ -238,20 +285,41 @@ class QuinielaController extends Controller
             $id_user = auth()->user()->id;
     
             settype($pronostic_id, "int");
-            
-            $pronostic = DB::table('pronostics')
-                    ->where('id', '=', $pronostic_id)
-                    ->where('id_user', '=', $id_user)
-                    ->get();
 
-            if($pronostic->count() > 0){
-                Pronostic::where('id', '=', $pronostic_id)->update(['pronostic_club_1' => $pronostic_club_1, 'pronostic_club_2' => $pronostic_club_2]);
-        
-                return "Registro actualizado exitosamente!";
-
+            // validar que no haya empezado el campeonato
+            $pronostic = Pronostic::where("id", $pronostic_id)->first();
+            $isStarted = UserUtils::isStartedChampionship($pronostic->id_quiniela);
+            if($isStarted){
+                $data = array(
+                    "result" => false,
+                    "message" => "No se llevo a cabo la actualización, debido que el campeonato ya ha comenzado!"
+                );
+                return $data;
             }else{
-                return "No se encontro informacion para los datos suministrados!";
+                $pronostic = DB::table('pronostics')
+                        ->where('id', '=', $pronostic_id)
+                        ->where('id_user', '=', $id_user)
+                        ->get();
+
+                if($pronostic->count() > 0){
+                    Pronostic::where('id', '=', $pronostic_id)->update(['pronostic_club_1' => $pronostic_club_1, 'pronostic_club_2' => $pronostic_club_2]);
+            
+                    $data = array(
+                        "result" => true,
+                        "message" => "Registro actualizado exitosamente!"
+                    );
+                    return $data;
+
+                }else{
+                    
+                    $data = array(
+                        "result" => false,
+                        "message" => "No se encontro informacion para los datos suministrados!"
+                    );
+                    return $data;
+                }
             }
+
         }catch(Exception $e){
             return "Fallo la actualización, por favor intente nuevamente";
         }
@@ -335,7 +403,7 @@ class QuinielaController extends Controller
 
         return Validator::make($data, [
             'champ_id' => 'required|numeric',
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:50',
             'type_id' => 'required|numeric',
             'amount' => 'required|numeric'
         ], $messages);
@@ -356,15 +424,16 @@ class QuinielaController extends Controller
         $userRollId = auth()->user()->rollId;
         $code = str_random(15);
         $tipo = DB::table('quinielatipo')
-            ->where('id', '=', request()->type_id)
-            ->first();
+        ->where('id', '=', request()->type_id)
+        ->first();
         $championshipName = DB::table('championships')
-            ->where('id', '=', request()->champ_id)
-            ->first();
+        ->where('id', '=', request()->champ_id)
+        ->first();
         
         $user = auth()->user();
-
+        
         $this->validateQuiniela(request()->all())->validate();
+
 
         $quiniela = Quiniela::create([
             'id_championship' => request()->champ_id,
@@ -521,12 +590,34 @@ class QuinielaController extends Controller
             return $this->muestraAlert($data);
 
         }else{
-            $quiniela_privada = DB::table('quiniela_privada')
-            ->insert([
-                'id_quiniela' => $quiniela->id_quiniela,
-                'id_user' => $userId
-            ]);
-            return redirect()->route('quiniela');
+            //dd($quiniela->id_championship);
+            //bucar fecha de inicio del campeonato
+            // $championship = Quiniela::where("champion_id", $quiniela->id_championship)
+            // ->join("quiniela", "quiniela.champion_id", "=", "champion.id", "inner", false)
+            // ->select("championship.id", "championship.start_datetime")
+            // ->first();
+
+            $crrDate = Carbon::now("UTC");
+            $isStarted = UserUtils::isStartedChampionship($quiniela->id_quiniela);
+            
+            if($isStarted){
+                $data = [
+                    'title' => 'Información',
+                    'class' => 'alert-warning',
+                    'message' => 'Lo sentimos, No es posible agregarse al XportGame con el código suministrado "'. request()->codigo .'", debido que el campeonato ya ha comenzado.',
+                    'footer' => 'Lo invitamos a seguir participando, nosotros le estaremos informando sobre los nuevos eventos y juegos!',
+                    'returnPage' => 'quiniela'
+            ];
+                return $this->muestraAlert($data);
+            }else{
+                $quiniela_privada = DB::table('quiniela_privada')
+                ->insert([
+                    'id_quiniela' => $quiniela->id_quiniela,
+                    'id_user' => $userId
+                ]);
+                return redirect()->route('quiniela');
+            }
+
         }
     }
 
@@ -534,5 +625,31 @@ class QuinielaController extends Controller
         return view('alert', $data); 
     }
 
+    public function comparePronostic(){
+        $id_quiniela = request()->id_quiniela;
+        $id_game = request()->id_game;
+
+        $comparePronostics = DB::select('CALL sp_getComparePronosctic(?,?)', array($id_quiniela, $id_game) );
+        
+        return array(
+            "result" => true,
+            "data" => $comparePronostics
+        );
+        // return view('quiniela.pronosticCompare');
+    }
     
+}
+
+
+class tmp_puntuacion{
+    function __construct($bet_id, $name){
+        $this->client_id = $client_id;
+    }
+
+    public $puntos = 0;
+    public $bet_id = 2;
+    public $id_user = 64;
+    public $name = "Alex";
+    public $lastName = "Peñaloza";
+    public $id_quiniela = 0;
 }

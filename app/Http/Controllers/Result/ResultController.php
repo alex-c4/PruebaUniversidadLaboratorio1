@@ -17,6 +17,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\request;
 
 use DB;
+use Carbon\Carbon;
+use UserUtils;
 
 class ResultController extends Controller
 {
@@ -38,7 +40,18 @@ class ResultController extends Controller
     public function index(){
         $id_champ = request()->id_championship;
         
-        $games = Game::where('id_champ', $id_champ)->get();
+        $games = Game::select("id", "nombre_club_1", "nombre_club_2", "date as date", "date as time")
+        ->where('id_champ', $id_champ)
+        ->orderby("date", "ASC")
+        ->get();
+
+        foreach ($games as $key => $game) {
+            $tmpDate = UserUtils::getDateToUser($game->date);
+            list($date, $time) = explode(' ', $tmpDate);
+            $game->date = $date;
+            $game->time = $time;
+
+        }
         return view('result.result', compact('games'));
     }
 
@@ -139,6 +152,7 @@ class ResultController extends Controller
             $puntuaciones = DB::select('CALl sp_bet_score(?,?)', array($quiniela->quinielaId, $quiniela->betId));
             $listaPuntuaciones[$key] = $puntuaciones[0];
         }
+        
         arsort($listaPuntuaciones);
         //$quiniela=DB::table('quinielas')->where('id_quiniela',$quiniela_id)->first();   
 
@@ -155,6 +169,31 @@ class ResultController extends Controller
         //dd($puntuaciones);
         return view('/result.positionsTable',compact('quinielas','listaPuntuaciones'));
 
+    }
+
+    public function pronosticUser($betId, $quiniela_id){
+        $championshipDetail = DB::table('quinielas')
+        ->where('id_quiniela', $quiniela_id)
+        ->select('championships.name as championshipName', 'quinielas.nombre as quinielaName')
+        ->join('championships', 'quinielas.id_championship', '=', 'championships.id', 'inner', false)
+        ->first();
+
+        $pronosticsDetails = DB::select('CALl sp_getMyGames_PronosticsDetails(?)', array($betId));
+        
+        $puntuacion = DB::select('CALL sp_bet_score(?,?)', array($quiniela_id,$betId));
+
+        if(count($puntuacion) == 0){
+            $data = ['title' => '¡Información!',
+                    'class' => 'alert-warning',
+                    'message' => 'Aun no tiene un pronóstico registrado para el XportGame a consultar, por favor haga <a href="'. route("quiniela") .'" class="alert-link">click aqui</a> para agregar su apuesta.',
+                    'footer' => 'Gracias! por preferirnos y mucho éxito en sus aciertos.'
+                ];
+            return $this->muestraAlert($data);
+        }
+        
+        return view('quiniela.pronosticUser', compact('pronosticsDetails','puntuacion', 'betId', 'quiniela_id', 'championshipDetail'));
+
+        
     }
 
 }

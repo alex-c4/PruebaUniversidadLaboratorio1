@@ -11,7 +11,7 @@
 <hr/>
 
 <section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
-<form method="POST" action="{{ route('savePronostic') }}" method>
+<form method="POST" action="{{ route('savePronostic') }}">
 
     <div class="section-header">
 
@@ -20,10 +20,11 @@
 
         <div class="container">
             @if(count($pronostics) > 0)
-                <table class="table table-hover">
+                <table class="table table-hover table-font13" >
                     <thead>
                         <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Tipo</th>
                         <th scope="col">XportGames</th>
                         <th scope="col">Campeonato</th>
                         <th scope="col">Monto por jugador ($)</th>
@@ -36,6 +37,7 @@
                         @foreach($pronostics as $key => $pronostic)
                         <tr>
                             <th scope="row">{{ $key+1 }}</th>
+                            <td>{{ $pronostic->quinielaTipoName }}</td>
                             <td>{{ $pronostic->quiniela }}</td>
                             <td>{{ $pronostic->championshipName }}</td>
                             <td>{{ $pronostic->amount }} $</td>
@@ -43,9 +45,10 @@
                             <td ><input type="checkbox" disabled @if($pronostic->verification == "1"){ checked } @endif></td>
                             <td>
                                 <a href="{{ url('quiniela.pronosticEdit/') }}/{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm @if($pronostic->isStartChampionship == 1){ disabled } @endif" role="button" aria-pressed="true" title="Editar pronóstico" ><i class="fa fa-edit fa-sm"></i></a>
+                                <a href="{{ route('pronosticGet', [$pronostic->betId, $pronostic->id_quiniela]) }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Ver pronóstico" ><i class="fa fa-eye fa-sm"></i></a>
                                 @if($pronostic->quinielaTipo == 3)
                                     @if($pronostic->verification == 0)
-                                        <a href="{{ url('payQuiniela/') }}/{{$pronostic->betId}}" class="btn btn-outline-primary btn-sm @if($pronostic->isStartChampionship == 1){ disabled } @endif"" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a>
+                                        <a href="{{ url('payQuiniela/') }}/{{$pronostic->betId}}" class="btn btn-outline-primary btn-sm @if($pronostic->isStartChampionship == 1){ disabled } @endif" role="button" aria-pressed="true" title="Realizar pago pronóstico"><i class="fa fa-paypal fa-sm"></i></a>
                                     @elseif($pronostic->verification == 2)
                                         <a href="#" class="btn btn-outline-warning btn-sm" role="button" aria-pressed="true" title="En revision"><i class="fa fa-exclamation-triangle fa-sm"></i></a>
                                     @elseif($pronostic->verification == 3)

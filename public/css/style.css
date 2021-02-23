@@ -2063,7 +2063,6 @@ body {
 
 .user{
   font-size: smaller;
-  font-size: smaller; 
   color: darkgoldenrod;
 }
 
@@ -2076,5 +2075,25 @@ body {
   border-radius: 5px; 
   max-width: 100%;
   height: auto;
+}
+
+.bordeComboList button{
+  border: 1px solid #ced4da !important;
+}
+
+.table-font13{
+  font-size: 13px;
+}
+
+.resultadoRight{
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: right;
+}
+
+.resultadoLeft{
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: left;
 }
 

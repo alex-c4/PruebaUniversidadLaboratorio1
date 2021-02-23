@@ -18,11 +18,11 @@
             <h3>Listado de Juegos</h3>
             <p>
                 <a href="{{ route('games.create') }}" title="Crear juegos" class="btn btn-outline-primary"><i class="fa fa-plus"></i></a>
-                <a href="{{ route('championship.index') }}" title="Activar Campeonato/Copa/Jornada" class="btn btn-outline-primary"><i class="fa fa-mail-forward"></i></a>
+                <a href="{{ route('championship.index') }}" title="Activar Campeonato/Copa/Jornada" class="btn btn-outline-primary"><i class="fa fa-check"></i></a>
             </p>
         </div>
 
-        <table class="table table-hover">
+        <table class="table table-hover table-font13">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -42,7 +42,7 @@
                 <td >{{ $game->nombre_club_1 }} vs {{ $game->nombre_club_2 }}</td>
                 <td>{{$game->fase}}</td>
                 <td>{{$game->grupo}}</td>
-                <td>{{$game->date}} / {{ $game->time }}</td>
+                <td>{{ UserUtils::toFormatDatetime($game->date, "") }}</td>
                 
             </tr>
         @endforeach

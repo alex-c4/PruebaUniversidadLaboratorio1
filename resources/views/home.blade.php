@@ -33,8 +33,6 @@
   
   <link href="css/style.css" rel="stylesheet">
  
-  
-
 </head>
 
 <body>
@@ -333,7 +331,7 @@
 
 
     
-
+    <script id="CookieDeclaration" src="https://consent.cookiebot.com/4d643f5c-a9d0-4c6a-b30f-047fe06c4414/cd.js" type="text/javascript" async></script>
     <!--==========================
       About Us Section modificado
     ============================-->

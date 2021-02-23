@@ -24,15 +24,17 @@
             <input type="hidden" id="routeCurrent" value="{{ url('/') }}">
             
             <h2>Publicas</h2>
-            <table class="table table-hover">
+            <table class="table table-sm table-hover" style="font-size: 13px">
                 <thead>
                     <tr>
                     <th scope="col">ID</th>
                     <th scope="col">XportGame</th>
                     <th scope="col">Campeonato</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Cuota por participante ($)</th>
+                    <th scope="col">Cuota por participante($)</th>
                     <th scope="col">GoldPot</th>
+                    <th scope="col">Creador</th>
+                    <th scope="col">Fecha de inicio</th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
@@ -46,8 +48,10 @@
                         <td>{{ $quinielaPublica->tipoQuiniela }}</td>
                         <td class="text-center" >{{ $quinielaPublica->amount }} $</td>
                         <td class="text-center" >{{ $quinielaPublica->golpot }} $</td>
+                        <td>{{ $quinielaPublica->user_creador_name }} {{ $quinielaPublica->user_creador_lastname }}</td>
+                        <td>{{ UserUtils::toFormatDatetime($quinielaPublica->start_datetime, '') }}</td>
                         <td>
-                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPublica->idQuiniela }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"> </i></a>
+                            <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPublica->idQuiniela }}" class="btn btn-outline-success btn-sm @if(UserUtils::isStartedChampionship($quinielaPublica->idQuiniela)) disabled @endif" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"> </i></a>
                         </td>
                     </tr>
 
@@ -62,7 +66,7 @@
 
             <h4>Privadas</h4>
             
-            <table class="table table-hover">
+            <table class="table table-sm table-hover" style="font-size: 13px">
                 <thead>
                     <tr>
                     <th scope="col">ID</th>
@@ -71,6 +75,8 @@
                     <th scope="col">Tipo</th>
                     <th scope="col">Monto ($)</th>
                     <th scope="col">GoldPot ($)</th>
+                    <th scope="col">Creador</th>
+                    <th scope="col">Fecha de inicio</th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
@@ -84,8 +90,10 @@
                         <td>{{ $quinielaPrivada->tipoQuiniela }}</td>
                         <td>{{ $quinielaPrivada->amount }}</td>
                         <td>{{ $quinielaPrivada->golpot }}</td>
+                        <td>{{ $quinielaPrivada->user_creador_name }} {{ $quinielaPrivada->user_creador_lastname }}</td>
+                        <td>{{ UserUtils::toFormatDatetime($quinielaPrivada->start_datetime, '') }}</td>
                         <td>
-                            <a href="{{ url('quiniela/searchGames') }}/{{ $quinielaPrivada->idQuiniela }}" class="btn btn-outline-success btn-sm " role="button" aria-pressed="true"  title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"></i></a>
+                            <a href="{{ url('quiniela/searchGames') }}/{{ $quinielaPrivada->idQuiniela }}" class="btn btn-outline-success btn-sm @if(UserUtils::isStartedChampionship($quinielaPrivada->idQuiniela)) disabled @endif" role="button" aria-pressed="true"  title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"></i></a>
                         </td>
                     </tr>
 

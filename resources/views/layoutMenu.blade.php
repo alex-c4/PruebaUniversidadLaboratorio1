@@ -7,6 +7,9 @@
   <meta content="" name="keywords">
   <meta content="" name="description">
 
+  <!-- script para aceptar cookies -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4d643f5c-a9d0-4c6a-b30f-047fe06c4414" data-blockingmode="auto" type="text/javascript"></script>
+  
   <!-- Favicons -->
   <link href="{{ asset('img/favicon.ico') }}" rel="icon">
   <!-- 
@@ -38,6 +41,8 @@
   
   <link href="{{ asset('css/style.css')}}" rel="stylesheet">
  
+  @yield("cabecera")
+  
   
 </head>
 
@@ -141,7 +146,19 @@
 </div>
 -->
 
+  <!-- Script para google analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167289238-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
+    gtag('config', 'UA-167289238-1');
+  </script>
+  <!-- Fin script para google analytics -->
   </header><!-- #header -->
 
  
@@ -171,7 +188,7 @@
           </div>
           -->
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Enlaces</h4>
             <ul>
               <li><i class="ion-ios-arrow-right"></i> <a href="{{ url('/') }}">Home</a></li> 
               <!--
@@ -188,7 +205,7 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
+            <h4>Contactanos</h4>
             <p>
               
               <strong>Email:</strong> xportgoldmail@xportgold.com<br>
@@ -285,7 +302,7 @@
   <!-- Script para puntuaciones quinielas -->
   <script src="{{asset('js/puntuaciones.js')}}"></script>
   
-  
+  @yield('scripts')
   
 </body>
 </html>

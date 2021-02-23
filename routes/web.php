@@ -140,10 +140,10 @@ Route::post('contact', ['as' => 'contact.store', 'uses' => 'ContactController@st
 
 /*
 |--------------------------------------------------------------------------
-| Dashboard
+| Quiniela
 |--------------------------------------------------------------------------
 |
-| Seccion para las rutas asociadas al dashboard
+| Seccion para las rutas asociadas a las Quinielas
 |
 */
 Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dasboardindex');
@@ -163,8 +163,9 @@ Route::view('quiniela.saveSuccessfull', 'saveSuccessfull');
 Route::get('quiniela.searchPronostics', 'Quiniela\QuinielaController@searchPronostics')->name('searchPronostics');
 Route::view('quiniela/pronostics', 'pronostics');
 Route::get('quiniela.pronosticEdit/{betId}', 'Quiniela\QuinielaController@pronosticEdit')->name('pronosticEdit');
+Route::get('quiniela.pronosticGet/{betId}/{quiniela_id}', 'Quiniela\QuinielaController@pronosticGet')->name('pronosticGet');
+// Route::get('quiniela.pronosticShow/{betId}', 'Quiniela\QuinielaController@pronosticShow')->name('pronosticShowById');
 Route::post('quiniela.updatePronostic', 'Quiniela\QuinielaController@updatePronostic')->name('updatePronostic');
-Route::get('quiniela.pronosticGet/{betId}', 'Quiniela\QuinielaController@pronosticGet')->name('pronosticGet');
 Route::get('quiniela/create', 'Quiniela\QuinielaController@createPrivateQuiniela')->name('createPrivateQuiniela');
 
 Route::get('quinielas/{user_id}', 'Quiniela\QuinielaController@listarQuinielas')->name('quinielas.list');
@@ -175,6 +176,17 @@ Route::post('saveNewQuinielaPrivate', 'Quiniela\QuinielaController@saveNewQuinie
 Route::get('codeQuiniela', 'Quiniela\QuinielaController@codeQuiniela')->name('codeQuiniela');
 Route::view('quiniela/codeQuiniela', 'codeQuiniela');
 Route::post('quiniela/addCodeQuiniela', ['as' => 'quiniela.addCode', 'uses' => 'Quiniela\QuinielaController@addCodeQuiniela']);
+Route::post('quiniela/pronosticCompare', ['as' => 'quiniela.pronosticCompare', 'uses' => 'Quiniela\QuinielaController@comparePronostic']);
+
+/*
+|--------------------------------------------------------------------------
+| Pronostic Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Pronosticos
+|
+*/
+Route::get("pronostic.pdfdownload/{id_quiniela}", ["as" => "pronostic.pdfdownload", "uses" => "PronosticController@pdfdownload"]);
 
 
 /*
@@ -194,6 +206,8 @@ Route::post('/result', 'Result\ResultController@store')->name('result');
 //Route::post('/register', 'Auth\RegisterController@store')->name('register');
 
 Route::get('result/positionsTable', ['as' => 'result.positionsTable', 'uses' => 'Result\ResultController@positionsTable']);
+Route::get('result/showPronosticDetails/{betId}', ['as' => 'result.showPronosticDetails', 'uses' => 'Result\ResultController@showPronosticDetails']);
+Route::get('result/pronosticUser/{betId}/{quiniela_id}', ['as' => 'result.pronosticUser', 'uses' => 'Result\ResultController@pronosticUser']);
 
 
 
@@ -278,7 +292,8 @@ Route::post('blogsComment/store', ['as' => 'blogsComment.store', 'uses' => 'Blog
 Route::get('games', ['as' => 'games.index', 'uses' => 'GameController@index']);
 Route::get('games/create', ['as' => 'games.create', 'uses' => 'GameController@create']);
 Route::post('games/store', ['as' => 'games.store', 'uses' => 'GameController@store']);
-
+Route::post('games/getGamesAjax', ['as' => 'game.getGamesAjax', 'uses' => 'GameController@getGamesAjax']);
+Route::post("game/deleteGame", ["as" => "deleteGameAjax", "uses" => "GameController@deleteGameAjax"]);
 /*
 |--------------------------------------------------------------------------
 | Championship Routes
@@ -303,5 +318,22 @@ Route::put('championship/{id}', ['as' => 'championship.update', 'uses' => 'Champ
 | Seccion para las rutas asociadas a la parte de Clubes
 |
 */
-Route::get('club', ['as' => 'clubs.index', 'uses' => 'ClubController@index']);
+Route::get('club', ['as' => 'club.index', 'uses' => 'ClubController@index']);
+Route::get('club/create', ['as' => 'club.create', 'uses' => 'ClubController@create']);
+Route::get('club/{id}/edit', ['as' => 'club.edit', 'uses' => 'ClubController@edit']);
+Route::post('club', ['as' => 'club.store', 'uses' => 'ClubController@store']);
+Route::put('club/{id}', ['as' => 'club.update', 'uses' => 'ClubController@update']);
+Route::post('clubAjax', ['as' => 'club.storeAjax', 'uses' => 'ClubController@storeAjax']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Stadium Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Estadios
+|
+*/
+Route::post('stadium', ['as' => 'stadium.storeAjax', 'uses' => 'StadiumController@storeAjax']);
+
 

@@ -1,4 +1,4 @@
-$('#form_login').submit(function() {
+$('#form_login').on("submit", function() {
     // var _email = $("#inputEmail").val();
     // var _password = $("#inputPassword").val();
     var _route = $(this).attr('action'); //$("#routeCurrent").val();
@@ -16,7 +16,7 @@ $('#form_login').submit(function() {
     .done(function(data, textStatus, jqXHR){
         debugger
             if(data.access == true){
-                console.log(_routeDashboard)
+                // console.log(_routeDashboard)
                 $(location).attr('href', _routeDashboard);
             }else{
                 console.log(data.message);
@@ -27,6 +27,8 @@ $('#form_login').submit(function() {
         })
     .fail(function(jqXHR, textStatus, errorThrown ){
         debugger
+            $('#messagegot').html('<div class="alert alert-warning" role="alert">Error de comunicación</div>');                
+
             console.log(jqXHR.responseJSON.errors);
 
             if(jqXHR.responseJSON.errors.hasOwnProperty( 'email' )){
@@ -54,6 +56,7 @@ $('#form_login').submit(function() {
 
 // funcion AJAX para la busqueda de los estados mediante un ID
 $('#country_id').on('change', function(){
+    debugger
     var _route = $("#routeCurrent").val();
     // var _route = 'http://127.0.0.1:8000';
     

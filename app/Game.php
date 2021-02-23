@@ -11,7 +11,7 @@ class Game extends Model{
      * @var array
      */
     protected $fillable = [
-        'id_champ', 'id_club_1', 'id_club_2', 'nombre_club_1', 'nombre_club_2', 'fase', 'grupo', 'date', 'time', 'estadium', 'created_at', 'updated_at'
+        'id_champ', 'id_club_1', 'id_club_2', 'nombre_club_1', 'nombre_club_2', 'fase', 'grupo', 'date', 'stadium_id', 'created_at', 'updated_at'
     ];
 
     // The table associated with the model.

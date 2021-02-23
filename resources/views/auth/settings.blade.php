@@ -1,5 +1,11 @@
 @extends('layoutMenu')
 
+@section('cabecera')
+
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">   
+
+@endsection
+
 @section('content')
 
 <script>
@@ -139,9 +145,25 @@
             </div>
 
             <!-- Direccion -->
-            <div class="form-group col-md-12" >
+            <div class="form-group col-md-8" >
                 <label for="direction">Dirección / Address</label>
                 <input type="text" class="form-control" id="direction" name="direction" placeholder="Address" value="{!! $user->direction !!}">
+            </div>
+            
+
+            <!-- TimeZone -->
+            <div class="form-group col-md-4">
+              <label for="timezone">TimeZone</label>
+              <select type="text" class="selectpicker form-control bordeComboList {{ $errors->has('timezone') ? 'border-danger' : '' }}" id="timezone" name="timezone" data-live-search="true">
+              @foreach($timezones as $timezone)
+                @if($timezone == $user->timezone)
+                  <option selected value="{{ $timezone }}">{{ $timezone }}</option>
+                @else
+                  <option value="{{ $timezone }}">{{ $timezone }}</option>
+                @endif
+  
+              @endforeach
+              </select>
             </div>
 
             <!-- Newsletter -->
@@ -176,7 +198,7 @@
 
           <!-- Boton Aceptar -->
           <div class="text-center form-group" >
-            <button type="submit" class="btn btn-success">Registrar</button>
+            <button type="submit" class="btn btn-success">Guardar</button>
           </div>
 
         </form>
@@ -223,5 +245,12 @@
     $("#hAvatarName").val(name);
   }
 </script>
+
+@endsection
+
+@section('scripts')
+
+    <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('js/i18n/defaults-es_ES.min.js') }}"></script>
 
 @endsection

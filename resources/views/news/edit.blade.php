@@ -29,8 +29,8 @@
         </div>
 
         <form action="{{ route('news.update', $news->id) }}" method="post" id="form_create_news" enctype="multipart/form-data">
-        {{ method_field('PUT') }}
-        {{ csrf_field() }}
+            {{ method_field('PUT') }}
+            {{ csrf_field() }}
 
         <!-- Titulo -->
         <div class="form-row" >
@@ -78,7 +78,7 @@
 
         <!-- Imagen -->
         <div class="form-group" >
-            <label for="name_img">Imagen</label>
+            <label for="name_img">Imagen(700 x 306)</label>
             <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" id="name_img" name="name_img" placeholder="Imagen" value="{{ $news->name_img }}">
             {!! $errors->first('name_img', '<span class="text-danger">:content</span>') !!}
         </div>

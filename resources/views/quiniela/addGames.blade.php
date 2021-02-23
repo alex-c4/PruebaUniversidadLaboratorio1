@@ -8,6 +8,14 @@
     });
 </script>
 
+<style>
+    .msgTimezone{
+        text-align: center;
+        font-size: 12px;
+        padding: 10px;
+        font-style: italic;
+    }
+</style>
 <hr/>
 
 <section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
@@ -18,6 +26,7 @@
         <h3>Registro XportGames</h3>
         
         <p>Panel para la creación y registro de las predicciones de los juegos del campeonato</p>
+        <div class="msgTimezone">Los horarios corresponden a <b>{{ UserUtils::getTimeZoneString() }}</b></div>
 
         <div class="container">
 
@@ -38,13 +47,17 @@
                                 @foreach($games as $game)
                                     
                                     <div class="col-12 text-center font-italic text-info">
-                                        {{ $game->date }}
+                                        {{ $game->date }} 
                                     </div>
                                     <div class="col-12 text-center font-weight-light">
-                                        <span class="text-success"> {{ $game->estadium }} </span> @if($game->grupo != "") / <span class="font-weight-bold">Grupo {{ $game->grupo }} @endif</span>
+                                        <span class="text-success"> {{ $game->stadium }} </span> @if($game->grupo != "0") / <span class="font-weight-bold">Grupo {{ $game->grupo }} @endif</span>
                                     </div>
                                     <div class="col-4 text-right">
-                                        {{ $game->nombre_club_1}}<img src="{{ asset('img/banderas/') }}/{{ $game->img_club_1 }}" alt="">
+                                        @if($game->nombre_club_1 == "")
+                                            {{ $game->nombre_club_1_long}}<img src="{{ asset('img/banderas/') }}/{{ $game->img_club_1 }}" alt="">
+                                        @else
+                                            {{ $game->nombre_club_1}}<img src="{{ asset('img/banderas/') }}/{{ $game->img_club_1 }}" alt="">
+                                        @endif
                                     </div>
                                     <div class="col-2">
                                         <input type="number" id="input_{{ $game->id }}_1" name="input_{{ $game->id }}_1" class="form-control col-sm" max="99" min="0" >
@@ -53,7 +66,11 @@
                                         <input type="number" id="input_{{ $game->id }}_2" name="input_{{ $game->id }}_2" class="form-control col-sm" max="99" min="0" >
                                     </div>
                                     <div class="col-4">
-                                        <img src="{{ asset('img/banderas/') }}/{{ $game->img_club_2 }}" alt="">{{ $game->nombre_club_2 }} 
+                                        @if($game->nombre_club_2 == "")
+                                            <img src="{{ asset('img/banderas/') }}/{{ $game->img_club_2 }}" alt="">{{ $game->nombre_club_2_long}}
+                                        @else
+                                            <img src="{{ asset('img/banderas/') }}/{{ $game->img_club_2 }}" alt="">{{ $game->nombre_club_2}}
+                                        @endif
                                     </div>
                                 @endforeach
                             

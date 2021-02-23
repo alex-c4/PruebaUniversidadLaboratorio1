@@ -21,15 +21,21 @@
     <div class="section-header">
 
         <h3>Pronósticos</h3>
-        <p>Módulo para la consulta de pronósticos</p>
+        <p class="mb-1 pb-1">Módulo para la consulta de pronósticos</p>
 
-        <div class="container">
+        <div class="container table-font13">
+            
+            <p class="mb-1 pb-1">
+                <a href="{{ url('quiniela.searchPronostics') }}" class="btn btn-dark btn-sm" title="Regresar"><i class="fa fa-arrow-left"></i></a>
+                &nbsp;
+                <a href="{{ route('pronosticEdit', $betId) }}" class="btn btn-primary btn-sm @if(UserUtils::isStartedChampionship($quiniela_id)) disabled @endif" title="Editar"><i class="fa fa-pencil"></i></a>
+            </p>
 
             <div class="row align-items-center">
-                <div class="col-12 text-center font-weight-bold">
-                        <span class="text-info">Pronóstico Nro: </span>{{$puntuacion['0']->bet_id }}
-                        <span class="text-info">Usuario:</span>{{ $puntuacion['0']->name." ".$puntuacion['0']->lastName}}
-                        <span class="text-info">Total:</span> <strong class="textGold">{{ $puntuacion['0']->puntos}} Ptos.</strong>                          
+                <div class="col-12 text-center font-weight-bold mb-3">
+                        <!-- <span class="text-info">Pronóstico Nro: </span>{{$puntuacion['0']->bet_id }} -->
+                        <span class="text-info">Usuario: </span>{{ $puntuacion['0']->name." ".$puntuacion['0']->lastName}}
+                        <span class="text-info">Total: </span><strong class="textGold">{{ $puntuacion['0']->puntos}} Ptos.</strong>                          
                 </div>          
                 @foreach($pronosticsDetails as $pronostic)
                     
@@ -37,20 +43,24 @@
                          PRONOSTICO                         
                     </div>
                     <div class="col-12 text-center font-weight-light">
-                        <span class="text-success">  {{ $pronostic->date }} / {{$pronostic->estadium}}  </span> @if($pronostic->grupo != "") @endif</span> <span id="actualizado_{{ $pronostic->pronostic_id }}" class="text-info" style="size:8px"></span>
+                        <span class="text-success">  {{ $pronostic->date }} / {{$pronostic->stadium}}  </span> @if($pronostic->grupo != "") @endif</span> <span id="actualizado_{{ $pronostic->pronostic_id }}" class="text-info" style="size:8px"></span>
                     </div>
                     <div class="col-3 text-right">
-                        {{ $pronostic->nombre_club_1}}<img src="{{ asset('img/banderas/') }}/{{ $pronostic->img_club_1 }}" alt="">
+                        @if($pronostic->nombre_club_1 == "") {{ $pronostic->nombre_club_1_long }} @else {{ $pronostic->nombre_club_1 }} @endif <img src="{{ asset('img/banderas/') }}/{{ $pronostic->img_club_1 }}" alt="">
                     </div>
-                    <div class="col-3 ">
+                    <div class="col-2 ">
                         <input type="text" id="input_{{ $pronostic->pronostic_id }}_1" name="input_{{ $pronostic->pronostic_id }}_1" class="form-control col-sm text-right" max="99" min="0" value="{{ $pronostic->pronostic_club_1 }}" disabled="true" >
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-2 text-center">
+                        <button id="btnComparePronostic" name="btnComparePronostic" type="button" onclick="updatePronostic({{ $pronostic->pronostic_id }})" class="btn btn-outline-secondary btn-sm" title="Comparar pronóstico"><i class="fa fa-users fa-sm"></i></button>
+                    </div>
+
+                    <div class="col-2">
                         <input type="text" id="input_{{ $pronostic->pronostic_id }}_2" name="input_{{ $pronostic->pronostic_id }}_2" class="form-control col-sm" max="99" min="0" value="{{ $pronostic->pronostic_club_2 }}" disabled="true" >
                     </div>
                     <div class="col-3">
-                        <img src="{{ asset('img/banderas/') }}/{{ $pronostic->img_club_2 }}" alt="">{{ $pronostic->nombre_club_2 }} 
+                        <img src="{{ asset('img/banderas/') }}/{{ $pronostic->img_club_2 }}" alt="">@if($pronostic->nombre_club_2 == "") {{ $pronostic->nombre_club_2_long }} @else {{ $pronostic->nombre_club_2 }} @endif
                     </div>
 
                     <!--    + +++++      segunda linea, se muestran resultados del juego               ++++++        -->

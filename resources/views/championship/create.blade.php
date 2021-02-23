@@ -35,7 +35,7 @@
             <div class="form-group col-md-4">
               <label for="startdate">Fecha de Inicio</label>
               <div class="input-group date dp-date">
-                  <input type="text" class="form-control {{ $errors->has('startdate') ? 'border-danger' : '' }}" name="startdate" id="startdate" value="{{ old('startdate') }}" >
+                  <input type="text" autocomplete="off" class="form-control {{ $errors->has('startdate') ? 'border-danger' : '' }}" name="startdate" id="startdate" value="{{ old('startdate') }}" >
                   {!! $errors->first('startdate', '<span class="text-danger">:message</span>') !!}
                   <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
               </div>
@@ -44,7 +44,7 @@
             <!-- Hora -->
             <div class="form-group col-md-4">
               <label for="time">Hora de Inicio <span style="color: red">*</span></label>
-              <input type="text" class="form-control {{ $errors->has('time') ? 'border-danger' : '' }}" name="time" id="time" placeholder="23:59:59" value="{{ old('time') }}">
+              <input autocomplete="off" type="text" class="form-control {{ $errors->has('time') ? 'border-danger' : '' }}" name="time" id="time" placeholder="23:59:59" value="{{ old('time') }}">
               {!! $errors->first('time', '<span class="text-danger">:message</span>') !!}
             </div>
 

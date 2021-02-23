@@ -89,7 +89,7 @@
             </div>
 
 <!--Boton de Facebook login... Apagado hasta que funcione
-<!--
+
             <div>
                <img src="img/face.png">
                <input type="button" onclick="window.location = '<?php echo $loginURL ?>';" value="Log In With Facebook" class="btn btn-primary">

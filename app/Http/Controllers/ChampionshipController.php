@@ -6,7 +6,10 @@ use App\Championship;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+
+
 use DB;
+use UserUtils;
 
 use Carbon\Carbon;
 
@@ -31,9 +34,25 @@ class ChampionshipController extends Controller
     {
         //
         $championships = DB::table('championships')
+                    ->select("id", "isActive", "name", "start_datetime", "updated_at", "isActive as expired")
                     ->orderby('start_datetime','asc')
                     ->get();
+        
         $listStatus = $this->listStatus;
+        
+        // dd($crrDate);
+        foreach ($championships as $key => $championship) {
+            $crrDate = Carbon::now('UTC');
+            
+            $championshipDate = new Carbon($championship->start_datetime, "UTC");
+            
+            $diff = $crrDate->diffInMinutes($championshipDate, false);
+            if($diff < 0){
+                $championship->expired = true;
+            }else{
+                $championship->expired = false;
+            }
+        }
         
         return view('championship.index', compact('championships', 'listStatus'));
     }
@@ -63,8 +82,11 @@ class ChampionshipController extends Controller
         $user_id = auth()->user()->id; 
         $startdate = $request->input('startdate');
         $time = ($request->input('time'));
-        $crrDate = new Carbon($startdate . " " . $time); 
-
+        //se lee el timezone del archivo de configuracion env
+        $TIME_ZONE = env("TIME_ZONE_CARBON");
+        $crrDate = new Carbon($startdate . " " . $time, $TIME_ZONE); 
+        $crrDate->setTimezone('UTC');
+        
         // nuevo registro
         $championship = Championship::create([
             'user_id' => $user_id,
@@ -99,7 +121,8 @@ class ChampionshipController extends Controller
     {
         $championship = Championship::where('id',$id)->first();
         
-        list($startdate, $time) = explode(' ', $championship->start_datetime);
+        $date_tmp = UserUtils::getDateToUser($championship->start_datetime);
+        list($startdate, $time) = explode(' ', $date_tmp);
         $listStatus = $this->listStatus;
         return view('championship.edit', compact('championship', 'startdate', 'time', 'listStatus'));
     }
@@ -120,7 +143,11 @@ class ChampionshipController extends Controller
         // }
         $startdate = $request->input('startdate');
         $time = ($request->input('time'));
+        //$crrDate = new Carbon($startdate . " " . $time); 
+        //se lee el timezone del archivo de configuracion env
+        // $crrDate = new Carbon($startdate . " " . $time, $TIME_ZONE); 
         $crrDate = new Carbon($startdate . " " . $time); 
+        $crrDate = UserUtils::getDateToSystem($crrDate);
 
         $championship = Championship::where("id", $id)->first();
         $championship->name = $request->input('name');

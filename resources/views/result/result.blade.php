@@ -45,20 +45,22 @@
               <!-- Resultado Equipo 1 -->
               <div class="form-group col-md-4">
               <label for="name">Resultado 1</label>
-              <input type="text" class="form-control {{ $errors->has('resultado_1') ? 'border-danger' : '' }}" name="resultado_1" id="resultado_1" placeholder="Resultado equipo 1" value="{{ old('resultado_1') }}">
+              <input type="number" autocomplete="off" max="99" min="0" class="form-control {{ $errors->has('resultado_1') ? 'border-danger' : '' }}" name="resultado_1" id="resultado_1" placeholder="Resultado equipo 1" value="{{ old('resultado_1') }}">
               {!! $errors->first('resultado_1', '<span class="text-danger">:message</span>') !!}
             </div>
 
             <!-- Resultado Equipo 2 -->
               <div class="form-group col-md-4">
               <label for="resultado_2">Resultado 2</label>
-              <input type="text" class="form-control {{ $errors->has('resultado_2') ? 'border-danger' : '' }}" name="resultado_2" id="resultado_2" placeholder="Resultado equipo 2" value="{{ old('resultado_2') }}" >
+              <input type="number" autocomplete="off" max="99" min="0" class="form-control {{ $errors->has('resultado_2') ? 'border-danger' : '' }}" name="resultado_2" id="resultado_2" placeholder="Resultado equipo 2" value="{{ old('resultado_2') }}" >
               {!! $errors->first('resultado_2', '<span class="text-danger">:message</span>') !!}
             </div>
 
             <div class="form-group col-md-4">
               <label for="estatus">Estatus</label>
-              <input type="text" class="form-control {{ $errors->has('estatus') ? 'border-danger' : '' }}" name="estatus" id="estatus" placeholder="Estatus del partido" value="{{ old('estatus') }}" >
+              <select name="estatus" id="estatus" class="custom-select {{ $errors->has('id_game') ? 'border-danger' : '' }}">
+                <option value="finalizado" >Finalizado</option>
+              </select>
               {!! $errors->first('estatus', '<span class="text-danger">:message</span>') !!}
             </div>
             

@@ -70,11 +70,13 @@ var updatePronostic = function(pronostic_id){
                     })
                     .done(function(data, textStatus, jqXHR){
                         console.log(data)
+                        if(data.result){
+                            $("#actualizado_" + pronostic_id).html('<i class="fa fa-check fa-sm">Actualizado</i>');
+                        }
                         
-                        $("#actualizado_" + pronostic_id).html('<i class="fa fa-check fa-sm">Actualizado</i>');
                         $.alert({
                             title: 'Información',
-                            content: data
+                            content: data.message
                         });
                     })
                     .fail(function(jqXHR, textStatus, errorThrown ){
@@ -124,7 +126,6 @@ $("#btnAddPronostic").on('click', function(){
     });
 })
 
-
 $("#btnAddPronosticByPhase").on('click', function(){
     $.confirm({
         title: 'Información',
@@ -151,3 +152,80 @@ $("#btnAddPronosticByPhase").on('click', function(){
         }
     });
 });
+
+
+$('#compareModal').on('show.bs.modal', function (event) {
+    var idImgA, idImgB, idgame, idquiniela;
+    var button = $(event.relatedTarget);
+    var imgA = button.data('imga');
+    var imgB = button.data('imgb');
+    var nameA = button.data('namea');
+    var nameB = button.data('nameb');
+    idgame = button.data('idgame');
+    idquiniela = button.data('idquiniela');
+
+    idImgA = $("#" + imgA).attr("src");
+    idImgB = $("#" + imgB).attr("src");
+
+    var modal = $(this)
+
+    modal.find("#modalImgA").attr("src", idImgA);
+    modal.find("#modalImgB").attr("src", idImgB);
+    modal.find("#spanNameA").html(nameA);
+    modal.find("#spanNameB").html(nameB);
+
+    var _url = $("#routeComparePronostic").val();
+    var _token = $("#token").val();
+    var _data = {
+        id_quiniela: idquiniela,
+        id_game: idgame
+    };
+
+    $.ajax({
+        url: _url,
+        headers: { 'X-CSRF-TOKEN': _token },
+        type: 'POST',
+        data: _data
+    })
+    .done(function(data, textStatus, jqXHR){
+        var _result = data.data;
+        var _html = "";
+        $("#modalContent").html("");
+
+        _result.forEach(item => {
+            _html += "<div class='col-6 text-center font-weight-bolder' style='display: flex; align-items: center; justify-content: center;'>" +
+                    "" + item.userName + " " + item.userLastName +
+                    "</div>" +
+                    "<div class='col-3'>" +
+                    "    <div class='resultadoRight text-center'>" + item.pronostic_club_1 + "</div>" +
+                    "</div>" +
+                    "<div class='col-3'>" +
+                    "    <div class='resultadoLeft text-center'>" + item.pronostic_club_2 + "</div>" +
+                    "</div>";
+        });
+
+        $("#modalContent").html(_html);
+        
+    })
+    .fail(function(jqXHR, textStatus, errorThrown ){
+        debugger
+    })
+});
+
+// $("#btnComparePronostic_bk").on("click", function(e){
+//     debugger
+//     var idImgA, idImgB;
+//     var button = $("#" + this.id)[0].dataset; //$(e.relatedTarget); //$("#btnComparePronostic");
+//     var modal = $("#compareModal");
+//     idImgA = $("#" + button.imga).attr("src");
+//     idImgB = $("#" + button.imgb).attr("src");
+
+//     modal.find("#modalImgA").attr("src", idImgA);
+//     modal.find("#modalImgB").attr("src", idImgB);
+//     modal.find("#spanNameA").html(button.namea);
+//     modal.find("#spanNameB").html(button.nameb);
+
+
+    
+
+// });

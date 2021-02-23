@@ -13,9 +13,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use DB;
+use \DateTimeZone;
 
 class SettingsController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
 
     protected function validator(array $data)
     {
@@ -29,7 +33,8 @@ class SettingsController extends Controller
             'lastName' => 'required|string|max:20',
             'birthday' => 'required|date',
             'country_id' => 'required|numeric',
-            'state_id' => 'required|numeric'
+            'state_id' => 'required|numeric',
+            'timezone' => 'required|string'
         ], $messages);
     }
 
@@ -62,7 +67,9 @@ class SettingsController extends Controller
         $newsletters_users = DB::table("newsletters_users")
             ->where("user_id", $user_id)->select()->get();
 
-        return view('../../auth.settings', compact('countries', 'states', 'cities', 'user', 'files', 'newsletters', 'newsletters_users'));
+        $timezones = DateTimeZone::listIdentifiers();
+
+        return view('../../auth.settings', compact('countries', 'states', 'cities', 'user', 'files', 'newsletters', 'newsletters_users', 'timezones'));
         // $user = User::where('id', request()->email)->get();
 
     }
@@ -86,6 +93,7 @@ class SettingsController extends Controller
         $user->city_id = request()->city_id;
         $user->direction = request()->direction;
         $user->avatarName = request()->hAvatarName;
+        $user->timezone = request()->timezone;
 
         // register newsletter
         $newsletters = Newsletter::all();

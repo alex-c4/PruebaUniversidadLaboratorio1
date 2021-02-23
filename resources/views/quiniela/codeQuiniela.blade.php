@@ -39,7 +39,7 @@
 
             <!-- Boton Aceptar -->
             <div class="text-center">
-                <button type="submit" id="btnAceptar" class="btn btn-success">Registrar</button>
+                <button type="submit" id="btnAceptar" class="btn btn-success" onclick="bloquearBtn(this)">Registrar</button>
             </div>
         </form>
 
@@ -49,6 +49,13 @@
     </div>
 </section>
 
+<script>
+    var bloquearBtn = function(btn){
+        document.getElementById("btnAceptar").disabled = true;
+        document.getElementById("btnAceptar").innerHTML = "Enviando...";
+        document.getElementById("form_add_code").submit();
+    }
+</script>
 @extends('layoutLogin')    
 
 @endsection

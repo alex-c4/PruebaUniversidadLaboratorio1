@@ -84,7 +84,7 @@
       </div>
     </div>
 
-    <div id="divDashboard" style="visibility: hidden" class="container wow fadeInUp" data-wow-delay="0.1s">
+    <div id="divDashboard" style="visibility: hidden" class="container" data-wow-delay="0.1s">
     
       <h1>{{ ucfirst(auth()->user()->name) }} {{ ucfirst(auth()->user()->lastName) }}</h1>
       <div class="row text-center">
@@ -182,6 +182,24 @@
             </p>
           </a>
         </div>
+
+        <div class="col-lg-3 col-sm-6">
+          <a href="{{ route('createPrivateQuiniela') }}">
+            <img src="{{ asset('img/icons_new_panel/quiniela_pronostics.png') }}" height="50" alt="Crear Quiniela" srcset="">
+            <p>
+              Registrar XportGames 
+            </p>
+          </a>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+          <a href="{{ route('codeQuiniela') }}">
+            <img src="{{ asset('img/icons_new_panel/quiniela_add.png') }}" height="50" alt="Registro de Pronósticos" srcset="">
+            <p>
+              Unirse a XportGame
+            </p>
+          </a>
+        </div>
           
         <div class="col-lg-3 col-sm-6">
           <a href="{{ route('quiniela') }}">
@@ -200,32 +218,14 @@
             </p>
           </a>
         </div>
-
-        <div class="col-lg-3 col-sm-6">
-          <a href="{{ route('codeQuiniela') }}">
-            <img src="{{ asset('img/icons_new_panel/quiniela_add.png') }}" height="50" alt="Registro de Pronósticos" srcset="">
-            <p>
-              Unirse a XportGame
-            </p>
-          </a>
-        </div>
-
-        <div class="col-lg-3 col-sm-6">
-          <a href="{{ route('createPrivateQuiniela') }}">
-            <img src="{{ asset('img/icons_new_panel/quiniela_pronostics.png') }}" height="50" alt="Crear Quiniela" srcset="">
-            <p>
-              Registrar XportGames 
-            </p>
-          </a>
-        </div>
         
           @if(auth()->user()->hasRoles('Administrator')) 
 
           <div class="col-lg-3 col-sm-6">
-            <a href="{{ route('clubs.index') }}">
+            <a href="{{ route('club.index') }}">
               <img src="{{ asset('img/icons_new_panel/quiniela_club.png') }}" height="50" alt="Ver Clubes" srcset="">
               <p>
-                Registrar Clubes
+                Listar Clubes
               </p>
             </a>
           </div>
@@ -234,7 +234,7 @@
             <a href="{{ route('games.create') }}">
               <img src="{{ asset('img/icons_new_panel/quiniela_add_games.png') }}" height="50" alt="Crear Juego" srcset="">
               <p>
-                Crear Juego
+                Agregar Juego
               </p>
             </a>
           </div>

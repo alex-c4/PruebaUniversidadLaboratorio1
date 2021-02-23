@@ -16,19 +16,19 @@
             <br>
             <h3>Campeonatos XportGold</h3>
             <p>
-                <a href="{{ route('championship.create') }}" title="Agregar de Campeonatos" class="btn btn-outline-success"><i class="fa fa-plus"></i></a>
+                <a href="{{ route('championship.create') }}" title="Agregar Campeonatos" class="btn btn-outline-success"><i class="fa fa-plus"></i></a>
                 <a href="{{ route('games.create')}}" title="Agregar Juegos" class="btn btn-outline-success"><i class="fa fa-mail-forward"></i></a>
             </p>
         </div>
 
-        <table class="table table-hover">
+        <table class="table table-hover table-font13">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Estatus</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Fecha de Inicio</th>
-                <th scope="col">Fecha de creación</th>
+                <!-- <th scope="col">Fecha de creación</th> -->
                 <th scope="col" colspan="2">&nbsp;</th>
             </tr>
         </thead>
@@ -46,10 +46,10 @@
                 <td >{{ $championship->id }}</td>
                 <td >{{ $listStatus[$championship->isActive]["value"] }}</td>
                 <td >{{ $championship->name }}</td>
-                <td >{{ $championship->start_datetime }}</td>
-                <td >{{ $championship->updated_at }}</td>
+                <td >{{ UserUtils::toFormatDatetime($championship->start_datetime, '') }}</td>
+                <!-- <td >{{ $championship->updated_at }}</td> -->
                 <td>
-                    <a href="{{ route('championship.edit', $championship->id) }}" title="Editar" data-toggle="tooltip" data-placement="left" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                    <a href="{{ route('championship.edit', $championship->id) }}" title="@if($championship->expired) Expirado @else Editar @endif" data-toggle="tooltip" data-placement="left" class="btn btn-primary @if($championship->expired) disabled @endif" ><i class="fa fa-edit"></i></a>
                 </td>
                 <td colspan="2">
                     @if($championship->isActive == 0)
