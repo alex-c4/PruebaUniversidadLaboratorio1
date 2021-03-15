@@ -11,3 +11,7 @@ npm-debug.log
 yarn-error.log
 .env
 /public/.htaccess
+/public/blogs
+/public/img/blog
+/public/img/notice
+/public/xg.mp4
