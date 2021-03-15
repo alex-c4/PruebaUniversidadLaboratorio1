@@ -75,21 +75,22 @@
 
 <!-- Modal -->
 <div class="modal fade" id="compareModal" tabindex="-1" aria-labelledby="compareModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header modalHeader_xg">
+          <img src="{{ asset('img/logo3_03.png') }}" alt="" srcset="">
         <h5 class="modal-title" id="compareModalLabel">Comparación de pronósticos</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close iconClose" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body modalBody_xg">
         <div class="container-fluid">
             <div class="row table-font13">
                 <div class="row col-12">
                     
-                    <div class="col-6">&nbsp;</div>
-                    <div class="col-3 text-center">
+                    <div class="col-4">&nbsp;</div>
+                    <div class="col-4 text-center">
                         <div id="spanNameA" style="font-weight: bold; font-size: medium;">>
                             
                         </div>
@@ -97,7 +98,7 @@
                         <br>
                         <img src="{{ asset('img/banderas/') }}/escudo_default.png" alt="" id="modalImgA">
                     </div>
-                    <div class="col-3 text-center">
+                    <div class="col-4 text-center">
                         <div id="spanNameB" style="font-weight: bold; font-size: medium;"></div>
                         <!-- <span></span> -->
                         <br>
@@ -111,12 +112,19 @@
             </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+      <div class="modal-footer modalFooter_xg">
+        <button type="button" class="btn btnCancelXG btn-sm" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
 </div>
 
+
+@endsection
+
+
+@section('scripts')
+
+    <script src="{{ asset('js/quiniela.js') }}"></script>
 
 @endsection

@@ -29,7 +29,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Fecha de Inicio</th>
                 <!-- <th scope="col">Fecha de creación</th> -->
-                <th scope="col" colspan="2">&nbsp;</th>
+                <th scope="col" >&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -48,29 +48,32 @@
                 <td >{{ $championship->name }}</td>
                 <td >{{ UserUtils::toFormatDatetime($championship->start_datetime, '') }}</td>
                 <!-- <td >{{ $championship->updated_at }}</td> -->
-                <td>
-                    <a href="{{ route('championship.edit', $championship->id) }}" title="@if($championship->expired) Expirado @else Editar @endif" data-toggle="tooltip" data-placement="left" class="btn btn-primary @if($championship->expired) disabled @endif" ><i class="fa fa-edit"></i></a>
-                </td>
-                <td colspan="2">
-                    @if($championship->isActive == 0)
-                        <form id="formRestore_{{ $championship->id }}" action="{{ route('championship.restore', $championship->id) }}" method="post" style="margin-bottom: 0px;">
-                            {{ method_field('PATCH') }}
-                            {{ csrf_field() }}
-                            <a href="#" onclick="confirmar(true, {{ $championship->id }})" title="Activar" class="btn btn-light"><i class="fa fa-undo"></i></a>
-                        </form>
-                    @elseif($championship->isActive == 2)
-                        <form id="formRestore_{{ $championship->id }}" action="{{ route('championship.restore', $championship->id) }}" method="post" style="margin-bottom: 0px;">
-                            {{ method_field('PATCH') }}
-                            {{ csrf_field() }}
-                            <a href="#" onclick="confirmar(true, {{ $championship->id }})" title="Activar" class="btn btn-success"><i class="fa fa-check"></i></a>
-                        </form>
-                    @else
-                        <form id="formDestroy_{{ $championship->id }}" action="{{ route('championship.destroy', $championship->id) }}" method="post"style="margin-bottom: 0px;">
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
-                            <a href="#" onclick="confirmar(false, {{ $championship->id }})" title="Suspender" class="btn btn-danger" title="Suspender"><i class="fa fa-eye-slash"></i></a>
-                        </form>
-                    @endif
+                <td style="display: flex;">
+                    <span style="margin-right: 5px;">
+                        <a href="{{ route('championship.edit', $championship->id) }}" title="@if($championship->expired) Expirado @else Editar @endif" data-toggle="tooltip" data-placement="left" class="btn btn-primary @if($championship->expired) disabled @endif" ><i class="fa fa-edit"></i></a>
+                    </span>
+                    <span>
+                        @if($championship->isActive == 0)
+                            <form id="formRestore_{{ $championship->id }}" action="{{ route('championship.restore', $championship->id) }}" method="post" style="margin-bottom: 0px;">
+                                {{ method_field('PATCH') }}
+                                {{ csrf_field() }}
+                                <a href="#" onclick="confirmar(true, {{ $championship->id }})" title="Activar" class="btn btn-light"><i class="fa fa-undo"></i></a>
+                            </form>
+                        @elseif($championship->isActive == 2)
+                            <form id="formRestore_{{ $championship->id }}" action="{{ route('championship.restore', $championship->id) }}" method="post" style="margin-bottom: 0px;">
+                                {{ method_field('PATCH') }}
+                                {{ csrf_field() }}
+                                <a href="#" onclick="confirmar(true, {{ $championship->id }})" title="Activar" class="btn btn-success"><i class="fa fa-check"></i></a>
+                            </form>
+                        @else
+                            <form id="formDestroy_{{ $championship->id }}" action="{{ route('championship.destroy', $championship->id) }}" method="post"style="margin-bottom: 0px;">
+                                {{ method_field('DELETE') }}
+                                {{ csrf_field() }}
+                                <a href="#" onclick="confirmar(false, {{ $championship->id }})" title="Suspender" class="btn btn-danger" title="Suspender"><i class="fa fa-eye-slash"></i></a>
+                            </form>
+                        @endif
+                        </span>
+                    
                 </td>
             </tr>
         @endforeach

@@ -89,7 +89,7 @@
 
         <!-- Boton Aceptar -->
         <div class="text-center">
-            <button type="submit" id="btnAceptar" class="btn btn-success">Registrar</button>
+            <button type="submit" id="btnAceptar" class="btn btnAcceptXG btn-sm">Registrar</button>
         </div>
 
         </form>

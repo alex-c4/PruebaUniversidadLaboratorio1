@@ -54,13 +54,14 @@
     
     <div class="modal-dialog" role="document">
     <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header modalHeader_xg">
+        <img src="{{ asset('img/logo3_03.png') }}" alt="" srcset="">
         <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close iconClose" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body modalBody_xg">
             <div class="form-group">
             <label for="emailLogin">Correo Electrónico</label>
             <input type="email" class="form-control {{ $errors->has('emailLogin') ? 'border-danger' : '' }}" id="emailLogin" name="emailLogin" placeholder="Email">
@@ -75,7 +76,7 @@
           
 
             <div class="form-group">
-                <button type="submit" id="btnLogin" class="btn btn-success btn-block btn-sm">Entrar</button>
+                <button type="submit" id="btnLogin" class="btn btnAcceptXG btn-block btn-sm">Entrar</button>
             </div> 
 
             <div class="form-group" style="text-align: right;">
@@ -100,7 +101,7 @@
         
         
 
-        <div class="modal-footer">
+        <div class="modal-footer modalFooter_xg">
         
             <label>¿No estas registrado aun?</label>
             <a href="{{ route('register') }}" class="btn btn-outline-info">Registrarse</a>

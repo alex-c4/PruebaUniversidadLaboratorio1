@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Quiniela;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\SendInvitation;
 
 use App\Game;
 use App\Bet;
@@ -229,7 +230,7 @@ class QuinielaController extends Controller
 
         $idUser = auth()->user()->id;
         $pronosticsDetails = DB::select('CALL sp_getMyPronosticsDetails(?, ?)', array($betId, $idUser));
-
+        
         $startCampionship = $pronosticsDetails[0]->start;
         $showGames = $this->showGames($startCampionship); //$startCampionship->gt($now);
         
@@ -385,7 +386,7 @@ class QuinielaController extends Controller
         $userId = auth()->user()->id;
 
         $misQuinielas = $this->getMisQuinielas($userId);
-
+        
         $championships = $this->getChampionships();
 
         $types = $this->getTypes($userRollId);
@@ -404,8 +405,7 @@ class QuinielaController extends Controller
         return Validator::make($data, [
             'champ_id' => 'required|numeric',
             'name' => 'required|string|max:50',
-            'type_id' => 'required|numeric',
-            'amount' => 'required|numeric'
+            'type_id' => 'required|numeric'
         ], $messages);
     }
 
@@ -424,8 +424,8 @@ class QuinielaController extends Controller
         $userRollId = auth()->user()->rollId;
         $code = str_random(15);
         $tipo = DB::table('quinielatipo')
-        ->where('id', '=', request()->type_id)
-        ->first();
+            ->where('id', '=', request()->type_id)
+            ->first();
         $championshipName = DB::table('championships')
         ->where('id', '=', request()->champ_id)
         ->first();
@@ -434,13 +434,25 @@ class QuinielaController extends Controller
         
         $this->validateQuiniela(request()->all())->validate();
 
+        if(request()->amount == null){
+            $_amount = 0;
+        }else{
+            $_amount = request()->amount;
+        }
+
+        if(request()->goldpot == null){
+            $_goldpot = 0;
+        }else{
+            $_goldpot = request()->goldpot;
+        }
 
         $quiniela = Quiniela::create([
             'id_championship' => request()->champ_id,
             'nombre' => request()->name,
             'id_type' => request()->type_id,
             'id_user_creador' => $userId,
-            'amount' => request()->amount,
+            'amount' => $_amount,
+            'goldpot' => $_goldpot,
             'code' => $code
         ]);
 
@@ -636,6 +648,67 @@ class QuinielaController extends Controller
             "data" => $comparePronostics
         );
         // return view('quiniela.pronosticCompare');
+    }
+
+    public function sendInvitations(){
+        try {
+            $emails = request()->emails;
+            // $_emails = "";
+            // $count = count($emails);
+            // for ($i=0; $i < $count; $i++) { 
+            //     if($i == ($count - 1)){
+            //         $_emails .= $emails[$i];
+            //     }else{
+            //         $_emails .= $emails[$i] . ";";
+            //     }
+
+            // }
+            
+            $idxg = request()->idxg;
+
+            $quinielainfo = DB::table("quinielas")
+            ->select("users.name", "users.lastName", "quinielas.nombre as quinielaName", "quinielas.code")
+            ->join("users", "users.id", "=", "quinielas.id_user_creador", "inner", false)
+            ->where("id_quiniela", $idxg)
+            ->first();
+
+            $data = array(
+                "name" => $quinielainfo->name,
+                "lastname" => $quinielainfo->lastName,
+                "code" => $quinielainfo->code,
+                "xportGame" => $quinielainfo->quinielaName
+            );
+
+            
+            $xgname = $quinielainfo->quinielaName;
+            
+            
+
+            // Reemplazdo por un  Mailable
+            // Mail::send('emails.sendInvitation', $data, function($message) use($emails, $xgname) {
+            //     $message->from('xportgoldmail@xportgold.com', 'XportGold');
+            //     $message->bcc($emails)->subject('Invitación a participar en XportGame - ' . $xgname);
+            // });
+            // Aqui el Mailable
+            
+            foreach ($emails as $key => $value) {
+                Mail::bcc($value)->send(new SendInvitation($data, $xgname));
+            }
+
+            return array(
+                "result" => true,
+                "message" => "Invitación enviada satisfactoriamente.",
+                "email" => $emails[0],
+                "emails" => $emails
+            );
+        
+            //code...
+        } catch (\Throwable $th) {
+            return array(
+                "result" => false,
+                "message" => "Ha ocurrido un error, por favor intente de nuevo, disculpe las molestias ocasionadas.",
+            );
+        }
     }
     
 }

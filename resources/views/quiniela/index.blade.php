@@ -33,22 +33,24 @@
                     <th scope="col">Tipo</th>
                     <th scope="col">Cuota por participante($)</th>
                     <th scope="col">GoldPot</th>
-                    <th scope="col">Creador</th>
                     <th scope="col">Fecha de inicio</th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($misQuinelasPublicas as $quinielaPublica)
+                    @foreach($misQuinelasPublicas as $key => $quinielaPublica)
                     
                     <tr>
-                        <th scope="row">{{ $quinielaPublica->idQuiniela }}</th>
+                        <th scope="row">{{ $key + 1 }}</th>
                         <td>{{ $quinielaPublica->nombreQuiniela }}</td>
                         <td>{{ $quinielaPublica->nombreCampeonato }}</td>
                         <td>{{ $quinielaPublica->tipoQuiniela }}</td>
                         <td class="text-center" >{{ $quinielaPublica->amount }} $</td>
-                        <td class="text-center" >{{ $quinielaPublica->golpot }} $</td>
-                        <td>{{ $quinielaPublica->user_creador_name }} {{ $quinielaPublica->user_creador_lastname }}</td>
+                        @if($quinielaPublica->id_type == 1)
+                            <td class="text-center" >{{ $quinielaPublica->goldpot_public }} $</td>
+                        @else
+                            <td class="text-center" >{{ $quinielaPublica->golpot }} $</td>
+                        @endif
                         <td>{{ UserUtils::toFormatDatetime($quinielaPublica->start_datetime, '') }}</td>
                         <td>
                             <a href="{{ url('quiniela/searchGames/') }}/{{ $quinielaPublica->idQuiniela }}" class="btn btn-outline-success btn-sm @if(UserUtils::isStartedChampionship($quinielaPublica->idQuiniela)) disabled @endif" role="button" aria-pressed="true" title="Agregar nuevo pronostico"><i class="fa fa-list-alt fa-sm"> </i></a>
@@ -59,7 +61,7 @@
                 </tbody>
             </table>
             <div style="margin-bottom: 50px">
-                <a href="{{ route('codeQuiniela') }}" class="btn btn-outline-info btn-sm" role="button" aria-pressed="true" title="Agregar nueva XportGame"><i class="fa fa-sign-in"></i> Unirse a XportGame</a>
+                <a href="{{ route('codeQuiniela') }}" class="btn btn-outline-info btn-sm" role="button" aria-pressed="true" title="Unirse a un XportGame"><i class="fa fa-sign-in"></i> Unirse a XportGame</a>
             </div>
 
             @if(count($misQuinielasPrivadas) > 0)
@@ -81,15 +83,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($misQuinielasPrivadas as $quinielaPrivada)
+                    @php 
+                        $key = 0 
+                    @endphp
+                     
+                    @foreach($misQuinielasPrivadas as $key => $quinielaPrivada)
                 
                     <tr>
-                        <th scope="row">{{ $quinielaPrivada->idQuiniela }}</th>
+                        <th scope="row">{{ $key + 1 }}</th>
                         <td>{{ $quinielaPrivada->nombreQuiniela }}</td>
                         <td>{{ $quinielaPrivada->nombreCampeonato }}</td>
                         <td>{{ $quinielaPrivada->tipoQuiniela }}</td>
-                        <td>{{ $quinielaPrivada->amount }}</td>
-                        <td>{{ $quinielaPrivada->golpot }}</td>
+                        <td>{{ $quinielaPrivada->amount }} $</td>
+                        <td>{{ $quinielaPrivada->golpot }} $</td>
                         <td>{{ $quinielaPrivada->user_creador_name }} {{ $quinielaPrivada->user_creador_lastname }}</td>
                         <td>{{ UserUtils::toFormatDatetime($quinielaPrivada->start_datetime, '') }}</td>
                         <td>

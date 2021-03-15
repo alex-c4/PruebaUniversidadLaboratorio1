@@ -9,7 +9,7 @@
 
   <!-- script para aceptar cookies -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4d643f5c-a9d0-4c6a-b30f-047fe06c4414" data-blockingmode="auto" type="text/javascript"></script>
-  
+
   <!-- Favicons -->
   <link href="{{ asset('img/favicon.ico') }}" rel="icon">
   <!-- 
@@ -39,7 +39,7 @@
 
   <!-- Main Stylesheet File -->
   
-  <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+  <link href="{{ asset('css/style.css')}}?={{ env('VERSION_APP') }}" rel="stylesheet">
  
   @yield("cabecera")
   
@@ -201,6 +201,11 @@
               <li><i class="ion-ios-arrow-right"></i> <a href="#blogs">Gold Blog</a></li>
 
               <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Contactanos</a></li>
+
+              <li><i class="ion-ios-arrow-right"></i> 
+              <a href="#" data-toggle="modal" data-target="#cookieModal">
+                <b>Declaración de Cookies</b>
+                </a></li>
             </ul>
           </div>
 
@@ -297,7 +302,7 @@
   <script src="{{ asset('js/register.js') }}"></script>
 
   <!-- script para registro de quiniela -->
-  <script src="{{ asset('js/quiniela.js') }}"></script>
+  <!-- <script src="{{ asset('js/quiniela.js') }}"></script> -->
   
   <!-- Script para puntuaciones quinielas -->
   <script src="{{asset('js/puntuaciones.js')}}"></script>

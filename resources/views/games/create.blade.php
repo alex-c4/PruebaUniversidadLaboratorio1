@@ -161,7 +161,7 @@
 
                <!-- Boton Aceptar -->
                 <div class="text-center">
-                    <button type="submit" id="btnAceptar" class="btn btn-success">Registrar</button>
+                    <button type="submit" id="btnAceptar" class="btn btnAcceptXG btn-sm">Registrar</button>
                 </div>
         </form>
         <div>
@@ -187,41 +187,13 @@
 </section>
 
 
-<!-- Modal para agregar estadios -->
-<div class="modal fade" id="stadiumModal" tabindex="-1" aria-labelledby="stadiumModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="stadiumModalLabel">Agregar Estadio</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="nameStadium">Nombre del Estadio</label>
-                <input type="text" class="form-control" id="nameStadium" name="nameStadium">
-                <small id="addMessage" name="addMessage" class="form-text text-muted"></small>
-            </div>
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success" id="btnSaveStadium" name="btnSaveStadium">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Modal para agregar club o pais -->
 <div class="modal fade" id="clubModal" tabindex="-1" aria-labelledby="clubModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header modalHeader_xg">
         <h5 class="modal-title" id="stadiumModalLabel">Agregar club o pais</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close iconClose" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -229,7 +201,7 @@
 
         <input type="hidden" id="hClub" name="hClub" value="">
 
-        <div class="modal-body">
+        <div class="modal-body modalBody_xg">
             <div class="form-row">
                 <!-- Nombre del club o pais -->
                 <div class="form-group col-lg-8 col-md-12">
@@ -282,12 +254,41 @@
 
         </div>
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-success" id="btnSaveClub" name="btnSaveClub">Guardar</button>
+        <div class="modal-footer modalFooter_xg">
+            <button type="button" class="btn btnCancelXG btn-sm" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btnAcceptXG btn-sm" id="btnSaveClub" name="btnSaveClub">Guardar</button>
         </div>
       </form>
 
+    </div>
+  </div>
+</div>
+
+<!-- Modal para agregar estadios -->
+<div class="modal fade" id="stadiumModal" tabindex="-1" aria-labelledby="stadiumModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modalHeader_xg">
+        <img src="{{ asset('img/logo3_03.png') }}" alt="" srcset="">
+        <h5 class="modal-title" id="stadiumModalLabel">Agregar Estadio</h5>
+        <button type="button" class="close iconClose" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modalBody_xg">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="nameStadium">Nombre del Estadio</label>
+                <input type="text" class="form-control" id="nameStadium" name="nameStadium">
+                <small id="addMessage" name="addMessage" class="form-text text-muted"></small>
+            </div>
+
+        </div>
+      </div>
+      <div class="modal-footer modalFooter_xg">
+        <button type="button" class="btn btnCancelXG btn-sm" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btnAcceptXG btn-sm" id="btnSaveStadium" name="btnSaveStadium">Guardar</button>
+      </div>
     </div>
   </div>
 </div>

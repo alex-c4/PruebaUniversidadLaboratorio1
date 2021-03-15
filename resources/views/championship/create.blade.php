@@ -44,7 +44,7 @@
             <!-- Hora -->
             <div class="form-group col-md-4">
               <label for="time">Hora de Inicio <span style="color: red">*</span></label>
-              <input autocomplete="off" type="text" class="form-control {{ $errors->has('time') ? 'border-danger' : '' }}" name="time" id="time" placeholder="23:59:59" value="{{ old('time') }}">
+              <input type="text" class="form-control {{ $errors->has('time') ? 'border-danger' : '' }}" name="time" id="time" placeholder="23:59:59" value="{{ old('time') }}">
               {!! $errors->first('time', '<span class="text-danger">:message</span>') !!}
             </div>
 
@@ -70,7 +70,7 @@
 
         <!-- Boton Aceptar -->
         <div class="text-center">
-            <button type="submit" id="btnAceptar" class="btn btn-success">Registrar</button>
+            <button type="submit" id="btnAceptar" class="btn btnAcceptXG btn-sm">Registrar</button>
         </div>
 
         </form>

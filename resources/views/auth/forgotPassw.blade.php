@@ -29,13 +29,14 @@
                 
                 <div class="row">
                     
-                    <div class="form-group col-md-3">&nbsp;</div>
-                    <div class="form-group col-md-6">
-                        <div class="alert alert-success" role="alert">
-                            {{ Session::get('message') }}
-                        </div>
-                    </div>
-                    <div class="form-group col-md-3">&nbsp;</div>
+                <div class="form-group col-md-3">&nbsp;</div>
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Recuperación de clave</h4>
+                    <p>{{ Session::get('message') }}</p>
+                    <hr>
+                    <p class="mb-0"><b>Nota:</b> en caso de no ver el correo en su bandeja principal, por favor revisar su bandeja de correo no deseado.</p>
+                </div>
+
 
                     @if(Session::has('error'))
                         <div class="form-group col-md-3">&nbsp;</div>
@@ -64,7 +65,7 @@
 
                 <!-- Boton Aceptar -->
                 <div class="text-center">
-                    <button type="submit" class="btn btn-success form-group">Restablecer</button>
+                    <button type="submit" class="btn btnAcceptXG btn-sm form-group">Restablecer</button>
                 </div>
                 
             @endif

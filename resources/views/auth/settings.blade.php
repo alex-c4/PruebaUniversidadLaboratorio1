@@ -198,7 +198,7 @@
 
           <!-- Boton Aceptar -->
           <div class="text-center form-group" >
-            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="submit" class="btn btnAcceptXG btn-sm">Guardar</button>
           </div>
 
         </form>

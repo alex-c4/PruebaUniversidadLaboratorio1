@@ -1,4 +1,5 @@
 $('#form_login').on("submit", function() {
+    $(".alert").alert("close");
     // var _email = $("#inputEmail").val();
     // var _password = $("#inputPassword").val();
     var _route = $(this).attr('action'); //$("#routeCurrent").val();

@@ -20,13 +20,13 @@
         <div class="alert alert-success" role="alert">
             <p>Su registro fue realizado correctamente.</p>
             <hr>
-            <p class="mb-0">Xport Gold</p>
+            <p class="mb-0">XportGold</p>
         </div>
     </div>
 
-    <div id="oscuro">
+    <div id="">
         <div id="area-botones" class="container text-center">
-            <a class="btn btn-data-target" href="{{ URL::previous() }}">volver</a>
+            <a class="btn btnAcceptXG btn-sm" href="{{ URL::previous() }}">volver</a>
         </div>
 
     </div>

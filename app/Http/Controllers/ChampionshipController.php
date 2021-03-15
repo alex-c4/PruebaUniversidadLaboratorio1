@@ -87,6 +87,7 @@ class ChampionshipController extends Controller
         $crrDate = new Carbon($startdate . " " . $time, $TIME_ZONE); 
         $crrDate->setTimezone('UTC');
         
+
         // nuevo registro
         $championship = Championship::create([
             'user_id' => $user_id,

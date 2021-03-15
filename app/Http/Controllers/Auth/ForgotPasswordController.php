@@ -81,14 +81,14 @@ class ForgotPasswordController extends Controller
             //     ]);
 
 
-            return redirect('forgotPassw')->with('message', 'Clave actualizada exitosamente, por favor revisa tu bandeja de entrada');
+            return redirect('forgotPassw')->with('message', 'Clave actualizada exitosamente, por favor revise su bandeja de entrada');
 
         }else{
             return redirect('forgotPassw')->with('error', 'Correo no existe!');
         }
     }
 
-    public function generateRandomString($length = 5) { 
+    public function generateRandomString($length = 8) { 
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length); 
     }
 

@@ -185,9 +185,9 @@
 
         <div class="col-lg-3 col-sm-6">
           <a href="{{ route('createPrivateQuiniela') }}">
-            <img src="{{ asset('img/icons_new_panel/quiniela_pronostics.png') }}" height="50" alt="Crear Quiniela" srcset="">
+            <img src="{{ asset('img/icons_new_panel/logo3_03.png') }}" height="50" alt="Crear Quiniela" srcset="">
             <p>
-              Registrar XportGames 
+              XportGames 
             </p>
           </a>
         </div>

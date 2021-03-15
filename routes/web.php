@@ -177,6 +177,7 @@ Route::get('codeQuiniela', 'Quiniela\QuinielaController@codeQuiniela')->name('co
 Route::view('quiniela/codeQuiniela', 'codeQuiniela');
 Route::post('quiniela/addCodeQuiniela', ['as' => 'quiniela.addCode', 'uses' => 'Quiniela\QuinielaController@addCodeQuiniela']);
 Route::post('quiniela/pronosticCompare', ['as' => 'quiniela.pronosticCompare', 'uses' => 'Quiniela\QuinielaController@comparePronostic']);
+Route::post('quiniela/sendInvitations', ['as' => 'quiniela.sendInvitations', 'uses' => 'Quiniela\QuinielaController@sendInvitations']);
 
 /*
 |--------------------------------------------------------------------------

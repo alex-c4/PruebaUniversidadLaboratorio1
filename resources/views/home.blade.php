@@ -330,8 +330,25 @@
 
 
 
-    
-    <script id="CookieDeclaration" src="https://consent.cookiebot.com/4d643f5c-a9d0-4c6a-b30f-047fe06c4414/cd.js" type="text/javascript" async></script>
+<!-- Modal -->
+<div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cookieModalLabel">Información acerca de las cookies</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <script id="CookieDeclaration" src="https://consent.cookiebot.com/4d643f5c-a9d0-4c6a-b30f-047fe06c4414/cd.js" type="text/javascript" async></script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
     <!--==========================
       About Us Section modificado
     ============================-->

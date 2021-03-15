@@ -8,7 +8,6 @@
     });
 </script>
 
-
 <hr/>
 
 <section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
@@ -41,7 +40,7 @@
                     <div class="col-12 text-center font-italic text-info">
                          PRONOSTICO                         
                     </div> -->
-                    <div class="col-12 text-center font-weight-light">
+                    <div class="col-12 text-center font-weight-light mt-4">
                         <span class="text-success">  {{ $pronostic->date }} / {{$pronostic->stadium}}  </span> @if($pronostic->grupo != "") @endif</span> <span id="actualizado_{{ $pronostic->pronostic_id }}" class="text-info" style="size:8px"></span>
                     </div>
                     <div class="col-4 text-right">
@@ -73,9 +72,7 @@
                             <div class="resultadoLeft">{{ $pronostic->resultado_club_2 }}</div>
                         </div>
                         <div class="col-4">&nbsp;</div>   
-                         <div class="col-12 text-center font-italic text-success">
-                             Puntos Obtenidos :<span class="font-weight-bold">{{ $pronostic->pronostic_score}} Pts. </span> 
-                        </div>
+                        <div class="col-12 text-center font-italic text-info">Puntos Obtenidos :<span class="font-weight-bold">{{ $pronostic->pronostic_score}} Pts. </span></div>
                     @else
                         <div class="col-12 text-center font-italic font-weight-bold">
                              Juego {{$pronostic->game_estatus }}

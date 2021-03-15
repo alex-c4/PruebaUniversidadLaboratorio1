@@ -60,7 +60,7 @@ $("#btnSaveStadium").on("click", function(){
             
             $('#stadium').selectpicker('val', data.id);
 
-            $("#addMessage").html("Categoria agregada correctamente");
+            $("#addMessage").html("Estadio agregado correctamente");
 
             //limpiar campo
             Game.clearFieldStadium();

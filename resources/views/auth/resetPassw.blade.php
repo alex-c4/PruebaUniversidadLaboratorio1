@@ -77,7 +77,7 @@
 
                 <!-- Boton Aceptar -->
                 <div class="text-center">
-                    <button type="submit" class="btn btn-success form-group">Actualizar</button>
+                    <button type="submit" class="btn btnAcceptXG btn-sm form-group">Actualizar</button>
                 </div>
 
             </form>

@@ -16,7 +16,7 @@
     <div class="section-header">
 
         <h3>Pronósticos Creados</h3>
-        <p>Panel con los pronósticos registrados, podra realizar el pago o actualización de alguno de ellos</p>
+        <p>Panel con los pronósticos registrados, podra realizar el pago o actualización.</p>
 
         <div class="container">
             @if(count($pronostics) > 0)
@@ -41,8 +41,12 @@
                             <td>{{ $pronostic->quiniela }}</td>
                             <td>{{ $pronostic->championshipName }}</td>
                             <td>{{ $pronostic->amount }} $</td>
-                            <td>{{ $pronostic->golpot }} $</td>
-                            <td ><input type="checkbox" disabled @if($pronostic->verification == "1"){ checked } @endif></td>
+                            @if($pronostic->id_type == 1)
+                                <td>{{ $pronostic->golpot_public }} $</td>
+                            @else
+                                <td>{{ $pronostic->golpot }} $</td>
+                            @endif
+                            <td ><input type="checkbox" disabled @if($pronostic->verification == "1" || $pronostic->id_type == 1){ checked } @endif></td>
                             <td>
                                 <a href="{{ url('quiniela.pronosticEdit/') }}/{{ $pronostic->betId }}" class="btn btn-outline-success btn-sm @if($pronostic->isStartChampionship == 1){ disabled } @endif" role="button" aria-pressed="true" title="Editar pronóstico" ><i class="fa fa-edit fa-sm"></i></a>
                                 <a href="{{ route('pronosticGet', [$pronostic->betId, $pronostic->id_quiniela]) }}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true" title="Ver pronóstico" ><i class="fa fa-eye fa-sm"></i></a>

@@ -2097,3 +2097,75 @@ body {
     text-align: left;
 }
 
+.modalHeader_xg{
+  display: flex;
+  background-color: #181818;
+  border-bottom: #181818;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  color: #c4b694;
+  font-weight: bolder;
+  align-items: center;
+}
+.modalHeader_xg img{
+  width: 50px;
+}
+
+.modalBody_xg{
+  background-color: #f7f7f7;
+}
+
+.modalFooter_xg{
+  background-color: #181818;
+  border-bottom: #181818;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  font-weight: bolder;
+}
+
+.iconClose{
+  text-shadow: 0 1px 0 #504b3a;
+  color: #880e0d;
+}
+
+.btnCancelXG{
+  background-color: #880e0d;
+  border: solid 1px #4e4a3d;
+  color: #c4b694;
+  font-weight: bold;
+}
+
+.btnCancelXG:hover{
+  background-color: #640707;
+  border: solid 1px #4e4a3d;
+  color: #c4b694;
+  font-weight: bold;
+}
+
+.btnAcceptXG{
+  background-color: #449c12;
+  font-weight: bold;
+  color: #f7f7f7;
+  border: solid 1px #bababa;
+}
+
+.btnAcceptXG:hover{
+  background-color: #3e8814;
+  font-weight: bold;
+  color: #f7f7f7;
+  border: solid 1px #bababa;
+}
+
+.btnPlusXG{
+  background-color: #9c9277;
+  font-weight: bold;
+  color: #f7f7f7;
+  border: solid 1px #bababa;
+}
+
+.btnPlusXG:hover{
+  background-color: #807861;
+  font-weight: bold;
+  color: #f7f7f7;
+  border: solid 1px #bababa;
+}

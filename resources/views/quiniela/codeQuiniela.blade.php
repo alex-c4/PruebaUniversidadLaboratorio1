@@ -15,7 +15,7 @@
         <div class="section-header">
             <br>
             <h3>Registro</h3>
-            <p>Registro de Blogs XportGold</p>
+            <p>Unirse a un XportGame</p>
         </div>
 
         <form action="{{ route('quiniela.addCode') }}" method="post" id="form_add_code" >
@@ -39,7 +39,7 @@
 
             <!-- Boton Aceptar -->
             <div class="text-center">
-                <button type="submit" id="btnAceptar" class="btn btn-success" onclick="bloquearBtn(this)">Registrar</button>
+                <button type="submit" id="btnAceptar" class="btn btnAcceptXG btn-sm" onclick="bloquearBtn(this)">Registrar</button>
             </div>
         </form>
 

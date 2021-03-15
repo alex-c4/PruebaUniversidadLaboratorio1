@@ -100,13 +100,14 @@
             <div class="form-group col-md-10">
                 <label for="imagen_logo">Escudo del club o país <span style="color: red">*</span></label>
                 <input type="file" accept="image/png, image/jpeg, image/jpg" class="form-control" id="imagen_logo" name="imagen_logo" placeholder="Imagen" value="{{ old('imagen_logo') }}">
+                <small id="emailHelp" class="form-text text-muted">Imagen 48 x 48 px / formato PNG (fondo transparente)</small>
                 {!! $errors->first('imagen_logo', '<span class="text-danger">:content</span>') !!}
             </div>
         </div>
 
         <!-- Boton Aceptar -->
         <div class="text-center">
-            <button type="submit" id="btnAceptar" class="btn btn-success">Actualizar</button>
+            <button type="submit" id="btnAceptar" class="btn btnAcceptXG btn-sm">Actualizar</button>
         </div>
 
         </form>

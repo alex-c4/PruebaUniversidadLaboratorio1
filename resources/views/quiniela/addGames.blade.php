@@ -23,9 +23,9 @@
 
     <div class="section-header">
 
-        <h3>Registro XportGames</h3>
+        <h3>Registro Pronósticos</h3>
         
-        <p>Panel para la creación y registro de las predicciones de los juegos del campeonato</p>
+        <p>Panel para el registro de los pronósticos de los juegos del XportGame</p>
         <div class="msgTimezone">Los horarios corresponden a <b>{{ UserUtils::getTimeZoneString() }}</b></div>
 
         <div class="container">
@@ -86,7 +86,7 @@
                     
                     
                     <div class="text-center">
-                        <button type="button" id="btnAddPronostic" name="btnAddPronostic" class="btn btn-success">Enviar</button>
+                        <button type="button" id="btnAddPronostic" name="btnAddPronostic" class="btn btnAcceptXG btn-sm">Enviar</button>
                     </div>
                 @else
                     <div class="alert alert-success" role="alert">
@@ -109,5 +109,11 @@
 </form>
 
 </section>
+
+@endsection
+
+@section('scripts')
+
+    <script src="{{ asset('js/quiniela.js') }}"></script>
 
 @endsection
