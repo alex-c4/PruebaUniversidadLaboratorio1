@@ -101,12 +101,42 @@ class QuinielaController extends Controller
         }
     }
 
+    private function addPronosctics($quiniela_id){
+        $games = DB::select('CALL sp_getGamesByQuiniela(?)', array($quiniela_id));
+        
+        foreach ($games as $game) {
+            $game->date = UserUtils::getDateToUser($game->date); 
+        }
+
+        $quiniela = Quiniela::where('id_quiniela', $quiniela_id)->get();
+
+        $championship_id = $quiniela[0]['id_championship'];
+        
+        $start_championship = Championship::where('id', $championship_id)
+        ->select('start_datetime as start')
+        ->get();
+        
+        //$currentDate = Carbon::create($now->year, $now->month, $now->day, $now->hour, $now->minute, $now->second, 'UTC');
+        //var_dump($currentDate);
+        
+        //var_dump($now < $startCampionship);
+
+        $startCampionship = $start_championship[0]['start']; 
+        $showGames = $this->showGames($startCampionship); //$startCampionship->gt($now);
+        
+        $info = array(
+            'id_quiniela' => $quiniela_id,
+            'id_championship' => $championship_id
+        );
+
+        return view('quiniela.addGames', compact('games', 'info', 'showGames', 'total'));
+    }
+
     public function searchGames($quiniela_id){
         /************************************************************************ */
         // 1ra validacion regla de negocio: un usuario no podra realizar mas de un 
         // registro de pronostico en quinielas publicas gratis
         /************************************************************************ */
-
             $id_user = auth()->user()->id;
             $result = DB::select('CALL sp_ValidarQuinielasPublicasGratis(?,?)', array($quiniela_id, $id_user));
             $total = $result[0]->total;
@@ -139,37 +169,87 @@ class QuinielaController extends Controller
         // fin de 2da validacion regla de negocio
         /************************************************************************ */
 
-        $games = DB::select('CALL sp_getGamesByQuiniela(?)', array($quiniela_id));
+         
 
-        foreach ($games as $game) {
-            $game->date = UserUtils::getDateToUser($game->date); 
+        /************************************************************************ */
+        // 3ra validacion regla de negocio: el usuario podra registrar 1 XG por 
+        // campeonato al menos que el creador del XG haya pagado por el plan que
+        // permita esta operacion
+        /************************************************************************ */
+        /**
+         * validar que el usuario creador posee el plan tipo [xportgame=1] vigente
+         */
+        $planId = 1; // [xportgame=1] vigente
+        $idUserCreador = $this->getIdUserCreador($quiniela_id);
+        $id_plan_user = $this->getPlanUser($idUserCreador, $planId);
+        
+        /**
+         * si posee algun plan vigente se agregan los pronosticos directamente caso contrario comprueba 
+         * que ya haya agregado un xportgame al campeonato para prohibir la creacion de otro, sino tiene uno creado se le permite crear
+         * sin problema el primer xg
+         */
+        $result = collect($id_plan_user);
+        
+        if($id_plan_user != null && count($result) > 0){
+            return $this->addPronosctics($quiniela_id);
+        }else{
+            /************************************************************************ */
+            // 4ta validacion regla de negocio: No se podrán agregar más de 20
+            // pronósticos a el xportgame si no cuenta con el plan de [xportgames]
+            /************************************************************************ */
+            $TOTAL_MAX = 2;
+            $result = DB::table('pronostics')
+                                ->select("id_user")
+                                ->where("id_quiniela", "=", $quiniela_id)
+                                ->groupBy("id_user")
+                                ->get();
+            $_count = count(collect($result));
+            if ($_count >= $TOTAL_MAX) {
+                $data = ['title' => '¡Información!',
+                    'class' => 'alert-info',
+                     'message' => 'El XportGame ya tiene el máximo de pronósticos permitidos "máximo de ('. $TOTAL_MAX .')", por favor pongase en contacto con el coordinador del XportGame para habilitar el plan requerido y poder contar con la opción de agregar más pronosticos por Xportgame.',
+                     'footer' => 'Muchas gracias! por preferirnos y mucho éxito en sus aciertos.',
+                     'returnPage' => 'quiniela'
+                    ];
+                return $this->muestraAlert($data);
+
+                /************************************************************************ */
+                // fin de 4ta validacion regla de negocio
+                /************************************************************************ */
+            
+            }else{
+
+                /**
+                 * Validar si posee otro pronostico registrado para esta quiniela
+                 */
+                $countPronostics = DB::table('pronostics')
+                ->where('id_user', '=', $id_user)
+                ->where('id_quiniela', '=', $quiniela_id)
+                ->count();
+    
+                /**
+                 * Si es igual a cero no posee aun pronosticos agregados para este xportgame, por lo tanto se le
+                 * permitira agregar su pronosico, de los contrario, el creador del Xportgame tendra que cancelar
+                 * el plan para XportGames, para poder permitir esta operacion de agregar mas de un pronostico al mismo xportgame
+                 */
+                if($countPronostics == 0){
+                    return $this->addPronosctics($quiniela_id);
+                }else{
+                    $data = ['title' => '¡Información!',
+                        'class' => 'alert-info',
+                         'message' => 'Ud. ya ha registrado un pronóstico previamente para este XportGame, por favor pongase en contacto con el coordinador del XportGame para habilitar el plan requerido y poder contar con esta opción.',
+                         'footer' => 'Muchas gracias! por preferirnos y mucho éxito en sus aciertos.',
+                         'returnPage' => 'quiniela'
+                        ];
+                    return $this->muestraAlert($data);
+                }
+            }
+            
         }
 
-        $quiniela = Quiniela::where('id_quiniela', $quiniela_id)->get();
-        //dd($quiniela);
-
-        $championship_id = $quiniela[0]['id_championship'];
-
-        $start_championship = Championship::where('id', $championship_id)
-        ->select('start_datetime as start')
-        ->get();
-
-        
-        //$currentDate = Carbon::create($now->year, $now->month, $now->day, $now->hour, $now->minute, $now->second, 'UTC');
-        //var_dump($currentDate);
-
-        
-        //var_dump($now < $startCampionship);
-
-        $startCampionship = $start_championship[0]['start']; 
-        $showGames = $this->showGames($startCampionship); //$startCampionship->gt($now);
-
-        $info = array(
-            'id_quiniela' => $quiniela_id,
-            'id_championship' => $championship_id
-        );
-        
-        return view('quiniela.addGames', compact('games', 'info', 'showGames', 'total'));
+        /************************************************************************ */
+        // fin de 3ra validacion regla de negocio
+        /************************************************************************ */
         
     }
 
@@ -419,80 +499,195 @@ class QuinielaController extends Controller
         ], $messages);
     }
 
-    public function saveNewQuinielaPrivate(){
-        $userId = auth()->user()->id;
-        $userRollId = auth()->user()->rollId;
-        $code = str_random(15);
-        $tipo = DB::table('quinielatipo')
-            ->where('id', '=', request()->type_id)
+    private function addXportGame($request, $userId, $userRollId, $id_plan_user){
+
+        try{
+            DB::beginTransaction();
+
+            $code = strtoupper(str_random(15));
+            $tipo = DB::table('quinielatipo')
+                ->where('id', '=', $request->type_id)
+                ->first();
+    
+            $championshipName = DB::table('championships')
+            ->where('id', '=',$request->champ_id)
             ->first();
-        $championshipName = DB::table('championships')
-        ->where('id', '=', request()->champ_id)
-        ->first();
-        
-        $user = auth()->user();
-        
-        $this->validateQuiniela(request()->all())->validate();
-
-        if(request()->amount == null){
-            $_amount = 0;
-        }else{
-            $_amount = request()->amount;
-        }
-
-        if(request()->goldpot == null){
-            $_goldpot = 0;
-        }else{
-            $_goldpot = request()->goldpot;
-        }
-
-        $quiniela = Quiniela::create([
-            'id_championship' => request()->champ_id,
-            'nombre' => request()->name,
-            'id_type' => request()->type_id,
-            'id_user_creador' => $userId,
-            'amount' => $_amount,
-            'goldpot' => $_goldpot,
-            'code' => $code
-        ]);
-
-        /**
-         * Asocia de una vez la quinela con el jugador
-         */
-        $quiniela_privada = DB::table('quiniela_privada')
-            ->insert([
-                'id_quiniela' => $quiniela->id,
-                'id_user' => $userId
-            ]);
-
-        $misQuinielas = $this->getMisQuinielas($userId);
-
-        $championships = $this->getChampionships();
-
-        $types = $this->getTypes($userRollId);
-
-        /**
-         * Envia correo al usuario si es Quiniela Privada
-         */
-        if(request()->type_id == '2'){
-            $data = array(
-                'name' => auth()->user()->name,
-                'lastName' => auth()->user()->lastName,
-                'nameQuiniela' => request()->name,
-                'amount' => request()->amount,
-                'code' => $code,
-                'tipo' => $tipo->name,
-                'championship' => $championshipName->name
-            );
             
-            Mail::send('emails.createQuinielaPrivada', $data, function($message) use($user) {
-                $message->from('xportgoldmail@xportgold.com', 'XportGold');
-                $message->to($user->email)->subject('Nuevo XportGame');
-            });
+            $user = auth()->user();
+            
+            $this->validateQuiniela($request->all())->validate();
+    
+            if($request->amount == null){
+                $_amount = 0;
+            }else{
+                $_amount = $request->amount;
+            }
+    
+            if($request->goldpot == null){
+                $_goldpot = 0;
+            }else{
+                $_goldpot = $request->goldpot;
+            }
+    
+            $quiniela = Quiniela::create([
+                'id_championship' => $request->champ_id,
+                'nombre' => $request->name,
+                'id_type' => $request->type_id,
+                'id_user_creador' => $userId,
+                'amount' => $_amount,
+                'goldpot' => $_goldpot,
+                'code' => $code,
+                'id_plan_user' => $id_plan_user
+            ]);
+    
+            /**
+             * Asocia de una vez la quinela con el jugador
+             */
+            $quiniela_privada = DB::table('quiniela_privada')
+                ->insert([
+                    'id_quiniela' => $quiniela->id,
+                    'id_user' => $userId
+                ]);
+    
+            $misQuinielas = $this->getMisQuinielas($userId);
+    
+            $championships = $this->getChampionships();
+    
+            $types = $this->getTypes($userRollId);
+    
+            /**
+             * Envia correo al usuario si es Quiniela Privada
+             */
+            if($request->type_id == '2'){
+                $data = array(
+                    'name' => auth()->user()->name,
+                    'lastName' => auth()->user()->lastName,
+                    'nameQuiniela' => $request->name,
+                    'amount' => $request->amount,
+                    'code' => $code,
+                    'tipo' => $tipo->name,
+                    'championship' => $championshipName->name,
+                    'content' => 'A continuación le mostramos la información referente al XportGame creado recientemente por ud.',
+                    'content2' => 'Con ese código ud podra compartir el XportGame creado con sus compañeros y amigos, y asi poder disfrutar cada uno de los encuentros.',
+                    'content3' => 'Nuevamente le damos las Gracias por preferirnos, y depositar su confianza en nosotros, el equipo de XportGold le desea mucho éxito en su juego.'
+                );
+                
+                Mail::send('emails.createQuinielaPrivada', $data, function($message) use($user) {
+                    $message->from('xportgoldmail@xportgold.com', 'XportGold');
+                    $message->to($user->email)->subject('Nuevo XportGame');
+                });
 
+                DB::commit();
+
+            }
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            // registro de mensaje de error en el archivo laravel.log
+            UserUtils::logRegister($th->getMessage());
+        
+            $data = [
+                'title' => 'Información',
+                'class' => 'alert-warning',
+                'message' => 'Hubo un error en el envío de la información, por favor intente de nuevo, o contacte a nuestro personal Administrativo a través del correo <b>xportgoldmail.xportgold.com.</b>',
+                'footer' => 'Disculpe los inconvenientes, nuestro personal hará lo posible para solucionarle el problema.',
+                'returnPage' => 'dasboardindex'
+            ];
+            
+            throw new Exception('Error en el proceso de creación de quiniela o envío de correo');
+        }
+    }
+
+    private function getPlanUser($userId, $planId){
+        $date = Carbon::today();
+        $today = Carbon::createFromFormat('Y-m-d H:i:s', $date->toDateTimeString());
+
+        $id_plan_user = DB::table('plans_user')
+            ->select('plans_user.expiration_date', 'plans_user.id')
+            ->join('plans', 'plans.id', '=', 'plans_user.id_plan', 'inner', false)
+            ->where('plans.id', '=', 1)
+            ->where('plans_user.id_user', '=', $userId)
+            ->where('plans_user.expiration_date', '>=', $today->format('Y-m-d'))
+            ->first();
+        
+            return $id_plan_user;
+    }
+
+    private function getIdUserCreador($idQuiniela){
+        $id_user_creador = DB::table("quinielas")
+            ->where("id_quiniela", "=", $idQuiniela)
+            ->first();
+            
+        return $id_user_creador->id_user_creador;
+    }
+
+    private function hasMaxPronostic($idQuiniela){
+        $_count = DB::table('');
+    }
+
+    public function saveNewQuiniela(){
+        
+        try{
+            $userId = auth()->user()->id;
+            $userRollId = auth()->user()->rollId;
+    
+            /**
+             * validar que el usuario posee algun plan tipo [xportgame=1] vigente
+             */
+            $planId = 1; // [xportgame=1] vigente
+            $id_plan_user = $this->getPlanUser($userId, $planId);
+            
+            /**
+             * si posee algun plan vigente se agrega el xportgame directamente caso contrario comprueba 
+             * que ya haya agregado un xportgame al campeonato para prohibir la creacion de otro, sino tiene uno creado se le permite crear
+             * sin problema el primer xg
+             */
+            $result = collect($id_plan_user);
+            
+            if($id_plan_user != null && count($result) > 0){
+                $this->addXportGame(request(), $userId, $userRollId, $id_plan_user->id);
+            }else{
+                $hasXG = DB::table('quinielas')
+                    ->where('quinielas.id_championship', request()->champ_id)
+                    ->where('quinielas.id_user_creador', $userId)
+                    ->first();
+                $result = collect($hasXG);
+                
+                if($hasXG != null && count($result) > 0){
+                    $data = [
+                        'title' => 'Información',
+                        'class' => 'alert-warning',
+                        'message' => 'Solo puede agregar un solo Xportgame por campeonato, si desea agregar más le invitamos a adquirir el plan que le permite agregar más de un Xportgame por campeonato, si asi lo desea por favor haga click <a href="'.route("dasboardindex").'">aqui</a> donde podrá encontrar la información necesaria para adquirir el plan.',
+                        'footer' => 'Si desea más información, puede enviarnos un correo a la siguiente dirección de corre electrónico <b>'. env('EMAIL_ADMIN').'</b>',
+                        'returnPage' => 'createPrivateQuiniela'
+                    ];
+                    return UserUtils::showViewInfo($data);
+                }else{
+                    $this->addXportGame(request(), $userId, $userRollId, 0);
+                }
+            }
+    
+            $championships = $this->getChampionships();
+            $types = $this->getTypes($userRollId);
+            $misQuinielas = $this->getMisQuinielas($userId);
+    
+            return view('/quiniela.createQuiniela', compact('championships', 'types', 'misQuinielas'));
+
+        } catch (\Throwable $th) {
+            // registro de mensaje de error en el archivo laravel.log
+            UserUtils::logRegister($th->getMessage());
+        
+            $data = [
+                'title' => 'Información',
+                'class' => 'alert-warning',
+                'message' => 'Hubo un error en el envío de la información, por favor intente de nuevo, o contacte a nuestro personal Administrativo a través del correo <b>xportgoldmail.xportgold.com.</b>',
+                'footer' => 'Disculpe los inconvenientes, nuestro personal hará lo posible para solucionarle el problema.',
+                'returnPage' => 'createPrivateQuiniela'
+            ];
+            return UserUtils::muestraAlert($data);
         }
 
-        return view('/quiniela.createQuiniela', compact('championships', 'types', 'misQuinielas'));
+        
     }
 
     public function codeQuiniela(){

@@ -27,8 +27,8 @@
                         <th scope="col">Tipo</th>
                         <th scope="col">XportGames</th>
                         <th scope="col">Campeonato</th>
-                        <th scope="col">Monto por jugador ($)</th>
-                        <th scope="col">GoldPot</th>
+                        <th scope="col">Monto por jugador {!! env('GOLD') !!}</th>
+                        <th scope="col">GoldPot {!! env('GOLD') !!}</th>
                         <th scope="col">Validado</th>
                         <th scope="col"></th>
                         </tr>
@@ -40,11 +40,11 @@
                             <td>{{ $pronostic->quinielaTipoName }}</td>
                             <td>{{ $pronostic->quiniela }}</td>
                             <td>{{ $pronostic->championshipName }}</td>
-                            <td>{{ $pronostic->amount }} $</td>
+                            <th class="text-center">{{ $pronostic->amount }} </th>
                             @if($pronostic->id_type == 1)
-                                <td>{{ $pronostic->golpot_public }} $</td>
+                                <th class="text-center">{{ $pronostic->golpot_public }} </th>
                             @else
-                                <td>{{ $pronostic->golpot }} $</td>
+                                <th class="text-center">{{ $pronostic->golpot }} </th>
                             @endif
                             <td ><input type="checkbox" disabled @if($pronostic->verification == "1" || $pronostic->id_type == 1){ checked } @endif></td>
                             <td>

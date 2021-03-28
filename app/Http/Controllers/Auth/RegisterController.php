@@ -232,7 +232,8 @@ class RegisterController extends Controller
 
     //Modificado por yanis para el registro basico de usuario
     public function store_basic(){
-       $this->validator_basic(request()->all())->validate();
+        
+        $this->validator_basic(request()->all())->validate();
         // User::create(request()->all());
         $conf_code = str_random(15);
 
@@ -240,12 +241,18 @@ class RegisterController extends Controller
         //comentado temporalmente mientas se actualiza el instructivo
         // $pathToFile = storage_path('app') . '//' . 'Instructivo Quinielas XportGold.pdf';
         
+        // validacion del campo TimeZone
+        $tz = request()->hTimeZone;
+        if($tz == "" || $tz == null){
+            $tz = "UTC";
+        }
         $user = User::create([
             'name' => request()->name,
             'lastName' => request()->lastname,
             'email' => request()->email,
             'password' => bcrypt(request()->password),
-            'confirmation_code' => $conf_code
+            'confirmation_code' => $conf_code,
+            'timezone' => $tz
         ]);
         
         $req = request();

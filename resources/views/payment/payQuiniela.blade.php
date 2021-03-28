@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section("cabecera")
+  <link rel="stylesheet" href="{{ asset('css/stylePayment.css') }}?v={{ env('VERSION_APP') }}">
+@endsection
+
 <script>
      $(document).ready(function () {
         document.getElementById("contact").style.visibility = "visible";
@@ -12,61 +16,95 @@
 <hr/>
 
 <section id="contact" style="visibility: hidden" class="section-bg {{env('EFECT_WOW') }}" >
+    <div class="container">
+      <div class="section-header">
 
-    <div class="section-header">
+          <h3>Recarga de Saldo</h3>
+          <p>Módulo para recargar de saldo a través de PayPal</p>
 
-        <h3>Pago de XportGames </h3>
-        <p>
-            
-        Detalle de la transacción como aporte al “GOLPOT”<br><br>
-        Aporte = $ 10.00 USD (Recibirá XportGold)<br>
-        + Comisión de PayPal (5,4%) <br>
-        + Comisión de PayPal = $ 0.3 USD<br><br>
-        Total a transferir = $ 10.89 USD
-    
+          <div class="classInformation">
 
-        </p>
-
-        <div class="container">
-            <div class="row align-items-center">
-
-                <div class="col-12 text-center font-italic text-info">
-
-                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="LZ9W4RJ4A3BFS">
-                <table>
-                <tr><td><input type="hidden" name="on0" value="Pago Xport Games">Pago Xport Games</td></tr><tr><td><select name="os0">
-                  <option value="XG10">XG10 $10,00 USD</option>
-                  <option value="XG20">XG20 $20,00 USD</option>
-                  <option value="XG30">XG30 $30,00 USD</option>
-                  <option value="XG50">XG50 $50,00 USD</option>
-                  <option value="XG100">XG100 $100,00 USD</option>
-                  <option value="XG150">XG150 $150,00 USD</option>
-                  <option value="XG200">XG200 $200,00 USD</option>
-                  <option value="XG300">XG300 $300,00 USD</option>
-                </select> </td></tr>
-                </table>
-                <input type="hidden" name="currency_code" value="USD">
-                <input type="image" src="https://www.sandbox.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
-                <img alt="" border="0" src="https://www.sandbox.paypal.com/es_XC/i/scr/pixel.gif" width="1" height="1">
-                </form>
-
-
-
-                    <br>
-
-                <label>Al hacer clic en "Pagar Ahora" acepto los <a href="" data-toggle="modal" data-target="#legalModal" class="btn-get-started scrollto">términos de GoldXport y la política de privacidad.</a></label>   
-
-                </div>
-  
-                </div>
-
-
-
+            <div class="classImg">
+              <img src="{{ asset('img/receive-money.png') }}" alt="" srcset="">
             </div>
 
+            <div class="classContent">
+              <div>
+                <h2>Información del Pago</h2>
+              </div>
+              <div>
+                Aporte = $ 10.00 USD (Recibirá XportGold)
+              </div>
+              <div>
+                + Comisión de PayPal (5,4%)
+              </div>
+              <div>
+                + Comisión de PayPal = $ 0.3 USD
+              </div>
+              <div>
+                Total a transferir = $ 10.89 USD
+              </div>
+            </div>
+
+      </div>
+
+          
+      <div class="classFooter">
+        <hr>
+
+          <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="LZ9W4RJ4A3BFS">
+              <input type="hidden" name="on0" value="Pago Xport Games">
+              
+              <input type="hidden" name="currency_code" value="USD">
+              <label>Seleccione la cantidad de saldo a recargar</label>
+
+              <div class="form-row">
+                <div class="form-group col-12">
+                  <select name="os0" class="classCombo">
+                    <option value="XG10">XG10 $10,00 USD</option>
+                    <option value="XG20">XG20 $20,00 USD</option>
+                    <option value="XG30">XG30 $30,00 USD</option>
+                    <option value="XG50">XG50 $50,00 USD</option>
+                    <option value="XG100">XG100 $100,00 USD</option>
+                    <option value="XG150">XG150 $150,00 USD</option>
+                    <option value="XG200">XG200 $200,00 USD</option>
+                    <option value="XG300">XG300 $300,00 USD</option>
+                  </select> 
+                </div>
+              </div>
+
+
+              <input type="image" src="https://www.sandbox.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
+              <img alt="" border="0" src="https://www.sandbox.paypal.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+            </form>
+      
         </div>
+
+
+      <div class="container">
+          <div class="row align-items-center">
+
+              <div class="col-12 text-center font-italic text-info">
+
+              
+              
+              <br>
+
+              <label>Al hacer clic en "Pagar Ahora" acepto los <a href="" data-toggle="modal" data-target="#legalModal" class="btn-get-started scrollto">términos de GoldXport y la política de privacidad.</a></label>   
+
+              </div>
+
+              </div>
+
+
+
+          </div>
+
+      </div>
+    </div>
+</section>
 
 <div class="modal fade" id="legalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -88,6 +126,7 @@
 
     </div>
 
-</section>
 
 @endsection
+
+

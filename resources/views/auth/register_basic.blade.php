@@ -29,6 +29,7 @@
           {{ csrf_field() }}
 
           <input type="hidden" id="routeCurrent" value="{{ url('/') }}">
+          <input type="hidden" id="hTimeZone" name="hTimeZone">
           
 
           <div class="form-row">
@@ -112,3 +113,6 @@
     
 @endsection
 
+@section('scripts')
+  <script src="{{ asset('js/register.js') }}?v={{ env('VERSION_APP') }}"></script>
+@endsection

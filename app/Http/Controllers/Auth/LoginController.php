@@ -183,7 +183,7 @@ class LoginController extends Controller
         ]);
 
         $user = User::where('email', request()->emailLogin)->get();
-
+        
         if(!$user->count() > 0){
             $access = array(
                 "access" => false,
@@ -216,11 +216,20 @@ class LoginController extends Controller
             }
         }
 
-        if($returnMessage = true) return Redirect::back()->withErrors($access['message']);
+        if($returnMessage = false) return Redirect::back()->withErrors($access['message']);
 
         return route(request()->url);
+        
+    }
 
+    public function test(){
+        $datos = [
+            'email' => 'alex@ot.com',
+            'url' => 'loginForm',
+            'titulo' => 'LOGIN',
+            'subtitulo' => 'Ingrese su clave para comenzar el proceso de canje de cromos.'
+        ];
 
-
+        return view('loginExt', $datos);
     }
 }

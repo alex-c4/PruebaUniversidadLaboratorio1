@@ -8,7 +8,7 @@
   <meta content="" name="description">
 
   <!-- script para aceptar cookies -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4d643f5c-a9d0-4c6a-b30f-047fe06c4414" data-blockingmode="auto" type="text/javascript"></script>
+  <!-- <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="4d643f5c-a9d0-4c6a-b30f-047fe06c4414" data-blockingmode="auto" type="text/javascript"></script> -->
 
   <!-- Favicons -->
   <link href="{{ asset('img/favicon.ico') }}" rel="icon">
@@ -31,11 +31,12 @@
   <link href="{{ asset('lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
   <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
   <link href="{{ asset('lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
-  <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('lib/jquery/jquery-3.6.0.min.js')}}?v={{ env('VERSION_APP') }}"></script>
 
   <link href="{{ asset('css/jquery-confirm.css')}}" rel="stylesheet">
   <link href="{{ asset('css/jquery-confirm.less')}}" > 
   
+  <link rel="stylesheet" href="{{ asset('lib/date-time-picker-bootstrap-4/css/bootstrap-datetimepicker.min.css') }}?v={{ env('VERSION_APP') }}">
 
   <!-- Main Stylesheet File -->
   
@@ -58,9 +59,15 @@
         <!-- <h1><a href="#intro" class="scrollto">BizPage</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
         <a href="#intro"><img src="{{ url('img/logoNew230x80.png')}}" alt="" title="" /></a>
-     
-	  
-	     </div>
+      
+        </div>
+        @if(Auth::check())
+        <div class="classGoldBalance">
+          <div> 
+            <img src="{{ asset('img/goldpot_menu.png') }}" alt="" srcset=""> <span>{{ UserUtils::getBalanceGold(auth()->user()->id) }}</span> {!! env('GOLD') !!}
+          </div>
+        </div>
+        @endif
 
     <!-- Ubicacions del gold pot
 		      
@@ -94,8 +101,8 @@
           <br>
           @if(Auth::check())   
             @if(Auth::user()->rollId == 1)         
-              <li><a href="{{ url('/result/2') }}">Result</a></li>
-              <li><a href="{{ url('/listarBetsPay') }}">Validar Pagos</a></li>
+              <li><a href="{{ route('result.positionsTable') }}">Posiciones</a></li>
+              <li><a href="{{ route('paymentsToApprove') }}">Validar Pagos</a></li>
             @endif
             <li class="menu-has-children"><a href="{{ url('/dashboard') }}">Dashboard</a>
               <!-- Apagado para subir a produccion solo cromos
@@ -295,18 +302,23 @@
   <!-- <script src="js/datepicker.js"></script> -->
 
   <!-- Script para barajitas -->
-  <script src="{{ asset('js/sticker.js') }} "></script>
-  <script src="{{asset('js/datepicker.js')}}"></script>
+  <script src="{{ asset('js/sticker.js') }}?v={{ env('VERSION_APP') }}"></script>
+  <script src="{{asset('js/datepicker.js')}}?v={{ env('VERSION_APP') }}"></script>
 
   <!-- script para registro de usuario -->
-  <script src="{{ asset('js/register.js') }}"></script>
+  <!-- <script src="{{ asset('js/register.js') }}"></script> -->
 
   <!-- script para registro de quiniela -->
   <!-- <script src="{{ asset('js/quiniela.js') }}"></script> -->
   
   <!-- Script para puntuaciones quinielas -->
-  <script src="{{asset('js/puntuaciones.js')}}"></script>
+  <script src="{{asset('js/puntuaciones.js')}}?v={{ env('VERSION_APP') }}"></script>
   
+  <!-- Script para manejar los decimales en los campos de textos   -->
+  <script src="{{ asset('lib/jquery-number/jquery.number.min.js') }}?v={{ env('VERSION_APP') }}"></script>
+
+  <script src="{{ asset('lib/moment/moment.js') }}?v={{ env('VERSION_APP') }}"></script>
+  <script src="{{ asset('lib/date-time-picker-bootstrap-4/js/bootstrap-datetimepicker.min.js') }}?v={{ env('VERSION_APP') }}"></script>
   @yield('scripts')
   
 </body>

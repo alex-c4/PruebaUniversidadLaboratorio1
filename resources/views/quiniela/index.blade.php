@@ -31,8 +31,8 @@
                     <th scope="col">XportGame</th>
                     <th scope="col">Campeonato</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Cuota por participante($)</th>
-                    <th scope="col">GoldPot</th>
+                    <th scope="col">Cuota por participante {!! env('GOLD') !!}</th>
+                    <th scope="col">GoldPot {!! env('GOLD') !!}</th>
                     <th scope="col">Fecha de inicio</th>
                     <th scope="col"></th>
                     </tr>
@@ -45,11 +45,11 @@
                         <td>{{ $quinielaPublica->nombreQuiniela }}</td>
                         <td>{{ $quinielaPublica->nombreCampeonato }}</td>
                         <td>{{ $quinielaPublica->tipoQuiniela }}</td>
-                        <td class="text-center" >{{ $quinielaPublica->amount }} $</td>
+                        <th class="text-center" >{{ $quinielaPublica->amount }}</th>
                         @if($quinielaPublica->id_type == 1)
-                            <td class="text-center" >{{ $quinielaPublica->goldpot_public }} $</td>
+                            <th class="text-center" >{{ $quinielaPublica->goldpot_public }}</th>
                         @else
-                            <td class="text-center" >{{ $quinielaPublica->golpot }} $</td>
+                            <th class="text-center" >{{ $quinielaPublica->golpot }}</th>
                         @endif
                         <td>{{ UserUtils::toFormatDatetime($quinielaPublica->start_datetime, '') }}</td>
                         <td>
@@ -75,8 +75,8 @@
                     <th scope="col">XportGame</th>
                     <th scope="col">Campeonato</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Monto ($)</th>
-                    <th scope="col">GoldPot ($)</th>
+                    <th scope="col">Monto {!! env('GOLD') !!}</th>
+                    <th scope="col">GoldPot {!! env('GOLD') !!}</th>
                     <th scope="col">Creador</th>
                     <th scope="col">Fecha de inicio</th>
                     <th scope="col"></th>
@@ -94,8 +94,8 @@
                         <td>{{ $quinielaPrivada->nombreQuiniela }}</td>
                         <td>{{ $quinielaPrivada->nombreCampeonato }}</td>
                         <td>{{ $quinielaPrivada->tipoQuiniela }}</td>
-                        <td>{{ $quinielaPrivada->amount }} $</td>
-                        <td>{{ $quinielaPrivada->golpot }} $</td>
+                        <th class="text-center">{{ $quinielaPrivada->amount }}</th>
+                        <th class="text-center">{{ $quinielaPrivada->golpot }}</th>
                         <td>{{ $quinielaPrivada->user_creador_name }} {{ $quinielaPrivada->user_creador_lastname }}</td>
                         <td>{{ UserUtils::toFormatDatetime($quinielaPrivada->start_datetime, '') }}</td>
                         <td>

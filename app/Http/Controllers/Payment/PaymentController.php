@@ -18,6 +18,8 @@ use Illuminate\Http\request;
 
 use Carbon\Carbon;
 use App\Mail\PaymentConfirm;
+use UserUtils;
+
 
 class PaymentController extends Controller
 {
@@ -49,6 +51,7 @@ class PaymentController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     /**
@@ -70,6 +73,18 @@ class PaymentController extends Controller
             'ref_pago' => 'required|string|max:20',
             'payment_date' => 'required|date',
             
+        ], $messages);
+    }
+    protected function validatorPayments(array $data)
+    {
+        $messages = [
+            'required' => 'El campo es requerido.',
+        ];
+
+        return Validator::make($data, [
+            'amount' => 'required',
+            'id_paypal' => 'required',
+            'created_at' => 'required|date'
         ], $messages);
     }
 
@@ -124,10 +139,9 @@ class PaymentController extends Controller
 
     }
 
-    public function payQuiniela($betId){
-        session()->put('idCrrBet', $betId);
+    public function rechargeBalance(){
         
-        return view('/quiniela.payQuiniela');
+        return view('payment.rechargeBalance');
     }
 
     public function listarBetsPay(){      
@@ -319,4 +333,199 @@ class PaymentController extends Controller
         //
     }
 
+    public function registerTransaction(){
+        try {
+            $data = request()->details;
+
+            $purchase = $data['purchase_units'][0]['payments']['captures'][0];
+    
+            $id_user = auth()->user()->id;
+            $amount = $purchase['amount']['value'];
+            $status = 1;
+            $id_paypal = $purchase['id'];
+            $status_paypal = $data['status'];
+            $created_at = new Carbon($purchase['create_time']);
+    
+            $pay = DB::table('payments_paypal')->insert([
+                'id_user' => $id_user,
+                'amount' => $amount,
+                'status' => $status,
+                'id_paypal' => $id_paypal,
+                'status_paypal' => $status_paypal,
+                'created_at' => $created_at,
+                'updated_at' => Carbon::now('UTC')
+            ]);
+            
+            $result = array(
+                'result' => true,
+                'message' => ''
+            );
+
+        } catch (\Throwable $th) {
+            $result = array(
+                'result' => false,
+                'message' => 'Hubo un problema registrando la transacción en nuestro sistema, por favor, ingrese a nuestro sistema en la sección de "<b>Pagos</b>" y acceda a "<b>Registrar pagos manuales</b>", rellene por favor la información que allí se le solicita, </br> Se le estará informando en la brevedad posible cuando el pago se abone a su cuenta. Muchas gracias por participar en nuestros XportGames y disculpen los inconvenientes',
+                'exception' => $th->getMessage()
+            );
+        }
+
+        return $result;
+    }
+
+    public function rechargeBalanceManually(){
+        return view('payment.rechargeBalanceManually');
+    }
+
+    public function storeRechargeBalanceManually(Request $request){
+
+        try {
+            $this->validatorPayments($request->all())->validate();
+        
+            $amount = UserUtils::amountFormatSQL($request->input("amount"));
+            $status = 1;
+            $id_paypal = $request->input("id_paypal");
+            $created_at = $request->input("created_at");
+        
+            $pay = DB::table('payments_paypal')->insert([
+                'id_user' => auth()->user()->id,
+                'amount' => $amount,
+                'status' => $status,
+                'id_paypal' => $id_paypal,
+                'status_paypal' => '',
+                'created_at' => $created_at,
+                'updated_at' => Carbon::now('UTC')
+            ]);
+
+            $data = [
+                'title' => 'Información',
+                'class' => 'alert-success',
+                'message' => 'Registro llevado a cabo de forma satisfactoria.',
+                'footer' => 'La Administración procedera a validar su pago y le será abonado el saldo en la brevedad posible.',
+                'returnPage' => 'dasboardindex'
+            ];
+
+            return UserUtils::muestraAlert($data);
+
+            
+        } catch (\Throwable $th) {
+            // registro de mensaje de erroe en el archivo laravel.log
+            UserUtils::logRegister($th->getMessage());
+
+            $data = [
+                'title' => 'Información',
+                'class' => 'alert-warning',
+                'message' => 'Hubo un error en la carga de la información, por favor intente de nuevo, o contacte a nuestro personal Administrativo a través del correo <b>xportgoldmail.xportgold.com.</b>',
+                'footer' => 'Disculpe los inconvenientes, nuestro personal lo esatará contactando en la brevedad posible para solucionarle el problema.',
+                'returnPage' => 'dasboardindex'
+            ];
+            return UserUtils::muestraAlert($data);
+        }
+    }
+
+    public function paymentsList(){
+        $id_user = auth()->user()->id;
+        $paymentsList =  DB::select('CALL sp_getMyPaymentsList(?)', array($id_user));
+
+        foreach ($paymentsList as $key => $item) {
+            $item->amount = UserUtils::amountFormatHTML($item->amount);
+            $item->estado2 =  UserUtils::getPaymentStatus($item->estado2);
+            $item->created_at =  UserUtils::getDateToUser($item->created_at);
+        }
+
+        
+        return view('payment.paymentsList', compact('paymentsList'));
+    }
+
+    /**
+     * Ejecuta el SP que trae la informacinon de lso pagos por status
+     */
+    private function getPaymentsListByStatus($status, $orden){
+        $listPaymentsToApprove =  DB::select('CALL sp_getPaymentsListByStatus(?,?)', array($status, $orden));
+        return $listPaymentsToApprove;
+    }
+
+    public function paymentsToApprove(){
+        $status = 1; // 1 = Sin validar
+        $orden = "ASC";
+        // $listPaymentsToApprove =  DB::select('CALL sp_getPaymentsListByStatus(?)', array($status));
+        $listPaymentsToApprove =  $this->getPaymentsListByStatus($status, $orden);
+
+        foreach ($listPaymentsToApprove as $key => $item) {
+            $item->amount = UserUtils::amountFormatHTML($item->amount);
+            $item->estado2 =  UserUtils::getPaymentStatus($item->estado2);
+            $item->created_at =  UserUtils::getDateToUser($item->created_at);
+        }
+
+        return view('payment.paymentsToApprove', compact('listPaymentsToApprove'));
+    }
+
+    public function searchPaymentInfo(){
+        $id_payment = request()->idPayment;
+        $paymentsInfo =  DB::select('CALL sp_getPaymentById(?)', array($id_payment));
+
+        return $paymentsInfo;
+    }
+
+    public function updatePaymentStatus(){
+        
+        try {
+            $idPayment = request()->hIdPayment;
+            $status = request()->rdStatus;
+            
+            $idUserAdmin = auth()->user()->id;
+    
+            $sendAmount = UserUtils::getRealAmount($idPayment);
+            $idPaymentOperationType = 1; // Recarga de saldo
+    
+            // SP para actualizar el pago, sumar saldo del usuario y registrar en la auditoria la operacion
+            $paymentsInfo =  DB::select('CALL sp_updatePaymentStatus(?, ?, ?, ?, ?)', array($idPayment, $status, $idUserAdmin, $sendAmount, $idPaymentOperationType));
+            
+            $result = collect($paymentsInfo);
+            
+            $Code = (isset($result[0]->Code)) ? $result[0]->Code : 999;
+
+            $paymentUser = DB::table("payments_paypal")
+                            ->select("users.name", "users.lastName", "users.email")
+                            ->join("users", "users.id", "=", "payments_paypal.id_user", "inner", false)
+                            ->where("payments_paypal.id", $idPayment)
+                            ->first();
+            if($status == 2){
+                $content = "Se le notifica que su pago por (". $sendAmount .") GOLD ya fue aprobado, ya pude disfrutar de los juegos en nuestro sistema.";
+            }else{
+                $content = "Se le notifica que su pago por (". $sendAmount .") GOLD fue rechazado, le invitamos a contactar a nuestro departamento Administrativo para mas detalles a través del siguiente correo ". env('EMAIL_ADMIN') .".";
+            }
+
+            $data = array(
+                'name' => $paymentUser->name,
+                'lastName' => $paymentUser->lastName,
+                'content' => $content
+            );
+
+            //envio de correo notificandole al usuario el nuevo estatus del pago
+            Mail::send('emails.paymentStatusChange', $data, function($message) use($paymentUser) {
+                $message->from('xportgoldmail@xportgold.com', 'XportGold');
+                $message->to($paymentUser->email)->subject('Información sobre pago');
+            });
+
+            if($Code == 0){
+                // volvemos a la pagina de los pagos pendientes por aprovar
+                return $this->paymentsToApprove();
+            }
+
+
+        } catch (\Throwable $th) {
+            UserUtils::LogRegister($th->getMessage());
+            $data = [
+                'title' => 'Información',
+                'class' => 'alert-warning',
+                'message' => 'Lo sentimos, Hubo un problema con el registro de la información.<br>Por favor intente nuevamente.',
+                'footer' => 'Si la falla persiste por favor comunicarse con el personal Administrativo al siguiente correo <b>'. env('EMAIL_ADMIN').'</b>',
+                'returnPage' => 'paymentsToApprove'
+            ];
+            return UserUtils::showViewInfo($data);
+        }
+    }
+
+    
+    
 }

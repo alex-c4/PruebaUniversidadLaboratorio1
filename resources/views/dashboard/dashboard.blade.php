@@ -241,7 +241,7 @@
           
           <div class="col-lg-3 col-sm-6">
             <a href="{{ url('/listarBetsPay') }}">
-              <img src="{{ asset('img/icons_new_panel/Paypal.png') }}" height="50" alt="Crear Juego" srcset="">
+              <img src="{{ asset('img/icons_new_panel/check-pay.png') }}" height="50" alt="Crear Juego" srcset="">
               <p>
                 Validar pago
               </p>
@@ -295,21 +295,82 @@
               </p>
             </a>
           </div>
-      @if(auth()->user()->hasRoles('Administrator'))
-            <div class="col-lg-3 col-sm-6">
-              <a href="{{ route('news.index') }}">
-                <img src="{{ asset('img/icons_new_panel/news-reader.png') }}" height="50" alt="Crear Juego" srcset="">
-                <p>
-                  Noticias
-                </p>
-              </a>
-            </div>
-      @endif
+        @if(auth()->user()->hasRoles('Administrator'))
+              <div class="col-lg-3 col-sm-6">
+                <a href="{{ route('news.index') }}">
+                  <img src="{{ asset('img/icons_new_panel/news-reader.png') }}" height="50" alt="Crear Juego" srcset="">
+                  <p>
+                    Noticias
+                  </p>
+                </a>
+              </div>
+        @endif
     
       </div>
     @endif
-
+    <div class="row text-center">
+      <div class="col-lg-12 titleDashboard">
+        <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Pagos</button>
+        <br>
       </div>
+      
+      @if(auth()->user()->hasRoles('Administrator'))
+        <div class="col-lg-3 col-sm-6">
+          <a href="{{ route('paymentsToApprove') }}">
+            <img src="{{ asset('img/icons_new_panel/approved_payments.png') }}" height="50" alt="Aprobación de pagos" srcset="">
+            <p>
+              Aprobación de pagos
+            </p>
+          </a>
+        </div>
+      @endif
+
+      <div class="col-lg-3 col-sm-6">
+        <a href="{{ url('rechargeBalance') }}">
+          <img src="{{ asset('img/icons_new_panel/Paypal.png') }}" height="50" alt="Recargar pago" srcset="">
+          <p>
+            Recargar GOLD
+          </p>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-sm-6">
+        <a href="{{ url('rechargeBalanceManually') }}">
+          <img src="{{ asset('img/icons_new_panel/register_payment2.png') }}" height="50" alt="Registrar pagos manuales" srcset="">
+          <p>
+            Registrar pagos manuales
+          </p>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-sm-6">
+        <a href="{{ url('paymentsList') }}">
+          <img src="{{ asset('img/icons_new_panel/payment-check-list.png') }}" height="50" alt="Registrar pagos manuales" srcset="">
+          <p>
+            Listado de pagos
+          </p>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="row text-center">
+      <div class="col-lg-12 titleDashboard">
+        <button type="button" class="btn btn-outline-info btn-lg btn-block" disabled>Planes</button>
+        <br>
+      </div>
+
+      <div class="col-lg-3 col-sm-6">
+        <a href="{{ route('plan.purchaseXportGamePlanView', [1]) }}">
+          <img src="{{ asset('img/icons_new_panel/plan-service.png') }}" height="50" alt="Adquirir plan" srcset="">
+          <p>
+            Adquirir plan XportGame
+          </p>
+        </a>
+      </div>
+    </div>
+
+</div>
 
 
 <hr>

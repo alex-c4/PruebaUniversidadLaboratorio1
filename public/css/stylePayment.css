@@ -1,0 +1,56 @@
+.classInformation{
+    display: flex;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #a4d6f2;;
+    border-radius: 7px;
+}
+
+.classImg{
+    width: 20%;
+    align-items: center;
+    display: flex;
+}
+
+.classImg img{
+    width: 100%;
+    margin: 20px;
+}
+
+.classContent{
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.classContent div{
+    margin: 10px
+}
+
+.classContent h2{
+    color: black;
+}
+
+.classFooter{
+    text-align: center;
+    padding: 20px;
+    justify-content: center;
+}
+.classLabel{
+    font-size: 25px;
+    font-weight: bolder;
+    color: black;
+    font-family: 'Montserrat';
+    margin-top: 15px;
+}
+
+.classCombo{
+    padding: 5px;
+    border-radius: 20px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    border: 1px solid #a4d6f2;
+}

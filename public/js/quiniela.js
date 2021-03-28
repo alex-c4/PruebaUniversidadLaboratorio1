@@ -84,7 +84,7 @@ var updatePronostic = function(pronostic_id){
                         console.log(jqXHR.responseJSON.errors);
                         $.alert({
                             title: 'Información',
-                            content: 'Error actualizando la informacion',
+                            content: 'Error actualizando la información',
                         });
                     })
                 }
@@ -323,7 +323,7 @@ var isValidEmail = function(email){
 
 var showAlert = function(msg){
     $.alert({
-        title: 'Informacion!',
+        title: 'Información!',
         content: msg,
         type: 'dark',
         typeAnimated: true,
@@ -466,5 +466,8 @@ var widthAmountField = function(_width, _duration, callback){
 }
 
 $(function() {
+
     $("#type_id").trigger("change", () => {});
+    $("#amount").number(true, 2, ",", ".");
+
 });

@@ -12,6 +12,6 @@ class Quiniela extends Model
      * @var array
      */
     protected $fillable = [
-        'id_championship', 'nombre', 'id_type', 'id_user_creador', 'code', 'amount', 'goldpot'
+        'id_championship', 'nombre', 'id_type', 'id_user_creador', 'code', 'amount', 'goldpot', 'id_plan_user'
     ];
 }

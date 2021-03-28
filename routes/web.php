@@ -172,7 +172,7 @@ Route::get('quinielas/{user_id}', 'Quiniela\QuinielaController@listarQuinielas')
 Route::post('puntuaciones', 'Quiniela\QuinielaController@quinielaPuntaciones')->name('quiniela.puntuaciones');
 Route::get('pronosticos.mostrar/{pronostic_id}', 'Quiniela\QuinielaController@quinielaPuntacionesPor_id')->name('quiniela.puntuacionesDos');
 Route::view('quiniela/createQuiniela', 'createQuiniela');
-Route::post('saveNewQuinielaPrivate', 'Quiniela\QuinielaController@saveNewQuinielaPrivate')->name('saveNewQuinielaPrivate');
+Route::post('saveNewQuiniela', 'Quiniela\QuinielaController@saveNewQuiniela')->name('saveNewQuiniela');
 Route::get('codeQuiniela', 'Quiniela\QuinielaController@codeQuiniela')->name('codeQuiniela');
 Route::view('quiniela/codeQuiniela', 'codeQuiniela');
 Route::post('quiniela/addCodeQuiniela', ['as' => 'quiniela.addCode', 'uses' => 'Quiniela\QuinielaController@addCodeQuiniela']);
@@ -235,13 +235,19 @@ Route::get('payment/{id_bet}', ['as' => 'payment.create', 'uses' => 'Payment\Pay
 
 Route::get('validarPagoBets/{betId}/{validacion}', 'Payment\PaymentController@validarPagoBets')->name('validarPagoBets');
 
-Route::get('payQuiniela/{idBet}', 'Payment\PaymentController@payQuiniela')->name('payQuiniela');
+Route::get('rechargeBalance', ['as' => 'rechargeBalance', 'uses' => 'Payment\PaymentController@rechargeBalance']);
+
+Route::get('payment', ['as' => 'payment.store', 'uses' => 'Payment\PaymentController@store']);
 
 Route::get('listarBetsPay', 'Payment\PaymentController@listarBetsPay')->name('listarBetsPay');
 
-// news route
-Route::get('payment', ['as' => 'payment.store', 'uses' => 'Payment\PaymentController@store']);
-
+Route::post('registerTransaction', ['as' => 'registerTransaction', 'uses' => 'Payment\PaymentController@registerTransaction']);
+Route::get('rechargeBalanceManually', ['as' => 'rechargeBalanceManually', 'uses' => 'Payment\PaymentController@rechargeBalanceManually']);
+Route::post('storeRechargeBalanceManually', ['as' => 'storeRechargeBalanceManually', 'uses' => 'Payment\PaymentController@storeRechargeBalanceManually']);
+Route::get('paymentsList', ['as' => 'paymentsList', 'uses' => 'Payment\PaymentController@paymentsList']);
+Route::get('paymentsToApprove', ['as' => 'paymentsToApprove', 'uses' => 'Payment\PaymentController@paymentsToApprove']);
+Route::post('searchPaymentInfo', ['as' => 'searchPaymentInfo', 'uses' => 'Payment\PaymentController@searchPaymentInfo']);
+Route::put('updatePaymentStatus', ['as' => 'updatePaymentStatus', 'uses' => 'Payment\PaymentController@updatePaymentStatus']);
 
 /*
 |--------------------------------------------------------------------------
@@ -337,4 +343,14 @@ Route::post('clubAjax', ['as' => 'club.storeAjax', 'uses' => 'ClubController@sto
 */
 Route::post('stadium', ['as' => 'stadium.storeAjax', 'uses' => 'StadiumController@storeAjax']);
 
+/*
+|--------------------------------------------------------------------------
+| Plans Routes
+|--------------------------------------------------------------------------
+|
+| Seccion para las rutas asociadas a la parte de Los Planes
+|
+*/
+Route::get('purchaseXportGamePlan/{idPlan}', ['as' => 'plan.purchaseXportGamePlanView', 'uses' => 'PlanController@purchaseXportgamePlanView']);
+Route::post('purchaseXportGamePlan', ['as' => 'plan.purchaseXportGamePlanStore', 'uses' => 'PlanController@purchaseXportGamePlanStore']);
 

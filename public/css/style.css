@@ -2169,3 +2169,39 @@ body {
   color: #f7f7f7;
   border: solid 1px #bababa;
 }
+
+.classGoldBalance{
+  float: left;
+  margin-top: 21px;
+  margin-right: 4px;
+  color: #807861;
+  /* font-weight: bold; */
+  font-size: smaller;
+  vertical-align: -webkit-baseline-middle;
+  /* border: 2px solid #fbe15824; */
+  border-radius: 7px;
+  padding: 7px;
+  text-align: -webkit-right;
+  display: flex;
+  align-items: baseline;
+  margin-left: 34px;
+  background-color: #50505038;
+}
+
+.classGoldBalance img{
+  width: 15px;
+}
+
+.classGoldBalance span{
+  color: #fbe158;
+  font-size: large;
+}
+
+.coinGOLD{
+  font-weight: bolder !important;
+  color: #897d3d !important;
+  border: 1px solid #897d3d !important;
+  border-radius: 5px !important;
+  padding: 0px 2px 0px 2px !important;
+  font-size: x-small !important;
+}

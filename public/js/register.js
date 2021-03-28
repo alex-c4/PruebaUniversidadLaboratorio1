@@ -1,11 +1,16 @@
+$(function() {
+    var resolvedOptions = Intl.DateTimeFormat().resolvedOptions();
+    $("#hTimeZone").val(resolvedOptions.timeZone);
+});
+
 var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
 
-$('#form_register_user').submit(function() {
+$('#form_register_user').on('submit', function() {
     $('#btnAceptar').attr("disabled", true);
     $('#btnAceptar').html("Enviando...");
 });
 
-$('#form_user_contact').submit(function() {
+$('#form_user_contact').on('submit', function() {
     var _route = $(this).attr('action');
     var _token = $("#token").val();
     var _data = $(this).serialize()
@@ -20,7 +25,7 @@ $('#form_user_contact').submit(function() {
     return false;
 });
 
-$('#form_user_email').submit(function() {debugger
+$('#form_user_email').on('submit', function() {debugger
     var _route = $(this).attr('action');
     var _token = $("#token").val();
     var _data = $(this).serialize()

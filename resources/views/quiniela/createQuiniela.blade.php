@@ -50,7 +50,7 @@
             <p>Panel para la creación de los XportGames</p>
         </div>
 
-        <form method="POST" action="{{ route('saveNewQuinielaPrivate') }}" id="formCreateQuiniela">
+        <form method="POST" action="{{ route('saveNewQuiniela') }}" id="formCreateQuiniela">
 
             <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 
@@ -101,14 +101,14 @@
 
                     <!-- Monto -->
                     <div class="form-group col-md-2">
-                        <label for="amount" >Monto ($)<span style="color: red">*</span></label>
+                        <label for="amount" >Monto<span style="color: red">*</span> {!! env('GOLD') !!}</label>
                         <input style="width: 200%" type="text" disabled="disabled" class="form-control {{ $errors->has('amount') ? 'border-danger' : '' }}" name="amount" id="amount" placeholder="Monto" value="@if(old('amount')){{old('amount')}} @else{{0}}@endif" required>
                         {!! $errors->first('amount', '<span class="text-danger">:message</span>') !!}
                     </div>
 
                     <!-- GoldPote -->
                     <div class="form-group col-md-2">
-                        <label style="opacity: 0" for="amount" id="goldporLabel" >GoldPot ($)</label>
+                        <label style="opacity: 0" for="amount" id="goldporLabel" >GoldPot<span style="color: red">*</span> {!! env('GOLD') !!}</label>
                         <input style="opacity: 0" type="text" class="form-control {{ $errors->has('goldpot') ? 'border-danger' : '' }}" name="goldpot" id="goldpot" placeholder="Monto" value="@if(old('goldpot')){{old('goldpot')}} @else{{0}}@endif">
                     </div>
 
@@ -145,7 +145,7 @@
                         <td>{{ $quinielaPrivada->nombre }}</td>
                         <td>{{ $quinielaPrivada->championship }}</td>
                         <td>{{ $quinielaPrivada->tipo }}</td>
-                        @if($quinielaPrivada->tipoId != 1)
+                        @if($quinielaPrivada->tipoId == 2)
                             <td>{{ $quinielaPrivada->codigo }}</td>
                             <td>
                                 @if(UserUtils::isStartedChampionship($quinielaPrivada->ID))
