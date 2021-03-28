@@ -40,7 +40,16 @@
         <div class="section-header">
 
           <h3>Lista de pagos por aprobar</h3>
-          <p>Listado de todos los pagos pendiente por aprobar</p>
+          <p>
+            <a href="{{ route('paymentsToApprove') }}" title="Actualizar" class="btn btn-outline-success"><i class="fa fa-refresh"></i></a>
+          </p>
+          <h4>Listado de todos los pagos pendiente por aprobar</h4>
+            <!-- alerta de carga -->
+            @if(isset($message) && $message != '')
+                <div class="alert alert-info" role="alert" id="messageAlert">
+                    {{ $message }}
+                </div>
+            @endif
         </div>
 
 

@@ -48,7 +48,7 @@ $("#btnSaveStadium").on("click", function(){
         data: _data
     })
     .done(function(data){
-        debugger
+        
         if(data.result == true){
             $('#stadium').append($('<option>', {
                 value: data.id,
@@ -157,7 +157,7 @@ $("#championships").on("change", function(){
 
 //Crear club
 $("#form_create_clubs").on("submit", function(e){
-    debugger
+    
     e.preventDefault();
     $("#btnSaveClub").prop("disabled", true);
 
@@ -176,7 +176,7 @@ $("#form_create_clubs").on("submit", function(e){
         processData: false
     })
     .done(function(result){
-        debugger
+        
         data = JSON.parse(result);
         if(data.result == true){
             switch (data.hClub) {

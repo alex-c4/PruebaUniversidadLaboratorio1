@@ -444,7 +444,7 @@ class PaymentController extends Controller
         return $listPaymentsToApprove;
     }
 
-    public function paymentsToApprove(){
+    public function paymentsToApprove($message=''){
         $status = 1; // 1 = Sin validar
         $orden = "ASC";
         // $listPaymentsToApprove =  DB::select('CALL sp_getPaymentsListByStatus(?)', array($status));
@@ -456,7 +456,7 @@ class PaymentController extends Controller
             $item->created_at =  UserUtils::getDateToUser($item->created_at);
         }
 
-        return view('payment.paymentsToApprove', compact('listPaymentsToApprove'));
+        return view('payment.paymentsToApprove', compact('listPaymentsToApprove', 'message'));
     }
 
     public function searchPaymentInfo(){
@@ -469,6 +469,8 @@ class PaymentController extends Controller
     public function updatePaymentStatus(){
         
         try {
+            DB::beginTransaction();
+
             $idPayment = request()->hIdPayment;
             $status = request()->rdStatus;
             
@@ -484,15 +486,24 @@ class PaymentController extends Controller
             
             $Code = (isset($result[0]->Code)) ? $result[0]->Code : 999;
 
+            if($Code != 0){
+                /**
+                 * se dispara una excepcionpara que haga rollback de la transaccion ya que el SP
+                 * Devolvio un error en la ejecucion
+                 *  */ 
+                throw new Exception('Ha ocurrido un error en el proceso de actualización del estado.');
+
+            }
+
             $paymentUser = DB::table("payments_paypal")
                             ->select("users.name", "users.lastName", "users.email")
                             ->join("users", "users.id", "=", "payments_paypal.id_user", "inner", false)
                             ->where("payments_paypal.id", $idPayment)
                             ->first();
             if($status == 2){
-                $content = "Se le notifica que su pago por (". $sendAmount .") GOLD ya fue aprobado, ya pude disfrutar de los juegos en nuestro sistema.";
+                $content = "Se le notifica que su pago por (<b>". $sendAmount ."</b> <span class='coinGOLD'>GOLD</span>) ya fue aprobado, ya pude disfrutar de los juegos en nuestro sistema.";
             }else{
-                $content = "Se le notifica que su pago por (". $sendAmount .") GOLD fue rechazado, le invitamos a contactar a nuestro departamento Administrativo para mas detalles a través del siguiente correo ". env('EMAIL_ADMIN') .".";
+                $content = "Se le notifica que su pago por (<b>". $sendAmount ."</b> <span class='coinGOLD'>GOLD</span>) fue rechazado, le invitamos a contactar a nuestro departamento Administrativo para mas detalles a través del siguiente correo ". env('EMAIL_ADMIN') .".";
             }
 
             $data = array(
@@ -507,18 +518,19 @@ class PaymentController extends Controller
                 $message->to($paymentUser->email)->subject('Información sobre pago');
             });
 
-            if($Code == 0){
-                // volvemos a la pagina de los pagos pendientes por aprovar
-                return $this->paymentsToApprove();
-            }
+            DB::commit();
 
+            // volvemos a la pagina de los pagos pendientes por aprobar
+            return $this->paymentsToApprove('Se llevo a cabo el proceso de actualización de forma correcta.');
 
         } catch (\Throwable $th) {
+            DB::rollBack();
+
             UserUtils::LogRegister($th->getMessage());
             $data = [
                 'title' => 'Información',
                 'class' => 'alert-warning',
-                'message' => 'Lo sentimos, Hubo un problema con el registro de la información.<br>Por favor intente nuevamente.',
+                'message' => 'Hubo un problema con el registro de la información.<br>Por favor intente nuevamente.',
                 'footer' => 'Si la falla persiste por favor comunicarse con el personal Administrativo al siguiente correo <b>'. env('EMAIL_ADMIN').'</b>',
                 'returnPage' => 'paymentsToApprove'
             ];

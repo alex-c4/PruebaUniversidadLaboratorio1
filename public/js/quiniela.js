@@ -5,7 +5,6 @@ $('#quiniela_id').on('change', function(){
     showHtmlUpdate_2('Cargando...');
 
     var games_id = $(this).val();
-    debugger
     requestGames(games_id);
 
     
@@ -80,7 +79,6 @@ var updatePronostic = function(pronostic_id){
                         });
                     })
                     .fail(function(jqXHR, textStatus, errorThrown ){
-                        debugger
                         console.log(jqXHR.responseJSON.errors);
                         $.alert({
                             title: 'Información',
@@ -211,7 +209,6 @@ $('#compareModal').on('show.bs.modal', function (event) {
         
     })
     .fail(function(jqXHR, textStatus, errorThrown ){
-        debugger
     })
 });
 
@@ -378,11 +375,9 @@ $("#btnSendInvitation").on("click", function(){
                         data: _data
                     })
                     .done(function(data, textStatus, jqXHR){
-                        debugger
                         $("#inviteFriendsModal").modal('hide');
                     })
                     .fail(function(jqXHR, textStatus, errorThrown ){
-                        debugger
                     })
                     .complete(function(data){
                         enableButtons();

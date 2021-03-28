@@ -25,7 +25,7 @@ $('#form_user_contact').on('submit', function() {
     return false;
 });
 
-$('#form_user_email').on('submit', function() {debugger
+$('#form_user_email').on('submit', function() {
     var _route = $(this).attr('action');
     var _token = $("#token").val();
     var _data = $(this).serialize()
@@ -47,7 +47,7 @@ var sendForm = function(_route, _token, _data, _form_id){
         type: 'POST',
         data: _data
     })
-    .done(function(data, textStatus, jqXHR){debugger
+    .done(function(data, textStatus, jqXHR){
         if(data.success){
             showAlert('Información', data.message, 'dark');
             clearForm(_form_id);

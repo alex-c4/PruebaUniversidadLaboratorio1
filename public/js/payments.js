@@ -70,7 +70,6 @@ $('#changeStatusModal').on('show.bs.modal', function (event) {
 
         })
         .fail(function(jqXHR, textStatus, errorThrown){
-            debugger
             Utils.bootstrapAlert_close("idAlert");
 
         })
@@ -108,6 +107,7 @@ $("#form_update_status").on("submit", function(){
                     text: "Si",
                     btnClass: "btn-blue",
                     action: function(){
+                        Utils.disableButtons("btnSendInvitation");
                         document.getElementById("form_update_status").submit()
                     }
                 },
@@ -123,6 +123,7 @@ $("#form_update_status").on("submit", function(){
         return false;
 
 })
+
 
 
 $(function() {

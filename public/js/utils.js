@@ -66,5 +66,13 @@ var Utils ={
         sendAmount = Math.round(getAmount*100)/100;
     
         return sendAmount;
+    },
+    disableButtons: function(idButton){
+        $("#" + idButton).text("Enviando...")
+        $("#" + idButton).prop("disabled", true)
+    },
+    enableButtons: function(idButton){
+        $("#" + idButton).text("Enviar invntación")
+        $("#" + idButton).prop("disabled", false)
     }
 }

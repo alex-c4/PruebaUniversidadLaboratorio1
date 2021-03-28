@@ -58,7 +58,14 @@
             <div style="text-align: center;">
               <div style="margin-bottom: 1.25rem;">
                 <!-- <p>Recargar Saldo</p> -->
-                <select id="item-options" class="classCombo"><option value="1 GOLD" price="1.37">1 GOLD - 1.37 USD</option><option value="10 GOLD" price="10.89">10 GOLD - 10.89 USD</option><option value="20 GOLD" price="21.46">20 GOLD - 21.46 USD</option><option value="50 GOLD" price="53.17">50 GOLD - 53.17 USD</option><option value="100 GOLD" price="106.03">100 GOLD - 106.03 USD</option><option value="200 GOLD" price="211.73">200 GOLD - 211.73 USD</option></select>
+                <select id="item-options" class="classCombo">
+                  <option value="1 GOLD" price="1.37">1 GOLD - 1.37 USD</option>
+                  <option value="10 GOLD" price="10.89">10 GOLD - 10.89 USD</option>
+                  <option value="20 GOLD" price="21.46">20 GOLD - 21.46 USD</option>
+                  <option value="50 GOLD" price="53.17">50 GOLD - 53.17 USD</option>
+                  <option value="100 GOLD" price="106.03">100 GOLD - 106.03 USD</option>
+                  <option value="200 GOLD" price="211.73">200 GOLD - 211.73 USD</option>
+                </select>
                 <select style="visibility: hidden" id="quantitySelect"></select>
               </div>
             <div id="paypal-button-container"></div>
